@@ -132,7 +132,6 @@ story.append(PageBreak())
 
 # ── SLIDE 3: Governance ─────────────────────────
 story.append(Paragraph("Annual Governance Items", S_TITLE))
-story.append(Paragraph("Simon \u2014 10 min", S_SUBTITLE))
 story.append(Spacer(1, 4))
 story.append(Paragraph("Officer Elections (Bylaws \u00a75.1)", S_H2))
 story.append(bullet("Propose re-electing current officers and director:"))
@@ -154,7 +153,6 @@ story.append(PageBreak())
 
 # ── SLIDE 4: Restructuring ──────────────────────
 story.append(Paragraph("501(c)(3) & Restructuring", S_TITLE))
-story.append(Paragraph("Simon \u2014 15 min (part 1 of 2)", S_SUBTITLE))
 story.append(Spacer(1, 4))
 story.append(Paragraph("Why We Are Restructuring", S_H2))
 story.append(bullet("DW originally intended to house research, education, <i>and</i> Sway development"))
@@ -175,7 +173,6 @@ story.append(PageBreak())
 
 # ── SLIDE 5: Compliance Transition ──────────────
 story.append(Paragraph("The Compliance Transition", S_TITLE))
-story.append(Paragraph("Simon \u2014 15 min (part 2 of 2)", S_SUBTITLE))
 story.append(Spacer(1, 4))
 story.append(note_box("<b>Key issue:</b> The operational separation is not yet complete. Some development costs continue to flow through DW via the HxA/AVDF services agreement during the transition.", BG_RED))
 story.append(Spacer(1, 6))
@@ -197,7 +194,6 @@ story.append(PageBreak())
 
 # ── SLIDE 6: CMU IP ─────────────────────────────
 story.append(Paragraph("Sway IP & CMU Dispute", S_TITLE))
-story.append(Paragraph("Simon \u2014 5 min", S_SUBTITLE))
 story.append(Spacer(1, 4))
 story.append(note_box("This is Simon and Nick\u2019s <b>personal matter</b> (DW does not own Sway IP), but the board should be aware because DW\u2019s programs depend on Sway."))
 story.append(Spacer(1, 6))
@@ -219,26 +215,21 @@ story.append(PageBreak())
 
 # ── SLIDE 7: Financials ─────────────────────────
 story.append(Paragraph("Financial Report", S_TITLE))
-story.append(Paragraph("Nick \u2014 10 min", S_SUBTITLE))
 story.append(Spacer(1, 8))
 
 # Stats boxes
+stat_style = ParagraphStyle("stat", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER, spaceAfter=2)
 stats_data = [
-    [Paragraph("<b>~$173K</b>", ParagraphStyle("bn", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER)),
-     Paragraph("<b>~$125K</b>", ParagraphStyle("bn2", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER))],
-    [Paragraph("Cash on Hand", S_BIG_LABEL),
-     Paragraph("Tools Competition (retain for non-IP salaries)", S_BIG_LABEL)],
+    [Paragraph("<b>~$173K</b><br/><font size=11 color='#666666'>Cash on Hand</font>", stat_style),
+     Paragraph("<b>~$125K</b><br/><font size=11 color='#666666'>Tools Competition (retain for non-IP salaries)</font>", stat_style)],
 ]
-st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch], rowHeights=[42, 22])
+st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch])
 st.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
-    ("TOPPADDING", (0,0), (-1,0), 10),
-    ("BOTTOMPADDING", (0,0), (-1,0), 2),
-    ("TOPPADDING", (0,1), (-1,1), 0),
-    ("BOTTOMPADDING", (0,1), (-1,1), 8),
+    ("TOPPADDING", (0,0), (-1,-1), 14),
+    ("BOTTOMPADDING", (0,0), (-1,-1), 12),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
-    ("VALIGN", (0,0), (-1,0), "BOTTOM"),
-    ("VALIGN", (0,1), (-1,1), "TOP"),
+    ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
     ("ROUNDEDCORNERS", [6,6,6,6]),
 ]))
 story.append(st)
@@ -286,28 +277,22 @@ story.append(PageBreak())
 
 # ── SLIDE 8: Growth ─────────────────────────────
 story.append(Paragraph("Growth & Impact", S_TITLE))
-story.append(Paragraph("Simon \u2014 5 min", S_SUBTITLE))
 story.append(Spacer(1, 8))
 
 # Stats
+gstat_style = ParagraphStyle("gstat", fontName="Helvetica-Bold", fontSize=32, textColor=NAVY, alignment=TA_CENTER, spaceAfter=2)
 gstats = [
-    [Paragraph("<b>80+</b>", ParagraphStyle("g1", fontName="Helvetica-Bold", fontSize=32, textColor=NAVY, alignment=TA_CENTER)),
-     Paragraph("<b>~10,000</b>", ParagraphStyle("g2", fontName="Helvetica-Bold", fontSize=32, textColor=NAVY, alignment=TA_CENTER)),
-     Paragraph("<b>3\u20134x</b>", ParagraphStyle("g3", fontName="Helvetica-Bold", fontSize=32, textColor=NAVY, alignment=TA_CENTER))],
-    [Paragraph("Institutions", S_BIG_LABEL),
-     Paragraph("Students", S_BIG_LABEL),
-     Paragraph("Growth (2025)", S_BIG_LABEL)],
+    [Paragraph("<b>80+</b><br/><font size=11 color='#666666'>Institutions</font>", gstat_style),
+     Paragraph("<b>~10,000</b><br/><font size=11 color='#666666'>Students</font>", gstat_style),
+     Paragraph("<b>3\u20134x</b><br/><font size=11 color='#666666'>Growth (2025)</font>", gstat_style)],
 ]
-gt = Table(gstats, colWidths=[2.6*inch, 2.6*inch, 2.6*inch], rowHeights=[46, 22])
+gt = Table(gstats, colWidths=[2.6*inch, 2.6*inch, 2.6*inch])
 gt.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
-    ("TOPPADDING", (0,0), (-1,0), 10),
-    ("BOTTOMPADDING", (0,0), (-1,0), 2),
-    ("TOPPADDING", (0,1), (-1,1), 0),
-    ("BOTTOMPADDING", (0,1), (-1,1), 8),
+    ("TOPPADDING", (0,0), (-1,-1), 14),
+    ("BOTTOMPADDING", (0,0), (-1,-1), 12),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
-    ("VALIGN", (0,0), (-1,0), "BOTTOM"),
-    ("VALIGN", (0,1), (-1,1), "TOP"),
+    ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
 ]))
 story.append(gt)
 story.append(Spacer(1, 14))
@@ -339,7 +324,6 @@ story.append(PageBreak())
 
 # ── SLIDE 9: Q&A + Next Steps ───────────────────
 story.append(Paragraph("Q&A & Next Steps", S_TITLE))
-story.append(Paragraph("All \u2014 10 min", S_SUBTITLE))
 story.append(Spacer(1, 8))
 
 story.append(Paragraph("Open Discussion", S_H2))
