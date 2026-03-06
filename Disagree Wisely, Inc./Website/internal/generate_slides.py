@@ -248,6 +248,7 @@ left_content = [
     Paragraph("\u2022 Lindy Snider: $25K", S_BODY),
     Paragraph("\u2022 Sway Classroom: $13,171", S_BODY),
     Paragraph("\u2022 Ben Delo: $20K", S_BODY),
+    Paragraph("\u2022 Tools Competition: ~$125K (non-IP salaries)", S_BODY),
     Spacer(1, 6),
     Paragraph("Secured (awaiting 501(c)(3))", S_H3),
     Paragraph("\u2022 <b>FIPSE: ~$800K</b> \u2014 critical near-term", S_BODY),
