@@ -229,12 +229,16 @@ stats_data = [
     [Paragraph("Cash on Hand", S_BIG_LABEL),
      Paragraph("Tools Competition (retain for non-IP salaries)", S_BIG_LABEL)],
 ]
-st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch])
+st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch], rowHeights=[42, 22])
 st.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
-    ("TOPPADDING", (0,0), (-1,0), 12),
-    ("BOTTOMPADDING", (0,1), (-1,1), 10),
+    ("TOPPADDING", (0,0), (-1,0), 10),
+    ("BOTTOMPADDING", (0,0), (-1,0), 2),
+    ("TOPPADDING", (0,1), (-1,1), 0),
+    ("BOTTOMPADDING", (0,1), (-1,1), 8),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
+    ("VALIGN", (0,0), (-1,0), "BOTTOM"),
+    ("VALIGN", (0,1), (-1,1), "TOP"),
     ("ROUNDEDCORNERS", [6,6,6,6]),
 ]))
 story.append(st)
@@ -294,12 +298,16 @@ gstats = [
      Paragraph("Students", S_BIG_LABEL),
      Paragraph("Growth (2025)", S_BIG_LABEL)],
 ]
-gt = Table(gstats, colWidths=[2.6*inch, 2.6*inch, 2.6*inch])
+gt = Table(gstats, colWidths=[2.6*inch, 2.6*inch, 2.6*inch], rowHeights=[46, 22])
 gt.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
-    ("TOPPADDING", (0,0), (-1,0), 12),
-    ("BOTTOMPADDING", (0,1), (-1,1), 10),
+    ("TOPPADDING", (0,0), (-1,0), 10),
+    ("BOTTOMPADDING", (0,0), (-1,0), 2),
+    ("TOPPADDING", (0,1), (-1,1), 0),
+    ("BOTTOMPADDING", (0,1), (-1,1), 8),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
+    ("VALIGN", (0,0), (-1,0), "BOTTOM"),
+    ("VALIGN", (0,1), (-1,1), "TOP"),
 ]))
 story.append(gt)
 story.append(Spacer(1, 14))
