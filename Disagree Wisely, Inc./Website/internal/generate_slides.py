@@ -225,13 +225,11 @@ story.append(Spacer(1, 8))
 # Stats boxes
 stats_data = [
     [Paragraph("<b>~$173K</b>", ParagraphStyle("bn", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER)),
-     Paragraph("<b>\u2013$125K</b>", ParagraphStyle("bn2", fontName="Helvetica-Bold", fontSize=28, textColor=RED, alignment=TA_CENTER)),
-     Paragraph("<b>~$48K</b>", ParagraphStyle("bn3", fontName="Helvetica-Bold", fontSize=28, textColor=GREEN_D, alignment=TA_CENTER))],
-    [Paragraph("Gross Cash", S_BIG_LABEL),
-     Paragraph("LA Funds to Return", S_BIG_LABEL),
-     Paragraph("Working Cash", S_BIG_LABEL)],
+     Paragraph("<b>~$125K</b>", ParagraphStyle("bn2", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER))],
+    [Paragraph("Cash on Hand", S_BIG_LABEL),
+     Paragraph("LA Funds (retain for non-IP salaries)", S_BIG_LABEL)],
 ]
-st = Table(stats_data, colWidths=[2.6*inch, 2.6*inch, 2.6*inch])
+st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch])
 st.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
     ("TOPPADDING", (0,0), (-1,0), 12),
