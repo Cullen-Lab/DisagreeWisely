@@ -1,0 +1,26 @@
+Subject: Updating our DW-HxA agreements to reflect our restructuring
+
+Hi Michael,
+
+I hope you're doing well! I wanted to reach out about an organizational update on our side that affects a couple of our agreements with HxA — the Phase 2 services agreement and the Sway Classroom grant agreement. I've attached both for easy reference.
+
+We've been working to formalize Disagree Wisely's structure as a research and education nonprofit. As part of that process, we're separating DW's activities from Sway's product development. The idea is that DW focuses exclusively on the research, evaluation, educational deployment, and dissemination side of our work — which is the core of what Phase 2 is about anyway — while Sway's product development lives in a separate for-profit entity that Nick and I are setting up. This kind of nonprofit/for-profit split is a pretty common structure when there's both a charitable research and education mission and a technology product, and it keeps DW's nonprofit status clean.
+
+In practice, this transition should be pretty seamless. I'm hoping that when I next need to pay development costs, HxA can reimburse me directly from the AVDF funds for the development portion (I will pay the devs using my personal card, not the DW account). Nothing changes regarding our commitment to the grant's goals — everything we promised AVDF will still be completed on the same timeline. The research, campus deployments, dissemination work-- all of that continues through DW exactly as planned. The only difference is where the development costs are housed.
+
+To make this clean, I think we should amend the Phase 2 agreement to reflect DW's updated role. The main changes would be:
+
+1. Updating DW's responsibilities (Section 2.2) to focus on evaluation, educational deployment, stakeholder engagement, dissemination, and reporting — removing the "technical development" language.
+
+2. Adjusting the reimbursable budget categories so that development-related costs (mobile app, AI fine-tuning, website enhancements) are handled outside of DW. DW would continue to be reimbursed for research, dissemination, educational deployment infrastructure, staffing for non-development work, insurance, legal, and indirect costs. For the development costs, we can work out a separate arrangement — either HxA reimburses me directly, or we set up a simple agreement with the new entity once it's ready.
+
+3. A small update to Section 4 to reflect that DW's role is to use and deploy the platform for research and education, rather than to further develop it.
+
+Everything else, including the branding and acknowledgment provisions in Section 5, would stay as-is, so HxA's role in developing and supporting the Sway initiative would remain unchanged.
+
+The same restructuring also affects the Sway Classroom grant agreement (also attached), though the changes there are smaller. Most of that project — standing up the infrastructure, security hardening, FERPA/COPPA compliance, operational costs — is deployment work that fits naturally under DW's educational mission. The main things that need updating are: (1) Section 6 (Work Product), which currently says DW owns all IP developed under the grant — that should say Nick and me, consistent with how we've structured IP ownership across the board; and (2) a couple of line items in Attachment A that involve actual software development rather than deployment, which should be handled outside of DW. Everything else can stay as-is.
+
+I think both of these could be pretty straightforward amendments, and I can draft them if that's helpful. Would you have time for a quick call this week to talk it through?
+
+Warmly,
+Simon

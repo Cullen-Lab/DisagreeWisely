@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+<g><rect x="70" y="80" width="110" height="110" rx="16" fill="#0F172A"/><polygon points="110,190 130,230 145,190" fill="#0F172A"/></g>
+<g><rect x="280" y="80" width="110" height="110" rx="16" fill="#0E7490"/><polygon points="325,190 310,230 295,190" fill="#0E7490"/></g>
+<path d="M 85 150 Q 235 50 375 150" stroke="#0F172A" stroke-width="12" fill="none"/>
+<path d="M 90 164 Q 235 66 370 164" stroke="#0E7490" stroke-width="6" fill="none"/>
+<rect x="228" y="118" width="14" height="14" transform="rotate(45 235 125)" fill="#EA580C"/>
+<text x="430" y="70" fill="#0F172A" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="600" dominant-baseline="hanging">Disagree Wisely, Inc.</text>
+<text x="430" y="126" fill="#374151" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-style="italic">Bridging differences into shared insight</text>
+</svg>

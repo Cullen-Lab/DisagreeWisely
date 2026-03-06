@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website, CV & LinkedIn Review — Recommended Changes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #f0f6fc;
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 0.95em;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 20px;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            color: #f0f6fc;
+            font-size: 1.1em;
+            margin-bottom: 14px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 6px;
+        }
+
+        .toc a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+
+        .toc a:hover { text-decoration: underline; }
+
+        .toc .count {
+            color: #8b949e;
+            font-size: 0.85em;
+            margin-left: 6px;
+        }
+
+        /* Summary stats */
+        .stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 140px;
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 8px;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2em;
+            font-weight: 700;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-box .label {
+            font-size: 0.8em;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-critical .number { color: #f85149; }
+        .stat-important .number { color: #d29922; }
+        .stat-recommended .number { color: #58a6ff; }
+        .stat-info .number { color: #8b949e; }
+
+        /* File sections */
+        .file-section {
+            margin-bottom: 48px;
+        }
+
+        .file-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .file-header h2 {
+            color: #f0f6fc;
+            font-size: 1.35em;
+        }
+
+        .file-path {
+            color: #8b949e;
+            font-size: 0.85em;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            margin-bottom: 20px;
+        }
+
+        /* Individual items */
+        .item {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .item-header {
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .item-header h3 {
+            color: #f0f6fc;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .item-number {
+            color: #484f58;
+            font-size: 0.85em;
+            font-weight: 700;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            min-width: 24px;
+        }
+
+        .badge {
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .badge-critical {
+            background: rgba(248, 81, 73, 0.15);
+            color: #f85149;
+            border: 1px solid rgba(248, 81, 73, 0.3);
+        }
+
+        .badge-important {
+            background: rgba(210, 153, 34, 0.15);
+            color: #d29922;
+            border: 1px solid rgba(210, 153, 34, 0.3);
+        }
+
+        .badge-recommended {
+            background: rgba(88, 166, 255, 0.15);
+            color: #58a6ff;
+            border: 1px solid rgba(88, 166, 255, 0.3);
+        }
+
+        .badge-info {
+            background: rgba(139, 148, 158, 0.15);
+            color: #8b949e;
+            border: 1px solid rgba(139, 148, 158, 0.3);
+        }
+
+        .item-body {
+            padding: 16px 20px;
+        }
+
+        .item-body p {
+            margin-bottom: 12px;
+        }
+
+        .item-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .location {
+            font-size: 0.85em;
+            color: #8b949e;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            margin-bottom: 14px;
+        }
+
+        /* Current / Recommended blocks */
+        .diff-label {
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .label-current { color: #f85149; }
+        .label-recommended { color: #3fb950; }
+
+        .diff-block {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88em;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .block-current {
+            background: rgba(248, 81, 73, 0.08);
+            border: 1px solid rgba(248, 81, 73, 0.2);
+            color: #ffa198;
+        }
+
+        .block-recommended {
+            background: rgba(63, 185, 80, 0.08);
+            border: 1px solid rgba(63, 185, 80, 0.2);
+            color: #7ee787;
+        }
+
+        .justification {
+            font-size: 0.9em;
+            color: #8b949e;
+            border-left: 3px solid #30363d;
+            padding-left: 14px;
+            margin-top: 4px;
+        }
+
+        /* Highlight within text */
+        .hl {
+            background: rgba(210, 153, 34, 0.25);
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        .hl-red {
+            background: rgba(248, 81, 73, 0.2);
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        /* Changes-made section */
+        .changes-divider {
+            border-top: 2px solid #3fb950;
+            margin: 48px 0 32px;
+            padding-top: 32px;
+        }
+
+        .changes-divider h1 {
+            color: #3fb950;
+            font-size: 1.5em;
+            margin-bottom: 4px;
+        }
+
+        .changes-divider .subtitle {
+            color: #8b949e;
+            font-size: 0.9em;
+            margin-bottom: 32px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .badge-applied {
+            background: rgba(63, 185, 80, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(63, 185, 80, 0.3);
+        }
+
+        .change-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .change-row { grid-template-columns: 1fr; }
+        }
+
+        .change-added {
+            margin-bottom: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .stats { flex-direction: column; }
+            .item-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Website, CV & LinkedIn Review</h1>
+        <p class="subtitle">Recommended changes for consistency with DW's post-restructuring 501(c)(3) narrative.<br>
+        Reviewed: February 19, 2026. Website at <code>nicholasdibella.com</code> (GitHub: dibellatron.github.io) &bull; LinkedIn: Nicholas DiBella</p>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box stat-critical">
+                <span class="number">6</span>
+                <span class="label">Critical</span>
+            </div>
+            <div class="stat-box stat-important">
+                <span class="number">7</span>
+                <span class="label">Important</span>
+            </div>
+            <div class="stat-box stat-recommended">
+                <span class="number">4</span>
+                <span class="label">Recommended</span>
+            </div>
+            <div class="stat-box stat-info">
+                <span class="number">2</span>
+                <span class="label">Minor</span>
+            </div>
+        </div>
+
+        <!-- Table of contents -->
+        <div class="toc">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#sway">sway.html</a> <span class="count">#1–3</span></li>
+                <li><a href="#research">research.html</a> <span class="count">#1–2</span></li>
+                <li><a href="#index">index.html</a> <span class="count">#1–3</span></li>
+                <li><a href="#cv">DiBella_CV.pdf</a> <span class="count">#1–6</span></li>
+                <li><a href="#linkedin">LinkedIn</a> <span class="count">#1–3</span></li>
+                <li><a href="#general">General / cross-cutting</a> <span class="count">#1–2</span></li>
+                <li style="margin-top: 12px; padding-top: 8px; border-top: 1px solid #21262d;"><a href="#changes" style="color: #3fb950;">Changes Made</a> <span class="count">15 edits across 4 files</span></li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- sway.html -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="sway">
+            <div class="file-header">
+                <h2>sway.html</h2>
+            </div>
+            <p class="file-path">~/Documents/GitHub/dibellatron.github.io/sway.html</p>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>"Sway is provided by Disagree Wisely, Inc."</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 34</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Sway is provided by <span class="hl-red">Disagree Wisely, Inc.</span> in collaboration with Heterodox Academy.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Sway was developed in collaboration with Heterodox Academy.</div>
+
+                    <p class="justification">This directly states DW provides Sway, contradicting the clean separation. The IRS application says DW doesn't develop or provide software. An examiner Googling "Nicholas DiBella" will land here. Reframing as past-tense collaboration removes DW from the picture while staying truthful.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>"We're working to normalize..."</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 38</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">We're <span class="hl">working</span> to normalize reasoned conversations between students with opposing perspectives and help transform fraught arguments into opportunities for greater understanding.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Sway is designed to normalize reasoned conversations between students with opposing perspectives and help transform fraught arguments into opportunities for greater understanding.</div>
+
+                    <p class="justification">Present-tense "we're working" implies Nick (via DW) is actively building/running Sway. Shifting the subject to "Sway" describes the product's purpose without implying ongoing DW involvement in its operation.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">3.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>Consider reframing the page intro</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 34 &mdash; first paragraph overall</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">With Simon Cullen, I co-created Sway, an educational chat platform that connects students with differing perspectives into one-on-one conversations and uses AI to facilitate better discussions between them. Sway is provided by Disagree Wisely, Inc. in collaboration with Heterodox Academy.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">With Simon Cullen, I co-created Sway, an educational chat platform that connects students with differing perspectives into one-on-one conversations and uses AI to facilitate better discussions between them. Sway was developed in collaboration with Heterodox Academy.</div>
+
+                    <p class="justification">The first sentence is fine &mdash; it describes Nick personally as co-creator. The second sentence is the critical fix (see item above). Together, they position Nick as the creator and HxA as a collaborator, without DW appearing as the provider/operator.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- research.html -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="research">
+            <div class="file-header">
+                <h2>research.html</h2>
+            </div>
+            <p class="file-path">~/Documents/GitHub/dibellatron.github.io/research.html</p>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>"I am further developing the platform"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 32</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">My current research focuses on Sway. With Simon Cullen, I am <span class="hl-red">further developing the platform</span> and conducting empirical studies on cross-partisan discussions of divisive topics to rigorously study how to promote constructive conversations across moral and political divides.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">My current research focuses on constructive disagreement and civil discourse. With Simon Cullen, I am conducting empirical studies on cross-perspective discussions of divisive topics to rigorously study how to promote constructive conversations across moral and political divides.</div>
+
+                    <p class="justification">Two problems here: (1) "further developing the platform" explicitly ties Nick to Sway development &mdash; exactly the activity that post-restructuring should not be associated with DW's CTOO; (2) "My current research focuses on Sway" frames the research as being <em>about a product</em> rather than about the underlying science. The recommended version refocuses on the research questions, which is both more accurate to DW's mission and consistent with Ren's advice to be purposefully vague about specific tools.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>Add a sentence about DW's research mission</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">After line 32 (new content)</p>
+
+                    <span class="diff-label label-recommended">Recommended addition</span>
+                    <div class="diff-block block-recommended">Through Disagree Wisely, Inc., I study the effectiveness of educational interventions &mdash; including AI-facilitated dialogue &mdash; in fostering constructive disagreement, reducing polarization, and improving reasoning and communication skills.</div>
+
+                    <p class="justification">Currently the research page mentions Sway but says nothing about DW's actual research mission. Since Nick is DW's CTOO, a sentence connecting his research to DW's charitable purpose strengthens the narrative that DW is a research organization. This is optional &mdash; the critical fix is removing the development language.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- index.html -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="index">
+            <div class="file-header">
+                <h2>index.html</h2>
+            </div>
+            <p class="file-path">~/Documents/GitHub/dibellatron.github.io/index.html</p>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>"My work focuses on Sway"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 32</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">I am Co-Founder & Chief Technology and Operations Officer at Disagree Wisely, Inc., as well as AI Research Scientist at Heterodox Academy. <span class="hl">My work focuses on Sway</span>, an AI-scaffolded chat platform I co-created with Simon Cullen that helps students engage in constructive conversations about difficult&mdash;and often controversial&mdash;topics.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">I am Co-Founder & Chief Technology and Operations Officer at Disagree Wisely, Inc., as well as AI Research Scientist at Heterodox Academy. My work focuses on fostering constructive disagreement and civil discourse through research and education. With Simon Cullen, I co-created Sway, an AI-scaffolded chat platform that helps students engage in constructive conversations about difficult&mdash;and often controversial&mdash;topics.</div>
+
+                    <p class="justification">The current version makes it sound like Nick's role at DW is focused on Sway the product. The IRS will see "CTOO at Disagree Wisely" immediately followed by "my work focuses on Sway" and read that as DW's mission being Sway. The recommended version leads with the research/education mission (matching the 501(c)(3) narrative), then mentions Sway as something Nick co-created &mdash; a personal accomplishment, not DW's core activity.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>Contact email: nick@swaybeta.ai</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 37</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Contact: nick [at] swaybeta [dot] ai</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Contact: nick [at] disagreewisely [dot] org</div>
+
+                    <p class="justification">DW's CTOO using a swaybeta.ai email reinforces the impression that DW and Sway are the same thing. Using a disagreewisely.org email is a simple change that aligns with the separation. If a nick@disagreewisely.org address doesn't exist yet, set one up (or use a personal email as a stopgap).</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">3.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>Nav link: "Sway" tab</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Line 25</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">&lt;a href="sway.html"&gt;Sway&lt;/a&gt;</div>
+
+                    <span class="diff-label label-recommended">Option A (keep, fix content)</span>
+                    <div class="diff-block block-recommended">Keep the "Sway" tab but ensure sway.html content is clean (see sway.html items above). Having a page about something you co-created is normal.</div>
+
+                    <span class="diff-label label-recommended">Option B (rename)</span>
+                    <div class="diff-block block-recommended">&lt;a href="sway.html"&gt;Projects&lt;/a&gt;</div>
+
+                    <p class="justification">Having a dedicated "Sway" tab as 1 of 3 nav items makes Sway look like the centerpiece of Nick's professional identity. Renaming to "Projects" is a minor reframe that decenters the product. Either option is fine as long as the page content is fixed. This is a judgment call.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CV -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="cv">
+            <div class="file-header">
+                <h2>DiBella_CV.pdf</h2>
+            </div>
+            <p class="file-path">~/Documents/GitHub/dibellatron.github.io/DiBella_CV.pdf &nbsp;(linked from index.html)</p>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>"Provided by Disagree Wisely, Inc." in Platform Development</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 1 &mdash; Platform Development section, bullet 3</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Provided by <span class="hl-red">Disagree Wisely, Inc.</span> in collaboration with Heterodox Academy</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Developed in collaboration with Heterodox Academy</div>
+
+                    <p class="justification">Same issue as sway.html. The CV is downloadable from the website and would be among the first things an IRS examiner reviews. "Provided by DW" directly contradicts the application's position that DW doesn't provide software.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>Grants listed as "for Sway" with DW-connected funders</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 1 &mdash; Grants & Funding section (all 6 entries)</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Arthur Vining Davis Foundations grant for Sway. Heterodox Academy, fiscal sponsor. ($341,647, 2025)
+Learning Agency Tools Competition Growth-Level Prize for Sway. ($150,000, 2025)
+Snider Foundation grant for Sway. ($75,000, 2025)
+Arthur Vining Davis Foundations grant for Sway. ($35,000, 2024)
+Ben Delo Foundation grant for Sway. ($37,500, 2024)
+Omidyar Network/Open Forum for AI grant, with Simon Cullen. ($50,000, 2024)</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Arthur Vining Davis Foundations, research on constructive disagreement in higher education. Heterodox Academy, fiscal sponsor. ($341,647, 2025)
+Snider Foundation, research and educational programs on civil discourse. ($75,000, 2025)
+Arthur Vining Davis Foundations, educational technology for constructive disagreement. ($35,000, 2024)
+Ben Delo Foundation, research and education on constructive disagreement. ($37,500, 2024)
+Omidyar Network/Open Forum for AI, with Simon Cullen. ($50,000, 2024)</div>
+
+                    <p class="justification"><strong>Three issues here:</strong></p>
+                    <p class="justification" style="margin-top: 10px;"><strong>1. "For Sway" framing.</strong> Every grant is described as "for Sway," making it look like all this money funded product development. Post-restructuring, the grants that went to/through DW were for research and education. Reframing the descriptions to reflect the actual charitable purpose is more accurate and consistent.</p>
+                    <p class="justification" style="margin-top: 10px;"><strong>2. Learning Agency ($150K).</strong> This grant is being returned (~$125K). Listing it at full value on a current CV is misleading and creates a paper trail connecting DW to a development-focused prize that's being unwound. Remove it entirely.</p>
+                    <p class="justification" style="margin-top: 10px;"><strong>3. Routing clarity.</strong> The AVDF ($341K) and Omidyar ($50K) grants went through HxA and CMU respectively, not DW. The current listing doesn't make this clear. Adding "Heterodox Academy, fiscal sponsor" (already there for AVDF) and "Carnegie Mellon University" (for Omidyar) avoids any confusion.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">3.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>Email: nick@swaybeta.ai in CV header</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 1 &mdash; header</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Email: nick@swaybeta.ai</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Email: nick@disagreewisely.org</div>
+
+                    <p class="justification">Same as the website email issue. The CV header lists both "Disagree Wisely, Inc." and "Heterodox Academy" as affiliations but then gives a swaybeta.ai email. This subtly implies DW = Sway. Use the DW email to match the listed affiliation.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">4.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>"Tools Competition Winner" in Awards</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 2 &mdash; Awards & Honors section</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Tools Competition Winner, with Simon Cullen, 2025</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Remove this line entirely.</div>
+
+                    <p class="justification">The Learning Agency Tools Competition grant is being returned. Listing this as an award on a current CV while the funds are being unwound is a liability. If anyone asks, the honest answer is complicated. Better to simply remove it.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">5.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>"Platform Development" section heading</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 1 &mdash; section header</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">PLATFORM DEVELOPMENT
+
+Sway: AI-Scaffolded Dialogue Platform
+&bull; Co-Creator (with Simon Cullen), 2024&ndash;Present</div>
+
+                    <span class="diff-label label-recommended">Option A</span>
+                    <div class="diff-block block-recommended">TECHNOLOGY & RESEARCH TOOLS
+
+Sway: AI-Scaffolded Dialogue Platform
+&bull; Co-Creator (with Simon Cullen), 2024&ndash;Present</div>
+
+                    <span class="diff-label label-recommended">Option B</span>
+                    <div class="diff-block block-recommended">PROJECTS
+
+Sway: AI-Scaffolded Dialogue Platform
+&bull; Co-Creator (with Simon Cullen), 2024&ndash;Present</div>
+
+                    <p class="justification">Having a "Platform Development" section on the CV of DW's CTOO &mdash; whose DW role is explicitly <em>not</em> development &mdash; creates a contradiction. The content itself is fine (Nick did co-create Sway), but the heading could be softened. "Projects" or "Technology & Research Tools" conveys the same thing without the word "development."</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">6.</span>
+                    <span class="badge badge-info">Minor</span>
+                    <h3>ICPD fellowship lists "Department of Energy"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Page 2 &mdash; Grants & Funding, last entry</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">U.S. Office of the Director of National Intelligence and U.S. <span class="hl">Department of Energy</span>: ICPD-2022-08.</div>
+
+                    <p class="justification">This is the Intelligence Community postdoc, which is a separate program and correctly refers to the Department of Energy (DOE manages national labs that participate in the IC fellowship program). This is <strong>not the same</strong> as the DOE/FIPSE grant (Department of Education). No change needed &mdash; just flagging so there's no confusion between the two "DOE" references.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- LinkedIn -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="linkedin">
+            <div class="file-header">
+                <h2>LinkedIn</h2>
+            </div>
+            <p class="file-path">linkedin.com/in/nicholasdibella &nbsp;&bull;&nbsp; Often ranks #1 in Google results for a person's name &mdash; likely the first thing an IRS examiner sees</p>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-critical">Critical</span>
+                    <h3>About: "I'm a philosopher who builds technology"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">About section &mdash; first sentence</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">I'm a philosopher who <span class="hl-red">builds technology</span> to help people disagree more constructively. My research focuses on <span class="hl">developing methods</span> to improve reasoning and communication, especially in contexts involving uncertainty.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">I'm a philosopher focused on helping people disagree more constructively. My research involves developing and studying methods to improve reasoning and communication, especially in contexts involving uncertainty.</div>
+
+                    <p class="justification">This is the LinkedIn equivalent of "I am further developing the platform." DW's CTOO describing himself as someone who "builds technology" directly contradicts the application's position that DW is a research and education organization, not a technology company. LinkedIn About sections appear in Google snippets. "Developing methods" in the second sentence is fine &mdash; it's standard academic language &mdash; but "builds technology" in the opening line sets the wrong frame entirely.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>About: "My current project, Sway"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">About section &mdash; second paragraph</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">My current project, <span class="hl">Sway (www.swaybeta.ai)</span>, is a new kind of chat platform that uses AI to help people have open, thoughtful conversations about difficult topics with each other.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Through Disagree Wisely, Inc., I study the effectiveness of educational interventions &mdash; including AI-facilitated dialogue &mdash; in fostering constructive disagreement and improving reasoning skills. I co-created Sway (www.swaybeta.ai), an educational chat platform that helps students engage in constructive conversations about difficult topics.</div>
+
+                    <p class="justification">"My current project, Sway" frames Sway as Nick's primary professional activity &mdash; which an examiner reads as DW's CTOO working on Sway. Same issue we fixed on index.html and research.html. The recommended version leads with DW's research mission, then mentions Sway as something Nick co-created. This mirrors the structure we used on the personal website.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">3.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>Headline leads with Sway, not DW</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Profile headline (appears in search results, comments, connection requests)</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Co-creator of Sway | Co-founder of Disagree Wisely</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Co-founder of Disagree Wisely | Co-creator of Sway</div>
+
+                    <p class="justification">The headline is the single most visible element &mdash; it appears everywhere on LinkedIn (search results, comments, messages, connection requests). Leading with "Co-creator of Sway" makes Sway Nick's primary identity. Post-restructuring, Nick's primary roles are CTOO of DW and AI Research Scientist at HxA. Sway can still appear elsewhere on the profile, but the headline should reflect the organizational roles. Note: "Co-founder" is fine to keep if preferred, but leading with the DW title is stronger.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 removed — better to leave DW experience description blank (job description already submitted to IRS; no description for HxA role either; About section does the framing) -->
+
+            <!-- Item 5 removed — Jul 2025 date is correct (CTOO appointment was July, not April incorporation) -->
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- General / cross-cutting -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="general">
+            <div class="file-header">
+                <h2>General / Cross-Cutting</h2>
+            </div>
+
+            <!-- Item 1 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-info">Minor</span>
+                    <h3>Copyright year: 2025</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Footer on all three HTML pages (index.html:43, sway.html:49, research.html:94)</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">&copy; 2025 Nicholas DiBella. All rights reserved.</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">&copy; 2026 Nicholas DiBella. All rights reserved.</div>
+
+                    <p class="justification">Minor housekeeping. A stale copyright year signals the site hasn't been maintained, which could raise questions if the IRS reviews it alongside a freshly submitted application.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>Timing: update before submitting to Foundation Group</h3>
+                </div>
+                <div class="item-body">
+                    <p class="justification" style="border-left: none; padding-left: 0; color: #c9d1d9;">
+                        The IRS may review your personal website during the 501(c)(3) examination (the Research Organizer already cites disagreewisely.org, and the CTOO job description lists your name). An examiner who Googles "Nicholas DiBella Disagree Wisely" will find this site.
+                        <br><br>
+                        <strong>Priority order for changes:</strong>
+                        <br>1. Fix the three <span style="color: #f85149;">Critical</span> items on sway.html, research.html, and the CV (these directly contradict the application)
+                        <br>2. Fix the two <span style="color: #f85149;">Critical</span> CV items (grants framing, Tools Competition removal)
+                        <br>3. Update <span style="color: #d29922;">Important</span> items (index.html bio, email address)
+                        <br>4. Address <span style="color: #58a6ff;">Recommended</span> items at your discretion
+                        <br><br>
+                        The website changes are quick HTML edits. The CV is a PDF and will need to be regenerated from its source (likely LaTeX). Plan to push the website changes and upload a new CV <strong>before</strong> submitting the organizers to Ren.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- Changes Made -->
+        <!-- ============================================================ -->
+        <div class="changes-divider" id="changes">
+            <h1>Changes Made</h1>
+            <p class="subtitle">All edits applied on February 19, 2026. Files at ~/Documents/GitHub/dibellatron.github.io/</p>
+
+            <!-- sway.html changes -->
+            <div class="file-section">
+                <div class="file-header">
+                    <h2>sway.html</h2>
+                </div>
+                <p class="file-path">4 edits</p>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">1.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Removed DW as Sway provider</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">Sway is provided by Disagree Wisely, Inc. in collaboration with Heterodox Academy.</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Sway was developed in collaboration with Heterodox Academy.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">2.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Removed active "we're working" language</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">We're working to normalize reasoned conversations...</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Sway is designed to normalize reasoned conversations...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">3.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Updated adoption figures</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">As of November 2025, Sway has been adopted by over 150 instructors at nearly 100 colleges and universities, reaching approximately 10,000 users.</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">As of February 2026, Sway has been adopted by over 130 instructors at over 80 colleges and universities, reaching over 10,000 users.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">4.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Copyright year</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">&copy; 2025 Nicholas DiBella</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">&copy; 2026 Nicholas DiBella</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- research.html changes -->
+            <div class="file-section">
+                <div class="file-header">
+                    <h2>research.html</h2>
+                </div>
+                <p class="file-path">3 edits</p>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">1.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Removed development language and Sway focus</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">My current research focuses on Sway. With Simon Cullen, I am further developing the platform and conducting empirical studies on cross-partisan discussions of divisive topics to rigorously study how to promote constructive conversations across moral and political divides.</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">My current research focuses on constructive disagreement and civil discourse. With Simon Cullen, I am conducting empirical studies on cross-perspective discussions of divisive topics to rigorously study how to promote constructive conversations across moral and political divides.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">2.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Added DW research mission paragraph</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-added">
+                            <span class="diff-label label-recommended">New paragraph added</span>
+                            <div class="diff-block block-recommended">Through Disagree Wisely, Inc., I study the effectiveness of educational interventions &mdash; including AI-facilitated dialogue &mdash; in fostering constructive disagreement, reducing polarization, and improving reasoning and communication skills.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">3.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Copyright year</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">&copy; 2025 Nicholas DiBella</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">&copy; 2026 Nicholas DiBella</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- index.html changes -->
+            <div class="file-section">
+                <div class="file-header">
+                    <h2>index.html</h2>
+                </div>
+                <p class="file-path">3 edits</p>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">1.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Reframed bio to lead with research mission</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">I am Co-Founder &amp; Chief Technology and Operations Officer at Disagree Wisely, Inc., as well as AI Research Scientist at Heterodox Academy. My work focuses on Sway, an AI-scaffolded chat platform I co-created with Simon Cullen that helps students engage in constructive conversations about difficult&mdash;and often controversial&mdash;topics.</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">I am Co-Founder &amp; Chief Technology and Operations Officer at Disagree Wisely, Inc., as well as AI Research Scientist at Heterodox Academy. My work focuses on fostering constructive disagreement and civil discourse through research and education. With Simon Cullen, I co-created Sway, an AI-scaffolded chat platform that helps students engage in constructive conversations about difficult&mdash;and often controversial&mdash;topics.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">2.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Contact email</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">nick [at] swaybeta [dot] ai</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">nick [at] disagreewisely [dot] org</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">3.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Copyright year</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">&copy; 2025 Nicholas DiBella</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">&copy; 2026 Nicholas DiBella</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV changes -->
+            <div class="file-section">
+                <div class="file-header">
+                    <h2>DiBella_CV.pdf</h2>
+                </div>
+                <p class="file-path">5 edits &mdash; compiled from DiBella_CV.tex</p>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">1.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Contact email in header</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">Email: nick@swaybeta.ai</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Email: nick@disagreewisely.org</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">2.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Section heading renamed</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">PLATFORM DEVELOPMENT</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">EDUCATIONAL TECHNOLOGY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">3.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Removed DW as Sway provider</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">Provided by Disagree Wisely, Inc. in collaboration with Heterodox Academy</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Developed in collaboration with Heterodox Academy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">4.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>AVDF grant &mdash; HxA relationship language</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">Arthur Vining Davis Foundations grant for Sway. Heterodox Academy, fiscal sponsor. ($341,647, 2025)</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Arthur Vining Davis Foundations grant for Sway. Via Heterodox Academy. ($341,647, 2025)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-number">5.</span>
+                        <span class="badge badge-applied">Applied</span>
+                        <h3>Updated adoption figures</h3>
+                    </div>
+                    <div class="item-body">
+                        <div class="change-row">
+                            <div>
+                                <span class="diff-label label-current">Before</span>
+                                <div class="diff-block block-current">Adopted by over 150 instructors at nearly 100 colleges and universities, reaching approximately 10,000 users (as of Nov. 2025)</div>
+                            </div>
+                            <div>
+                                <span class="diff-label label-recommended">After</span>
+                                <div class="diff-block block-recommended">Adopted by over 130 instructors at over 80 colleges and universities, reaching over 10,000 users (as of Feb. 2026)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

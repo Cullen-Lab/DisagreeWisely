@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Planning &mdash; Disagree Wisely, Inc.</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --text: rgba(249,249,249,0.92);
+      --text-muted: rgba(249,249,249,0.55);
+      --accent: #6b9eff;
+      --card-bg: #141414;
+      --border: rgba(255,255,255,0.08);
+      --green: #4ade80;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --purple: #a78bfa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 1.5rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── Tab Navigation ─────────────────────────────── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+      padding-top: 1.5rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .tab-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Typography ──────────────────────────────────── */
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    h3 {
+      font-size: 1.05rem;
+      color: #fff;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    /* ── Cards ────────────────────────────────────────── */
+    .rec {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .rec-title {
+      font-weight: bold;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .rec p, .rec ul { font-size: 0.92rem; }
+
+    .rec ul {
+      margin-left: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rec li { margin-bottom: 0.3rem; }
+
+    /* ── Tags ─────────────────────────────────────────── */
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: -apple-system, sans-serif;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+
+    .tag-onboarding { background: rgba(107,158,255,0.18); color: var(--accent); }
+    .tag-reference { background: rgba(167,139,250,0.18); color: var(--purple); }
+    .tag-both { background: rgba(74,222,128,0.18); color: var(--green); }
+    .tag-high { background: rgba(248,113,113,0.18); color: var(--red); }
+    .tag-medium { background: rgba(251,191,36,0.18); color: var(--amber); }
+    .tag-low { background: rgba(255,255,255,0.1); color: var(--text-muted); }
+    .tag-simon { background: rgba(107,158,255,0.18); color: var(--accent); }
+    .tag-nick { background: rgba(74,222,128,0.18); color: var(--green); }
+    .tag-all { background: rgba(167,139,250,0.18); color: var(--purple); }
+
+    .priority-legend {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    /* ── TOC ──────────────────────────────────────────── */
+    .toc {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .toc ol {
+      margin-left: 1.25rem;
+      font-size: 0.92rem;
+    }
+
+    .toc li { margin-bottom: 0.25rem; }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    a { color: var(--accent); }
+
+    /* ── Callout boxes ───────────────────────────────── */
+    .note {
+      background: rgba(107,158,255,0.08);
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.88rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .issue {
+      background: rgba(251,191,36,0.08);
+      border-left: 3px solid var(--amber);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.88rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .warn {
+      background: rgba(248,113,113,0.08);
+      border-left: 3px solid var(--red);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.88rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ── Agenda table ────────────────────────────────── */
+    .agenda-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .agenda-table th {
+      text-align: left;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .agenda-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .agenda-table tr:last-child td { border-bottom: none; }
+
+    .agenda-table .time-col {
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-family: -apple-system, sans-serif;
+      font-size: 0.82rem;
+      width: 70px;
+    }
+
+    .agenda-table .lead-col {
+      width: 80px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    /* ── Checklist ────────────────────────────────────── */
+    .checklist {
+      list-style: none;
+      margin: 0.5rem 0 1rem;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 0.35rem 0 0.35rem 1.75rem;
+      position: relative;
+      font-size: 0.92rem;
+    }
+
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--text-muted);
+      border-radius: 3px;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 1rem 2rem; }
+      h1 { font-size: 1.4rem; }
+      .rec { padding: 1rem; }
+      .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Tab Bar ──────────────────────────────────────── -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="meeting">Meeting Agenda</button>
+    <button class="tab-btn" data-tab="site-review">Site Review</button>
+  </div>
+
+
+  <!-- ================================================================== -->
+  <!-- TAB 1: FIRST BOARD MEETING                                         -->
+  <!-- ================================================================== -->
+  <div class="tab-panel active" id="tab-meeting">
+
+    <h1>First Full Board Meeting</h1>
+    <p class="subtitle">
+      Disagree Wisely, Inc. &mdash; March 6, 2026 &middot; Zoom
+      <br>Also serving as the 2026 Annual Meeting (per Bylaws &sect;&nbsp;4.1)
+    </p>
+
+    <div class="note">
+      <strong>Time:</strong> Plan for <strong>60 minutes</strong>. If board members have additional time, extend to 90&ndash;120 minutes for deeper discussion. The agenda below is structured so the essential items fit within the first hour; extended items are marked.
+    </div>
+
+    <!-- Agenda Overview -->
+    <h2>Agenda Overview</h2>
+
+    <table class="agenda-table">
+      <thead>
+        <tr><th>Time</th><th>Topic</th><th>Lead</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="time-col">5 min</td><td><a href="#m-welcome">Welcome &amp; Introductions</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+        <tr><td class="time-col">10 min</td><td><a href="#m-governance">Annual Governance Items</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+        <tr><td class="time-col">15 min</td><td><a href="#m-restructuring">501(c)(3) &amp; Restructuring Update</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+        <tr><td class="time-col">5 min</td><td><a href="#m-cmu">Sway IP &amp; CMU Dispute</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+        <tr><td class="time-col">10 min</td><td><a href="#m-financials">Financial Report</a></td><td class="lead-col"><span class="tag tag-nick">Nick</span></td></tr>
+        <tr><td class="time-col">5 min</td><td><a href="#m-growth">Growth &amp; Impact</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+        <tr><td class="time-col">5 min</td><td><a href="#m-qa">Q&amp;A &amp; Open Discussion</a></td><td class="lead-col"><span class="tag tag-all">All</span></td></tr>
+        <tr><td class="time-col">5 min</td><td><a href="#m-next">Next Steps &amp; Adjournment</a></td><td class="lead-col"><span class="tag tag-simon">Simon</span></td></tr>
+      </tbody>
+    </table>
+
+
+    <!-- ── BLOCK 1: Welcome ──────────────────────────── -->
+    <h2 id="m-welcome">1. Welcome &amp; Introductions <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 5 min</span></h2>
+
+    <ul>
+      <li>Welcome Ken Stern and Barbara Oakley to the board</li>
+      <li><strong>Propose recording the meeting:</strong> &ldquo;Before we get started &mdash; we&rsquo;d like to record this call so we can produce accurate board meeting minutes from the transcript. The recording would only be used for that purpose, and we&rsquo;ll destroy it once the minutes are finalized. Is everyone comfortable with that?&rdquo;
+        <ul>
+          <li>Get verbal consent from each director (note this in the minutes)</li>
+          <li>Start Zoom recording once everyone agrees</li>
+        </ul>
+      </li>
+      <li>Brief round of introductions for the record (even though everyone knows each other)</li>
+      <li>Note that this meeting also serves as the <strong>2026 annual meeting</strong> (per Bylaws &sect;&nbsp;4.1; delayed from January to accommodate onboarding)</li>
+      <li>Confirm quorum: 3 of 5 directors required; all 5 present</li>
+      <li>Set expectations: &ldquo;After this meeting, we&rsquo;ll send you a written onboarding guide that covers everything we discuss today in more detail, plus additional information on insurance, governance policies, and financials. You don&rsquo;t need to absorb everything in real time &mdash; the guide is there as a reference.&rdquo;</li>
+    </ul>
+
+
+    <!-- ── BLOCK 2: Governance ───────────────────────── -->
+    <h2 id="m-governance">2. Annual Governance Items <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 10 min</span></h2>
+
+    <h3>Officer Elections (Bylaws &sect;&nbsp;5.1)</h3>
+    <ul>
+      <li>Propose re-electing current officers and director:
+        <ul>
+          <li>Simon Cullen &mdash; President &amp; CEO</li>
+          <li>Nicholas DiBella &mdash; Secretary, Treasurer &amp; CTOO</li>
+          <li>Neil Thomason &mdash; Director</li>
+        </ul>
+      </li>
+      <li><strong>Brief role clarification</strong> (for Ken and Barbara&rsquo;s benefit):
+        <ul>
+          <li><strong>President</strong> (Bylaws &sect;&nbsp;5.4a) &mdash; presides over board meetings, generally supervises the business of the organization, executes documents on its behalf</li>
+          <li><strong>Secretary</strong> (Bylaws &sect;&nbsp;5.4c) &mdash; responsible for board meeting minutes and meeting notices</li>
+          <li><strong>Treasurer</strong> (Bylaws &sect;&nbsp;5.4d) &mdash; oversees financial accounts and reporting (at least annually to the board)</li>
+          <li><strong>CEO and CTOO</strong> are not Bylaws-defined roles &mdash; they were created by board resolution to cover operational leadership. The Bylaws permit this (&sect;&nbsp;5.1).</li>
+          <li>Note: the Bylaws require that President and Secretary be different people (&sect;&nbsp;5.2).</li>
+        </ul>
+      </li>
+      <li><strong>Procedure:</strong> Vote on each person individually. Each person <strong>abstains</strong> from the vote on their own re-election (no need to leave the call &mdash; just note the abstention for the record). The remaining four directors vote.</li>
+      <li>Simple majority of those voting required for each.</li>
+    </ul>
+
+    <h3>Conflict of Interest Attestation</h3>
+    <ul>
+      <li>Annual attestation required by the COI policy (IRS expects this for 501(c)(3) organizations)</li>
+      <li>Mention at the meeting that the COI policy document will be sent after the meeting; each director replies by email attesting that they have read and understand the policy and will comply</li>
+      <li><strong>Disclosures by Simon and Nick:</strong> Both are compensated officers (currently through HxA/AVDF, not DW general funds) and co-owners of the Sway IP. This dual role is the reason the board was expanded to 5 members with a disinterested majority (Thomason, Stern, Oakley).</li>
+      <li>Email attestations are preserved as the record</li>
+    </ul>
+
+    <h3>Confirm Bylaws Receipt</h3>
+    <ul>
+      <li>Mention at the meeting that the Bylaws will be sent after the meeting; Ken and Barbara reply by email confirming receipt and agreement to abide by them</li>
+      <li>Email confirmations are preserved as the record</li>
+    </ul>
+
+
+    <!-- ── BLOCK 3: Restructuring ────────────────────── -->
+    <h2 id="m-restructuring">3. 501(c)(3) &amp; Restructuring Update <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 15 min</span></h2>
+
+    <p class="section-intro">This is the most substantive agenda item. Full transparency with the board on the compliance situation.</p>
+
+    <h3>The Restructuring</h3>
+    <ul>
+      <li>DW was originally intended to house both research/education <em>and</em> Sway development</li>
+      <li>Foundation Group (our 501(c)(3) advisors) recommended a clean separation: DW focuses on research, education, and program delivery; Sway IP and development move to a separate for-profit PBC</li>
+      <li>This is a common nonprofit/for-profit structure and keeps DW&rsquo;s tax-exempt status clean</li>
+      <li>DW accesses Sway for its programs under a free license from the co-founders (to be formalized with the PBC)</li>
+    </ul>
+
+    <h3>501(c)(3) Application Status</h3>
+    <ul>
+      <li>Foundation Group (liaison: Ren Henderson) is finalizing the IRS Form&nbsp;1023 application</li>
+      <li>Target submission: <strong>mid-April 2026</strong> (hopefully sooner)</li>
+      <li>Requesting <strong>expedited review</strong> from the IRS because the FIPSE grant (~$800K) cannot be disbursed until 501(c)(3) status is approved</li>
+      <li>A supporting letter from the FIPSE grantor (Notre Dame) has been requested</li>
+    </ul>
+
+    <h3>The Compliance Transition</h3>
+
+    <div class="warn">
+      <strong>Key issue for the board:</strong> The operational separation between DW and Sway development is not yet complete. During the transition, some development costs continue to flow through DW via the HxA/AVDF services agreement. The board should understand why and what is being done about it.
+    </div>
+
+    <ul>
+      <li><strong>HxA/AVDF services agreement:</strong> The current Phase&nbsp;2 agreement (Jan&ndash;Nov 2026) commits DW to &ldquo;execute technical development&rdquo; of Sway. This language predates the restructuring.</li>
+      <li><strong>Amending the agreement:</strong> Simon proposed removing development language from DW&rsquo;s scope. HxA Executive Director Michael Regnier responded (March&nbsp;5) that this is not feasible with ~3 months remaining in the grant &mdash; it would require legal counsel review, HxA board COI approval (for Simon, Nick, and Mike Strambler), and AVDF approval for a material spending change.</li>
+      <li><strong>Practical outcome:</strong> DW will continue to invoice HxA for some development-related costs likely through May or June 2026 (when the remaining AVDF development budget is expected to be used up). DW is fully reimbursed for these costs &mdash; the net financial impact on DW is zero.</li>
+      <li><strong>Mitigating factors:</strong> The restructuring is genuine and proactive. DW voluntarily stopped spending the Learning Agency development funds (see below) before being told to do so. The 501(c)(3) application narrative frames DW broadly as a research and education organization.</li>
+      <li><strong>For-profit PBC:</strong> Planned but not yet incorporated. Will hold Sway IP, handle product development, and license the platform to DW for research/education use at no cost. Simon and Nick will establish this in the coming months.</li>
+    </ul>
+
+    <h3>Learning Agency / Tools Competition Funds (~$125K)</h3>
+    <ul>
+      <li>Simon and Nick won the Learning Agency Tools Competition Growth Prize ($150K) for Sway development</li>
+      <li>$25K spent on Instructor Insights (complete). ~$125K remains earmarked for ChatMaps (not yet started)</li>
+      <li>Because DW is restructuring away from development, these funds can no longer be compliantly spent through DW</li>
+      <li>Plan: <strong>return the ~$125K to the Learning Agency</strong> for redirection to the for-profit PBC (or to Simon/Nick personally)</li>
+      <li>Simon and Nick met with Kristyn Manoukian (Learning Agency) on March&nbsp;2. She was receptive and sees no major concerns. The funds were administered through Digital Harbor Foundation, so their finance team needs to weigh in on logistics.</li>
+      <li>Kristyn also indicated flexibility in how remaining Tools funds are used going forward (not restricted to ChatMaps development alone)</li>
+      <li><strong>Financial impact on DW:</strong> When the ~$125K is returned, DW&rsquo;s cash drops from ~$173K to ~$48K. This is the &ldquo;effective working cash&rdquo; figure already reflected in our financial overview.</li>
+    </ul>
+
+
+    <!-- ── BLOCK 4: CMU IP ───────────────────────────── -->
+    <h2 id="m-cmu">4. Sway IP &amp; CMU Dispute <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 5 min</span></h2>
+
+    <p class="section-intro">This is Simon and Nick&rsquo;s personal matter (not a DW matter, since DW does not own the Sway IP), but the board should be aware because DW&rsquo;s programmatic work depends on access to Sway.</p>
+
+    <ul>
+      <li><strong>Background:</strong> Carnegie Mellon University has asserted a joint ownership interest in the Sway platform IP, based on claimed contributions by CMU staff and interns during the platform&rsquo;s early development (2023&ndash;2024)</li>
+      <li><strong>Simon and Nick&rsquo;s position:</strong> They are the sole creators. Under CMU&rsquo;s own IP policy (Section 3-6-1), educational courseware belongs to the creator &ldquo;in all cases,&rdquo; regardless of university sponsorship or use of facilities. CMU code contributions amount to 0.77% of the codebase (454 lines of commodity CSS, HTML, and boilerplate)</li>
+      <li><strong>Legal counsel:</strong> David Kalson (Dentons) represented Simon and Nick through early 2026. He assessed the legal position as strong under the courseware exemption. After CMU&rsquo;s General Counsel declined to waive ownership, Simon and Nick ended the Dentons engagement in February&nbsp;2026 to pursue a different approach.</li>
+      <li><strong>Current status:</strong> We are evaluating our options. CMU has been notified to expect direct contact or new representation. No formal legal proceedings have been initiated by either side.</li>
+      <li><strong>Risk to DW:</strong> Low in the near term. Sway continues to operate and grow (80+ institutions, ~10,000 students). CMU has not taken any action to restrict Sway&rsquo;s use. If the dispute were to escalate, it could create uncertainty around the IP that underpins DW&rsquo;s programs, but this is considered unlikely given the strength of the courseware exemption argument.</li>
+      <li><strong>Board input welcome:</strong> While this is technically not within DW&rsquo;s purview (the IP is personally held), Simon and Nick welcome any ideas or counsel the board members may have.</li>
+    </ul>
+
+
+    <!-- ── BLOCK 5: Financials ───────────────────────── -->
+    <h2 id="m-financials">5. Financial Report <span class="tag tag-nick">Nick</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 10 min</span></h2>
+
+    <p class="section-intro">Disagree Wisely is funded entirely by grants and charitable contributions. No fees or service revenue.</p>
+
+    <h3>Cash Position</h3>
+    <ul>
+      <li>Gross cash on hand: ~$173,000</li>
+      <li>Less Learning Agency funds to be returned: ~$125,000</li>
+      <li><strong>Effective working cash: ~$48,000</strong></li>
+    </ul>
+
+    <h3>Revenue Sources</h3>
+    <ul>
+      <li>2025 revenue was approximately $245,000</li>
+      <li>Active grants: HxA/AVDF services agreement (~$284K across two phases), Sway Classroom ($13,171), Craig Snider Foundation ($50K), Lindy Snider Foundation ($25K), Ben Delo Foundation ($20K remainder)</li>
+      <li>Secured (awaiting 501(c)(3)): <strong>FIPSE ~$800K</strong> &mdash; the critical near-term revenue source. Disbursement schedule and reporting obligations being coordinated with Notre Dame.</li>
+      <li>Pending applications: ECI (~$233K), NewSchools, TWCF ($5M+ if invited to full application)</li>
+    </ul>
+
+    <h3>Compensation Structure</h3>
+    <ul>
+      <li><strong>No one is currently paid from DW&rsquo;s general funds</strong></li>
+      <li>Officer compensation is funded through HxA/AVDF cost reimbursement (Simon, Nick, and soon Rachel Sipser)</li>
+      <li>Nick was briefly paid directly by DW in summer 2025 during a temporary pause in his federally funded postdoc. That is the only time DW has directly compensated anyone.</li>
+      <li>Board members (Thomason, Stern, Oakley) serve as uncompensated volunteers</li>
+      <li>As funding diversifies (e.g., FIPSE), some personnel may transition to DW payroll</li>
+    </ul>
+
+    <h3>Key Financial Facts</h3>
+    <ul>
+      <li>Banking: BlueVine Business Checking (Coastal Community Bank, FDIC insured). Account access held by Simon and Nick.</li>
+      <li>Payroll: Gusto. Payments: Bill.com. No cash withdrawals or P2P apps permitted.</li>
+      <li>Fiscal year: January 1 &ndash; December 31</li>
+    </ul>
+
+
+    <!-- ── BLOCK 6: Growth ───────────────────────────── -->
+    <h2 id="m-growth">6. Growth &amp; Impact <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 5 min</span></h2>
+
+    <ul>
+      <li>Sway is now in use at <strong>80+ institutions</strong> with nearly <strong>10,000 students</strong> (up from ~30 institutions / ~2,000 students at the start of 2025)</li>
+      <li>Featured in the <strong>Chronicle of Higher Education</strong> &mdash; a dedicated news desk feature</li>
+      <li>Adoption spans R1 universities, liberal arts colleges, community colleges, HBCUs, Hispanic-serving institutions, and technical colleges</li>
+      <li>Instructor Insights dashboard complete and generating automated reports</li>
+      <li>Active research program: bias studies, impact assessments, research partnerships with faculty who use Sway in their courses</li>
+      <li>Sway Classroom (K&ndash;12): new initiative led by Dr. Michael Strambler (Yale School of Medicine), funded by an HxA grant ($13,171), with partnerships in development with major civics education nonprofits</li>
+      <li>Rachel Sipser hired as Director of Communications &mdash; first US-based hire</li>
+    </ul>
+
+
+    <!-- ── BLOCK 7: Q&A ──────────────────────────────── -->
+    <h2 id="m-qa">7. Q&amp;A &amp; Open Discussion <span class="tag tag-all">All</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 5 min (or extended)</span></h2>
+
+    <p>Questions from Ken and Barbara on anything covered in the meeting or in the onboarding materials.</p>
+
+    <h3>Suggested questions to ask the new directors:</h3>
+    <ul>
+      <li>Any questions or concerns after reading the onboarding materials?</li>
+      <li>What areas of the organization are you most interested in being involved with?</li>
+      <li>Do you have connections that might be helpful for fundraising, partnerships, or research collaborations?</li>
+    </ul>
+
+    <div class="note">
+      <strong>If time extends beyond 60 minutes:</strong> This is the natural place to go deeper. Topics for extended discussion could include: strategic priorities for 2026, the for-profit PBC structure, the CMU IP situation in more detail, fundraising strategy, or how to best leverage Ken and Barbara&rsquo;s expertise and networks.
+    </div>
+
+
+    <!-- ── BLOCK 8: Next Steps ───────────────────────── -->
+    <h2 id="m-next">8. Next Steps &amp; Adjournment <span class="tag tag-simon">Simon</span> <span style="color:var(--text-muted); font-size:0.8rem;">&mdash; 5 min</span></h2>
+
+    <h3>Post-Meeting Follow-Ups</h3>
+    <p>&ldquo;After this meeting, we&rsquo;ll send each of you the following by email:&rdquo;</p>
+    <ul>
+      <li><strong>Conflict of Interest Policy</strong> &mdash; please reply by email attesting that you have read and understand the policy and will comply. This is the annual attestation we mentioned earlier.</li>
+      <li><strong>Bylaws</strong> &mdash; Ken and Barbara, please reply confirming receipt and agreement to abide by them.</li>
+      <li><strong>Board Onboarding Guide</strong> &mdash; a written reference that covers everything we discussed today in more detail, plus insurance coverage, governance policy summaries, and financial overview.</li>
+      <li><strong>Board Reference Site</strong> &mdash; a comprehensive resource with full policy documents, board history, document downloads, and the compliance calendar.</li>
+      <li><strong>Board meeting minutes</strong> &mdash; we&rsquo;ll transcribe the recording, draft formal minutes, and send them for your review. Once everyone approves, the recording will be destroyed.</li>
+    </ul>
+
+    <h3>Going Forward</h3>
+    <ul>
+      <li>Next board meeting: target <strong>Q2&nbsp;2026</strong> (quarterly cadence)</li>
+      <li>Between meetings: email votes as needed &mdash; reply-all with your vote; your email signature counts as signed consent under the Bylaws (&sect;&nbsp;4.7, &sect;&nbsp;8.4)</li>
+      <li>Response time: <strong>5&ndash;7 days</strong> for votes (time-sensitive ones will be flagged); a few days for general matters</li>
+      <li>Expected time commitment: approximately <strong>1&ndash;2 hours per month</strong> including meetings, document review, and correspondence</li>
+    </ul>
+
+    <p>Thank everyone and adjourn.</p>
+
+    <hr>
+
+    <!-- ── Prep Checklist ────────────────────────────── -->
+    <h2>Pre-Meeting Checklist</h2>
+    <p class="section-intro">For Simon and Nick to complete before the meeting.</p>
+
+    <ul class="checklist">
+      <li>Confirm Zoom link is sent to all directors</li>
+      <li>Ensure Zoom recording is ready (local or cloud &mdash; will need the file for transcription)</li>
+      <li>Prepare minutes template (record attendees, quorum, recording consent, all votes and attestations)</li>
+      <li>Draft election motions (re-elect Simon as President/CEO, Nick as Secretary/Treasurer/CTOO, Neil as Director &mdash; each abstains from own vote)</li>
+      <li>Have COI disclosures ready (Simon and Nick: compensated officers, Sway IP co-owners)</li>
+      <li>Review the financial summary &mdash; confirm cash position numbers are current</li>
+      <li>Have the onboarding and reference sites open for reference during the meeting</li>
+      <li>Be prepared to discuss the CMU situation at whatever depth the board wants</li>
+    </ul>
+
+  </div>
+
+
+  <!-- ================================================================== -->
+  <!-- TAB 2: SITE REVIEW RECOMMENDATIONS                                 -->
+  <!-- ================================================================== -->
+  <div class="tab-panel" id="tab-site-review">
+
+    <h1>Site Review &mdash; Recommendations</h1>
+    <p class="subtitle">
+      Remaining ideas for improving the onboarding and reference sites, based on a close reading of both.
+      <br>March 2026
+    </p>
+
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#new-content-onboarding">New Content for the Onboarding Site</a></li>
+        <li><a href="#new-content-reference">New Content for the Reference Site</a></li>
+        <li><a href="#new-content-both">New Content for Both Sites</a></li>
+        <li><a href="#improvements">Improvements to Existing Content</a></li>
+        <li><a href="#issues">Minor Issues and Inconsistencies</a></li>
+      </ol>
+    </div>
+
+    <div class="priority-legend">
+      <span><span class="tag tag-high">High</span> Would meaningfully help new directors</span>
+      <span><span class="tag tag-medium">Medium</span> Useful but not urgent</span>
+      <span><span class="tag tag-low">Low</span> Nice to have</span>
+    </div>
+
+
+    <!-- ================================================================== -->
+    <h2 id="new-content-onboarding">1. New Content for the Onboarding Site</h2>
+    <p class="section-intro">Content that would help Ken and Barbara get oriented faster.</p>
+    <!-- ================================================================== -->
+
+    <p style="color: var(--text-muted); font-style: italic; font-size: 0.9rem;">
+      &ldquo;What to Expect Next&rdquo; and &ldquo;Current Priorities / Strategic Context&rdquo; were previously listed here.
+      Both are now addressed: expectations are covered in the meeting agenda&rsquo;s Next Steps block and the reframed Follow-Up Items on the onboarding site;
+      strategic priorities are covered in the meeting itself (restructuring, compliance, financials, growth).
+    </p>
+
+
+    <!-- ================================================================== -->
+    <h2 id="new-content-reference">2. New Content for the Reference Site</h2>
+    <p class="section-intro">Additions that belong in the comprehensive reference but not the slim onboarding guide.</p>
+    <!-- ================================================================== -->
+
+    <div class="rec">
+      <div class="rec-title">
+        <span class="tag tag-reference">Reference</span>
+        <span class="tag tag-medium">Medium</span>
+        Organizational Chart / Reporting Structure
+      </div>
+      <p>The board section lists all directors and their titles, but there's no visual or textual description of the reporting structure:</p>
+      <ul>
+        <li>Board of Directors (5 members) &mdash; governs the organization</li>
+        <li>Simon Cullen (President &amp; CEO) &mdash; reports to the board</li>
+        <li>Nicholas DiBella (Secretary, Treasurer &amp; CTOO) &mdash; reports to the board</li>
+        <li>Rachel Sipser (Director of Communications) &mdash; reports to [Simon? Nick?]</li>
+        <li>Contractors &mdash; report to [?]</li>
+      </ul>
+      <p>Even a simple textual hierarchy would help. Particularly useful as the organization grows.</p>
+    </div>
+
+    <div class="rec">
+      <div class="rec-title">
+        <span class="tag tag-reference">Reference</span>
+        <span class="tag tag-low">Low</span>
+        Intellectual Property Landscape
+      </div>
+      <p>The 501(c)(3) section mentions the IP structure (Sway IP owned by co-founders, PBC planned). The reference site could provide more detail for directors who want to understand the full picture:</p>
+      <ul>
+        <li>What IP exists (Sway platform, research data, educational materials)</li>
+        <li>Current ownership: Sway platform IP is personally owned by Cullen and DiBella</li>
+        <li>Planned PBC: timeline, structure, relationship to Disagree Wisely</li>
+        <li>How DW accesses Sway for its programs (licensing? services agreement?)</li>
+        <li>Any existing IP agreements (the 501(c)(3) folder references IP documents)</li>
+      </ul>
+      <p>This matters for the board's duty of obedience &mdash; ensuring the nonprofit/for-profit separation remains clean.</p>
+    </div>
+
+
+    <!-- ================================================================== -->
+    <h2 id="new-content-both">3. New Content for Both Sites</h2>
+    <p class="section-intro">Content appropriate in both the onboarding guide and the comprehensive reference.</p>
+    <!-- ================================================================== -->
+
+    <p style="color: var(--text-muted); font-style: italic; font-size: 0.9rem;">
+      &ldquo;Key Relationships Between DW and Sway&rdquo; was previously listed here.
+      This is covered in the meeting&rsquo;s restructuring discussion (DW/Sway separation, free license from co-founders, planned PBC).
+    </p>
+
+    <div class="rec">
+      <div class="rec-title">
+        <span class="tag tag-both">Both</span>
+        <span class="tag tag-medium">Medium</span>
+        Traction / Impact Numbers
+      </div>
+      <p>The reference site has a "Traction" section under "About" (2,000+ students, 200+ instructors, 20,000+ expected). The onboarding site does not. These numbers are compelling context for why the board matters and what the organization has achieved. Consider adding them to the onboarding site as well, perhaps in the "About" section.</p>
+    </div>
+
+
+    <!-- ================================================================== -->
+    <h2 id="improvements">4. Improvements to Existing Content</h2>
+    <p class="section-intro">Ways to make existing sections clearer or more useful.</p>
+    <!-- ================================================================== -->
+
+    <p style="color: var(--text-muted); font-style: italic; font-size: 0.9rem;">
+      &ldquo;Action Items: More Specific Guidance&rdquo; was previously listed here.
+      The action items have been rewritten as &ldquo;Follow-Up Items&rdquo; with post-meeting framing (Respond badges for COI attestation and Bylaws receipt, Review badges for Financial Auth and the guide itself).
+    </p>
+
+    <div class="rec">
+      <div class="rec-title">
+        <span class="tag tag-reference">Reference</span>
+        <span class="tag tag-low">Low</span>
+        History Section: Fill In Pre-Incorporation History
+      </div>
+      <p>The timeline starts at April 2, 2025 (incorporation). But the organization's work started earlier &mdash; the Ben Delo grant was Fall 2024, and the CMU educational work preceded that. A brief pre-incorporation entry would provide context:</p>
+      <ul>
+        <li><strong>2023&ndash;2024:</strong> Cullen and DiBella develop Sway at Carnegie Mellon University. Initial classroom pilots and research.</li>
+        <li><strong>Fall 2024:</strong> Ben Delo Foundation awards $37,500 grant to support the work.</li>
+      </ul>
+    </div>
+
+
+    <!-- ================================================================== -->
+    <h2 id="issues">5. Minor Issues and Inconsistencies</h2>
+    <p class="section-intro">Small things I noticed while reading through both sites carefully.</p>
+    <!-- ================================================================== -->
+
+    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 2rem;">
+      No outstanding issues.
+    </p>
+
+  </div>
+
+
+  <!-- ── Tab switching JS ─────────────────────────────── -->
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.getAttribute('data-tab')).classList.add('active');
+        window.scrollTo(0, 0);
+      });
+    });
+  </script>
+
+</body>
+</html>

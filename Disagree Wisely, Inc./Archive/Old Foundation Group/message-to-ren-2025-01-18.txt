@@ -1,0 +1,58 @@
+Hi Ren,
+
+Ahead of our call on Tuesday (Jan 20 at 3pm CT / 4pm ET), we wanted to share where our thinking has landed, so you have time to consider it and consult colleagues at Foundation Group if helpful.
+
+
+WHERE WE'RE AT
+
+We do NOT want to transfer our IP to Disagree Wisely at this time. Given that, we're planning a clean separation:
+
+DISAGREE WISELY (nonprofit) focuses on research, education, and program delivery:
+- Research (standard academic work of the kind done at universities--published, open, not generating proprietary IP)
+- Deployment and support (infrastructure costs, instructor onboarding, user/participant support)
+- Educational outreach (conferences, workshops, and training on constructive disagreement generally--not "how to use Sway")
+- A portion of our salaries corresponding to non-IP work (we estimate roughly 75% of our time goes to operations, support, research, outreach, grant administration)
+- Support staff for these activities
+- Receiving grants like the FIPC award (which funds research and deployment, not IP development)
+
+SEPARATE FOR-PROFIT (likely a Public Benefit Company) owns the IP and funds product development:
+- New features, core engineering that increases the value of the IP
+- Related contractor/developer payments
+- Any commercial activities
+
+
+QUESTIONS FOR YOUR GUIDANCE
+
+1. APPLICATION FRAMING
+Given this separation, how would you recommend we describe the nonprofit's planned activities so they're clearly charitable/educational and don't trigger avoidable scrutiny about commercialization or private benefit?
+
+2. WHAT THE NONPROFIT CAN SAFELY PAY FOR
+We assume the nonprofit should NOT pay for "further development" of the app. But we'd like clarity on the safe zone. Where do you draw the line in practice for things like:
+- Deployment/hosting costs for running programs
+- Instructor onboarding/support and participant support
+- Research costs (evaluation, analysis, publication)
+- General educational programming that teaches constructive disagreement (not Sway-specific training)
+- Conferences (broad academic/practitioner events)
+
+3. SALARIES AND TIME ALLOCATION
+We can track time so the nonprofit only pays for clearly non-IP work (research, program delivery, support, fundraising/admin). Is there a rule of thumb or documentation standard you'd recommend?
+
+4. CONTRACTORS AND DEVELOPERS
+If a developer does a mix of (a) maintenance/support/deployment and (b) new feature work, should ALL of that be paid by the for-profit to avoid gray areas? Or is there a compliant way to handle "maintenance/support only" through the nonprofit?
+
+5. DISCLOSING THE FOR-PROFIT
+Do we need to mention our for-profit plans in the 501(c)(3) application, or can we simply submit an application for a research and education nonprofit without referencing the separate entity?
+
+6. PAST SPENDING BEFORE 501(c)(3) APPROVAL
+Since Disagree Wisely is currently incorporated but not yet a 501(c)(3), does that change how the IRS would view any prior spending that touched development? If the cleanest approach is to reimburse the nonprofit or reclassify certain costs before filing, we'd like to understand what you recommend.
+
+7. MINIMUM PAPERWORK BETWEEN ENTITIES
+If the nonprofit runs programs that use the app, do you recommend any minimal written agreements (e.g., a simple license for program use, cost-sharing policy) even if the nonprofit isn't paying for development?
+
+
+We're trying to make this as simple and straightforward as possible--a standard research and education nonprofit, similar to what operates within universities. We're happy to accept constraints that keep the path to 501(c)(3) approval clean.
+
+Looking forward to Tuesday.
+
+Best,
+Nick

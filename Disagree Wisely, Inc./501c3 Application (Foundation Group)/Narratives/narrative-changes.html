@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disagree Wisely Narrative - Changes Summary</title>
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --border-color: #374151;
+            --removed-bg: #3d1f1f;
+            --removed-text: #fca5a5;
+            --added-bg: #1f3d1f;
+            --added-text: #86efac;
+            --info-bg: #1e3a5f;
+            --info-border: #3b82f6;
+            --warning-bg: #3d3d1f;
+            --warning-border: #eab308;
+            --section-header-bg: #2d1b4e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #fff;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem;
+            color: #d1d5db;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-table th {
+            background-color: var(--section-header-bg);
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .summary-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .summary-table tr:hover {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .change-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .change-card h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .removed {
+            background-color: var(--removed-bg);
+            color: var(--removed-text);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            border-left: 4px solid #ef4444;
+        }
+
+        .removed::before {
+            content: "ORIGINAL: ";
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .added {
+            background-color: var(--added-bg);
+            color: var(--added-text);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            border-left: 4px solid #22c55e;
+        }
+
+        .added::before {
+            content: "REVISED: ";
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .justification {
+            background-color: var(--info-bg);
+            border-left: 4px solid var(--info-border);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+        }
+
+        .justification::before {
+            content: "JUSTIFICATION: ";
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #93c5fd;
+        }
+
+        .section-removed {
+            background-color: var(--removed-bg);
+            border: 2px dashed #ef4444;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .section-removed h4 {
+            color: var(--removed-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.5rem;
+        }
+
+        .tag-removed {
+            background-color: #7f1d1d;
+            color: #fca5a5;
+        }
+
+        .tag-modified {
+            background-color: #78350f;
+            color: #fcd34d;
+        }
+
+        .tag-reframed {
+            background-color: #1e3a5f;
+            color: #93c5fd;
+        }
+
+        .guidance-box {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        .guidance-box strong {
+            color: #fcd34d;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .highlight {
+            background-color: rgba(34, 197, 94, 0.3);
+            padding: 0 0.25rem;
+            border-radius: 2px;
+        }
+
+        blockquote {
+            border-left: 3px solid var(--border-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .toc {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .toc li {
+            padding: 0.25rem 0;
+        }
+
+        .toc a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disagree Wisely Narrative - Revision Summary</h1>
+        <p class="subtitle">Changes based on Ren's January 20, 2026 guidance: Separating IP (Sway) from the nonprofit</p>
+
+        <div class="guidance-box">
+            <strong>Key Principle from Ren:</strong> The nonprofit should focus purely on research, education, and program delivery. It should NOT develop or own Sway. Be "purposefully vague" about specific tools.
+        </div>
+
+        <h2>Summary of All Changes</h2>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Change Type</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mission Statement</td>
+                    <td><span class="tag tag-modified">Modified</span></td>
+                    <td>"develop and deploy" &rarr; "deploy and study"</td>
+                </tr>
+                <tr>
+                    <td>Charitable Purpose</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"creating and maintaining Sway" &rarr; "deploying and studying innovative educational tools"</td>
+                </tr>
+                <tr>
+                    <td>Educational Solution Section</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"The Sway Platform" &rarr; "Our Educational Approach" with generic tool descriptions</td>
+                </tr>
+                <tr>
+                    <td>Personnel - Current Team</td>
+                    <td><span class="tag tag-modified">Modified</span></td>
+                    <td>Removed "three skilled software engineers" - replaced with "research support staff"</td>
+                </tr>
+                <tr>
+                    <td>Planned Personnel</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>Removed platform development roles; now research and educator support focused</td>
+                </tr>
+                <tr>
+                    <td>Legal Formation</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>Ben Delo donation: "Sway development" &rarr; "civil discourse research and program expenses"</td>
+                </tr>
+                <tr>
+                    <td>Track Record</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>Described as "founders' prior research" using "AI-facilitated discussion tools"</td>
+                </tr>
+                <tr>
+                    <td>Funding Descriptions</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"development costs" &rarr; "research costs" throughout</td>
+                </tr>
+                <tr>
+                    <td>Platform Enhancement Section</td>
+                    <td><span class="tag tag-removed">Removed</span></td>
+                    <td>Entire section on mobile app development, new features removed (IP work)</td>
+                </tr>
+                <tr>
+                    <td>Dangerous Ideas Course</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"Sway-based peer discussions" &rarr; "AI-facilitated peer discussions"</td>
+                </tr>
+                <tr>
+                    <td>Sway Summit</td>
+                    <td><span class="tag tag-modified">Modified</span></td>
+                    <td>Renamed to "Civil Discourse Summit"</td>
+                </tr>
+                <tr>
+                    <td>Collaborative Research Network</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"use Sway" &rarr; "use AI-facilitated dialogue tools"</td>
+                </tr>
+                <tr>
+                    <td>Financial Strategy - 2026</td>
+                    <td><span class="tag tag-removed">Removed</span></td>
+                    <td>Premium/freemium features removed (pending Ren confirmation)</td>
+                </tr>
+                <tr>
+                    <td>Professional Services</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>"software development costs" &rarr; "research support, program development, contracted services"</td>
+                </tr>
+                <tr>
+                    <td>Program Expenses</td>
+                    <td><span class="tag tag-reframed">Reframed</span></td>
+                    <td>Now describes third-party costs for cloud hosting and AI services</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Detailed Changes by Section</h2>
+
+        <!-- Section 1: Mission Statement -->
+        <div class="change-card" id="mission">
+            <h3>1. Mission Statement</h3>
+
+            <div class="removed">
+                Through rigorous empirical research and evidence-based educational innovation, we <strong>develop and deploy</strong> tools that foster free inquiry and robust debate.
+            </div>
+
+            <div class="added">
+                <strong>Our mission is</strong> to empower millions of learners to cultivate essential intellectual virtues—humility, cognitive empathy, critical thinking, and the ability to engage productively across differences. <strong>Driven by</strong> rigorous empirical research, we <strong>deploy and study</strong> innovative educational tools that foster free inquiry and <strong>intelligent discussion</strong>.
+            </div>
+
+            <div class="justification">
+                Updated to match the new mission statement provided by user. Removes "develop" since IP development is for-profit work. The nonprofit deploys and studies tools, it doesn't create them.
+            </div>
+        </div>
+
+        <!-- Section 2: Charitable Purpose -->
+        <div class="change-card" id="charitable-purpose">
+            <h3>2. Charitable Purpose</h3>
+
+            <div class="removed">
+                Our primary charitable purpose is to advance education by <strong>creating and maintaining Sway, an AI-scaffolded chat platform</strong> that facilitates constructive dialogue between college students with differing perspectives on contentious issues. We provide <strong>this platform</strong> free of charge to students and educational institutions...
+            </div>
+
+            <div class="added">
+                Our primary charitable purpose is to advance education by <strong>deploying and studying innovative educational tools</strong> that facilitate constructive dialogue between college students with differing perspectives on contentious issues. We provide <strong>access to these tools</strong> free of charge to students and educational institutions...
+            </div>
+
+            <div class="justification">
+                Removes "creating and maintaining Sway" - the nonprofit deploys and studies tools (including Sway, licensed from the for-profit), it doesn't create/own them. Per Ren's guidance on IP separation.
+            </div>
+        </div>
+
+        <!-- Section 3: Educational Solution -->
+        <div class="change-card" id="educational-solution">
+            <h3>3. Educational Solution Section</h3>
+
+            <div class="removed">
+                <strong>Our Educational Solution: The Sway Platform</strong><br><br>
+                Platform Overview: <strong>Sway</strong> is a chat platform similar to iMessage or WhatsApp that connects students who disagree about contentious issues...
+            </div>
+
+            <div class="added">
+                <strong>Our Educational Approach</strong><br><br>
+                Methodology Overview: Our approach centers on <strong>AI-facilitated dialogue tools</strong> that connect students who disagree about contentious issues...
+            </div>
+
+            <div class="justification">
+                Section renamed from "The Sway Platform" to "Our Educational Approach." All Sway-specific references replaced with generic "AI-facilitated dialogue tools." This maintains the educational methodology description while removing branding.
+            </div>
+        </div>
+
+        <!-- Section 4: Personnel -->
+        <div class="change-card" id="personnel">
+            <h3>4. Personnel - Team Composition</h3>
+
+            <div class="removed">
+                Our current team includes <strong>5.2 full-time equivalents: the two co-founders, three skilled software engineers, and a part-time assistant</strong>. We have successfully implemented high-quality, AI-scaffolded discussions at scale...
+            </div>
+
+            <div class="added">
+                Our current team includes <strong>the two co-founders, research support staff, and program assistants</strong>. We have successfully implemented high-quality, AI-facilitated discussions at scale...
+            </div>
+
+            <div class="justification">
+                Per Ren's guidance, software engineers are IP development staff that should be in the for-profit, not the nonprofit. Removed specific FTE count and replaced with generic "research support staff."
+            </div>
+        </div>
+
+        <!-- Section 5: Planned Personnel -->
+        <div class="change-card" id="planned-personnel">
+            <h3>5. Planned Personnel Expansion</h3>
+
+            <div class="removed">
+                <strong>Director of Technical Programs (2026):</strong> To oversee platform development and technical strategy<br>
+                <strong>Research Scientist and Engineer (2026):</strong> To lead empirical studies and platform development<br>
+                <strong>Research Scientist and Engineer (2026):</strong> To lead empirical studies and platform development
+            </div>
+
+            <div class="added">
+                <strong>Research Support Staff (2026):</strong> To support educators using research-based tools and resources<br>
+                <strong>Research Scientists (2026):</strong> To design and oversee studies on dialogue effectiveness and civil discourse pedagogy
+            </div>
+
+            <div class="justification">
+                Removes platform development responsibilities (for-profit work). Aligns with revised CTOO job description language. Focus is now on research and educator support, not software development.
+            </div>
+        </div>
+
+        <!-- Section 6: Legal Formation -->
+        <div class="change-card" id="legal-formation">
+            <h3>6. Legal Formation - Donation Description</h3>
+
+            <div class="removed">
+                One additional donor, seeking to maximize funds available for direct project costs, provided $37,500 directly <strong>for Sway development expenses</strong>...
+            </div>
+
+            <div class="added">
+                One additional donor, seeking to maximize funds available for direct project costs, provided $37,500 <strong>for civil discourse research and program expenses</strong>...
+            </div>
+
+            <div class="justification">
+                Reframes historical donation in terms of nonprofit's actual purpose, not IP development. The Ben Delo donation supported research and programs, not proprietary software development.
+            </div>
+        </div>
+
+        <!-- Section 7: Track Record -->
+        <div class="change-card" id="track-record">
+            <h3>7. Track Record and Research Validation</h3>
+
+            <div class="removed">
+                Our early experimental studies in 2024 demonstrated <strong>Sway's</strong> effectiveness...<br><br>
+                In Fall 2024, <strong>Sway</strong> was integrated into a large UCLA course...<br><br>
+                Students overwhelmingly reported that <strong>Sway</strong> enhanced both the quality of their conversations...
+            </div>
+
+            <div class="added">
+                <strong>The founders' early experimental studies</strong> in 2024 demonstrated <strong>the effectiveness of AI-facilitated dialogue tools</strong>...<br><br>
+                In Fall 2024, <strong>AI-facilitated dialogue tools</strong> were integrated into a large UCLA course...<br><br>
+                Students overwhelmingly reported that <strong>the AI-facilitated discussions</strong> enhanced both the quality of their conversations...
+            </div>
+
+            <div class="justification">
+                Per user decision: Hybrid approach - reframe track record as "founders' prior research" using "AI-facilitated discussion tools." This acknowledges the history while keeping language generic and not tying the nonprofit to specific IP.
+            </div>
+        </div>
+
+        <!-- Section 8: Funding Descriptions -->
+        <div class="change-card" id="funding">
+            <h3>8. Funding Descriptions (2024 Awards)</h3>
+
+            <div class="removed">
+                Omidyar Network: $50,000 for <strong>platform development and infrastructure costs</strong><br>
+                Arthur Vining Davis Foundations: $35,000 gift supporting <strong>development costs</strong> and AI infrastructure<br>
+                Ben Delo Foundation: $37,500 covering assistant support and <strong>development costs</strong><br>
+                Carnegie Mellon Dean's Award: $10,000 for <strong>development costs</strong>
+            </div>
+
+            <div class="added">
+                Omidyar Network: $50,000 for <strong>research and infrastructure costs</strong><br>
+                Arthur Vining Davis Foundations: $35,000 gift supporting <strong>research</strong> and AI infrastructure<br>
+                Ben Delo Foundation: $37,500 covering assistant support and <strong>research costs</strong><br>
+                Carnegie Mellon Dean's Award: $10,000 for <strong>research costs</strong>
+            </div>
+
+            <div class="justification">
+                Consistently reframes all funding descriptions to emphasize research rather than development. The nonprofit's role is research and education, not IP development.
+            </div>
+        </div>
+
+        <!-- Section 9: Platform Enhancement - REMOVED -->
+        <div class="change-card" id="platform-enhancement">
+            <h3>9. Platform Enhancement and Scaling Section</h3>
+            <span class="tag tag-removed">Entire Section Removed</span>
+
+            <div class="section-removed">
+                <h4>The following section has been removed entirely:</h4>
+                <blockquote>
+                    <strong>Platform Enhancement and Scaling (2025-2027)</strong><br><br>
+                    We plan substantial investments in platform development to serve our growing user base:<br><br>
+                    <strong>Mobile Application Development:</strong> Creating native iOS and Android applications to improve accessibility and user experience...<br><br>
+                    <strong>Advanced Educational Features:</strong>
+                    <ul>
+                        <li>Real-time argument visualization to help students understand the logical flow...</li>
+                        <li>Instructor Insights Dashboard providing educators with analytics...</li>
+                        <li>Learning Management System integration with platforms like Canvas...</li>
+                    </ul>
+                    <strong>Research Platform:</strong> Developing tools to enable external researchers to design and conduct studies using Sway...
+                </blockquote>
+            </div>
+
+            <div class="justification">
+                Per user decision and Ren's guidance: This entire section describes IP development work (mobile apps, new features, platform enhancements). This is for-profit work, not nonprofit work. The nonprofit's role is to deploy and study tools, not develop them.
+            </div>
+        </div>
+
+        <!-- Section 10: Dangerous Ideas Course -->
+        <div class="change-card" id="dangerous-ideas">
+            <h3>10. Dangerous Ideas Course</h3>
+
+            <div class="removed">
+                Curriculum Development: Creating an online "Dangerous Ideas" course that combines lectures with <strong>Sway-based peer discussions</strong> on challenging topics
+            </div>
+
+            <div class="added">
+                Curriculum Development: Creating an online "Dangerous Ideas" course that combines lectures with <strong>AI-facilitated peer discussions</strong> on challenging topics
+            </div>
+
+            <div class="justification">
+                Per user decision: Reframe to use "AI-facilitated peer discussions" not Sway. The course can still exist, but shouldn't be branded around proprietary technology.
+            </div>
+        </div>
+
+        <!-- Section 11: Sway Summit -->
+        <div class="change-card" id="summit">
+            <h3>11. Conference Name</h3>
+
+            <div class="removed">
+                Organizing annual <strong>"Sway Summit"</strong> conferences to bring together researchers, educators, and practitioners focused on constructive dialogue and depolarization
+            </div>
+
+            <div class="added">
+                Organizing annual <strong>"Civil Discourse Summit"</strong> conferences to bring together researchers, educators, and practitioners focused on constructive dialogue, civil discourse, and education for democratic citizenship
+            </div>
+
+            <div class="justification">
+                Per user decision: Rename "Sway Summit" to "Civil Discourse Summit." Removes Sway branding from conference name. Aligns with broader civil discourse mission.
+            </div>
+        </div>
+
+        <!-- Section 12: Collaborative Research Network -->
+        <div class="change-card" id="research-network">
+            <h3>12. Collaborative Research Network</h3>
+
+            <div class="removed">
+                The research community has shown significant interest in <strong>Sway as a platform</strong> for advancing scientific understanding...<br><br>
+                Stanford University: Researchers... plan to <strong>use Sway</strong> in research on enhancing deliberative political discussion...<br><br>
+                Columbia University: Researchers are incorporating <strong>Sway</strong> experimentally in their work...<br><br>
+                [Similar pattern for all universities listed]<br><br>
+                This collaborative research network demonstrates that <strong>Sway serves</strong> not only as a practical educational tool...
+            </div>
+
+            <div class="added">
+                The research community has shown significant interest in <strong>AI-facilitated dialogue tools as a platform</strong> for advancing scientific understanding...<br><br>
+                Stanford University: Researchers... plan to <strong>use AI-facilitated dialogue tools</strong> in research on enhancing deliberative political discussion...<br><br>
+                Columbia University: Researchers are incorporating <strong>AI-facilitated dialogue tools</strong> experimentally in their work...<br><br>
+                [Same pattern applied to all universities]<br><br>
+                This collaborative research network demonstrates that <strong>AI-facilitated dialogue tools serve</strong> not only as practical educational resources...
+            </div>
+
+            <div class="justification">
+                Per user decision: Keep the collaborative research network section but reframe as "AI-facilitated dialogue tools" instead of Sway. This valuable content shows research impact without tying it to specific IP.
+            </div>
+        </div>
+
+        <!-- Section 13: Financial Strategy -->
+        <div class="change-card" id="financial">
+            <h3>13. Financial Strategy - 2026 Revenue</h3>
+            <span class="tag tag-removed">Removed</span>
+
+            <div class="removed">
+                <strong>2026:</strong> Introduction of premium features for institutional subscribers while maintaining free access for students, generating program service revenue (approximately $100,000) while continuing to receive foundation support for research and development...
+            </div>
+
+            <div class="added">
+                <strong>2026:</strong> Continued foundation support for research and development while exploring sustainable revenue models.
+            </div>
+
+            <div class="justification">
+                Per user decision: Remove premium/freemium features until Ren confirms. Ren indicated this revenue model needs confirmation under the new structure where IP is separate from the nonprofit.
+            </div>
+        </div>
+
+        <!-- Section 14: Professional Services -->
+        <div class="change-card" id="professional-services">
+            <h3>14. Cost Structure - Professional Services</h3>
+
+            <div class="removed">
+                Professional Services: Our substantial professional fees (ranging from $106,000 to $400,000 annually as we scale) <strong>primarily represent software development costs</strong>. We have achieved significant cost savings by working with independent freelancers. All software development contracts are with unrelated third-party vendors selected through competitive evaluation.
+            </div>
+
+            <div class="added">
+                Professional Services: Our professional fees <strong>cover research support, educational program development, and contracted services for program delivery</strong>.
+            </div>
+
+            <div class="justification">
+                Software development is for-profit work. Professional fees in the nonprofit should be for non-IP activities like research support and program delivery.
+            </div>
+        </div>
+
+        <!-- Section 15: Program Expenses -->
+        <div class="change-card" id="program-expenses">
+            <h3>15. Program Expenses / Infrastructure Costs</h3>
+
+            <div class="removed">
+                Program Expenses: Technical infrastructure costs ($33,000-$600,000 annually) scale with user growth, covering <strong>server hosting, AI processing, and user support systems</strong> necessary to serve thousands of students effectively. The Year 1 costs of $33,000 reflect only our direct expenses, as Heterodox Academy is covering the majority of infrastructure costs through the Arthur Vining Davis Foundation grant during our startup phase.
+            </div>
+
+            <div class="added">
+                Program Expenses: Infrastructure costs for deploying educational tools include <strong>cloud hosting services, AI services, and related program delivery costs. These are third-party costs paid to service providers such as cloud platforms and AI companies</strong>.
+            </div>
+
+            <div class="justification">
+                Per user decision and Ren's guidance: Frame as third-party costs for deploying tools (not developing/running "our" platform). Generic description: "cloud hosting services, AI services, and program delivery costs."
+            </div>
+        </div>
+
+        <!-- Section 16: Strategic Partnerships -->
+        <div class="change-card" id="partnerships">
+            <h3>16. Strategic Partnerships</h3>
+
+            <div class="removed">
+                Heterodox Academy (HxA) to bring <strong>Sway</strong> to HxA members and campus chapters<br>
+                Dr. Barbara Oakley's... MOOC "Learning How to Learn," where <strong>Sway</strong> serves as an optional activity
+            </div>
+
+            <div class="added">
+                Heterodox Academy (HxA) to bring <strong>AI-facilitated dialogue tools</strong> to HxA members and campus chapters<br>
+                Dr. Barbara Oakley's... MOOC "Learning How to Learn," where <strong>AI-facilitated dialogue</strong> serves as an optional activity
+            </div>
+
+            <div class="justification">
+                Consistent with removing Sway-specific branding from forward-looking and ongoing activities.
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Additional Minor Changes Throughout</h2>
+
+        <div class="change-card">
+            <h3>Terminology Replacements (Applied Consistently)</h3>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Original Term</th>
+                        <th>Replaced With</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"Sway" (as product name)</td>
+                        <td>"AI-facilitated dialogue tools" or "educational tools"</td>
+                    </tr>
+                    <tr>
+                        <td>"the platform"</td>
+                        <td>"the tools" or "our programs"</td>
+                    </tr>
+                    <tr>
+                        <td>"platform operations"</td>
+                        <td>"program operations"</td>
+                    </tr>
+                    <tr>
+                        <td>"platform development"</td>
+                        <td>Removed or replaced with "program development"</td>
+                    </tr>
+                    <tr>
+                        <td>"software engineers"</td>
+                        <td>"research support staff"</td>
+                    </tr>
+                    <tr>
+                        <td>"development costs"</td>
+                        <td>"research costs"</td>
+                    </tr>
+                    <tr>
+                        <td>"technical infrastructure"</td>
+                        <td>"program infrastructure"</td>
+                    </tr>
+                    <tr>
+                        <td>"our platform"</td>
+                        <td>"our programs" or "the tools we deploy"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>Alignment Verification</h2>
+
+        <div class="change-card">
+            <h3>Consistency with Other Documents</h3>
+            <p>These changes align with:</p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                <li><strong>Revised Mission Statement:</strong> "deploy and study" instead of "develop and deploy"</li>
+                <li><strong>Revised CEO Job Description:</strong> Focus on research, education, and partnerships (not IP development)</li>
+                <li><strong>Revised CTOO Job Description:</strong> "evaluate and advise" on technology, not develop it</li>
+                <li><strong>Budget Program Descriptions:</strong> Research and education focus</li>
+                <li><strong>Ren's January 20, 2026 guidance:</strong> Clear separation between nonprofit (research/education) and for-profit (IP ownership)</li>
+            </ul>
+        </div>
+
+        <div class="guidance-box">
+            <strong>Note:</strong> The revised narrative maintains all the substance and impact of the original while repositioning the nonprofit's relationship to the technology. The nonprofit deploys, studies, and evaluates educational tools - it does not develop or own them. This creates a clean separation that satisfies 501(c)(3) requirements while allowing the work to continue.
+        </div>
+
+    </div>
+</body>
+</html>

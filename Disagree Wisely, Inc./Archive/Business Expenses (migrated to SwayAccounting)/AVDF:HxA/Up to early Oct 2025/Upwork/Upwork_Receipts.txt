@@ -1,0 +1,954 @@
+--- Page 1 ---
+Transaction summary
+Reference ID # 812363145
+Payment
+Date Payment method Receipts Amount
+May 28, 2025 Mastercard 7654 Attached $2,133.57
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for May 19-May 25, 2025Bui Truong Giang
+Sway-$601.45
+Hourly Optimize Flask app
+Invoice for May 19-May 25, 2025Muoi Nguyen -$1,532.12
+Total charges -$2,133.57
+Contracts: -$2,026.17      Fees: -$101.31      Taxes: -$6.09
+
+--- Page 2 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T812363145
+DATE May 28, 2025
+TOTAL AMOUNT $2,133.57
+PAYMENT INFORMATION AMOUNT
+Amount due 2,133.57
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,133.57
+
+--- Page 3 ---
+Transaction summary
+Reference ID # 812363552
+Payment
+Date Payment method Receipts Amount
+May 28, 2025 Mastercard 7654 Attached $134.27
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$134.27
+Contract: -$127.50      Fees: -$6.38      Taxes: -$0.39
+
+--- Page 4 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T812363552
+DATE May 28, 2025
+TOTAL AMOUNT $134.27
+PAYMENT INFORMATION AMOUNT
+Amount due 134.27
+TOTAL AMOUNT:
+Paid from Mastercard 7654$134.27
+
+--- Page 5 ---
+Transaction summary
+Reference ID # 814085609
+Payment
+Date Payment method Receipts Amount
+Jun 2, 2025 Mastercard 7654 Attached $2,197.43
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for May 26-Jun 1, 2025Bui Truong Giang
+Sway-$633.72
+Hourly Optimize Flask app
+Invoice for May 26-Jun 1, 2025Muoi Nguyen -$1,563.71
+Total charges -$2,197.43
+Contracts: -$2,086.83      Fees: -$104.34      Taxes: -$6.26
+
+--- Page 6 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T814085609
+DATE Jun 2, 2025
+TOTAL AMOUNT $2,197.43
+PAYMENT INFORMATION AMOUNT
+Amount due 2,197.43
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,197.43
+
+--- Page 7 ---
+Transaction summary
+Reference ID # 814655596
+Payment
+Date Payment method Receipts Amount
+Jun 5, 2025 Mastercard 7654 Attached $150.06
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$150.06
+Contract: -$142.50      Fees: -$7.13      Taxes: -$0.43
+
+--- Page 8 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T814655596
+DATE Jun 5, 2025
+TOTAL AMOUNT $150.06
+PAYMENT INFORMATION AMOUNT
+Amount due 150.06
+TOTAL AMOUNT:
+Paid from Mastercard 7654$150.06
+
+--- Page 9 ---
+Transaction summary
+Reference ID # 816238517
+Payment
+Date Payment method Receipts Amount
+Jun 9, 2025 Mastercard 7654 Attached $2,754.13
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jun 2-Jun 8, 2025Bui Truong Giang
+Sway-$690.25
+Hourly Optimize Flask app
+Invoice for Jun 2-Jun 8, 2025Muoi Nguyen -$2,063.88
+Total charges -$2,754.13
+Contracts: -$2,615.50      Fees: -$130.78      Taxes: -$7.85
+
+--- Page 10 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T816238517
+DATE Jun 9, 2025
+TOTAL AMOUNT $2,754.13
+PAYMENT INFORMATION AMOUNT
+Amount due 2,754.13
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,754.13
+
+--- Page 11 ---
+Transaction summary
+Reference ID # 818381116
+Payment
+Date Payment method Receipts Amount
+Jun 16, 2025 Mastercard 7654 Attached $2,775.71
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jun 9-Jun 15, 2025Bui Truong Giang
+Sway-$653.91
+Hourly Optimize Flask app
+Invoice for Jun 9-Jun 15, 2025Muoi Nguyen -$2,121.80
+Total charges -$2,775.71
+Contracts: -$2,636.00      Fees: -$131.80      Taxes: -$7.91
+
+--- Page 12 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T818381116
+DATE Jun 16, 2025
+TOTAL AMOUNT $2,775.71
+PAYMENT INFORMATION AMOUNT
+Amount due 2,775.71
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,775.71
+
+--- Page 13 ---
+Transaction summary
+Reference ID # 820545441
+Payment
+Date Payment method Receipts Amount
+Jun 23, 2025 Mastercard 7654 Attached $1,911.38
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jun 16-Jun 22, 2025Bui Truong Giang
+Sway-$674.10
+Hourly Optimize Flask app
+Invoice for Jun 16-Jun 22, 2025Muoi Nguyen -$1,210.95
+Bonus Edit lecture footage, slides, audio into polished video Mihir Chevli -$26.33
+Total charges -$1,911.38
+Contracts: -$1,815.17      Fees: -$90.76      Taxes: -$5.45
+
+--- Page 14 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T820545441
+DATE Jun 23, 2025
+TOTAL AMOUNT $1,911.38
+PAYMENT INFORMATION AMOUNT
+Amount due 1,911.38
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,911.38
+
+--- Page 15 ---
+Transaction summary
+Reference ID # 822754447
+Payment
+Date Payment method Receipts Amount
+Jun 30, 2025 Mastercard 7654 Attached $2,250.80
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jun 23-Jun 29, 2025Bui Truong Giang
+Sway-$666.03
+Hourly Optimize Flask app
+Invoice for Jun 23-Jun 29, 2025Muoi Nguyen -$1,584.77
+Total charges -$2,250.80
+Contracts: -$2,137.50      Fees: -$106.88      Taxes: -$6.42
+
+--- Page 16 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T822754447
+DATE Jun 30, 2025
+TOTAL AMOUNT $2,250.80
+PAYMENT INFORMATION AMOUNT
+Amount due 2,250.80
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,250.80
+
+--- Page 17 ---
+Transaction summary
+Reference ID # 824937417
+Payment
+Date Payment method Receipts Amount
+Jul 7, 2025 Mastercard 7654 Attached $2,634.62
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jun 30-Jul 6, 2025Bui Truong Giang
+Sway-$702.36
+Hourly Optimize Flask app
+Invoice for Jun 30-Jul 6, 2025Muoi Nguyen -$1,932.26
+Total charges -$2,634.62
+Contracts: -$2,502.00      Fees: -$125.10      Taxes: -$7.52
+
+--- Page 18 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T824937417
+DATE Jul 7, 2025
+TOTAL AMOUNT $2,634.62
+PAYMENT INFORMATION AMOUNT
+Amount due 2,634.62
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,634.62
+
+--- Page 19 ---
+Transaction summary
+Reference ID # 827095899
+Payment
+Date Payment method Receipts Amount
+Jul 14, 2025 Mastercard 7654 Attached $2,444.02
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jul 7-Jul 13, 2025Bui Truong Giang
+Sway-$532.82
+Hourly Optimize Flask app
+Invoice for Jul 7-Jul 13, 2025Muoi Nguyen -$1,911.20
+Total charges -$2,444.02
+Contracts: -$2,321.00      Fees: -$116.05      Taxes: -$6.97
+
+--- Page 20 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T827095899
+DATE Jul 14, 2025
+TOTAL AMOUNT $2,444.02
+PAYMENT INFORMATION AMOUNT
+Amount due 2,444.02
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,444.02
+
+--- Page 21 ---
+Transaction summary
+Reference ID # 827860618
+Payment
+Date Payment method Receipts Amount
+Jul 18, 2025 Mastercard 7654 Attached $658.67
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$334.86
+Bonus Optimize Flask app Muoi Nguyen -$323.81
+Total charges -$658.67
+Contracts: -$625.50      Fees: -$31.28      Taxes: -$1.89
+
+--- Page 22 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T827860618
+DATE Jul 18, 2025
+TOTAL AMOUNT $658.67
+PAYMENT INFORMATION AMOUNT
+Amount due 658.67
+TOTAL AMOUNT:
+Paid from Mastercard 7654$658.67
+
+--- Page 23 ---
+Transaction summary
+Reference ID # 829263717
+Payment
+Date Payment method Receipts Amount
+Jul 21, 2025 Mastercard 7654 Attached $2,657.96
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jul 14-Jul 20, 2025Bui Truong Giang
+Sway-$625.67
+Hourly Optimize Flask app
+Invoice for Jul 14-Jul 20, 2025Muoi Nguyen -$2,032.29
+Total charges -$2,657.96
+Contracts: -$2,524.17      Fees: -$126.21      Taxes: -$7.58
+
+--- Page 24 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T829263717
+DATE Jul 21, 2025
+TOTAL AMOUNT $2,657.96
+PAYMENT INFORMATION AMOUNT
+Amount due 2,657.96
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,657.96
+
+--- Page 25 ---
+Transaction summary
+Reference ID # 831406601
+Payment
+Date Payment method Receipts Amount
+Jul 28, 2025 Mastercard 7654 Attached $2,257.82
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jul 21-Jul 27, 2025Bui Truong Giang
+Sway-$504.57
+Hourly Optimize Flask app
+Invoice for Jul 21-Jul 27, 2025Muoi Nguyen -$1,753.25
+Total charges -$2,257.82
+Contracts: -$2,144.17      Fees: -$107.21      Taxes: -$6.44
+
+--- Page 26 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T831406601
+DATE Jul 28, 2025
+TOTAL AMOUNT $2,257.82
+PAYMENT INFORMATION AMOUNT
+Amount due 2,257.82
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,257.82
+
+--- Page 27 ---
+Transaction summary
+Reference ID # 831769250
+Payment
+Date Payment method Receipts Amount
+Jul 30, 2025 Mastercard 7654 Attached $245.35
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$245.35
+Contract: -$233.00      Fees: -$11.65      Taxes: -$0.70
+
+--- Page 28 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T831769250
+DATE Jul 30, 2025
+TOTAL AMOUNT $245.35
+PAYMENT INFORMATION AMOUNT
+Amount due 245.35
+TOTAL AMOUNT:
+Paid from Mastercard 7654$245.35
+
+--- Page 29 ---
+Transaction summary
+Reference ID # 833617888
+Payment
+Date Payment method Receipts Amount
+Aug 4, 2025 Mastercard 7654 Attached $2,133.04
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Jul 28-Aug 3, 2025Bui Truong Giang
+Sway-$516.68
+Hourly Optimize Flask app
+Invoice for Jul 28-Aug 3, 2025Muoi Nguyen -$1,616.36
+Total charges -$2,133.04
+Contracts: -$2,025.67      Fees: -$101.28      Taxes: -$6.09
+
+--- Page 30 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T833617888
+DATE Aug 4, 2025
+TOTAL AMOUNT $2,133.04
+PAYMENT INFORMATION AMOUNT
+Amount due 2,133.04
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,133.04
+
+--- Page 31 ---
+Transaction summary
+Reference ID # 835793533
+Payment
+Date Payment method Receipts Amount
+Aug 11, 2025 Mastercard 7654 Attached $2,288.18
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Full-stack software engineer
+Invoice for Aug 4-Aug 10, 2025Bui Truong Giang
+Sway-$145.32
+Hourly Optimize Flask app
+Invoice for Aug 4-Aug 10, 2025Muoi Nguyen -$2,142.86
+Total charges -$2,288.18
+Contracts: -$2,173.00      Fees: -$108.65      Taxes: -$6.53
+
+--- Page 32 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T835793533
+DATE Aug 11, 2025
+TOTAL AMOUNT $2,288.18
+PAYMENT INFORMATION AMOUNT
+Amount due 2,288.18
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,288.18
+
+--- Page 33 ---
+Transaction summary
+Reference ID # 835928643
+Payment
+Date Payment method Receipts Amount
+Aug 12, 2025 Mastercard 7654 Attached $434.37
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$434.37
+Contract: -$412.50      Fees: -$20.63      Taxes: -$1.24
+
+--- Page 34 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T835928643
+DATE Aug 12, 2025
+TOTAL AMOUNT $434.37
+PAYMENT INFORMATION AMOUNT
+Amount due 434.37
+TOTAL AMOUNT:
+Paid from Mastercard 7654$434.37
+
+--- Page 35 ---
+Transaction summary
+Reference ID # 837926041
+Payment
+Date Payment method Receipts Amount
+Aug 18, 2025 Mastercard 7654 Attached $2,309.23
+Charges
+Type Contract / Details Freelancer Amount
+Hourly Optimize Flask app
+Invoice for Aug 11-Aug 17, 2025Muoi Nguyen -$2,063.88
+Bonus Optimize Flask app Muoi Nguyen -$245.35
+Total charges -$2,309.23
+Contracts: -$2,193.00      Fees: -$109.65      Taxes: -$6.58
+
+--- Page 36 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T837926041
+DATE Aug 18, 2025
+TOTAL AMOUNT $2,309.23
+PAYMENT INFORMATION AMOUNT
+Amount due 2,309.23
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,309.23
+
+--- Page 37 ---
+Transaction summary
+Reference ID # 838060455
+Payment
+Date Payment method Receipts Amount
+Aug 19, 2025 Mastercard 7654 Attached $1,309.94
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$1,309.94
+Contract: -$1,244.00      Fees: -$62.20      Taxes: -$3.74
+
+--- Page 38 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T838060455
+DATE Aug 19, 2025
+TOTAL AMOUNT $1,309.94
+PAYMENT INFORMATION AMOUNT
+Amount due 1,309.94
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,309.94
+
+--- Page 39 ---
+Transaction summary
+Reference ID # 840095937
+Payment
+Date Payment method Receipts Amount
+Aug 25, 2025 Mastercard 7654 Attached $1,937.52
+Charges
+Type Contract / Details Freelancer Amount
+Hourly Optimize Flask app
+Invoice for Aug 18-Aug 24, 2025Muoi Nguyen -$1,937.52
+Contract: -$1,840.00      Fees: -$92.00      Taxes: -$5.52
+
+--- Page 40 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T840095937
+DATE Aug 25, 2025
+TOTAL AMOUNT $1,937.52
+PAYMENT INFORMATION AMOUNT
+Amount due 1,937.52
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,937.52
+
+--- Page 41 ---
+Transaction summary
+Reference ID # 842277294
+Payment
+Date Payment method Receipts Amount
+Sep 1, 2025 Mastercard 7654 Attached $1,942.79
+Charges
+Type Contract / Details Freelancer Amount
+Hourly Optimize Flask app
+Invoice for Aug 25-Aug 31, 2025Muoi Nguyen -$1,942.79
+Contract: -$1,845.00      Fees: -$92.25      Taxes: -$5.54
+
+--- Page 42 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T842277294
+DATE Sep 1, 2025
+TOTAL AMOUNT $1,942.79
+PAYMENT INFORMATION AMOUNT
+Amount due 1,942.79
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,942.79
+
+--- Page 43 ---
+Transaction summary
+Reference ID # 843074981
+Payment
+Date Payment method Receipts Amount
+Sep 5, 2025 Mastercard 7654 Attached $340.12
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$340.12
+Contract: -$323.00      Fees: -$16.15      Taxes: -$0.97
+
+--- Page 44 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T843074981
+DATE Sep 5, 2025
+TOTAL AMOUNT $340.12
+PAYMENT INFORMATION AMOUNT
+Amount due 340.12
+TOTAL AMOUNT:
+Paid from Mastercard 7654$340.12
+
+--- Page 45 ---
+Transaction summary
+Reference ID # 844504240
+Payment
+Date Payment method Receipts Amount
+Sep 8, 2025 Mastercard 7654 Attached $1,974.38
+Charges
+Type Contract / Details Freelancer Amount
+Hourly Optimize Flask app
+Invoice for Sep 1-Sep 7, 2025Muoi Nguyen -$1,974.38
+Contract: -$1,875.00      Fees: -$93.75      Taxes: -$5.63
+
+--- Page 46 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T844504240
+DATE Sep 8, 2025
+TOTAL AMOUNT $1,974.38
+PAYMENT INFORMATION AMOUNT
+Amount due 1,974.38
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,974.38
+
+--- Page 47 ---
+Transaction summary
+Reference ID # 844873181
+Payment
+Date Payment method Receipts Amount
+Sep 10, 2025 Mastercard 7654 Attached $1,807.31
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Bonus Assist with Sway development Tuan Anh H
+Sway-$1,807.31
+Contract: -$1,706.86      Fees: -$95.33      Taxes: -$5.12
+
+--- Page 48 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T844873181
+DATE Sep 10, 2025
+TOTAL AMOUNT $1,807.31
+PAYMENT INFORMATION AMOUNT
+Amount due 1,807.31
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,807.31
+
+--- Page 49 ---
+Transaction summary
+Reference ID # 846691498
+Payment
+Date Payment method Receipts Amount
+Sep 15, 2025 Mastercard 7654 Attached $2,568.46
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Assist with Sway development
+Invoice for Sep 8-Sep 14, 2025Tuan Anh H
+Sway-$688.85
+Hourly Optimize Flask app
+Invoice for Sep 8-Sep 14, 2025Muoi Nguyen -$1,879.61
+Total charges -$2,568.46
+Contracts: -$2,439.17      Fees: -$121.96      Taxes: -$7.33
+
+--- Page 50 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T846691498
+DATE Sep 15, 2025
+TOTAL AMOUNT $2,568.46
+PAYMENT INFORMATION AMOUNT
+Amount due 2,568.46
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,568.46
+
+--- Page 51 ---
+Transaction summary
+Reference ID # 848892068
+Payment
+Date Payment method Receipts Amount
+Sep 22, 2025 Mastercard 7654 Attached $2,621.11
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Assist with Sway development
+Invoice for Sep 15-Sep 21, 2025Tuan Anh H
+Sway-$794.15
+Hourly Optimize Flask app
+Invoice for Sep 15-Sep 21, 2025Muoi Nguyen -$1,826.96
+Total charges -$2,621.11
+Contracts: -$2,489.17      Fees: -$124.46      Taxes: -$7.48
+
+--- Page 52 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T848892068
+DATE Sep 22, 2025
+TOTAL AMOUNT $2,621.11
+PAYMENT INFORMATION AMOUNT
+Amount due 2,621.11
+TOTAL AMOUNT:
+Paid from Mastercard 7654$2,621.11
+
+--- Page 53 ---
+Transaction summary
+Reference ID # 849030767
+Payment
+Date Payment method Receipts Amount
+Sep 23, 2025 Mastercard 7654 Attached $284.31
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$284.31
+Contract: -$270.00      Fees: -$13.50      Taxes: -$0.81
+
+--- Page 54 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T849030767
+DATE Sep 23, 2025
+TOTAL AMOUNT $284.31
+PAYMENT INFORMATION AMOUNT
+Amount due 284.31
+TOTAL AMOUNT:
+Paid from Mastercard 7654$284.31
+
+--- Page 55 ---
+Transaction summary
+Reference ID # 851118015
+Payment
+Date Payment method Receipts Amount
+Sep 29, 2025 Mastercard 7654 Attached $1,948.93
+Charges
+Type Contract / Details Freelancer / Agency Amount
+Hourly Assist with Sway development
+Invoice for Sep 22-Sep 28, 2025Tuan Anh H
+Sway-$74.59
+Hourly Optimize Flask app
+Invoice for Sep 22-Sep 28, 2025Muoi Nguyen -$1,874.34
+Total charges -$1,948.93
+Contracts: -$1,850.83      Fees: -$92.54      Taxes: -$5.56
+
+--- Page 56 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T851118015
+DATE Sep 29, 2025
+TOTAL AMOUNT $1,948.93
+PAYMENT INFORMATION AMOUNT
+Amount due 1,948.93
+TOTAL AMOUNT:
+Paid from Mastercard 7654$1,948.93
+
+--- Page 57 ---
+Transaction summary
+Reference ID # 851257804
+Payment
+Date Payment method Receipts Amount
+Sep 30, 2025 Mastercard 7654 Attached $315.90
+Charges
+Type Contract / Details Freelancer Amount
+Bonus Optimize Flask app Muoi Nguyen -$315.90
+Contract: -$300.00      Fees: -$15.00      Taxes: -$0.90
+
+--- Page 58 ---
+Upwork Global Inc.
+530 Lytton Avenue, Suite 301
+Palo Alto, CA 94301
+USA
+Received
+from:Simon Cullen
+Attn: Simon Cullen
+415 South Atlantic Avenue
+Pittsburgh, PA, 15224
+United StatesRECEIPT
+RECEIPT # T851257804
+DATE Sep 30, 2025
+TOTAL AMOUNT $315.90
+PAYMENT INFORMATION AMOUNT
+Amount due 315.90
+TOTAL AMOUNT:
+Paid from Mastercard 7654$315.90

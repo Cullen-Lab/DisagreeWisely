@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Board Meeting Slides — March 6, 2026</title>
+  <style>
+    @page {
+      size: 11in 8.5in;
+      margin: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .slide {
+      width: 11in;
+      height: 8.5in;
+      padding: 0.7in 0.9in;
+      page-break-after: always;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide:last-child { page-break-after: avoid; }
+
+    /* ── Slide header stripe ──────────────────── */
+    .slide-header {
+      border-bottom: 3px solid #1a3a5c;
+      padding-bottom: 0.3in;
+      margin-bottom: 0.35in;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .slide-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a3a5c;
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .slide-number {
+      font-size: 12px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    /* ── Footer ───────────────────────────────── */
+    .slide-footer {
+      margin-top: auto;
+      padding-top: 0.2in;
+      border-top: 1px solid #e0e0e0;
+      font-size: 10px;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── Content styles ───────────────────────── */
+    .content { flex: 1; }
+
+    h2 {
+      font-size: 20px;
+      color: #1a3a5c;
+      margin-top: 0.25in;
+      margin-bottom: 0.1in;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #2d5a8a;
+      margin-top: 0.18in;
+      margin-bottom: 0.06in;
+    }
+
+    ul {
+      margin-left: 0.3in;
+      margin-bottom: 0.12in;
+    }
+
+    li {
+      margin-bottom: 0.06in;
+      font-size: 14px;
+    }
+
+    li li { font-size: 13px; color: #444; }
+
+    .highlight {
+      background: #f0f5ff;
+      border-left: 4px solid #1a3a5c;
+      padding: 0.1in 0.15in;
+      margin: 0.12in 0;
+      font-size: 13px;
+    }
+
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #c53030;
+      padding: 0.1in 0.15in;
+      margin: 0.12in 0;
+      font-size: 13px;
+    }
+
+    .green-box {
+      background: #f0fff4;
+      border-left: 4px solid #38a169;
+      padding: 0.1in 0.15in;
+      margin: 0.12in 0;
+      font-size: 13px;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 0.4in;
+    }
+
+    .two-col > div { flex: 1; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.1in 0;
+      font-size: 13px;
+    }
+
+    th {
+      text-align: left;
+      background: #f5f7fa;
+      padding: 0.06in 0.1in;
+      border-bottom: 2px solid #1a3a5c;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a3a5c;
+    }
+
+    td {
+      padding: 0.06in 0.1in;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    strong { color: #1a3a5c; }
+
+    .tag-simon {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a3a5c;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 3px;
+    }
+
+    .tag-nick {
+      display: inline-block;
+      background: #e6f9ee;
+      color: #276749;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 3px;
+    }
+
+    .tag-all {
+      display: inline-block;
+      background: #f3e8ff;
+      color: #553c9a;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 3px;
+    }
+
+    .big-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a3a5c;
+      line-height: 1.1;
+    }
+
+    .big-label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 0.15in;
+    }
+
+    .stats-grid {
+      display: flex;
+      gap: 0.4in;
+      margin: 0.15in 0;
+    }
+
+    .stat-card {
+      flex: 1;
+      background: #f5f7fa;
+      border-radius: 8px;
+      padding: 0.15in 0.2in;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 1: TITLE                                              -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+    <div style="font-size:16px; color:#666; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.3in;">Disagree Wisely, Inc.</div>
+    <div style="font-size:40px; font-weight:800; color:#1a3a5c; margin-bottom:0.15in;">First Full Board Meeting</div>
+    <div style="font-size:18px; color:#666; margin-bottom:0.4in;">March 6, 2026 &middot; Zoom</div>
+    <div style="font-size:14px; color:#999;">Also serving as the 2026 Annual Meeting (Bylaws &sect;4.1)</div>
+    <div style="margin-top:0.5in; font-size:13px; color:#999;">
+      Simon Cullen &middot; Nicholas DiBella &middot; Neil Thomason &middot; Ken Stern &middot; Barbara Oakley
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>1</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 2: AGENDA                                             -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Agenda</div>
+      <div class="slide-subtitle">60 minutes (extendable to 90&ndash;120 min)</div>
+    </div>
+    <div class="slide-number">2</div>
+  </div>
+  <div class="content">
+    <table>
+      <thead>
+        <tr><th style="width:70px;">Time</th><th>Topic</th><th style="width:90px;">Lead</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>5 min</td><td>Welcome &amp; Introductions</td><td><span class="tag-simon">Simon</span></td></tr>
+        <tr><td>10 min</td><td>Annual Governance: Officer Elections, COI Attestation</td><td><span class="tag-simon">Simon</span></td></tr>
+        <tr><td>15 min</td><td>501(c)(3) &amp; Restructuring Update</td><td><span class="tag-simon">Simon</span></td></tr>
+        <tr><td>5 min</td><td>Sway IP &amp; CMU Dispute</td><td><span class="tag-simon">Simon</span></td></tr>
+        <tr><td>10 min</td><td>Financial Report</td><td><span class="tag-nick">Nick</span></td></tr>
+        <tr><td>5 min</td><td>Growth &amp; Impact</td><td><span class="tag-simon">Simon</span></td></tr>
+        <tr><td>5 min</td><td>Q&amp;A &amp; Open Discussion</td><td><span class="tag-all">All</span></td></tr>
+        <tr><td>5 min</td><td>Next Steps &amp; Adjournment</td><td><span class="tag-simon">Simon</span></td></tr>
+      </tbody>
+    </table>
+    <div class="highlight" style="margin-top:0.25in;">
+      <strong>Note:</strong> If board members have additional time, the Q&amp;A block expands naturally. Topics for extended discussion: strategic priorities, for-profit PBC, CMU IP details, fundraising strategy, leveraging Ken and Barbara's networks.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 3: GOVERNANCE                                         -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Annual Governance Items</div>
+      <div class="slide-subtitle"><span class="tag-simon">Simon</span> &mdash; 10 min</div>
+    </div>
+    <div class="slide-number">3</div>
+  </div>
+  <div class="content">
+    <h2>Officer Elections (Bylaws &sect;5.1)</h2>
+    <ul>
+      <li>Propose re-electing current officers and director:
+        <ul>
+          <li><strong>Simon Cullen</strong> &mdash; President &amp; CEO</li>
+          <li><strong>Nicholas DiBella</strong> &mdash; Secretary, Treasurer &amp; CTOO</li>
+          <li><strong>Neil Thomason</strong> &mdash; Director</li>
+        </ul>
+      </li>
+      <li>Vote individually; each person <strong>abstains</strong> from own vote (remaining 4 vote)</li>
+      <li>Simple majority of those voting required</li>
+    </ul>
+
+    <h2>Conflict of Interest Attestation</h2>
+    <ul>
+      <li>COI policy will be sent after the meeting; each director replies by email with attestation</li>
+      <li><strong>Simon &amp; Nick disclose:</strong> compensated officers (through HxA, not DW funds) and co-owners of the Sway IP</li>
+      <li>This dual role is why the board was expanded to 5 with a <strong>disinterested majority</strong> (Thomason, Stern, Oakley)</li>
+    </ul>
+
+    <h2>Bylaws Receipt</h2>
+    <ul>
+      <li>Bylaws will be sent after the meeting; Ken and Barbara reply by email confirming receipt and agreement</li>
+      <li>Email confirmations preserved as the record</li>
+    </ul>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 4: RESTRUCTURING                                      -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">501(c)(3) &amp; Restructuring</div>
+      <div class="slide-subtitle"><span class="tag-simon">Simon</span> &mdash; 15 min (part 1 of 2)</div>
+    </div>
+    <div class="slide-number">4</div>
+  </div>
+  <div class="content">
+    <h2>Why We Are Restructuring</h2>
+    <ul>
+      <li>DW was originally intended to house research, education, <em>and</em> Sway development</li>
+      <li>Foundation Group (our 501(c)(3) advisors) recommended a <strong>clean separation</strong>: DW focuses on research and education; Sway IP moves to a separate for-profit PBC</li>
+      <li>This is a common nonprofit/for-profit structure that keeps DW's tax-exempt status clean</li>
+      <li>DW accesses Sway for its programs under a free license from the co-founders</li>
+    </ul>
+
+    <h2>Application Status</h2>
+    <ul>
+      <li>Foundation Group (liaison: Ren Henderson) is finalizing the IRS Form 1023</li>
+      <li>Target submission: <strong>mid-April 2026</strong></li>
+      <li>Requesting <strong>expedited IRS review</strong> &mdash; FIPSE grant (~$800K) cannot be disbursed without 501(c)(3) approval</li>
+      <li>Supporting letter from grantor (Notre Dame) requested</li>
+    </ul>
+
+    <h2>For-Profit PBC</h2>
+    <ul>
+      <li>Planned but not yet incorporated</li>
+      <li>Will hold Sway IP, handle product development</li>
+      <li>Will license the platform to DW for research/education at no cost</li>
+    </ul>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>4</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 5: COMPLIANCE TRANSITION                              -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">The Compliance Transition</div>
+      <div class="slide-subtitle"><span class="tag-simon">Simon</span> &mdash; 15 min (part 2 of 2)</div>
+    </div>
+    <div class="slide-number">5</div>
+  </div>
+  <div class="content">
+    <div class="warn-box">
+      <strong>Key issue:</strong> The operational separation is not yet complete. Some development costs continue to flow through DW via the HxA/AVDF services agreement during the transition.
+    </div>
+
+    <h2>HxA/AVDF Agreement</h2>
+    <ul>
+      <li>Phase 2 agreement (Jan&ndash;Nov 2026) commits DW to "execute technical development" &mdash; language predates restructuring</li>
+      <li>Simon proposed amending. HxA ED Michael Regnier responded (March 5): <strong>not feasible</strong> with 3 months left &mdash; would need legal review, HxA board COI approval, AVDF sign-off</li>
+      <li>Practical outcome: DW continues invoicing HxA for some development costs likely through May/June 2026 (when AVDF development budget is used up). <strong>DW is fully reimbursed</strong> &mdash; net financial impact is zero.</li>
+    </ul>
+
+    <h2>Learning Agency / Tools Competition (~$125K)</h2>
+    <ul>
+      <li>$150K prize for Sway development. $25K spent (Instructor Insights &mdash; complete). ~$125K remains.</li>
+      <li>Funds can no longer be compliantly spent on development through DW</li>
+      <li>Plan: <strong>return ~$125K</strong> to Learning Agency for redirection to the PBC or to Simon/Nick personally</li>
+      <li>Met with Kristyn Manoukian (Learning Agency) on March 2 &mdash; receptive, no major concerns. Coordinating with Digital Harbor Foundation (fiscal administrator).</li>
+    </ul>
+
+    <div class="green-box">
+      <strong>Mitigating factors:</strong> Restructuring is genuine and proactive. DW voluntarily stopped spending LA development funds before being told to. The application narrative frames DW broadly as research and education. Budget projections show a clean separation going forward.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>5</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 6: CMU IP                                             -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Sway IP &amp; CMU Dispute</div>
+      <div class="slide-subtitle"><span class="tag-simon">Simon</span> &mdash; 5 min</div>
+    </div>
+    <div class="slide-number">6</div>
+  </div>
+  <div class="content">
+    <div class="highlight">
+      This is Simon and Nick's <strong>personal matter</strong> (DW does not own Sway IP), but the board should be aware because DW's programs depend on Sway.
+    </div>
+
+    <h2>Background</h2>
+    <ul>
+      <li>CMU (via CTTEC and the General Counsel's office) asserts a <strong>joint ownership interest</strong> in Sway based on claimed contributions by CMU staff/interns during early development (2023&ndash;2024)</li>
+      <li>Simon and Nick assert sole ownership under CMU's IP Policy &sect;3-6-1: educational courseware belongs to the creator "in all cases," regardless of university sponsorship or facilities</li>
+      <li>CMU-affiliated code in the current codebase: <strong>0.77%</strong> (454 lines of commodity CSS, HTML, boilerplate)</li>
+    </ul>
+
+    <h2>Current Status</h2>
+    <ul>
+      <li>Legal counsel (David Kalson, Dentons) represented Simon and Nick through early 2026; assessed legal position as strong</li>
+      <li>After CMU's General Counsel declined to waive ownership, Simon and Nick <strong>ended the Dentons engagement</strong> in February 2026 to pursue a different approach</li>
+      <li>CMU has been notified to expect direct contact or new representation</li>
+      <li>We are <strong>evaluating our options</strong>. Board input is welcome, though this is technically not within DW's purview.</li>
+    </ul>
+
+    <h2>Risk to DW</h2>
+    <ul>
+      <li>Low in the near term. Sway continues to operate and grow. CMU has not taken any action to restrict use.</li>
+      <li>If the dispute escalated, it could create uncertainty around the IP that underpins DW's programs &mdash; but considered unlikely given the strength of the courseware exemption</li>
+    </ul>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 7: FINANCIALS                                         -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Financial Report</div>
+      <div class="slide-subtitle"><span class="tag-nick">Nick</span> &mdash; 10 min</div>
+    </div>
+    <div class="slide-number">7</div>
+  </div>
+  <div class="content">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="big-number">~$173K</div>
+        <div class="big-label">Gross Cash</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-number" style="color:#c53030;">-$125K</div>
+        <div class="big-label">LA Funds to Return</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-number" style="color:#276749;">~$48K</div>
+        <div class="big-label">Working Cash</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3>Active Revenue</h3>
+        <ul>
+          <li>HxA/AVDF: ~$284K (two phases)</li>
+          <li>Craig Snider: $50K</li>
+          <li>Lindy Snider: $25K</li>
+          <li>Sway Classroom (HxA): $13,171</li>
+          <li>Ben Delo: $20K (remainder)</li>
+        </ul>
+        <h3>Secured (awaiting 501(c)(3))</h3>
+        <ul>
+          <li><strong>FIPSE: ~$800K</strong> &mdash; critical near-term</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pending Applications</h3>
+        <ul>
+          <li>ECI: ~$233K (Wake Forest/NC State)</li>
+          <li>NewSchools Venture Fund</li>
+          <li>TWCF: $5M+ (if invited to full app)</li>
+        </ul>
+        <h3>Compensation</h3>
+        <ul>
+          <li><strong>No one paid from DW funds</strong></li>
+          <li>All compensation via HxA reimbursement</li>
+          <li>Board members: uncompensated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top:0.15in;">
+      <strong>Banking:</strong> BlueVine Business Checking (Coastal Community Bank, FDIC). Account access: Cullen &amp; DiBella. Payroll: Gusto. Payments: Bill.com (no cash/P2P). Fiscal year: Jan 1 &ndash; Dec 31.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>7</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 8: GROWTH                                             -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Growth &amp; Impact</div>
+      <div class="slide-subtitle"><span class="tag-simon">Simon</span> &mdash; 5 min</div>
+    </div>
+    <div class="slide-number">8</div>
+  </div>
+  <div class="content">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="big-number">80+</div>
+        <div class="big-label">Institutions</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-number">~10,000</div>
+        <div class="big-label">Students</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-number">3&ndash;4x</div>
+        <div class="big-label">Growth (2025)</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:0.2in;">
+      <div>
+        <h3>Highlights</h3>
+        <ul>
+          <li><strong>Chronicle of Higher Education</strong> dedicated feature</li>
+          <li>Adopted at R1s, liberal arts colleges, community colleges, HBCUs, Hispanic-serving institutions</li>
+          <li>Instructor Insights dashboard complete &mdash; automated reports after every assignment</li>
+          <li>Rachel Sipser hired as Director of Communications (first US-based hire)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Research &amp; Expansion</h3>
+        <ul>
+          <li>Active research program: bias studies, impact assessments</li>
+          <li>Growing faculty research partnerships</li>
+          <li>Sway Classroom (K&ndash;12) launched &mdash; led by Dr. Michael Strambler (Yale School of Medicine)</li>
+          <li>Partnerships in development with major civics education nonprofits</li>
+          <li>$4M DOE/FIPSE consortium grant secured (research across 125 campuses)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>8</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 9: Q&A + NEXT STEPS                                   -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="slide-title">Q&amp;A &amp; Next Steps</div>
+      <div class="slide-subtitle"><span class="tag-all">All</span> &mdash; 10 min</div>
+    </div>
+    <div class="slide-number">9</div>
+  </div>
+  <div class="content">
+    <h2>Open Discussion</h2>
+    <ul>
+      <li>Any questions or concerns about what we&rsquo;ve covered?</li>
+      <li>What areas of the organization are you most interested in being involved with?</li>
+      <li>Connections that might help with fundraising, partnerships, or research?</li>
+    </ul>
+
+    <h2>Post-Meeting Follow-Ups (by email)</h2>
+    <ul>
+      <li><strong>COI Policy</strong> &mdash; reply with attestation</li>
+      <li><strong>Bylaws</strong> &mdash; Ken &amp; Barbara reply confirming receipt</li>
+      <li><strong>Onboarding Guide</strong> &mdash; written reference for today&rsquo;s discussion + insurance, policies, financials</li>
+      <li><strong>Board Reference Site</strong> &mdash; full documents, history, compliance calendar</li>
+      <li><strong>Meeting minutes</strong> &mdash; drafted from transcript, sent for review; recording destroyed after</li>
+    </ul>
+
+    <h2>Going Forward</h2>
+    <ul>
+      <li><strong>Next meeting:</strong> Q2 2026 (quarterly)</li>
+      <li><strong>Email votes:</strong> reply-all with your vote; email signature = signed consent</li>
+      <li><strong>Response time:</strong> 5&ndash;7 days for votes; few days for general matters</li>
+      <li><strong>Time commitment:</strong> ~1&ndash;2 hours/month</li>
+    </ul>
+
+    <div style="text-align:center; margin-top:0.3in; color:#666; font-size:16px;">
+      Thank you for joining the board. We are glad to have you.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>Disagree Wisely, Inc. &mdash; Confidential</span>
+    <span>9</span>
+  </div>
+</div>
+
+</body>
+</html>

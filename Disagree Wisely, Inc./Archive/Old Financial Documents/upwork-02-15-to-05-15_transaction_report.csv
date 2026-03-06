@@ -1,0 +1,92 @@
+Date,Transaction ID,Transaction Type,Transaction Summary,Transaction Summary Details,Description 1,Description 2,Description 3,Agency,Freelancer,Team,Account Name,PO,Ref ID,Amount $,Amount in local currency,Currency,Payment Method
+"May 15, 2025",808067264,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 808134034,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,808134034,200.07,,,American Express 5003
+"May 14, 2025",808067264,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$9.50 x 6.0% = $0.57,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,808067269,-0.57,,,
+"May 14, 2025",808067264,Marketplace Fee,Optimize Flask app,,Marketplace fee,$190.00 x 5.0% = $9.50,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,808067268,-9.50,,,
+"May 14, 2025",808067264,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,808067264,-190.00,,,
+"May 14, 2025",807910497,Credit,Full-stack software engineer,,Refund sent to Mastercard 9873,,,Sway,,Simon Cullen,Simon Cullen,,807910502,-210.60,,,
+"May 14, 2025",807910497,State Sales Tax,Full-stack software engineer,,Sales tax on marketplace fee,$10.00 x 6.0% = $0.60,,Sway,,Simon Cullen,Simon Cullen,,807910499,0.60,,,
+"May 14, 2025",807910497,Marketplace Fee,Full-stack software engineer,,Marketplace fee,$200.00 x 5.0% = $10.00,,Sway,,Simon Cullen,Simon Cullen,,807910498,10.00,,,
+"May 14, 2025",807910497,Refund,Full-stack software engineer,,Refund for contract price,,,Sway,,Simon Cullen,Simon Cullen,,807910497,200.00,,,
+"May 12, 2025",807359930,State Sales Tax,Full-stack software engineer,"Invoice for May 5-May 11, 2025",Pennsylvania sales tax,$31.82 x 6.0% = $1.91,,Sway,,Simon Cullen,Simon Cullen,,807360023,-1.91,,,
+"May 12, 2025",807359930,Marketplace Fee,Full-stack software engineer,"Invoice for May 5-May 11, 2025",Marketplace fee,$636.33 x 5.0% = $31.82,,Sway,,Simon Cullen,Simon Cullen,,807360006,-31.82,,,
+"May 12, 2025",807359930,Hourly,Full-stack software engineer,"Invoice for May 5-May 11, 2025","Charge for May 5-May 11, 2025",27.67 hours x $23.00 = $636.33,,Sway,,Simon Cullen,Simon Cullen,,807359930,-636.33,,,
+"May 12, 2025",806852400,State Sales Tax,Optimize Flask app,"Invoice for May 5-May 11, 2025",Pennsylvania sales tax,$95.50 x 6.0% = $5.73,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,806852503,-5.73,,,
+"May 12, 2025",806852400,Marketplace Fee,Optimize Flask app,"Invoice for May 5-May 11, 2025",Marketplace fee,"$1,910.00 x 5.0% = $95.50",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,806852485,-95.50,,,
+"May 12, 2025",806852400,Hourly,Optimize Flask app,"Invoice for May 5-May 11, 2025","Charge for May 5-May 11, 2025","63.67 hours x $30.00 = $1,910.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,806852400,-1910.00,,,
+"May 12, 2025",,Payment,Multiple transactions,,Payment from American Express 5003 - Ref ID 807584825,,,,,,Simon Cullen,,807584825,2681.29,,,American Express 5003
+"May 5, 2025",805247418,State Sales Tax,Full-stack software engineer,"Invoice for Apr 28-May 4, 2025",Pennsylvania sales tax,$20.51 x 6.05% = $1.24,,Sway,,Simon Cullen,Simon Cullen,,805247525,-1.24,,,
+"May 5, 2025",805247418,Marketplace Fee,Full-stack software engineer,"Invoice for Apr 28-May 4, 2025",Marketplace fee,$410.17 x 5.0% = $20.51,,Sway,,Simon Cullen,Simon Cullen,,805247502,-20.51,,,
+"May 5, 2025",805247418,Hourly,Full-stack software engineer,"Invoice for Apr 28-May 4, 2025","Charge for Apr 28-May 4, 2025",17.83 hours x $23.00 = $410.17,,Sway,,Simon Cullen,Simon Cullen,,805247418,-410.17,,,
+"May 5, 2025",804696451,State Sales Tax,Optimize Flask app,"Invoice for Apr 28-May 4, 2025",Pennsylvania sales tax,$89.50 x 6.0% = $5.37,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,804696571,-5.37,,,
+"May 5, 2025",804696451,Marketplace Fee,Optimize Flask app,"Invoice for Apr 28-May 4, 2025",Marketplace fee,"$1,790.00 x 5.0% = $89.50",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,804696541,-89.50,,,
+"May 5, 2025",804696451,Hourly,Optimize Flask app,"Invoice for Apr 28-May 4, 2025","Charge for Apr 28-May 4, 2025","59.67 hours x $30.00 = $1,790.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,804696451,-1790.00,,,
+"May 5, 2025",,Payment,Multiple transactions,,Payment from American Express 5003 - Ref ID 805430478,,,,,,Simon Cullen,,805430478,2316.79,,,American Express 5003
+"Apr 29, 2025",803528734,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 803528773,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,803528773,252.72,,,American Express 5003
+"Apr 29, 2025",803528734,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$12.00 x 6.0% = $0.72,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,803528738,-0.72,,,
+"Apr 29, 2025",803528734,Marketplace Fee,Optimize Flask app,,Marketplace fee,$240.00 x 5.0% = $12.00,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,803528737,-12.00,,,
+"Apr 29, 2025",803528734,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,803528734,-240.00,,,
+"Apr 28, 2025",803145420,State Sales Tax,Full-stack software engineer,"Invoice for Apr 21-Apr 27, 2025",Pennsylvania sales tax,$13.42 x 6.04% = $0.81,,Sway,,Simon Cullen,Simon Cullen,,803145498,-0.81,,,
+"Apr 28, 2025",803145420,Marketplace Fee,Full-stack software engineer,"Invoice for Apr 21-Apr 27, 2025",Marketplace fee,$268.33 x 5.0% = $13.42,,Sway,,Simon Cullen,Simon Cullen,,803145479,-13.42,,,
+"Apr 28, 2025",803145420,Hourly,Full-stack software engineer,"Invoice for Apr 21-Apr 27, 2025","Charge for Apr 21-Apr 27, 2025",11.67 hours x $23.00 = $268.33,,Sway,,Simon Cullen,Simon Cullen,,803145420,-268.33,,,
+"Apr 28, 2025",802535654,State Sales Tax,Optimize Flask app,"Invoice for Apr 21-Apr 27, 2025",Pennsylvania sales tax,$84.25 x 6.01% = $5.06,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,802535769,-5.06,,,
+"Apr 28, 2025",802535654,Marketplace Fee,Optimize Flask app,"Invoice for Apr 21-Apr 27, 2025",Marketplace fee,"$1,685.00 x 5.0% = $84.25",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,802535738,-84.25,,,
+"Apr 28, 2025",802535654,Hourly,Optimize Flask app,"Invoice for Apr 21-Apr 27, 2025","Charge for Apr 21-Apr 27, 2025","56.17 hours x $30.00 = $1,685.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,802535654,-1685.00,,,
+"Apr 28, 2025",802192710,State Sales Tax,Full-stack software engineer,,Pennsylvania sales tax,$38.00 x 6.0% = $2.28,,Sway,,Simon Cullen,Simon Cullen,,802192715,-2.28,,,
+"Apr 28, 2025",802192710,Contract Initiation Fee,Full-stack software engineer,,Contract initiation fee,$4.99,,Sway,,Simon Cullen,Simon Cullen,,802192714,-4.99,,,
+"Apr 28, 2025",802192710,Marketplace Fee,Full-stack software engineer,,Marketplace fee,$760.00 x 5.0% = $38.00,,Sway,,Simon Cullen,Simon Cullen,,802192713,-38.00,,,
+"Apr 28, 2025",802192710,Bonus,Full-stack software engineer,,Bonus given,,,Sway,,Simon Cullen,Simon Cullen,,802192710,-760.00,,,
+"Apr 28, 2025",,Payment,Multiple transactions,,Payment from Mastercard 9873 - Ref ID 803257570,,,,,,Simon Cullen,,803257570,2862.14,,,Mastercard 9873
+"Apr 22, 2025",801397519,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 801397553,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,801397553,292.22,,,American Express 5003
+"Apr 22, 2025",801397519,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$13.88 x 6.05% = $0.84,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,801397524,-0.84,,,
+"Apr 22, 2025",801397519,Marketplace Fee,Optimize Flask app,,Marketplace fee,$277.50 x 5.0% = $13.88,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,801397523,-13.88,,,
+"Apr 22, 2025",801397519,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,801397519,-277.50,,,
+"Apr 21, 2025",800409726,Payment,Optimize Flask app,"Invoice for Apr 14-Apr 20, 2025",Payment from Mastercard 9873 - Ref ID 801123478,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,801123478,1842.75,,,Mastercard 9873
+"Apr 21, 2025",800409726,State Sales Tax,Optimize Flask app,"Invoice for Apr 14-Apr 20, 2025",Pennsylvania sales tax,$87.50 x 6.0% = $5.25,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,800409835,-5.25,,,
+"Apr 21, 2025",800409726,Marketplace Fee,Optimize Flask app,"Invoice for Apr 14-Apr 20, 2025",Marketplace fee,"$1,750.00 x 5.0% = $87.50",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,800409801,-87.50,,,
+"Apr 21, 2025",800409726,Hourly,Optimize Flask app,"Invoice for Apr 14-Apr 20, 2025","Charge for Apr 14-Apr 20, 2025","58.33 hours x $30.00 = $1,750.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,800409726,-1750.00,,,
+"Apr 15, 2025",799158898,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 799158917,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,799158917,347.49,,,American Express 5003
+"Apr 15, 2025",799158898,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$16.50 x 6.0% = $0.99,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,799158903,-0.99,,,
+"Apr 15, 2025",799158898,Marketplace Fee,Optimize Flask app,,Marketplace fee,$330.00 x 5.0% = $16.50,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,799158901,-16.50,,,
+"Apr 15, 2025",799158898,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,799158898,-330.00,,,
+"Apr 14, 2025",798306254,Payment,Optimize Flask app,"Invoice for Apr 7-Apr 13, 2025",Payment from Mastercard 9873 - Ref ID 799027440,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,799027440,1958.58,,,Mastercard 9873
+"Apr 14, 2025",798306254,State Sales Tax,Optimize Flask app,"Invoice for Apr 7-Apr 13, 2025",Pennsylvania sales tax,$93.00 x 6.0% = $5.58,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,798306380,-5.58,,,
+"Apr 14, 2025",798306254,Marketplace Fee,Optimize Flask app,"Invoice for Apr 7-Apr 13, 2025",Marketplace fee,"$1,860.00 x 5.0% = $93.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,798306356,-93.00,,,
+"Apr 14, 2025",798306254,Hourly,Optimize Flask app,"Invoice for Apr 7-Apr 13, 2025","Charge for Apr 7-Apr 13, 2025","62.00 hours x $30.00 = $1,860.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,798306254,-1860.00,,,
+"Apr 7, 2025",796930401,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 796930465,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796930465,176.91,,,American Express 5003
+"Apr 7, 2025",796930401,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$8.40 x 6.07% = $0.51,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796930413,-0.51,,,
+"Apr 7, 2025",796930401,Marketplace Fee,Optimize Flask app,,Marketplace fee,$168.00 x 5.0% = $8.40,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796930412,-8.40,,,
+"Apr 7, 2025",796930401,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796930401,-168.00,,,
+"Apr 7, 2025",796132682,Payment,Optimize Flask app,"Invoice for Mar 31-Apr 6, 2025",Payment from Mastercard 9873 - Ref ID 796847937,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796847937,1616.36,,,Mastercard 9873
+"Apr 7, 2025",796132682,State Sales Tax,Optimize Flask app,"Invoice for Mar 31-Apr 6, 2025",Pennsylvania sales tax,$76.75 x 6.01% = $4.61,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796132788,-4.61,,,
+"Apr 7, 2025",796132682,Marketplace Fee,Optimize Flask app,"Invoice for Mar 31-Apr 6, 2025",Marketplace fee,"$1,535.00 x 5.0% = $76.75",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796132757,-76.75,,,
+"Apr 7, 2025",796132682,Hourly,Optimize Flask app,"Invoice for Mar 31-Apr 6, 2025","Charge for Mar 31-Apr 6, 2025","51.17 hours x $30.00 = $1,535.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,796132682,-1535.00,,,
+"Apr 1, 2025",794802381,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$17.63 x 6.01% = $1.06,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802385,-1.06,,,
+"Apr 1, 2025",794802381,Marketplace Fee,Optimize Flask app,,Marketplace fee,$352.50 x 5.0% = $17.63,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802384,-17.63,,,
+"Apr 1, 2025",794802381,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802381,-352.50,,,
+"Apr 1, 2025",794802287,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$16.50 x 6.0% = $0.99,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802291,-0.99,,,
+"Apr 1, 2025",794802287,Marketplace Fee,Optimize Flask app,,Marketplace fee,$330.00 x 5.0% = $16.50,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802290,-16.50,,,
+"Apr 1, 2025",794802287,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,794802287,-330.00,,,
+"Apr 1, 2025",,Payment,Multiple transactions,,Payment from American Express 5003 - Ref ID 794802399,,,,,,Simon Cullen,,794802399,718.68,,,American Express 5003
+"Mar 31, 2025",794505621,State Sales Tax,Full-stack developer for education AI-driven app,"Invoice for Mar 24-Mar 30, 2025",Pennsylvania sales tax,$14.57 x 6.04% = $0.88,,Sway,,Simon Cullen,Simon Cullen,,794505748,-0.88,,,
+"Mar 31, 2025",794505621,Marketplace Fee,Full-stack developer for education AI-driven app,"Invoice for Mar 24-Mar 30, 2025",Marketplace fee,$291.33 x 5.0% = $14.57,,Sway,,Simon Cullen,Simon Cullen,,794505723,-14.57,,,
+"Mar 31, 2025",794505621,Hourly,Full-stack developer for education AI-driven app,"Invoice for Mar 24-Mar 30, 2025","Charge for Mar 24-Mar 30, 2025",12.67 hours x $23.00 = $291.33,,Sway,,Simon Cullen,Simon Cullen,,794505621,-291.33,,,
+"Mar 31, 2025",793965908,State Sales Tax,Optimize Flask app,"Invoice for Mar 24-Mar 30, 2025",Pennsylvania sales tax,$92.50 x 6.0% = $5.55,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,793965992,-5.55,,,
+"Mar 31, 2025",793965908,Marketplace Fee,Optimize Flask app,"Invoice for Mar 24-Mar 30, 2025",Marketplace fee,"$1,850.00 x 5.0% = $92.50",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,793965969,-92.50,,,
+"Mar 31, 2025",793965908,Hourly,Optimize Flask app,"Invoice for Mar 24-Mar 30, 2025","Charge for Mar 24-Mar 30, 2025","61.67 hours x $30.00 = $1,850.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,793965908,-1850.00,,,
+"Mar 31, 2025",,Payment,Multiple transactions,,Payment from Mastercard 9873 - Ref ID 794674268,,,,,,Simon Cullen,,794674268,2254.83,,,Mastercard 9873
+"Mar 24, 2025",792346745,State Sales Tax,Full-stack developer for education AI-driven app,"Invoice for Mar 17-Mar 23, 2025",Pennsylvania sales tax,$6.33 x 6.0% = $0.38,,Sway,,Simon Cullen,Simon Cullen,,792346850,-0.38,,,
+"Mar 24, 2025",792346745,Contract Initiation Fee,Full-stack developer for education AI-driven app,"Invoice for Mar 17-Mar 23, 2025",Contract initiation fee,$4.99,,Sway,,Simon Cullen,Simon Cullen,,792346822,-4.99,,,
+"Mar 24, 2025",792346745,Marketplace Fee,Full-stack developer for education AI-driven app,"Invoice for Mar 17-Mar 23, 2025",Marketplace fee,$126.50 x 5.0% = $6.33,,Sway,,Simon Cullen,Simon Cullen,,792346821,-6.33,,,
+"Mar 24, 2025",792346745,Hourly,Full-stack developer for education AI-driven app,"Invoice for Mar 17-Mar 23, 2025","Charge for Mar 17-Mar 23, 2025",5.50 hours x $23.00 = $126.50,,Sway,,Simon Cullen,Simon Cullen,,792346745,-126.50,,,
+"Mar 24, 2025",791736005,State Sales Tax,Optimize Flask app,"Invoice for Mar 17-Mar 23, 2025",Pennsylvania sales tax,$95.25 x 6.01% = $5.72,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,791736074,-5.72,,,
+"Mar 24, 2025",791736005,Marketplace Fee,Optimize Flask app,"Invoice for Mar 17-Mar 23, 2025",Marketplace fee,"$1,905.00 x 5.0% = $95.25",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,791736064,-95.25,,,
+"Mar 24, 2025",791736005,Hourly,Optimize Flask app,"Invoice for Mar 17-Mar 23, 2025","Charge for Mar 17-Mar 23, 2025","63.50 hours x $30.00 = $1,905.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,791736005,-1905.00,,,
+"Mar 24, 2025",,Payment,Multiple transactions,,Payment from Mastercard 9873 - Ref ID 792455843,,,,,,Simon Cullen,,792455843,2144.17,,,Mastercard 9873
+"Mar 17, 2025",790352738,Payment,Optimize Flask app,,Payment from American Express 5003 - Ref ID 790352872,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,790352872,292.74,,,American Express 5003
+"Mar 17, 2025",790352738,State Sales Tax,Optimize Flask app,,Pennsylvania sales tax,$13.90 x 6.04% = $0.84,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,790352742,-0.84,,,
+"Mar 17, 2025",790352738,Marketplace Fee,Optimize Flask app,,Marketplace fee,$278.00 x 5.0% = $13.90,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,790352741,-13.90,,,
+"Mar 17, 2025",790352738,Bonus,Optimize Flask app,,Bonus given,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,790352738,-278.00,,,
+"Mar 17, 2025",789531529,Payment,Optimize Flask app,"Invoice for Mar 10-Mar 16, 2025",Payment from Mastercard 9873 - Ref ID 790245548,,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,790245548,1848.02,,,Mastercard 9873
+"Mar 17, 2025",789531529,State Sales Tax,Optimize Flask app,"Invoice for Mar 10-Mar 16, 2025",Pennsylvania sales tax,$87.75 x 6.01% = $5.27,,,Muoi Nguyen,Simon Cullen,Simon Cullen,,789531646,-5.27,,,
+"Mar 17, 2025",789531529,Marketplace Fee,Optimize Flask app,"Invoice for Mar 10-Mar 16, 2025",Marketplace fee,"$1,755.00 x 5.0% = $87.75",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,789531619,-87.75,,,
+"Mar 17, 2025",789531529,Hourly,Optimize Flask app,"Invoice for Mar 10-Mar 16, 2025","Charge for Mar 10-Mar 16, 2025","58.50 hours x $30.00 = $1,755.00",,,Muoi Nguyen,Simon Cullen,Simon Cullen,,789531529,-1755.00,,,

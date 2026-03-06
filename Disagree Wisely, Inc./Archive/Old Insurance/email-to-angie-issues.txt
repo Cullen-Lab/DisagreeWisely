@@ -1,0 +1,53 @@
+Hi Angie,
+
+Thanks for sending over all the binding documents and policy forms! I've been reading through everything and I'm confused about several things.
+
+**Defense Costs**
+
+I'm seeing some conflicting information about defense costs and I need help understanding what's actually in our policies:
+
+For the D&O policy (Carolina Casualty):
+- Both Quote.pdf and the Carolina D&O quote section of the Gallagher proposal letter say: "This quote includes unlimited defense costs OUTSIDE the limit of liability"
+- However, the general terms section (p. 2) of the Gallagher proposal letter says: "defense costs are limited and considered INSIDE the policy limits which means costs incurred...will erode or reduce the limit"
+- These seem to contradict each other. Which one is correct?
+
+For the CFC Technology policy (E&O and Cyber coverage):
+- Every coverage section in Quote1.pdf and the Declarations section shows "including costs and expenses"
+- For example: "SECTION A: PRODUCTS AND SERVICES LIABILITY - Limit of liability: USD1,000,000 each and every claim, including costs and expenses"
+- This appears to confirm that defense costs for the CFC policy are inside the $1M limit and will reduce what's available for damages. Is that correct?
+
+
+**Retroactive Dates**
+
+For the CFC Technology policy (E&O and Cyber):
+- Both Quote1.pdf and the CFC Declarations section of the Gallagher proposal letter show: "RETROACTIVE DATE(S): Professional Liability: Inception"
+- You confirmed we're getting "full prior acts coverage" with a June 1, 2024 retroactive date
+- I'm confused because I would've thought "Inception" would mean 10/7/2025, which would leave us with no coverage for the first 16 months of our operations (June 2024 - October 2025)
+- Can we change this to "June 1, 2024"?
+
+For the D&O policy (Carolina Casualty):
+- Can you confirm the retroactive date is June 1, 2024?
+
+
+**Other Issues**
+
+1. Wrong Address on D&O Policy - Both Quote.pdf and the Carolina D&O quote section of the Gallagher proposal letter show:
+   5280 East Calle Vista De Colores, Tucson, AZ 85711
+
+   Our correct address is:
+   7901 4TH ST N, STE 300, ST PETERSBURG, FL 33702
+
+2. Policy Periods and Inception Dates - The D&O quote shows "Policy Period: To Be Determined to To Be Determined" but has an inception date of 10/13/2025. The CFC policy shows an inception date of 10/7/2025. Since we're binding in November (not October), I'm confused about:
+   - What will the actual 12-month policy periods be for each policy?
+   - Do we only get 11 months of coverage instead of 12 months?
+   - If something happened in October before we signed, would it be covered?
+   - Or is this just how the backdated paperwork works?
+
+3. D&O Declarations Page Missing - Specimen.pdf references throughout a Declarations page with numbered Items (4, 5, 6, 8, etc.), particularly regarding defense costs in addition to the limit ("as stated in Item 4.B. of the Declarations"). However, I don't see this Declarations page. Am I missing something?
+
+4. Terrorism Coverage - Both Quote.pdf and Quote1.pdf (as well as the Gallagher proposal letter) show TRIA terrorism coverage is included/available for $0. We want to confirm we're accepting this coverage.
+
+I really appreciate your help getting this all sorted out! The defense costs issue and the retroactive dates are the most critical for us. Please let me know if it would be easier to have a call to go through these issues.
+
+Thanks,
+Nick

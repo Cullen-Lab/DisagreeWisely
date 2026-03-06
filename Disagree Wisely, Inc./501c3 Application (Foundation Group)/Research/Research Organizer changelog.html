@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Organizer — Revision Changelog</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    color: #e8c547;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle {
+    color: #8888aa;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .nav {
+    background: #16213e;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #2a2a4a;
+  }
+  .nav h2 {
+    color: #7ec8e3;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+  }
+  .nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .nav li a {
+    display: inline-block;
+    background: #2a2a4a;
+    color: #c0c0d0;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: background 0.2s;
+  }
+  .nav li a:hover { background: #3a3a5a; color: #fff; }
+  .nav li a.changed { border-left: 3px solid #e8c547; }
+  .nav li a.unchanged { border-left: 3px solid #4a4a6a; opacity: 0.7; }
+
+  .question-section {
+    background: #16213e;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #2a2a4a;
+    overflow: hidden;
+  }
+  .question-header {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .question-header:hover { background: #1c2a4e; }
+  .question-header h3 {
+    font-size: 1rem;
+    color: #e0e0e0;
+    font-weight: 600;
+  }
+  .question-header .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .badge.major { background: #e8c547; color: #1a1a2e; }
+  .badge.minor { background: #5a7a9a; color: #fff; }
+  .badge.none { background: #3a3a4a; color: #888; }
+  .chevron {
+    color: #666;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+  }
+  .question-section.open .chevron { transform: rotate(90deg); }
+
+  .question-body {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+  }
+  .question-section.open .question-body { display: block; }
+
+  .question-text {
+    background: #0d1220;
+    border: 1px solid #2a2a4a;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.82rem;
+    color: #8888aa;
+    font-style: italic;
+  }
+
+  .rationale {
+    background: #1e2d4f;
+    border-left: 3px solid #e8c547;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    color: #c8c8dd;
+  }
+  .rationale strong { color: #e8c547; }
+
+  .diff-container { margin-top: 0.8rem; }
+
+  .diff-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+    padding: 0.3rem 0;
+  }
+  .diff-label.old { color: #e07070; }
+  .diff-label.new { color: #70c070; }
+
+  .diff-block {
+    background: #0f1629;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .diff-block.old { border: 1px solid #4a2020; }
+  .diff-block.new { border: 1px solid #204a20; }
+
+  .diff-block del {
+    background: #5a2020;
+    color: #ffaaaa;
+    text-decoration: none;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+  }
+  .diff-block ins {
+    background: #1a4a1a;
+    color: #aaffaa;
+    text-decoration: none;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+  }
+
+  .unchanged-note {
+    color: #666;
+    font-style: italic;
+    font-size: 0.88rem;
+    padding: 0.5rem 0;
+  }
+
+  .subsection {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #2a2a4a;
+  }
+  .subsection-label {
+    font-size: 0.8rem;
+    color: #7ec8e3;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .flag {
+    background: #3a2040;
+    border: 1px solid #6a3060;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #d8a0d0;
+  }
+  .flag strong { color: #e8a0e0; }
+
+  .message-to-ren {
+    background: #1a2a1a;
+    border: 2px solid #2a5a2a;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .message-to-ren h2 {
+    color: #70c070;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+  .message-to-ren p {
+    font-size: 0.92rem;
+    margin-bottom: 0.8rem;
+    color: #c8d8c8;
+  }
+  .message-to-ren .ren-question {
+    background: #1e3a1e;
+    border-left: 3px solid #70c070;
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    color: #c8d8c8;
+  }
+  .message-to-ren .ren-question strong { color: #90d090; }
+  .message-to-ren .ren-section-label {
+    color: #70c070;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem; }
+    .nav ul { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Scientific Research Organizer — Revision Changelog</h1>
+<p class="subtitle">Disagree Wisely, Inc. &middot; February 2026 &middot; Changes from "latest draft" to "revised draft"</p>
+
+<div class="nav">
+  <h2>Jump to Question</h2>
+  <ul>
+    <li><a href="#q1" class="changed">Q1 &mdash; Research planned</a></li>
+    <li><a href="#q2" class="unchanged">Q2</a></li>
+    <li><a href="#q3" class="changed">Q3 &mdash; Public access</a></li>
+    <li><a href="#q4" class="unchanged">Q4</a></li>
+    <li><a href="#q5" class="changed">Q5 &mdash; Stages public</a></li>
+    <li><a href="#q6" class="changed">Q6 &mdash; NEW</a></li>
+    <li><a href="#q7" class="changed">Q7 &mdash; Preliminary research</a></li>
+    <li><a href="#q8" class="changed">Q8 &mdash; Funder list</a></li>
+    <li><a href="#q9" class="changed">Q9 &mdash; Who determines research</a></li>
+    <li><a href="#q10" class="changed">Q10 &mdash; Disposition of results</a></li>
+    <li><a href="#q11" class="changed">Q11 &mdash; IP ownership</a></li>
+    <li><a href="#q12" class="unchanged">Q12</a></li>
+    <li><a href="#q13" class="unchanged">Q13</a></li>
+    <li><a href="#q14" class="unchanged">Q14</a></li>
+    <li><a href="#q15" class="unchanged">Q15</a></li>
+    <li><a href="#review" class="changed" style="border-left-color: #7ec8e3;">Review</a></li>
+    <li><a href="#ren" class="changed" style="border-left-color: #70c070;">Message to Ren</a></li>
+  </ul>
+</div>
+
+<!-- ==================== Q1 ==================== -->
+<div id="q1" class="question-section open">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q1. Describe in detail the research project(s) planned</h3>
+    <div><span class="badge major">Major revision</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Describe in detail the research project(s) planned.</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> The previous version organized all research around two areas, both centered on AI-facilitated dialogue. Per Ren's advice on the 1/20 call, the IRS should see a research/education nonprofit studying a <em>human phenomenon</em> (constructive disagreement), not an organization built around testing an AI tool. The revised version restructures Q1 around three broader research themes drawn from the Templeton proposal's stronger framing, with AI as one method among many rather than the central focus.
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Opening Paragraph</div>
+      <div class="diff-label old">Previous</div>
+      <div class="diff-block old">Our research programs investigate how to foster constructive disagreement, reduce polarization, and improve reasoning and communication skills through educational interventions. We focus on understanding the effects of <del>structured cross-perspective dialogue — including dialogue facilitated by AI — on these outcomes</del>. Our research activities fall into three main areas:</div>
+      <div class="diff-label new">Revised</div>
+      <div class="diff-block new"><ins>Our research program serves our educational mission of empowering learners to cultivate essential intellectual virtues — humility, cognitive empathy, critical thinking, and the ability to engage productively across differences.</ins> We investigate the science of constructive disagreement: how human beings can learn to reason together across genuine differences, <ins>how educational interventions can cultivate the intellectual virtues that make this possible, and how these interventions can be deployed effectively at scale in classrooms and communities</ins>. Our research activities fall into three main areas:</div>
+      <div class="rationale"><strong>Rationale:</strong> Two changes from the old version. First, the old opening immediately narrowed the focus to "AI-facilitated dialogue." The revised opening leads with fundamental questions about constructive disagreement and intellectual virtue. Second, the opening now explicitly connects research to DW's <em>educational mission</em> — echoing the mission statement's language about empowering learners and deploying educational tools. DW isn't a pure research lab; research serves the goal of effective educational deployment at scale.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Research Area (a) — was "Longitudinal classroom studies," now "The Science of Constructive Disagreement"</div>
+      <div class="diff-label old">Previous</div>
+      <div class="diff-block old"><del>(a) Longitudinal classroom studies.</del> We will study how students' attitudes, dispositions, and communication skills develop when they regularly engage in structured, text-based discussions with peers who hold opposing viewpoints. Using de-identified data from student volunteers at partner universities, we aim to replicate and extend preliminary findings suggesting that structured cross-perspective dialogue can substantially reduce student self-censorship, increase willingness to engage with challenging ideas, depolarize political discussions, and improve measurable argumentation and communication skills. Because students will participate in discussions at regular intervals throughout a semester, we can track the development of these skills over time using pre/post assessments, standardized instruments, and behavioral measures. We will also study to what degree students transfer the skills they practice in facilitated online discussions to other courses and offline contexts.</div>
+      <div class="diff-label new">Revised</div>
+      <div class="diff-block new"><ins>(a) The Science of Constructive Disagreement.</ins> What cognitive and social mechanisms distinguish productive intellectual conflict from destructive tribalism? Why do some disagreements produce mutual understanding while others produce polarization? Through studies conducted across diverse educational settings, we will investigate the factors that predict whether a disagreement goes well or badly — including the role of intellectual humility, perspective-taking, epistemic trust, topic characteristics, and conversational dynamics. This basic research aims to yield fundamental insights into human cognition, social psychology, and the conditions that promote rational discourse. We expect this work to contribute to the emerging interdisciplinary science of constructive disagreement, spanning social psychology, philosophy, communication, and education.</div>
+      <div class="rationale"><strong>Rationale:</strong> The old area (a) was specifically about longitudinal classroom studies — a method description. The revised area (a) is about a <em>research question</em>: what makes disagreements productive vs. destructive? This is basic science that doesn't require mentioning any tool. Draws from Templeton Domain 1 ("The Nature of Constructive Disagreement"). The longitudinal classroom studies from the old version are now folded into area (b). Note: "Using large datasets of real conversations" was replaced with "Through studies conducted across diverse educational settings" — the original phrasing implied DW already possesses large datasets, which trails back to Sway. The revised phrasing is forward-looking and source-neutral.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Research Area (b) — was "Large-scale controlled experiments on AI-facilitated dialogue," now "Character and Skill Development Through Structured Disagreement"</div>
+      <div class="diff-label old">Previous</div>
+      <div class="diff-block old"><del>(b) Large-scale controlled experiments on AI-facilitated dialogue.</del> We are planning empirical studies involving approximately 1,000 American adults recruited via established research platforms (e.g., Prolific Academic). These studies will rigorously test whether <del>AI-facilitated text-based dialogue</del> can reduce polarization and promote mutual understanding between people with opposing ideological views. In controlled experimental designs, we will compare different facilitation approaches — varying, for example, <del>the level of proactive guidance provided by an AI facilitator, the degree of emotional sensitivity in AI responses, and the types of prompts and scaffolding offered</del>. We will examine how the effectiveness of these approaches depends on discussion topic, participant demographics, strength of opinions, and the dynamics of conversations as they unfold.</div>
+      <div class="diff-label new">Revised</div>
+      <div class="diff-block new"><ins>(b) Character and Skill Development Through Structured Disagreement.</ins> Can intellectual virtues and communication skills — such as intellectual humility, perspective-taking, and the capacity for charitable interpretation — be developed through regular, guided practice? Many educational approaches teach students <em>about</em> constructive disagreement, but there is limited rigorous evidence on whether actually <em>practicing</em> it produces lasting growth in these capacities. Through longitudinal classroom studies at partner universities, we will track how students' attitudes, dispositions, and communication skills develop over the course of a semester when they regularly engage in structured cross-perspective dialogue. Using pre/post assessments, standardized instruments, and behavioral measures, we will investigate whether repeated practice produces lasting change, what factors accelerate or impede growth, and what individual and contextual conditions shape outcomes. We will also study to what degree skills developed in structured disagreement transfer to other courses and contexts.</div>
+      <div class="rationale"><strong>Rationale:</strong> The old area (b) was explicitly "experiments on AI-facilitated dialogue" — the AI was the subject. The revised area (b) asks a fundamental educational question: does practicing disagreement actually develop skills and virtues? Framed as an open empirical question (not tied to any specific philosophical thesis), using plain language accessible to an IRS reviewer. Incorporates the longitudinal classroom study methodology from old area (a). The practice-vs-instruction distinction is powerful and general — it positions DW's research as filling a gap in evidence-based pedagogy.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Research Area (c) — NEW: "Comparative Studies of Pedagogical Approaches"</div>
+      <div class="diff-label new">Added</div>
+      <div class="diff-block new"><ins>(c) Comparative Studies of Pedagogical Approaches.</ins> We will conduct controlled experiments comparing different methods for teaching constructive disagreement — including structured in-person discussions, text-based peer dialogue, AI-scaffolded conversations, and hybrid approaches. In studies involving participants recruited via established research platforms (e.g., Prolific Academic) as well as students in classroom settings, we will systematically vary the method, facilitation style, topic, and population to identify which approaches work best for whom and under what conditions. These studies will inform evidence-based best practices for educators and practitioners seeking to promote constructive disagreement in higher education and beyond.</div>
+      <div class="rationale"><strong>Rationale:</strong> This is the critical structural move. By making AI-scaffolded dialogue one <em>experimental condition</em> in a comparative study — alongside in-person discussion, unscaffolded text-based dialogue, and hybrid approaches — it becomes a method being tested, not the raison d'&ecirc;tre of the organization. This also recovers the Prolific-based controlled experiments from old area (b) in a tool-neutral framing. An IRS reviewer now sees: "They compare different teaching methods to find what works best." That's education research.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Closing Paragraph</div>
+      <div class="diff-label old">Previous</div>
+      <div class="diff-block old">Our research will employ a variety of educational discussion tools and we will collaborate with researchers at other academic and nonprofit institutions. All research findings will be published in peer-reviewed journals and made publicly available.</div>
+      <div class="diff-label new">Revised</div>
+      <div class="diff-block new">Our research will employ a variety of educational discussion tools, and we will collaborate with researchers at other academic and nonprofit institutions. <ins>Research findings directly inform the educational programs we deliver in classrooms and communities, creating a feedback loop between scientific understanding and educational practice.</ins> <ins>We aim to contribute to the development of an emerging multidisciplinary field, producing validated instruments and evidence-based facilitation guidelines for use by the broader research and education community.</ins> All research findings will be published in peer-reviewed journals and made publicly available.</div>
+      <div class="rationale"><strong>Rationale:</strong> Three additions: (1) "Research findings directly inform the educational programs we deliver" — explicitly connects research to DW's educational mission, making clear this isn't ivory tower research. Changed from "programs and tools we deploy" to "programs we deliver" — the original phrasing was the one place the document explicitly said DW deploys tools, which could prompt questions about what tools and who owns them. "Programs we deliver" is cleaner. (2) The "emerging multidisciplinary field" framing from the Templeton proposal. (3) Commitment to producing public goods (validated instruments, facilitation guidelines) that strengthen the charitable purpose.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q2 ==================== -->
+<div id="q2" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q2. Is the above information clear to all board members and understood by all?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Is the above information clear to all board members and understood by all?</div>
+    <p class="unchanged-note">No changes. Answer remains "Yes."</p>
+  </div>
+</div>
+
+<!-- ==================== Q3 ==================== -->
+<div id="q3" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q3. How is the research being conducted going to be made publicly accessible?</h3>
+    <div><span class="badge minor">Minor revision</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">How is the research being conducted going to be made publicly accessible?</div>
+    <div class="rationale"><strong>Why this changed:</strong> Removed "online data repositories (e.g., Open Science Framework, Dataverse)" — open science / open data repository references removed throughout.</div>
+    <div class="diff-label old">Previous</div>
+    <div class="diff-block old">Through publications in peer-reviewed scientific journals, open-access preprint servers (e.g., SSRN), <del>online data repositories (e.g., Open Science Framework, Dataverse),</del> and on our organization's website (www.disagreewisely.org).</div>
+    <div class="diff-label new">Revised</div>
+    <div class="diff-block new">Through publications in peer-reviewed scientific journals, open-access preprint servers (e.g., SSRN), and on our organization's website (www.disagreewisely.org).</div>
+  </div>
+</div>
+
+<!-- ==================== Q4 ==================== -->
+<div id="q4" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q4. How will the organization ensure no contracts or sponsored research benefit a for-profit entity?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">How will the organization ensure that they will not have any contracts or sponsored research with any individual or for-profit entity for the benefit of the contracting individual or for-profit entity?</div>
+    <p class="unchanged-note">No changes. The four safeguards remain as-is.</p>
+    <div class="flag"><strong>Note for Ren call:</strong> May need adjustment depending on how the HxA agreement amendment is discussed. The current answer is solid as a general statement of policy.</div>
+  </div>
+</div>
+
+<!-- ==================== Q5 ==================== -->
+<div id="q5" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q5. Will you be making your research public through various stages of the research?</h3>
+    <div><span class="badge minor">Minor revision</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will you be making your research public through various stages of the research?<br><br><em>Sub-question:</em> Please explain the anticipated plan (or current reality) regarding making various stages of the research public.</div>
+    <div class="rationale"><strong>Why this changed:</strong> Added "Yes" to the main yes/no question (was previously omitted). Header corrected to match actual question wording. Removed sentence about de-identified datasets on open repositories (Open Science Framework).</div>
+    <div class="diff-label old">Previous</div>
+    <div class="diff-block old">We will share interim results and progress updates on our website (www.disagreewisely.org) and deposit preprints on open-access servers (e.g., SSRN) as studies are completed. <del>De-identified datasets will be made available on open repositories (e.g., Open Science Framework) on an ongoing basis.</del> Final results will be submitted for publication in peer-reviewed scientific journals.</div>
+    <div class="diff-label new">Revised</div>
+    <div class="diff-block new">We will share interim results and progress updates on our website (www.disagreewisely.org) and deposit preprints on open-access servers (e.g., SSRN) as studies are completed. Final results will be submitted for publication in peer-reviewed scientific journals.</div>
+  </div>
+</div>
+
+<!-- ==================== Q6 ==================== -->
+<div id="q6" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q6. Will the organization make sure that no individual or organization receives preferential early release information?</h3>
+    <div><span class="badge major">New answer</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will the organization make sure that no individual or organization receives preferential early release information?</div>
+    <div class="rationale">
+      <strong>Why this was added:</strong> Q6 was missing entirely from the previous draft. This is a straightforward yes/no question. The substance is already covered by Q4's safeguard #1 ("All research findings are published openly and made available to the public simultaneously"), but Q6 needs its own explicit answer.
+    </div>
+    <div class="diff-label new">Added</div>
+    <div class="diff-block new"><ins><strong>Yes</strong>
+
+All research findings are published openly and made available to the public simultaneously. No individual or organization receives early or exclusive access to results prior to public release.</ins></div>
+  </div>
+</div>
+
+<!-- ==================== Q7 ==================== -->
+<div id="q7" class="question-section open">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q7. Is there preliminary research conducted that the organization will use as a base?</h3>
+    <div><span class="badge major">Major revision</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Is there preliminary research conducted that the organization will use as a base of their current research project?</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> Three problems with the old version: (1) it had limited data points, (2) all preliminary evidence was Sway-specific (and Sway is Nick and Simon's personal IP, not DW's), and (3) it mentioned "AI-facilitated discussion approaches" which foregrounds AI. The revised version opens with a paragraph situating DW's work in the broader scientific literature, then presents the founders' own research as their contribution to that field. This makes the Sway data one piece of a larger evidence base rather than the whole story, and positions DW as building on established science.
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">New opening paragraph — broader field context</div>
+      <div class="diff-label new">Added</div>
+      <div class="diff-block new"><ins>Our research program builds on a growing body of work in social psychology and education, as well as our co-founders' own prior academic research. Research has shown that affective polarization is increasing, that people systematically overestimate how extreme their opponents' views are, and that intellectual virtues like humility and perspective-taking can be measured and may be developable through structured practice — but rigorous evidence on how to cultivate these capacities at scale remains limited. Research on structured deliberation and intergroup contact has demonstrated that carefully designed dialogue can reduce prejudice and shift attitudes, yet open questions remain about how to sustain these effects, scale interventions beyond small-group settings, and whether repeated practice produces lasting growth in reasoning skills and intellectual character. These open questions define the research agenda we plan to pursue.</ins></div>
+      <div class="rationale"><strong>Rationale:</strong> This paragraph does three things: (1) situates DW in an established, recognized scientific field — the IRS sees a real area of research, not just two people and their app; (2) identifies specific open questions that DW's planned research addresses, showing the work is scientifically motivated; (3) makes the founders' Sway-based data (in the next paragraph) one piece of evidence in a larger puzzle rather than the only basis. None of this references any specific tool or platform.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Founders' own preliminary research</div>
+      <div class="diff-label old">Previous</div>
+      <div class="diff-block old">Our research builds on prior work by our co-founders in educational settings. In particular, <del>Dr. Simon Cullen conducted preliminary studies</del> using structured cross-perspective discussion formats in university philosophy courses. These studies found that such interventions can halve the number of students who report self-censoring in class, meaningfully increase student willingness to engage with ideas that might be considered offensive or intolerant, and improve self-reported and behavioral measures of communication and argumentation skills. Additionally, Dr. Nicholas DiBella has contributed to the design and evaluation of AI-facilitated discussion approaches in educational contexts. These preliminary findings inform the design and hypotheses of our planned longitudinal classroom studies and controlled experiments.</div>
+      <div class="diff-label new">Revised</div>
+      <div class="diff-block new"><ins>Our co-founders have contributed directly to this emerging field. Dr. Simon Cullen and Dr. Nicholas DiBella conducted preliminary studies on the effects of structured, text-based discussions in which university students holding opposing views were paired for cross-perspective dialogue. Across studies at multiple institutions involving thousands of participants, their findings suggest that structured cross-perspective dialogue can foster respectful engagement even across fundamental disagreements, increase willingness to consider opposing viewpoints, and promote indicators of intellectual humility — such as recognizing that one's interlocutor has better reasons than initially expected. Separate classroom studies suggest that such interventions can substantially reduce student self-censorship and increase willingness to engage with challenging ideas. These preliminary findings inform the design and hypotheses of our planned research program.</ins></div>
+      <div class="rationale"><strong>Key changes:</strong>
+        <br>&bull; "Our co-founders have contributed directly to this emerging field" — transitions naturally from the broader-field paragraph and positions founders as contributors to real science
+        <br>&bull; "Conducted preliminary studies" — explicitly flags these as early-stage work, setting up DW's planned research as the rigorous follow-up
+        <br>&bull; "Findings suggest" rather than "found" — appropriately cautious language for preliminary work
+        <br>&bull; General descriptions of scale ("multiple institutions," "thousands of participants") rather than specific numbers (7,900 surveys, 80+ institutions) — avoids creating a fingerprint that leads directly to Sway
+        <br>&bull; Substance preserved without specific percentages: respectful engagement, willingness to consider opposing viewpoints, intellectual humility, reduced self-censorship
+        <br>&bull; Joint attribution to both Simon and Nick (previously Simon only, with Nick mentioned separately)
+        <br>&bull; Removed separate mention of "AI-facilitated discussion approaches" to avoid foregrounding AI
+        <br><br><strong>Note for Ren:</strong> All the founders' preliminary data was collected through Sway (Nick and Simon's personal IP). We deliberately avoided specific statistics (93%, 59%, etc.) because those numbers are publicly tied to Sway and could be easily traced. The current framing describes the research findings in general terms without naming any tool — consistent with Ren's "purposefully vague" advice. Question: is this level of specificity sufficient, or does the IRS need more?
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q8 ==================== -->
+<div id="q8" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q8. Does the organization plan to have contract(s) for sponsored research?</h3>
+    <div><span class="badge minor">Minor revision</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Does the organization plan to have contract(s) for sponsored research?<br><br><em>Sub-question:</em> If yes, furnish the names of sponsors or grantors as well as the terms of contractors or grants. If this information is not currently available, provide the details and intent you do you currently have.</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> Removed Ben Delo Foundation from the funder list to avoid questions about the pre-incorporation funding history (funds routed through Simon personally before DW was incorporated).
+    </div>
+    <div class="diff-label old">Previous</div>
+    <div class="diff-block old">Funders who have provided direct support to Disagree Wisely include the Craig Snider Foundation, the Lindy Snider Foundation, <del>the Ben Delo Foundation,</del> and Heterodox Academy.</div>
+    <div class="diff-label new">Revised</div>
+    <div class="diff-block new">Funders who have provided direct support to Disagree Wisely include the Craig Snider Foundation, the Lindy Snider Foundation, and Heterodox Academy.</div>
+    <div class="flag"><strong>Resolved:</strong>
+      <br>&bull; Rising Tide Foundation — not listed (grant not received)
+      <br>&bull; Learning Agency / Tools Competition — correctly excluded
+      <br>&bull; Arthur Vining Davis and Omidyar — correctly excluded (went through CMU, not DW)
+      <br>&bull; Ben Delo Foundation — removed from list to avoid pre-incorporation complications
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q9 ==================== -->
+<div id="q9" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q9. Explain how and by whom research projects are determined and selected.</h3>
+    <div><span class="badge minor">Minor addition</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Explain how and by whom research projects are determined and selected.</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> Three changes: (1) Added "in consultation with the board of directors" — strengthens governance story by showing research decisions aren't made unilaterally by the founders. (2) Combined Cullen's and DiBella's separate role descriptions into a single joint sentence — avoids drawing attention to the distinct roles and reads more naturally. (3) Added a sentence about collaborating with external researchers — signals that external academics contribute to shaping the research agenda.
+    </div>
+    <div class="diff-label new">Revised</div>
+    <div class="diff-block new">Research projects are determined by the organization's leadership — currently Dr. Simon Cullen (Chief Executive Officer) and Dr. Nicholas DiBella (Chief Technology and Operations Officer) — <ins>in consultation with the board of directors and</ins> based on alignment with our charitable mission and scientific merit. Both hold PhDs and have extensive experience in academic research, <ins>including designing studies, developing publications, overseeing research partnerships, and advancing understanding of constructive disagreement and civil discourse pedagogy.</ins> Projects are informed by ... the practical needs of educators and practitioners in the field. <ins>We also collaborate with external researchers at academic institutions, who contribute to shaping research questions and study designs.</ins> As our team grows...</div>
+  </div>
+</div>
+
+<!-- ==================== Q10 ==================== -->
+<div id="q10" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q10. Explain what disposition will be made of the results of your research program.</h3>
+    <div><span class="badge minor">Minor addition</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Explain what disposition will be made of the results of your research program.</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> Added one bullet about developing and sharing validated instruments. This is a concrete public good that the Templeton proposal emphasizes (psychometric instruments for measuring constructive disagreement, perspective-taking, intellectual humility). It reinforces the charitable purpose — DW produces tools for the broader research community, not just papers.
+    </div>
+    <div class="rationale" style="margin-top: 0.8rem;"><strong>Also removed:</strong> "Share de-identified datasets publicly through online repositories (e.g., Open Science Framework)" bullet — open science references removed throughout.</div>
+    <div class="diff-label new">Added bullet</div>
+    <div class="diff-block new"><ins>&bull; Develop and share validated instruments for measuring constructive disagreement skills</ins>
+&bull; Present findings at academic conferences...</div>
+  </div>
+</div>
+
+<!-- ==================== Q11 ==================== -->
+<div id="q11" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q11. State who will retain ownership or control of any copyrights or intellectual property.</h3>
+    <div><span class="badge minor">Minor addition</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">State who will retain ownership or control of any copyrights or intellectual property resulting from your research program.</div>
+    <div class="rationale">
+      <strong>Why this changed:</strong> Added "validated instruments" to the list of research IP that DW retains, consistent with the new bullet in Q10 and the Templeton proposal's emphasis on instrument development.
+    </div>
+    <div class="diff-label new">Added term</div>
+    <div class="diff-block new">...including publications, <ins>validated instruments,</ins> and research findings.</div>
+    <div class="flag"><strong>Important:</strong> This is about <em>research</em> IP (papers, datasets, instruments). Software IP (Sway code, platform) is NOT owned by DW. This distinction is critical and should be clear if the IRS asks follow-up questions.</div>
+  </div>
+</div>
+
+<!-- ==================== Q12 ==================== -->
+<div id="q12" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q12. Will anyone receive &ldquo;royalty income&rdquo; from the results of your research?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will anyone receive "royalty income" from the results of your research?</div>
+    <p class="unchanged-note">No changes. Answer remains "No."</p>
+  </div>
+</div>
+
+<!-- ==================== Q13 ==================== -->
+<div id="q13" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q13. Will you conduct (sponsor) research from or for other organizations?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will you conduct (sponsor) research from or for other organizations?</div>
+    <p class="unchanged-note">No changes. Answer remains "No."</p>
+    <div class="flag"><strong>Open question:</strong> With DW as a subcontractor on the FIPSE/DOE grant, should this answer change to "Yes"? The FIPSE work involves conducting research as part of a larger consortium. Discuss with Ren.</div>
+  </div>
+</div>
+
+<!-- ==================== Q14 ==================== -->
+<div id="q14" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q14. Will any of your research be used for commercial purposes?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will any of your research be used for commercial purposes?</div>
+    <p class="unchanged-note">No changes. Answer remains "No." All research findings are public. If any entity reads published research and derives benefit, that is no different from any company reading academic literature.</p>
+  </div>
+</div>
+
+<!-- ==================== Q15 ==================== -->
+<div id="q15" class="question-section">
+  <div class="question-header" onclick="toggle(this)">
+    <h3>Q15. Will you be developing a website where information is or will be made available?</h3>
+    <div><span class="badge none">Unchanged</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+    <div class="question-text">Will you be developing a website where information is or will be made available?</div>
+    <p class="unchanged-note">No changes. URL: www.disagreewisely.org</p>
+    <div class="flag"><strong>Reminder:</strong> Before submission, add to the site: (1) a /research page describing DW's research program and preliminary findings; (2) team bios with qualifications; (3) description of educational programs. The site currently has no references to Sway IP or app development, which is good.</div>
+  </div>
+</div>
+
+<!-- ==================== REVIEW ==================== -->
+<div id="review" class="question-section" style="border-color: #2a4a6a;">
+  <div class="question-header" onclick="toggle(this)" style="background: #162a3e;">
+    <h3 style="color: #7ec8e3;">Overall Review &mdash; Against Ren's 1/20 Guidance</h3>
+    <div><span class="badge" style="background: #2a4a6a; color: #7ec8e3;">INTERNAL</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body">
+
+    <div class="ren-section-label" style="color: #7ec8e3;">What's aligned with Ren's guidance</div>
+    <div class="ren-question" style="border-left-color: #7ec8e3; background: #1e2d4f;">
+      <strong style="color: #7ec8e3;">Purposefully vague:</strong> No mention of Sway or any specific tool/app/company anywhere. AI is positioned as one method among several (in-person, text-based, AI-scaffolded, hybrid). Ren: <em>"I'm being purposefully vague here because it gives the IRS less threads to pull at."</em>
+    </div>
+    <div class="ren-question" style="border-left-color: #7ec8e3; background: #1e2d4f;">
+      <strong style="color: #7ec8e3;">Research is about the phenomenon, not a product:</strong> Ren said it <em>"has to be very clear that the research and, quote, deployment that the nonprofit organization will do is about teaching people how to have civil disagreements and nothing to do with promoting the use of Sway."</em> Q1 is entirely framed around constructive disagreement as a human phenomenon.
+    </div>
+    <div class="ren-question" style="border-left-color: #7ec8e3; background: #1e2d4f;">
+      <strong style="color: #7ec8e3;">Sway as one tool among many:</strong> Ren confirmed: <em>"you'd be using, this would be one of a few tools that you would use to teach and figure out how those different methods of teaching and apps and programs and online versus face-to-face affect and promote civil discussion."</em> Q1(c) implements exactly this framing.
+    </div>
+    <div class="ren-question" style="border-left-color: #7ec8e3; background: #1e2d4f;">
+      <strong style="color: #7ec8e3;">No development/IP language:</strong> Clean separation throughout. No references to building, improving, or developing any software.
+    </div>
+
+    <div class="ren-section-label" style="color: #e8c547;">Potential concerns</div>
+    <div class="ren-question" style="border-left-color: #e8c547; background: #2d2a1e;">
+      <strong style="color: #e8c547;">Q8 / FIPSE vulnerability:</strong> Q8 describes the FIPSE grant vaguely as "supporting research on educational tools for civil discourse." But the underlying ICDC grant documents name Sway dozens of times and describe DW's role in Sway-specific terms. If the IRS looks at the actual grant, they'll see Sway everywhere. This is probably the single biggest vulnerability in the document.
+    </div>
+    <div class="ren-question" style="border-left-color: #e8c547; background: #2d2a1e;">
+      <strong style="color: #e8c547;">Q13 remains a genuine open question.</strong> DW is a subcontractor on the FIPSE grant, conducting research as part of a larger consortium. "No" may be technically incorrect. Needs Ren's input.
+    </div>
+    <div class="ren-question" style="border-left-color: #e8c547; background: #2d2a1e;">
+      <strong style="color: #e8c547;">Q4 may need to evolve</strong> once the for-profit is set up. Currently a general policy statement, which is fine at the "50,000 feet" level Ren recommended. But once there's an actual licensing arrangement with the for-profit, this answer will need to address that relationship specifically.
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== MESSAGE TO REN ==================== -->
+<div id="ren" class="question-section" style="border-color: #2a5a2a;">
+  <div class="question-header" onclick="toggle(this)" style="background: #1a2a1a;">
+    <h3 style="color: #90d090;">Message to Ren</h3>
+    <div><span class="badge" style="background: #2a5a2a; color: #90d090;">SENT 2/23/2026</span><span class="chevron">&#9654;</span></div>
+  </div>
+  <div class="question-body" style="background: #16213e;">
+
+    <div class="ren-section-label">What was sent</div>
+    <div class="ren-question">
+      <p>Thanks, Ren.</p>
+      <p style="margin-top: 0.5rem;">FYI I've just submitted the updated Research Organizer as well to reflect the direction we discussed on our last call. Please let me know if you have any questions or concerns about it!</p>
+      <p style="margin-top: 0.5rem;">Will update the Board organizer shortly as well.</p>
+    </div>
+
+    <div class="ren-section-label" style="margin-top: 1.5rem;">Earlier draft (not sent) &mdash; for reference</div>
+    <div style="opacity: 0.5;">
+    <div class="ren-question">
+      <p>Hi Ren,</p>
+      <p style="margin-top: 0.5rem;">I've gone through and updated the Scientific Research Organizer to reflect the direction we discussed on our last call. Please take a look when you get a chance and let me know if anything needs adjusting.</p>
+      <p style="margin-top: 0.5rem;">Best,<br>Nick</p>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  header.parentElement.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

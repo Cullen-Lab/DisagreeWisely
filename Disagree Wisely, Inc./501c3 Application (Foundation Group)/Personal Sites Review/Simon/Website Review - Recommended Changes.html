@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Cullen Website & LinkedIn Review — Recommended Changes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .container { max-width: 960px; margin: 0 auto; }
+        h1 { color: #f0f6fc; font-size: 1.8em; margin-bottom: 8px; }
+        .subtitle {
+            color: #8b949e; font-size: 0.95em; margin-bottom: 40px;
+            border-bottom: 1px solid #21262d; padding-bottom: 20px;
+        }
+        .toc {
+            background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+            padding: 24px 28px; margin-bottom: 40px;
+        }
+        .toc h2 { color: #f0f6fc; font-size: 1.1em; margin-bottom: 14px; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #58a6ff; text-decoration: none; font-size: 0.95em; }
+        .toc a:hover { text-decoration: underline; }
+        .toc .count { color: #8b949e; font-size: 0.85em; margin-left: 6px; }
+        .stats { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+        .stat-box {
+            flex: 1; min-width: 140px; background: #161b22; border: 1px solid #21262d;
+            border-radius: 8px; padding: 16px 20px; text-align: center;
+        }
+        .stat-box .number { font-size: 2em; font-weight: 700; display: block; line-height: 1.2; }
+        .stat-box .label { font-size: 0.8em; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-critical .number { color: #f85149; }
+        .stat-important .number { color: #d29922; }
+        .stat-recommended .number { color: #58a6ff; }
+        .stat-info .number { color: #8b949e; }
+        .file-section { margin-bottom: 48px; }
+        .file-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .file-header h2 { color: #f0f6fc; font-size: 1.35em; }
+        .file-path { color: #8b949e; font-size: 0.85em; font-family: 'SF Mono', 'Fira Code', monospace; margin-bottom: 20px; }
+        .item {
+            background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+            margin-bottom: 16px; overflow: hidden;
+        }
+        .item-header {
+            padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+            border-bottom: 1px solid #21262d;
+        }
+        .item-header h3 { color: #f0f6fc; font-size: 1em; font-weight: 600; }
+        .item-number { color: #484f58; font-size: 0.85em; font-weight: 700; font-family: 'SF Mono', 'Fira Code', monospace; min-width: 24px; }
+        .badge {
+            font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+            padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+        }
+        .badge-critical { background: rgba(248, 81, 73, 0.15); color: #f85149; border: 1px solid rgba(248, 81, 73, 0.3); }
+        .badge-important { background: rgba(210, 153, 34, 0.15); color: #d29922; border: 1px solid rgba(210, 153, 34, 0.3); }
+        .badge-recommended { background: rgba(88, 166, 255, 0.15); color: #58a6ff; border: 1px solid rgba(88, 166, 255, 0.3); }
+        .badge-info { background: rgba(139, 148, 158, 0.15); color: #8b949e; border: 1px solid rgba(139, 148, 158, 0.3); }
+        .badge-clean { background: rgba(63, 185, 80, 0.15); color: #3fb950; border: 1px solid rgba(63, 185, 80, 0.3); }
+        .item-body { padding: 16px 20px; }
+        .item-body p { margin-bottom: 12px; }
+        .item-body p:last-child { margin-bottom: 0; }
+        .location { font-size: 0.85em; color: #8b949e; font-family: 'SF Mono', 'Fira Code', monospace; margin-bottom: 14px; }
+        .diff-label { font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: block; }
+        .label-current { color: #f85149; }
+        .label-recommended { color: #3fb950; }
+        .diff-block {
+            font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.88em;
+            padding: 12px 16px; border-radius: 6px; margin-bottom: 14px;
+            line-height: 1.6; white-space: pre-wrap; word-wrap: break-word;
+        }
+        .block-current { background: rgba(248, 81, 73, 0.08); border: 1px solid rgba(248, 81, 73, 0.2); color: #ffa198; }
+        .block-recommended { background: rgba(63, 185, 80, 0.08); border: 1px solid rgba(63, 185, 80, 0.2); color: #7ee787; }
+        .justification { font-size: 0.9em; color: #8b949e; border-left: 3px solid #30363d; padding-left: 14px; margin-top: 4px; }
+        .hl { background: rgba(210, 153, 34, 0.25); padding: 1px 4px; border-radius: 3px; }
+        .hl-red { background: rgba(248, 81, 73, 0.2); padding: 1px 4px; border-radius: 3px; }
+        .summary-box {
+            background: rgba(63, 185, 80, 0.08); border: 1px solid rgba(63, 185, 80, 0.2);
+            border-radius: 8px; padding: 20px 24px; margin-bottom: 40px; color: #c9d1d9;
+        }
+        .summary-box h2 { color: #3fb950; font-size: 1.1em; margin-bottom: 10px; }
+        @media (max-width: 640px) {
+            .stats { flex-direction: column; }
+            .item-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simon Cullen &mdash; Website & LinkedIn Review</h1>
+        <p class="subtitle">Review for consistency with DW's post-restructuring 501(c)(3) narrative.<br>
+        Reviewed: February 19, 2026. Site at <code>simoncullen.org</code> &bull; LinkedIn: Simon Cullen</p>
+
+        <!-- Overall assessment -->
+        <div class="summary-box">
+            <h2>Context</h2>
+            <p>As part of DW's 501(c)(3) application, we're ensuring all public-facing materials are consistent with DW's position as a research and education nonprofit, cleanly separated from Sway IP development. The IRS may review founders' personal websites and LinkedIn profiles during the examination. This document flags anything that could create confusion or inconsistency with the application.</p>
+        </div>
+
+        <div class="summary-box">
+            <h2>Overall: The site and LinkedIn are fundamentally clean</h2>
+            <p>There are no statements tying DW to Sway development, no "Provided by DW" language, no swaybeta.ai email, and no problematic framing. The Sway tab links directly to swaybeta.ai (external), and the projects page describes Sway without any organizational attribution. <strong>The main gap:</strong> while the LinkedIn headline mentions DW, the <em>website</em> and <em>CV</em> make no mention of DW at all, and the LinkedIn <em>Experience section</em> doesn't list it either. Most items below are about what's <em>missing</em> or <em>outdated</em>, not what's <em>wrong</em>.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box stat-critical">
+                <span class="number">0</span>
+                <span class="label">Critical</span>
+            </div>
+            <div class="stat-box stat-important">
+                <span class="number">4</span>
+                <span class="label">Important</span>
+            </div>
+            <div class="stat-box stat-recommended">
+                <span class="number">2</span>
+                <span class="label">Recommended</span>
+            </div>
+            <div class="stat-box stat-info">
+                <span class="number">2</span>
+                <span class="label">Minor</span>
+            </div>
+        </div>
+
+        <!-- Table of contents -->
+        <div class="toc">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#home">Home page</a> <span class="count">#1&ndash;2</span></li>
+                <li><a href="#cv">CV page</a> <span class="count">#1&ndash;3</span></li>
+                <li><a href="#projects">Projects page</a> <span class="count">#1</span></li>
+                <li><a href="#linkedin">LinkedIn</a> <span class="count">#1&ndash;2</span></li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- Home page -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="home">
+            <div class="file-header">
+                <h2>Home page</h2>
+            </div>
+            <p class="file-path">simoncullen.org (home)</p>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>DW CEO role not mentioned anywhere on the site</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Home page &mdash; bio paragraph</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">As a Faculty Research Fellow at Heterodox Academy's Segal Center for Academic Pluralism and Visiting Research Professor of Artificial Intelligence and Civil Discourse at UNC Chapel Hill's School of Civic Life and Leadership, I develop and experimentally test AI applications to enhance group reasoning, depolarize political debate, and foster open inquiry and intellectual independence on campus and beyond.</div>
+
+                    <span class="diff-label label-recommended">Recommended addition</span>
+                    <div class="diff-block block-recommended">I am also Co-Founder and CEO of &lt;a href="https://www.disagreewisely.org"&gt;Disagree Wisely, Inc.&lt;/a&gt;, a nonprofit research and education organization dedicated to fostering constructive disagreement and civil discourse.</div>
+
+                    <p class="justification">Simon is DW's CEO, but his entire site makes no mention of DW. The 501(c)(3) application lists him as CEO; the Research Organizer (Q9) says "Dr. Simon Cullen (Chief Executive Officer)" directs the research agenda. If an IRS examiner Googles him and finds zero mention of DW, it could raise questions about whether the CEO role is real or nominal. A single sentence added to the bio &mdash; framed around DW's research mission, not Sway &mdash; closes this gap. Note: this also means adding DW to the CV page under Current Appointments (see CV #1).</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-info">Minor</span>
+                    <h3>"I develop and experimentally test AI applications"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Home page &mdash; bio paragraph</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">...I <span class="hl">develop and experimentally test</span> AI applications to enhance group reasoning, depolarize political debate, and foster open inquiry...</div>
+
+                    <p class="justification">Flagging for awareness only &mdash; <strong>no change needed.</strong> This sentence describes Simon's work under his HxA and UNC roles, not DW. "Develop" in an academic context means "create and design," which is standard language. Crucially, this is actually <em>consistent</em> with the restructuring: it shows that AI development work happens through Simon's other institutional roles, not through DW. An IRS examiner reading this would see development attributed to HxA/UNC, which reinforces the separation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CV page -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="cv">
+            <div class="file-header">
+                <h2>CV page</h2>
+            </div>
+            <p class="file-path">simoncullen.org/cv</p>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>DW CEO not listed under Current Appointments</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">CV &mdash; Appointments &gt; Current section</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Current
+
+Faculty Research Fellow, Heterodox Academy Segal Center for Academic Pluralism
+
+Visiting Research Professor of Civil Discourse and Artificial Intelligence, UNC Chapel Hill School of Civil Life and Leadership</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Current
+
+Co-Founder &amp; Chief Executive Officer, &lt;a href="https://www.disagreewisely.org"&gt;Disagree Wisely, Inc.&lt;/a&gt;
+
+Faculty Research Fellow, Heterodox Academy Segal Center for Academic Pluralism
+
+Visiting Research Professor of Civil Discourse and Artificial Intelligence, UNC Chapel Hill School of Civil Life and Leadership</div>
+
+                    <p class="justification">Same issue as the home page. DW's CEO should list the role on his CV. Omitting it while listing HxA and UNC positions could suggest the DW role is an afterthought or not a real position. Listing it first (as the highest-ranking role) signals it's a genuine leadership position. The title alone &mdash; "Co-Founder &amp; Chief Executive Officer, &lt;a href="https://www.disagreewisely.org"&gt;Disagree Wisely, Inc.&lt;/a&gt;" &mdash; is sufficient; no need to elaborate on the CV.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>Contact info still lists Carnegie Mellon University</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">CV &mdash; Contact section</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Simon Cullen. Dietrich College. Carnegie Mellon University. 5000 Forbes Avenue. Pittsburgh, PA. 15213-3890</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Update to reflect current affiliation (HxA, UNC, or DW address).</div>
+
+                    <p class="justification">Simon left CMU in September 2025. Listing a stale institutional address signals the CV hasn't been maintained. If the IRS reviews it alongside a freshly submitted application, this discrepancy could raise questions. Update to whichever current affiliation Simon prefers as his primary contact.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">3.</span>
+                    <span class="badge badge-recommended">Recommended</span>
+                    <h3>2025 presentations link to "the Sway News page"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">CV &mdash; Invited presentations &gt; 2025</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">For recent interviews, podcasts, lectures and workshops, see <span class="hl">the Sway News page</span></div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">List the 2025 presentations directly on the CV (same format as 2024 and earlier), or link to a page on simoncullen.org rather than swaybeta.ai.</div>
+
+                    <p class="justification">This sends an IRS examiner browsing Simon's CV directly to swaybeta.ai. While not inherently problematic &mdash; Simon did co-create Sway &mdash; it makes swaybeta.ai look like the hub of Simon's professional activity. Listing the presentations inline (as done for 2024) or linking to a page on his own site would be cleaner. Low priority &mdash; address when convenient.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- Projects page -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="projects">
+            <div class="file-header">
+                <h2>Projects page</h2>
+            </div>
+            <p class="file-path">simoncullen.org/projects</p>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-info">Minor</span>
+                    <h3>Sway description is clean &mdash; no changes needed</h3>
+                </div>
+                <div class="item-body">
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Sway is a chat platform that connects students with differing perspectives into one-on-one conversations and facilitates better discussions between them. Inspired by John Stuart Mill's radical view that engaging with opposing perspectives is an essential tool for improving reasoning and solving complex problems, Sway aims to create online environments where students can discuss controversial issues more openly and constructively.</div>
+
+                    <p class="justification"><strong>No change needed.</strong> This description does not mention DW, does not say "provided by" anyone, and frames Sway purely in terms of its educational purpose. The media links (Daily Nous, Teaching in Higher Ed, etc.) are about the project, not the organization. This page is clean.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- LinkedIn -->
+        <!-- ============================================================ -->
+        <div class="file-section" id="linkedin">
+            <div class="file-header">
+                <h2>LinkedIn</h2>
+            </div>
+            <p class="file-path">linkedin.com/in/simoncullen &nbsp;&bull;&nbsp; Often ranks #1 in Google results &mdash; likely the first thing an IRS examiner sees</p>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">1.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>Headline: update "President" to "CEO"</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Profile headline</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Co-creator of Sway | President and Co-founder of Disagree Wisely | Faculty Research Fellow at Heterodox Academy | Visiting Research Professor of Civil Discourse and Artificial Intelligence at UNC Chapel Hill's SCiLL</div>
+
+                    <span class="diff-label label-recommended">Recommended</span>
+                    <div class="diff-block block-recommended">Co-creator of Sway | CEO and Co-founder of Disagree Wisely | Faculty Research Fellow at Heterodox Academy | Visiting Research Professor at UNC Chapel Hill's SCiLL</div>
+
+                    <p class="justification">The headline already mentions DW prominently as the second item, which is fine &mdash; no need to reorder. The key change: update "President" to "CEO." "President" is the unpaid board officer role; "CEO" is the paid executive role and matches the title in the 501(c)(3) application and job description. Listing both "President &amp; CEO" would confuse most LinkedIn readers, so just use "CEO" here.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-number">2.</span>
+                    <span class="badge badge-important">Important</span>
+                    <h3>DW not listed in Experience section</h3>
+                </div>
+                <div class="item-body">
+                    <p class="location">Experience section (currently lists UNC, HxA, CMU, Princeton &mdash; no DW)</p>
+
+                    <span class="diff-label label-current">Current</span>
+                    <div class="diff-block block-current">Visiting Research Professor &mdash; UNC Chapel Hill (Jul 2025 - Present)
+Faculty Research Fellow &mdash; Heterodox Academy (Jul 2025 - Present)
+Carnegie Mellon University (Aug 2018 - Jun 2025)
+Princeton Neuroscience Institute (Sep 2017 - Sep 2018)
+Princeton University (Sep 2015 - Sep 2017)</div>
+
+                    <span class="diff-label label-recommended">Recommended addition</span>
+                    <div class="diff-block block-recommended">Chief Executive Officer &mdash; Disagree Wisely, Inc. (Sep 2025 - Present)
+
+Add as a current position. Use "Chief Executive Officer" (not "President") since this is the paid executive role and matches the title in the 501(c)(3) application and CEO job description. No description needed &mdash; consistent with how his other current roles have no descriptions.</div>
+
+                    <p class="justification">DW's CEO doesn't list DW in his LinkedIn experience. The 501(c)(3) application says Simon is CEO at $150K/year working 60 hrs/week &mdash; this should be his most prominent current role. An IRS examiner who checks LinkedIn and sees no DW employment could question whether the CEO position is genuine. List it as the first current experience entry. Note: Simon was appointed CEO in September 2025 (DW was incorporated in April 2025).</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- Summary -->
+        <!-- ============================================================ -->
+        <div class="file-section">
+            <div class="file-header">
+                <h2>Summary & Action Items</h2>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="badge badge-clean">Clean</span>
+                    <h3>What's already good</h3>
+                </div>
+                <div class="item-body">
+                    <p class="justification" style="border-left: none; padding-left: 0; color: #c9d1d9;">
+                        &bull; No language anywhere tying DW to Sway development or provision
+                        <br>&bull; No swaybeta.ai email (uses simoncullen.org)
+                        <br>&bull; No development language attributed to DW
+                        <br>&bull; Sway descriptions are project-focused, not org-focused
+                        <br>&bull; LinkedIn About section is clean and research-focused
+                        <br>&bull; LinkedIn posts mention Sway updates but never attribute development to DW
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="badge badge-important">Action</span>
+                    <h3>What to do before the application is submitted</h3>
+                </div>
+                <div class="item-body">
+                    <p class="justification" style="border-left: none; padding-left: 0; color: #c9d1d9;">
+                        <strong>The main gap:</strong> While the LinkedIn headline mentions DW, the website and CV make no mention of DW, and the LinkedIn Experience section doesn't list it as a role. The 501(c)(3) application lists Simon as CEO at $150K/year working 60 hrs/week. An IRS examiner who Googles "Simon Cullen" and finds no connection to DW could question whether the CEO position is genuine. Adding the CEO role across all three platforms, framed around DW's research/education mission, closes this gap.
+                        <br><br>
+                        <strong>Priority order:</strong>
+                        <br>1. Add DW CEO role to LinkedIn experience (Sep 2025 &ndash; Present)
+                        <br>2. Update LinkedIn headline &mdash; change "President" to "CEO"
+                        <br>3. Add DW CEO role to website home page bio and CV current appointments
+                        <br>4. Update CV contact info (CMU &rarr; current affiliation)
+                        <br>5. Address Sway News link on CV at convenience
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
