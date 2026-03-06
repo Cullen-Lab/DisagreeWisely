@@ -220,14 +220,13 @@ story.append(Spacer(1, 8))
 # Stats boxes
 stat_style = ParagraphStyle("stat", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER, spaceAfter=2)
 stats_data = [
-    [Paragraph("<b>~$173K</b><br/><font size=11 color='#666666'>Cash on Hand</font>", stat_style),
-     Paragraph("<b>~$125K</b><br/><font size=11 color='#666666'>Tools Competition (retain for non-IP salaries)</font>", stat_style)],
+    [Paragraph("<b>~$173K</b><br/><font size=12 color='#666666'>Cash on Hand</font>", stat_style)],
 ]
-st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch])
+st = Table(stats_data, colWidths=[4*inch])
 st.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
     ("TOPPADDING", (0,0), (-1,-1), 14),
-    ("BOTTOMPADDING", (0,0), (-1,-1), 12),
+    ("BOTTOMPADDING", (0,0), (-1,-1), 16),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
     ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
     ("ROUNDEDCORNERS", [6,6,6,6]),
@@ -282,15 +281,15 @@ story.append(Spacer(1, 8))
 # Stats
 gstat_style = ParagraphStyle("gstat", fontName="Helvetica-Bold", fontSize=32, textColor=NAVY, alignment=TA_CENTER, spaceAfter=2)
 gstats = [
-    [Paragraph("<b>80+</b><br/><font size=11 color='#666666'>Institutions</font>", gstat_style),
-     Paragraph("<b>~10,000</b><br/><font size=11 color='#666666'>Students</font>", gstat_style),
-     Paragraph("<b>3\u20134x</b><br/><font size=11 color='#666666'>Growth (2025)</font>", gstat_style)],
+    [Paragraph("<b>80+</b><br/><font size=12 color='#666666'>Institutions</font>", gstat_style),
+     Paragraph("<b>~10,000</b><br/><font size=12 color='#666666'>Students</font>", gstat_style),
+     Paragraph("<b>3\u20134x</b><br/><font size=12 color='#666666'>Growth (2025)</font>", gstat_style)],
 ]
 gt = Table(gstats, colWidths=[2.6*inch, 2.6*inch, 2.6*inch])
 gt.setStyle(TableStyle([
     ("BACKGROUND", (0,0), (-1,-1), BG_TABLE),
     ("TOPPADDING", (0,0), (-1,-1), 14),
-    ("BOTTOMPADDING", (0,0), (-1,-1), 12),
+    ("BOTTOMPADDING", (0,0), (-1,-1), 18),
     ("ALIGN", (0,0), (-1,-1), "CENTER"),
     ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
 ]))
