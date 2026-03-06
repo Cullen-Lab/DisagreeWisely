@@ -255,8 +255,7 @@ right_content = [
     Paragraph("\u2022 TWCF: $5M+ (if invited to full app)", S_BODY),
     Spacer(1, 6),
     Paragraph("Compensation", S_H3),
-    Paragraph("\u2022 <b>No one paid from DW funds</b>", S_BODY),
-    Paragraph("\u2022 All compensation via HxA reimbursement", S_BODY),
+    Paragraph("\u2022 All staff compensation currently via HxA reimbursement", S_BODY),
     Paragraph("\u2022 Board members: uncompensated", S_BODY),
 ]
 
