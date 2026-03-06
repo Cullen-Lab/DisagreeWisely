@@ -227,7 +227,7 @@ stats_data = [
     [Paragraph("<b>~$173K</b>", ParagraphStyle("bn", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER)),
      Paragraph("<b>~$125K</b>", ParagraphStyle("bn2", fontName="Helvetica-Bold", fontSize=28, textColor=NAVY, alignment=TA_CENTER))],
     [Paragraph("Cash on Hand", S_BIG_LABEL),
-     Paragraph("LA Funds (retain for non-IP salaries)", S_BIG_LABEL)],
+     Paragraph("Tools Competition (retain for non-IP salaries)", S_BIG_LABEL)],
 ]
 st = Table(stats_data, colWidths=[3.5*inch, 3.5*inch])
 st.setStyle(TableStyle([
