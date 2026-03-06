@@ -175,8 +175,6 @@
     var theme;
     if (saved === 'light' || saved === 'dark') {
       theme = saved;
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      theme = 'light';
     } else {
       theme = 'dark';
     }
