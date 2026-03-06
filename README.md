@@ -6,10 +6,11 @@ Florida nonprofit corporation focused on civil discourse research and education.
 
 ## Repository Structure
 
-This repo serves two purposes:
+This repo serves three purposes:
 
 1. **Public website** — `index.html` and `CNAME` at the repo root are deployed via GitHub Pages to [www.disagreewisely.org](https://www.disagreewisely.org).
-2. **Organizational documents** — Everything under `Disagree Wisely, Inc./` (governance, financials, grants, board websites, etc.).
+2. **Password-protected board portal** — `board/` contains the encrypted board sites, live at [www.disagreewisely.org/board/](https://www.disagreewisely.org/board/). HTML pages are encrypted with [StatiCrypt](https://github.com/robinmoisson/staticrypt) (AES-256); PDFs are password-protected with AES-256 via pikepdf. All use the same password.
+3. **Organizational documents** — Everything under `Disagree Wisely, Inc./` (governance, financials, grants, board websites, etc.).
 
 ---
 
@@ -57,7 +58,8 @@ This repo serves two purposes:
 |---|---|
 | `index.html` | Public homepage deployed to disagreewisely.org via GitHub Pages. |
 | `CNAME` | GitHub Pages custom domain configuration. |
-| `Disagree Wisely, Inc./Website/` | Board-facing websites (onboarding + reference), self-contained with shared CSS/JS. |
+| `board/` | Password-protected board portal (encrypted HTML + PDFs), deployed at disagreewisely.org/board/. |
+| `Disagree Wisely, Inc./Website/` | Board-facing websites (unencrypted source files). |
 | `Disagree Wisely, Inc./Governance/` | Bylaws, policies (COI, document retention, anti-harassment, intern NDA), board resolutions, meeting minutes. |
 | `Disagree Wisely, Inc./Incorporation and Tax/` | Florida incorporation filings, federal EIN/tax docs, Pennsylvania tax registrations. |
 | `Disagree Wisely, Inc./Financials/` | Bank statements, banking setup, expense tracking. |
@@ -74,17 +76,26 @@ See [`Disagree Wisely, Inc./FOLDER-ORGANIZATION.md`](Disagree%20Wisely%2C%20Inc.
 
 ---
 
-## Board Websites
+## Board Portal
 
-The `Disagree Wisely, Inc./Website/` directory contains two board-facing sites:
+The board portal is live at **[www.disagreewisely.org/board/](https://www.disagreewisely.org/board/)** and password-protected.
 
-- **`Website/index.html`** — Landing page linking to both sites.
-- **`Website/board-onboarding/`** — Slim onboarding guide for new board members.
-- **`Website/board-reference/`** — Comprehensive reference with governance policies, financials, operational notes, and document downloads.
+- **Landing page** — Links to both sites below.
+- **Onboarding Guide** — Slim overview for new board members.
+- **Board Reference** — Comprehensive reference with governance policies, financials, operational notes, and 18 downloadable documents.
 
-**To view locally:** Open `Disagree Wisely, Inc./Website/index.html` in a browser. All assets are self-contained (no server required).
+**Security:** All HTML pages are encrypted with StatiCrypt (AES-256, decrypted client-side). All PDFs are password-protected (AES-256). Board members enter the password once; the browser remembers it for 30 days.
 
-The `board-reference/docs/` folder contains 18 bundled PDFs with normalized kebab-case filenames, so the site works without access to the rest of the directory.
+**To view locally:** Open `Disagree Wisely, Inc./Website/index.html` in a browser (unencrypted source files).
+
+### Updating the board site
+
+When content changes in `Disagree Wisely, Inc./Website/`:
+
+1. Copy updated files into `board/`
+2. Re-encrypt HTML: `npx staticrypt board/*.html board/board-onboarding/index.html board/board-reference/index.html -p "PASSWORD" -d board -r --remember 30`
+3. Re-encrypt PDFs if changed (using pikepdf with the same password)
+4. Commit and push
 
 ---
 
