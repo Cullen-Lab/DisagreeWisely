@@ -96,30 +96,33 @@
     });
   }
 
-  // ── TOC Click-to-Open ──────────────────────────────────────────────
-  // When a TOC link targets a collapsed section or subsection, open it.
+  // ── Anchor Click-to-Open ────────────────────────────────────────────
+  // When any in-page anchor link targets a collapsed section or subsection, open it.
+
+  function openSectionForId(id) {
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    // Open the parent .section if collapsed
+    var section = target.closest('.section');
+    if (section) section.classList.add('open');
+
+    // Open the .subsection itself (or its containing subsection)
+    if (target.classList.contains('subsection')) {
+      target.classList.add('open');
+    } else {
+      var sub = target.closest('.subsection');
+      if (sub) sub.classList.add('open');
+    }
+  }
 
   function initTocNavigation() {
-    document.querySelectorAll('.toc-nav a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        var href = this.getAttribute('href');
-        var id = href ? href.replace('#', '') : '';
-        if (!id) return;
-        var target = document.getElementById(id);
-        if (!target) return;
-
-        // Open the parent .section if collapsed
-        var section = target.closest('.section');
-        if (section) section.classList.add('open');
-
-        // Open the .subsection itself (or its containing subsection)
-        if (target.classList.contains('subsection')) {
-          target.classList.add('open');
-        } else {
-          var sub = target.closest('.subsection');
-          if (sub) sub.classList.add('open');
-        }
-      });
+    // Handle all in-page anchor links, not just TOC links
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var id = link.getAttribute('href').replace('#', '');
+      if (id) openSectionForId(id);
     });
   }
 
