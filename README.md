@@ -90,12 +90,46 @@ The board portal is live at **[www.disagreewisely.org/board/](https://www.disagr
 
 ### Updating the board site
 
-When content changes in `Disagree Wisely, Inc./Website/`:
+When content changes in `Disagree Wisely, Inc./Website/`, you must re-encrypt and redeploy:
 
-1. Copy updated files into `board/`
-2. Re-encrypt HTML: `npx staticrypt board/*.html board/board-onboarding/index.html board/board-reference/index.html -p "PASSWORD" -d board -r --remember 30`
-3. Re-encrypt PDFs if changed (using pikepdf with the same password)
-4. Commit and push
+**HTML pages** (StatiCrypt AES-256, decrypted client-side):
+```bash
+# Copy source files to temp location, encrypt, then deploy to board/
+cp "Disagree Wisely, Inc./Website/index.html" /tmp/dw_index.html
+cp "Disagree Wisely, Inc./Website/board-onboarding/index.html" /tmp/dw_onboarding.html
+cp "Disagree Wisely, Inc./Website/board-reference/index.html" /tmp/dw_reference.html
+
+# Encrypt each (uses password_template.html for the login screen)
+npx staticrypt /tmp/dw_index.html -p "PASSWORD" -d /tmp/dw_out --remember 30 --short \
+  --template board/password_template.html --template-title "Board Portal" \
+  --template-instructions "Resources for the Board of Directors." \
+  --template-placeholder "Password" --template-error "Wrong password." \
+  --template-toggle-show "Show" --template-toggle-hide "Hide"
+# Repeat for onboarding and reference (change --template-title accordingly)
+
+# Deploy
+cp /tmp/dw_out/dw_index.html board/index.html
+cp /tmp/dw_out/dw_onboarding.html board/board-onboarding/index.html
+cp /tmp/dw_out/dw_reference.html board/board-reference/index.html
+```
+
+**PDF documents** (pikepdf AES-256):
+```python
+import pikepdf
+pdf = pikepdf.open('source.pdf')
+pdf.save('board/board-reference/docs/output.pdf',
+         encryption=pikepdf.Encryption(owner='PASSWORD', user='PASSWORD', aes=True, R=6))
+```
+
+**Shared assets** (CSS/JS): Copy `Disagree Wisely, Inc./Website/shared/` to `board/shared/`.
+
+**PDF generation** (for minutes etc.): Use Chrome headless with `--no-pdf-header-footer` to avoid browser-generated headers/footers:
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-sandbox \
+  --print-to-pdf="output.pdf" --no-pdf-header-footer "file:///path/to/source.html"
+```
+
+Then commit and push. GitHub Pages will deploy automatically.
 
 ---
 
