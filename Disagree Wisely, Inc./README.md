@@ -24,7 +24,7 @@ Florida nonprofit corporation focused on civil discourse research and education.
 |---|---|
 | **Dr. Simon Cullen** | President & CEO. Co-founder; PhD Philosophy (Princeton). Leads research and organizational strategy. |
 | **Dr. Nicholas DiBella** | Secretary, Treasurer & CTOO. Co-founder; PhD Philosophy (Stanford), BS (MIT). Leads technology, operations, and financial oversight. |
-| **Dr. Neil Thomason** | Independent Director. Professor Emeritus, University of Melbourne. Pioneer in analytical reasoning pedagogy and argument mapping. |
+| **Dr. Neil Thomason** | Director. Professor Emeritus, University of Melbourne. Pioneer in analytical reasoning pedagogy and argument mapping. |
 | **Ken Stern** | Director. Attorney, author, Director of the Bard Center for the Study of Hate. |
 | **Dr. Barbara Oakley** | Director. Distinguished Professor of Engineering, Oakland University. Co-creator of "Learning How to Learn." |
 
