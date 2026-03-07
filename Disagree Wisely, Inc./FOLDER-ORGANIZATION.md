@@ -1,6 +1,6 @@
 # Disagree Wisely, Inc. — Folder Organization
 
-Last updated: 2026-03-05
+Last updated: 2026-03-06
 
 This document describes the reorganized folder structure for the Disagree Wisely, Inc. document collection.
 
@@ -41,7 +41,8 @@ Disagree Wisely, Inc./
 │   │       ├── intern-nda.pdf
 │   │       └── rachel-sipser-offer-amendment-feb-2026.pdf
 │   └── internal/                      # Internal planning files (not linked from sites)
-│       ├── Board Meeting - March 6 2026.pdf
+│       ├── Board Meeting - March 6 2026.pdf          # Meeting slides PDF
+│       ├── Board Meeting - March 6 2026 - Transcript.pdf  # Meeting transcript (when available)
 │       ├── generate_slides.py
 │       └── meeting-slides.html
 ├── board-onboarding/          # DEPRECATED — superseded by Website/board-onboarding/
@@ -82,6 +83,8 @@ Disagree Wisely, Inc./
 │   │   ├── Rachel Sipser job offer_Rachel Signed 12262025.pdf
 │   │   ├── DW Board Resolutions Jul 2025.gdoc
 │   │   └── DW Board Resolutions Jul 2025.pdf
+│   ├── Board Meeting Follow-Up Emails/
+│   │   └── 2026-03-06 Board Meeting Follow-Up.rtf     # Draft email + attachments (COI, Bylaws, Minutes PDFs)
 │   └── Board Meeting Minutes/
 │       ├── 2025-06-07/
 │       │   └── 2025-06-07 Board Meeting Minutes.docx
@@ -274,7 +277,7 @@ Disagree Wisely, Inc./
 ## Section Descriptions
 
 ### Governance/
-Core organizational governance documents: bylaws, board-adopted policies, board resolutions, and meeting minutes. This is the primary reference for board members.
+Core organizational governance documents: bylaws, board-adopted policies, board resolutions, meeting minutes, and board follow-up emails (with attachments). This is the primary reference for board members.
 
 ### Incorporation and Tax/
 State incorporation filings (Florida), federal EIN and tax documents, and Pennsylvania state tax registrations and filings.
@@ -309,7 +312,7 @@ Two board-facing websites with shared CSS/JS, self-contained and GitHub Pages-re
 - **`board-onboarding/`** — Slim onboarding guide for new board members. Contains only essential information (governance summaries, insurance overview, financial snapshot).
 - **`board-reference/`** — Comprehensive reference with all detail: full governance policies with download links, operational notes, complete financial breakdown, history timeline, and document index.
   - **`docs/`** — 18 bundled PDFs with normalized kebab-case filenames. These are copies of key documents from elsewhere in the repo, included so the website is self-contained.
-- **`internal/`** — Internal planning files not linked from the public sites (board meeting PDF, slide generator, meeting slides).
+- **`internal/`** — Internal planning files not linked from the public sites (board meeting slides PDF, meeting transcript, slide generator, meeting slides HTML).
 
 ### board-onboarding/ (deprecated)
 Original onboarding website. Superseded by `Website/board-onboarding/` and `Website/board-reference/`. Kept for reference; edit the files under `Website/` going forward.

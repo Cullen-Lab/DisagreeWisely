@@ -47,7 +47,7 @@ Florida nonprofit corporation focused on civil discourse research and education.
 | Folder | Description |
 |---|---|
 | `Website/` | Board-facing websites (onboarding + reference), self-contained with shared CSS/JS. GitHub Pages-ready. |
-| `Governance/` | Bylaws, policies (COI, document retention, anti-harassment, intern NDA), board resolutions, meeting minutes. |
+| `Governance/` | Bylaws, policies (COI, document retention, anti-harassment, intern NDA), board resolutions, meeting minutes, and board follow-up emails. |
 | `Incorporation and Tax/` | Florida incorporation filings, federal EIN/tax docs, Pennsylvania tax registrations. |
 | `Financials/` | Bank statements, banking setup, expense tracking. |
 | `501c3 Application (Foundation Group)/` | 501(c)(3) application materials: narratives, job descriptions, budgets, Form 1023 drafts, research organizer. |
@@ -94,12 +94,15 @@ The `board-reference/docs/` folder contains 18 bundled PDFs with normalized keba
 
 ## Current Status (March 2026)
 
-- **501(c)(3):** Application in progress with Foundation Group; expected IRS submission by mid-April 2026.
-- **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval before funds can be disbursed.
+- **501(c)(3):** Application in progress with Foundation Group; Foundation Group has everything needed and is producing the official application. Submission expected in the coming weeks. Standard IRS review (expedited review will not be requested).
+- **Board:** First full board meeting held March 6, 2026 (all 5 directors present). Officers re-elected unanimously. [Minutes in board-reference site.](Website/board-reference/index.html#minutes-2026-03-06)
+- **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval. Year 1 ramp-up: ~$60K to DW.
+- **Learning Agency:** ~$125K funds retained; reallocation in progress with LA support.
 - **HxA-AVDF:** Phase 2 services agreement active (Jan-Nov 2026).
 - **Snider Foundations:** Two grants ($50K + $25K) received in 2025.
 - **ECI/Wake Forest:** Grant application submitted (~$233K over 3 years).
 - **TWCF:** Request for Ideas submitted (Feb 2026).
+- **Growth:** 80+ institutions, ~10,000 students, ~130 instructors (up from ~30 institutions / ~2,000 students at start of 2025).
 
 ---
 

@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Board Onboarding &mdash; Disagree Wisely, Inc.</title>
+  <script>
+    // Apply saved theme immediately to prevent flash of wrong theme
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.dataset.theme = saved;
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="../shared/css/style.css">
 </head>
 <body>
@@ -17,9 +26,6 @@
     <nav class="toc-sidebar" aria-label="Table of contents">
       <div class="toc-header">
         <div class="toc-title">Onboarding Guide</div>
-      </div>
-      <div style="margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
-        <a href="../board-reference/index.html" style="display:block; padding: 0.35rem 0.5rem; font-size: 0.82rem; color: var(--color-accent); text-decoration: none;">Board Reference &rarr;</a>
       </div>
       <div class="toc-nav">
         <a href="#welcome">Welcome</a>
@@ -152,11 +158,11 @@
           <div class="section-inner">
             <p>Our 501(c)(3) application is <strong>pending</strong>. We are working with
               <strong>Foundation Group</strong> (our nonprofit consulting firm), who are finalizing
-              our IRS Form&nbsp;1023 application. They expect it to be submitted to the IRS by
-              mid-April 2026 (hopefully sooner). Key points:</p>
+              our IRS Form&nbsp;1023 application. Foundation Group has everything they need and is now producing the official application;
+              submission is expected in the coming weeks. Key points:</p>
             <ul>
               <li>The application frames Disagree Wisely as a <strong>civil discourse research and education organization</strong> that studies constructive disagreement and delivers evidence-based educational programs. Per Foundation Group&rsquo;s advice, the application focuses on Disagree Wisely&rsquo;s research and educational mission broadly &mdash; not on any specific tool or platform.</li>
-              <li>We are requesting <strong>expedited review</strong> from the IRS because the FIPSE grant (~$800K) cannot be disbursed until 501(c)(3) status is approved. A supporting letter from the grantor has been requested to accompany the application.</li>
+              <li>The application will go through <strong>standard IRS review</strong> (expedited review will not be requested). The FIPSE grant (~$800K) cannot be disbursed until 501(c)(3) status is approved.</li>
             </ul>
             <div class="note">
               <strong>IP structure:</strong> Sway platform IP is personally owned by Simon Cullen
@@ -514,12 +520,13 @@
                         <tr><td>Craig Snider Foundation</td><td>$50,000</td><td>To develop and expand access to Sway</td></tr>
                         <tr><td>Lindy Snider Foundation</td><td>$25,000</td><td>To develop and expand access to Sway</td></tr>
                         <tr><td>Ben Delo Foundation</td><td>$20,000</td><td>Remainder of a $37,500 grant originally awarded in Fall&nbsp;2024 (before DW was incorporated), transferred to Disagree Wisely upon incorporation</td></tr>
+                        <tr><td>Learning Agency &mdash; Tools Competition</td><td>$150,000</td><td>Growth Prize for Sway. $25K spent on Instructor Insights as proposed. ~$125K remaining is being restructured with Learning Agency for compliant non-IP uses (operational costs, research, infrastructure, scaling). LA has expressed &ldquo;no concerns regarding reallocation.&rdquo; Discussed at March&nbsp;6 board meeting; Simon meeting with LA to finalize.</td></tr>
                       </tbody>
                     </table>
                   </div>
                   <p><strong>Secured funding (awaiting 501(c)(3) approval):</strong></p>
                   <ul>
-                    <li><strong>FIPSE &mdash; Integrating Civil Discourse into the Curriculum (ICDC)</strong> &mdash; ~$800K as part of a $4M consortium grant from the U.S. Department of Education&rsquo;s Fund for the Improvement of Postsecondary Education (FIPSE). Led by Notre Dame and NC State (Jan&nbsp;2026&ndash;Dec&nbsp;2029). Disagree Wisely leads research on Sway&rsquo;s educational impact and supports its deployment across institutions. Funds will be disbursed to Disagree Wisely once we receive 501(c)(3) approval.</li>
+                    <li><strong>FIPSE &mdash; Integrating Civil Discourse into the Curriculum (ICDC)</strong> &mdash; ~$800K as part of a $4M consortium grant from the U.S. Department of Education&rsquo;s Fund for the Improvement of Postsecondary Education (FIPSE). Led by Notre Dame and NC State (Jan&nbsp;2026&ndash;Dec&nbsp;2029). Target: 125 campuses, 50,000 students using Sway, 100,000 students total. Year&nbsp;1 is a ramp-up year (~$60K to DW), with larger amounts in subsequent years. Funds disbursed yearly to Notre Dame. FIPSE funds <strong>cannot</strong> be used for programming/coding (IP development) &mdash; only research, education, infrastructure, training, and support staff. Funds will be disbursed to Disagree Wisely once we receive 501(c)(3) approval.</li>
                   </ul>
                   <p><strong>Pending applications:</strong></p>
                   <ul>

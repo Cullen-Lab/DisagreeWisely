@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Board Reference &mdash; Disagree Wisely, Inc.</title>
+  <script>
+    // Apply saved theme immediately to prevent flash of wrong theme
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.dataset.theme = saved;
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="../shared/css/style.css">
 </head>
 <body>
@@ -17,9 +26,6 @@
     <nav class="toc-sidebar" aria-label="Table of contents">
       <div class="toc-header">
         <div class="toc-title">Board Reference</div>
-      </div>
-      <div style="margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border);">
-        <a href="../board-onboarding/index.html" style="display:block; padding: 0.35rem 0.5rem; font-size: 0.82rem; color: var(--color-accent); text-decoration: none;">&larr; Onboarding Guide</a>
       </div>
       <div class="toc-nav">
         <a href="#welcome">Welcome</a>
@@ -38,7 +44,12 @@
         <a href="#finances">Financial Overview</a>
         <a href="#vendors">Partnerships &amp; Vendors</a>
         <a href="#contact">Contact Information</a>
+        <a href="#action-items">Action Items</a>
         <a href="#history">Key History</a>
+        <a href="#minutes">Board Meeting Minutes</a>
+        <a href="#minutes-2026-03-06" class="toc-sub">March 6, 2026</a>
+        <a href="#minutes-2025-07-01" class="toc-sub">July 1, 2025</a>
+        <a href="#minutes-2025-06-07" class="toc-sub">June 7, 2025</a>
         <a href="#documents">Reference Documents</a>
       </div>
     </nav>
@@ -93,6 +104,14 @@
                 tools that foster free inquiry and intelligent discussion.</p>
             </div>
 
+            <h4 style="margin-top:1.25rem;">Sway Traction (cumulative, as of March 2026)</h4>
+            <ul>
+              <li>~10,000 students have used Sway across 80+ institutions</li>
+              <li>~130 instructors have used Sway with their students</li>
+              <li>Up from ~2,000 students / ~30 institutions as of mid-2025</li>
+              <li>Over $700,000 raised from prizes, grants, and charitable contributions</li>
+            </ul>
+
             <p>Learn more at <a href="https://www.disagreewisely.org" target="_blank">disagreewisely.org</a>.</p>
 
           </div>
@@ -109,11 +128,11 @@
           <div class="section-inner">
             <p>Our 501(c)(3) application is <strong>pending</strong>. We are working with
               <strong>Foundation Group</strong> (our nonprofit consulting firm), who are finalizing
-              our IRS Form&nbsp;1023 application. They expect it to be submitted to the IRS by
-              mid-April 2026 (hopefully sooner). Key points:</p>
+              our IRS Form&nbsp;1023 application. Foundation Group has everything they need and is now producing the official application;
+              submission is expected in the coming weeks. Key points:</p>
             <ul>
               <li>The application frames Disagree Wisely as a <strong>civil discourse research and education organization</strong> that studies constructive disagreement and delivers evidence-based educational programs. Per Foundation Group&rsquo;s advice, the application focuses on Disagree Wisely&rsquo;s research and educational mission broadly &mdash; not on any specific tool or platform.</li>
-              <li>We are requesting <strong>expedited review</strong> from the IRS because the FIPSE grant (~$800K) cannot be disbursed until 501(c)(3) status is approved. A supporting letter from the grantor has been requested to accompany the application.</li>
+              <li>The application will go through <strong>standard IRS review</strong> (expedited review will not be requested). The FIPSE grant (~$800K) cannot be disbursed until 501(c)(3) status is approved.</li>
             </ul>
             <div class="note">
               <strong>IP structure:</strong> Sway platform IP is personally owned by Simon Cullen
@@ -166,7 +185,7 @@
               </div>
             </div>
 
-            <div class="subsection" id="advisory-board">
+            <div class="subsection">
               <div class="subsection-header">
                 <h3>Advisory Board</h3>
                 <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
@@ -194,7 +213,7 @@
                   <ul class="kv-list">
                     <li><span class="kv-label">Rachel Sipser</span><span>Director of Communications (part-time, since November&nbsp;2025). Reports to Nicholas DiBella.</span></li>
                   </ul>
-                  <p>Independent directors (Thomason, Stern, Oakley) serve in a governance capacity and are not involved in day-to-day operations. The <a href="#advisory-board">Advisory Board</a> provides subject-matter guidance but has no reporting relationship to or authority over staff.</p>
+                  <p>Independent directors (Thomason, Stern, Oakley) serve in a governance capacity and are not involved in day-to-day operations. The <a href="#comm-norms">Advisory Board</a> provides subject-matter guidance but has no reporting relationship to or authority over staff.</p>
                 </div>
               </div>
             </div>
@@ -635,7 +654,7 @@
                   </div>
                   <p><strong>Secured funding (awaiting 501(c)(3) approval):</strong></p>
                   <ul>
-                    <li><strong>FIPSE &mdash; Integrating Civil Discourse into the Curriculum (ICDC)</strong> &mdash; ~$800K as part of a $4M consortium grant from the U.S. Department of Education&rsquo;s Fund for the Improvement of Postsecondary Education (FIPSE). Led by University of Notre Dame (fiscal lead) and NC State (project director: Gary Comstock; Notre Dame PI: Paul Blaschko). Project period: Jan&nbsp;2026&ndash;Dec&nbsp;2029 (4 years). Disagree Wisely leads research on Sway&rsquo;s educational impact and supports its deployment across institutions. Funds will be disbursed to Disagree Wisely once we receive 501(c)(3) approval. Disbursement schedule and reporting obligations are being coordinated with Notre Dame.</li>
+                    <li><strong>FIPSE &mdash; Integrating Civil Discourse into the Curriculum (ICDC)</strong> &mdash; ~$800K as part of a $4M consortium grant from the U.S. Department of Education&rsquo;s Fund for the Improvement of Postsecondary Education (FIPSE). Led by University of Notre Dame (fiscal lead) and NC State (project director: Gary Comstock; Notre Dame PI: Paul Blaschko). Project period: Jan&nbsp;2026&ndash;Dec&nbsp;2029 (4 years). Target: 125 campuses, 50,000 students using Sway, 100,000 students total. Disagree Wisely leads research on Sway&rsquo;s educational impact and supports its deployment across institutions. Year&nbsp;1 is a ramp-up year (~$60K to DW), with larger amounts in subsequent years. Funds are disbursed yearly to Notre Dame. FIPSE funds <strong>cannot</strong> be used for programming/coding (IP development) &mdash; only research, education, infrastructure, training, and support staff. Funds will be disbursed to Disagree Wisely once we receive 501(c)(3) approval.</li>
                   </ul>
                   <p><strong>Pending applications:</strong></p>
                   <ul>
@@ -695,7 +714,7 @@
                 <div class="subsection-inner">
                   <ul class="kv-list">
                     <li><span class="kv-label">Gross cash</span><span>~$173,000</span></li>
-                    <li><span class="kv-label">Effective working cash</span><span>~$48,000</span></li>
+                    <li><span class="kv-label">Learning Agency funds</span><span>~$125K retained; reallocation with Learning Agency in progress (discussed at March&nbsp;6 board meeting &mdash; LA expressed &ldquo;no concerns regarding reallocation&rdquo;)</span></li>
                   </ul>
                   <p>The FIPSE grant is the critical near-term revenue source and is contingent on 501(c)(3) approval.</p>
                 </div>
@@ -930,6 +949,11 @@
                 <div class="subsection-inner">
                   <div class="timeline">
                     <div class="timeline-item">
+                      <div class="timeline-date">March 6, 2026</div>
+                      <div class="timeline-title">First Full Board Meeting (2026 Annual Meeting)</div>
+                      <div class="timeline-desc">All five directors present via Zoom (~1h46m). Officers re-elected unanimously: Cullen (President), DiBella (Secretary/Treasurer), Thomason (Director). Board briefed on 501(c)(3) application status, HxA/AVDF compliance transition, Learning Agency funds reallocation, CMU IP dispute, FIPSE grant, and growth metrics (~10,000 cumulative students across 80+ institutions). <a href="#minutes-2026-03-06">Full minutes below.</a></div>
+                    </div>
+                    <div class="timeline-item">
                       <div class="timeline-date">February 25, 2026</div>
                       <div class="timeline-title">Ken Stern &amp; Barbara Oakley Elected</div>
                       <div class="timeline-desc">Board expanded to 5 directors via unanimous written consent. Welcome!</div>
@@ -1000,7 +1024,7 @@
                     <div class="timeline-item">
                       <div class="timeline-date">June 7, 2025</div>
                       <div class="timeline-title">First Board Meeting</div>
-                      <div class="timeline-desc">Approved opening Bluevine checking account. Authorized D&amp;O insurance purchase ($2K budget). Adopted Conflict of Interest and Whistleblower policies. Began working with Foundation Group on the 501(c)(3) application.</div>
+                      <div class="timeline-desc">Approved opening BlueVine checking account and Axos savings account. Authorized D&amp;O insurance purchase ($2K budget). Adopted Conflict of Interest Policy (standard Foundation Group template; signed July&nbsp;29). Board also voted to adopt a Whistleblower Policy, but Foundation Group does not appear to have shared the document. Began working with Foundation Group on the 501(c)(3) application.</div>
                     </div>
                     <div class="timeline-item">
                       <div class="timeline-date">April 2, 2025</div>
@@ -1063,21 +1087,7 @@
               </div>
             </div>
 
-            <div class="subsection">
-              <div class="subsection-header">
-                <h3>Board Meeting Minutes</h3>
-                <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
-              </div>
-              <div class="subsection-body">
-                <div class="subsection-inner">
-                  <p>
-                    <a href="docs/board-minutes-2025-06-07.pdf" class="download-link" target="_blank">June 7, 2025 Minutes</a>
-                    <a href="docs/board-minutes-2025-07-01.pdf" class="download-link" target="_blank">July 1, 2025 Minutes</a>
-                  </p>
-                  <p style="font-size:0.9rem; color: var(--color-text-muted);">The September and December 2025 board actions (Financial Authorization Resolution and its amendment) were conducted by email vote, so there are no meeting minutes for those.</p>
-                </div>
-              </div>
-            </div>
+            <!-- Board Meeting Minutes moved to its own top-level section (#minutes) -->
 
             <div class="subsection">
               <div class="subsection-header">
@@ -1121,6 +1131,332 @@
                     <a href="docs/coi-acknowledgment-simon-cullen.pdf" class="download-link" target="_blank">Simon Cullen&rsquo;s COI Acknowledgment</a>
                     <a href="docs/coi-acknowledgment-simon-cullen-signed.pdf" class="download-link" target="_blank">Simon Cullen&rsquo;s COI Acknowledgment (signed)</a>
                   </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Action Items -->
+      <div class="section" id="action-items">
+        <div class="section-header">
+          <h2>Action Items</h2>
+          <span class="section-toggle" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="section-body">
+          <div class="section-inner">
+
+            <p>Outstanding action items from board meetings, updated as items are completed.</p>
+
+            <h4 style="margin-top:0.5rem;">From March 6, 2026 Board Meeting</h4>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Item</th><th>Owner</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Send COI policy to all directors for email attestation</td><td>Nick</td><td>Pending</td></tr>
+                  <tr><td>Send Bylaws to Ken and Barbara for email confirmation of receipt</td><td>Nick</td><td>Pending</td></tr>
+                  <tr><td>Send onboarding guide, reference site links, and password to Ken and Barbara</td><td>Nick</td><td>Pending</td></tr>
+                  <tr><td>Draft meeting minutes from transcript; send to board for review; destroy recording after approval</td><td>Nick</td><td>In Progress</td></tr>
+                  <tr><td>Meet with Learning Agency again re: funds reallocation; report back to board</td><td>Simon</td><td>Pending</td></tr>
+                  <tr><td>Connect Simon with Laura Ellsworth (Jones Day) re: CMU IP matter</td><td>Ken</td><td>Pending</td></tr>
+                  <tr><td>Help with university-level adoption contacts (Michigan, CUNY, SUNY)</td><td>Ken</td><td>Pending</td></tr>
+                  <tr><td>Connect Simon with Oakland University conference organizer (social discourse conference)</td><td>Barb</td><td>Pending</td></tr>
+                  <tr><td>Schedule individual follow-up conversations with each new director</td><td>Simon</td><td>Pending</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Board Meeting Minutes -->
+      <div class="section" id="minutes">
+        <div class="section-header">
+          <h2>Board Meeting Minutes</h2>
+          <span class="section-toggle" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="section-body">
+          <div class="section-inner">
+
+            <p>Formal minutes from board meetings, most recent first. The September and December 2025 board actions (Financial Authorization Resolution and its amendment) were conducted by email vote, so there are no meeting minutes for those.</p>
+
+            <!-- ── March 6, 2026 ─────────────────────────────── -->
+            <div class="subsection" id="minutes-2026-03-06">
+              <div class="subsection-header">
+                <h3>March 6, 2026 &mdash; First Full Board Meeting (2026 Annual Meeting)</h3>
+                <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
+              </div>
+              <div class="subsection-body">
+                <div class="subsection-inner">
+
+                  <div class="info-card">
+                    <div class="info-card-label">Meeting Details</div>
+                    <p style="margin-bottom:0.25rem;"><strong>Organization:</strong> Disagree Wisely, Inc.</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Date:</strong> March 6, 2026</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Time:</strong> 4:00 PM &ndash; ~5:46 PM Eastern</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Location:</strong> Zoom videoconference</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Type:</strong> First Full Board Meeting; also serves as the 2026 Annual Meeting (Bylaws &sect;&nbsp;4.1)</p>
+                    <p style="margin-bottom:0;"><strong>Minutes prepared by:</strong> Nicholas DiBella, Secretary</p>
+                  </div>
+
+                  <h4 style="margin-top:1.25rem;">Directors Present</h4>
+                  <ul>
+                    <li>Dr. Simon Cullen &mdash; President &amp; CEO</li>
+                    <li>Dr. Nicholas DiBella &mdash; Secretary, Treasurer &amp; CTOO</li>
+                    <li>Dr. Neil Thomason &mdash; Independent Director</li>
+                    <li>Ken Stern &mdash; Director</li>
+                    <li>Dr. Barbara Oakley &mdash; Director</li>
+                  </ul>
+                  <p><strong>Quorum confirmed:</strong> 5 of 5 directors present (3 required).</p>
+
+                  <h4 style="margin-top:1.25rem;">Recording Consent</h4>
+                  <p>The Secretary (Nicholas DiBella) asked whether all directors consented to recording the meeting for the purpose of producing accurate minutes, with the recording to be destroyed after the minutes are finalized. He noted the recording would be transcribed locally (not uploaded to the cloud) and destroyed after minutes are produced. All five directors consented. Recording was started.</p>
+
+                  <hr style="margin:1.5rem 0;">
+
+                  <h4>1. Welcome &amp; Introductions</h4>
+                  <p>The President welcomed Ken Stern and Barbara Oakley as new directors. Brief introductions were made for the record. The President noted that this meeting also serves as the <strong>2026 Annual Meeting</strong> under Bylaws &sect;&nbsp;4.1 (delayed from January to accommodate onboarding of the two new directors). He confirmed quorum: all five directors present.</p>
+                  <p>The President set expectations that a written onboarding guide and comprehensive reference site would be sent after the meeting, covering everything discussed in more detail.</p>
+
+                  <h4 style="margin-top:1.25rem;">2. Annual Governance Items</h4>
+
+                  <p><strong>Officer Re-Elections (Bylaws &sect;&nbsp;5.1):</strong></p>
+                  <p>The President explained that the Bylaws require annual officer elections. Each officer abstained from the vote on their own re-election. The following elections were held:</p>
+
+                  <div class="table-wrap">
+                    <table>
+                      <thead><tr><th>Position</th><th>Candidate</th><th>Result</th><th>Votes</th></tr></thead>
+                      <tbody>
+                        <tr><td>President &amp; CEO</td><td>Simon Cullen</td><td><strong>Approved</strong></td><td>4-0 (Cullen abstained)</td></tr>
+                        <tr><td>Secretary, Treasurer &amp; CTOO</td><td>Nicholas DiBella</td><td><strong>Approved</strong></td><td>4-0 (DiBella abstained)</td></tr>
+                        <tr><td>Director</td><td>Neil Thomason</td><td><strong>Approved</strong></td><td>4-0 (Thomason abstained)</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p style="font-size:0.9rem; color:var(--color-text-muted);">For each vote, the four non-abstaining directors (the remaining directors) voted yay. All three re-elections were unanimous among voting members.</p>
+
+                  <p><strong>Conflict of Interest Attestation:</strong> The President noted that the COI policy document would be sent to all directors after the meeting. Each director is to reply by email attesting that they have read and understand the policy and will comply. This serves as the annual attestation required by the policy and expected by the IRS.</p>
+
+                  <p><strong>Bylaws Receipt:</strong> The President noted that the Bylaws would be sent to Ken Stern and Barbara Oakley after the meeting for email confirmation of receipt and agreement to abide by them.</p>
+
+                  <h4 style="margin-top:1.25rem;">3. 501(c)(3) &amp; Restructuring Update</h4>
+
+                  <p><strong>Restructuring:</strong> The President explained the structural separation between Disagree Wisely (nonprofit: research, education, program delivery) and Sway IP (to be held by a separate for-profit Public Benefit Corporation). This separation was recommended by Foundation Group to avoid private benefit concerns with the IRS. The PBC has not yet been incorporated but can be done for approximately $50 in Delaware.</p>
+
+                  <p><strong>501(c)(3) Application:</strong> Foundation Group has everything they need and is now producing the official application for submission in the coming weeks. <strong>Correction from prepared slides:</strong> the President stated that expedited IRS review will <strong>not</strong> be requested (revising the earlier plan). The application will go through standard review.</p>
+
+                  <p><strong>HxA/AVDF Compliance Transition:</strong> The current Phase&nbsp;2 services agreement (Jan&ndash;Nov 2026) includes development language that predates the restructuring. The Secretary reported that DW had proposed an amendment to remove development costs from DW&rsquo;s scope, but HxA Executive Director Michael Regnier informed them the previous day that this is not feasible with approximately three months remaining in the grant &mdash; it would require legal counsel review, HxA board COI approval, and AVDF approval. The President elaborated that the practical outcome is that DW will continue invoicing HxA for some development-related costs through May/June 2026, when the remaining AVDF development budget is expected to be used up. The net financial cost to DW is zero (fully reimbursed).</p>
+
+                  <h4 style="margin-top:1.25rem;">4. Learning Agency / Tools Competition Funds (~$125K)</h4>
+                  <p>Simon and Nick won the Learning Agency Tools Competition Growth Prize ($150K) for Sway. $25K was spent on Instructor Insights as proposed. ~$125K remains earmarked for ChatMaps (a real-time argument visualization feature). Because DW is restructuring away from development, these funds cannot be compliantly spent on ChatMaps through DW.</p>
+                  <p>The President reported that the original hope of returning the ~$125K to the Learning Agency for redirection to the PBC is not possible &mdash; the funds come from a bucket restricted to nonprofits. However, the Learning Agency is open to restructuring the award so that the funds can be used for other compliant purposes within DW (operational and scaling costs, research, infrastructure). The Learning Agency responded with <strong>&ldquo;no concerns on our end regarding reallocation and the adjustments to your plan.&rdquo;</strong> The President will meet with them again to finalize the restructured agreement and report back to the board. Financial impact: the ~$125K is currently included in DW&rsquo;s gross cash (~$173K).</p>
+
+                  <h4 style="margin-top:1.25rem;">5. Sway IP &amp; CMU Dispute</h4>
+                  <p>The President briefed the board on the CMU IP dispute. Carnegie Mellon has asserted a joint ownership interest in the Sway platform IP. The co-founders&rsquo; position is that Sway qualifies as educational courseware under CMU&rsquo;s own IP policy (Section 3-6-1), which vests ownership in the creator &ldquo;in all cases.&rdquo; CMU-affiliated code contributions amount to 0.77% of the codebase (454 lines of commodity CSS, HTML, and boilerplate). Previous counsel (David Kalson, Dentons) assessed the legal position as strong. The Dentons engagement ended in February 2026.</p>
+                  <p><strong>Board input:</strong></p>
+                  <ul>
+                    <li>Ken Stern recommended obtaining independent legal counsel (not Foundation Group) and offered to connect Simon with <strong>Laura Ellsworth at Jones Day</strong> as potential counsel.</li>
+                    <li>Ken noted both IP law and employment law dimensions to the dispute.</li>
+                    <li>The board discussed the option of removing the 0.77% CMU-affiliated code entirely.</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">6. Financial Report</h4>
+                  <p>The Treasurer (Nicholas DiBella) presented the financial overview:</p>
+                  <ul>
+                    <li>Gross cash on hand: ~$173,000 (includes ~$125K Learning Agency funds being retained pending reallocation)</li>
+                    <li>Operating costs: ~$40K&ndash;$45K/month to maintain current pace of development and pay the core team</li>
+                    <li>No one is currently paid directly from DW&rsquo;s general funds. Simon Cullen is paid by HxA. Nicholas DiBella&rsquo;s salary is funded by the Craig Snider Foundation grant, with funds transferred to HxA so he remains on HxA&rsquo;s payroll. Rachel Sipser (Director of Communications) will be paid through HxA soon (back pay owed).</li>
+                    <li>Board members (Thomason, Stern, Oakley) are uncompensated for board service. Simon and Nick also have separate operational roles (CEO and CTOO) for which they are compensated.</li>
+                    <li>Secured funding awaiting 501(c)(3): FIPSE ~$800K (Year&nbsp;1 ramp-up: ~$60K to DW; larger amounts in subsequent years; funds disbursed yearly to Notre Dame)</li>
+                    <li>Revenue sources reviewed: HxA/AVDF (~$284K across two phases), Craig Snider Foundation ($50K), Lindy Snider Foundation ($25K), Ben Delo Foundation ($20K remainder), HxA Sway Classroom grant ($13,171), and the Learning Agency Tools Competition ($150K). Pending applications: ECI/Wake Forest (~$233K), NewSchools Venture Fund ($100K&ndash;$200K), Templeton World Charity Foundation ($5M+ if invited to full application).</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">7. Growth &amp; Impact</h4>
+                  <p>The President reported on organizational growth:</p>
+                  <ul>
+                    <li>Sway has been used by ~<strong>10,000 students</strong> and ~<strong>130 instructors</strong> across <strong>80+ institutions</strong> (cumulative)</li>
+                    <li>Up from ~30 institutions / ~2,000 students at the start of 2025</li>
+                    <li>University-level adoption discussions underway with University of Michigan (potentially 8,000 students in orientation), SUNY system, Columbia University, CUNY, and MIT</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">8. Open Discussion &amp; Board Member Input</h4>
+                  <p><strong>Ken Stern offered:</strong></p>
+                  <ul>
+                    <li>Help with University of Michigan contacts, CUNY (friends with the chancellor), and SUNY contacts</li>
+                    <li>Introduction to Laura Ellsworth (Jones Day) for the CMU IP matter</li>
+                  </ul>
+                  <p><strong>Barbara Oakley offered:</strong></p>
+                  <ul>
+                    <li>Oakland University connections, including a conference on social discourse</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">9. Next Steps</h4>
+                  <p>Several post-meeting follow-up items were identified, including sending governance documents for attestation, distributing onboarding materials, and follow-up actions assigned to individual directors. See the <a href="#action-items">Action Items</a> section for the complete list with owners and status.</p>
+
+                  <h4 style="margin-top:1.25rem;">Adjournment</h4>
+                  <p>There being no further business, the meeting was adjourned at approximately <strong>5:46 PM Eastern</strong>.</p>
+
+                  <div class="note" style="margin-top:1.5rem;">
+                    <strong>Note:</strong> These minutes were drafted from the meeting transcript by the Secretary. The recording was made with the verbal consent of all five directors and will be destroyed upon approval of these minutes.
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- ── July 1, 2025 ──────────────────────────────── -->
+            <div class="subsection" id="minutes-2025-07-01">
+              <div class="subsection-header">
+                <h3>July 1, 2025 &mdash; Special Board Meeting</h3>
+                <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
+              </div>
+              <div class="subsection-body">
+                <div class="subsection-inner">
+
+                  <div class="info-card">
+                    <div class="info-card-label">Meeting Details</div>
+                    <p style="margin-bottom:0.25rem;"><strong>Organization:</strong> Disagree Wisely, Inc.</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Date:</strong> July 1, 2025</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Time:</strong> 7:15 PM Eastern</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Location:</strong> Virtual (FaceTime)</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Type:</strong> Special Board Meeting</p>
+                    <p style="margin-bottom:0;"><strong>Called by:</strong> Dr. Simon Cullen, President</p>
+                  </div>
+
+                  <h4 style="margin-top:1.25rem;">Directors Present</h4>
+                  <ul>
+                    <li>Dr. Simon Cullen &mdash; President</li>
+                    <li>Dr. Neil Thomason &mdash; Independent Director</li>
+                    <li>Dr. Nicholas DiBella &mdash; Secretary/Treasurer</li>
+                  </ul>
+                  <p><strong>Quorum confirmed:</strong> 3 of 3 directors present.</p>
+
+                  <p>All directors received comprehensive documentation packages prior to the meeting, including two board resolutions, a supporting justification document (with comparability analysis involving Form&nbsp;990 data), and conflict of interest acknowledgments.</p>
+
+                  <hr style="margin:1.5rem 0;">
+
+                  <h4>1. CTOO Appointment &mdash; Nicholas DiBella</h4>
+                  <p><strong>Conflict of Interest:</strong> Dr. DiBella recused himself from discussion and voting due to personal interest in the appointment.</p>
+                  <p>The remaining directors (Dr.&nbsp;Thomason and Dr.&nbsp;Cullen) discussed the need to formalize Dr.&nbsp;DiBella&rsquo;s technology and operations leadership role. Dr.&nbsp;DiBella has been leading technology development and operations since the organization&rsquo;s founding.</p>
+                  <p><strong>Motion:</strong> Dr. Neil Thomason moved to approve the resolution appointing Dr. Nicholas DiBella as Chief Technology &amp; Operations Officer. Dr. Simon Cullen seconded.</p>
+                  <ul>
+                    <li><strong>In Favor:</strong> Thomason, Cullen (2-0)</li>
+                    <li><strong>Abstained:</strong> DiBella (conflict of interest)</li>
+                  </ul>
+                  <p><strong>Result:</strong> Motion carried. Resolution 2025-04 adopted.</p>
+
+                  <h4 style="margin-top:1.25rem;">2. Interim Employment Arrangement &mdash; Nicholas DiBella</h4>
+                  <p><strong>Conflict of Interest:</strong> Dr. DiBella remained recused. He submitted a signed Conflict of Interest Acknowledgment prior to the meeting.</p>
+                  <p>The remaining directors reviewed the extraordinary circumstances: Dr.&nbsp;DiBella&rsquo;s IC Postdoctoral Research Fellowship had been indefinitely suspended due to federal funding issues beyond his control. The Board discussed:</p>
+                  <ul>
+                    <li><strong>Financial impact:</strong> Maximum cost of $31,759 for approximately 4.14 months</li>
+                    <li><strong>Compensation level:</strong> $92,000 annually (matches current fellowship compensation)</li>
+                    <li><strong>Comparable analysis:</strong> Significantly below market rates (25&ndash;43% lower than peer organizations)</li>
+                    <li><strong>Organizational need:</strong> Critical for maintaining platform development and grant compliance</li>
+                    <li><strong>Legal compliance:</strong> Meets IRC Section 4958 requirements with proper comparability data</li>
+                  </ul>
+                  <p><strong>Motion:</strong> Dr. Neil Thomason moved to approve the interim employment arrangement. Dr. Simon Cullen seconded.</p>
+                  <ul>
+                    <li><strong>In Favor:</strong> Thomason, Cullen (2-0)</li>
+                    <li><strong>Abstained:</strong> DiBella (conflict of interest)</li>
+                  </ul>
+                  <p><strong>Result:</strong> Motion carried. Resolution 2025-05 and Interim Employment Agreement adopted.</p>
+
+                  <h4 style="margin-top:1.25rem;">Implementation &amp; Next Steps</h4>
+                  <ul>
+                    <li>Complete myPATH (PA state) and EFTPS (federal) tax registrations (DiBella)</li>
+                    <li>Set up Gusto payroll system linked to BlueVine account (DiBella)</li>
+                    <li>File all resolutions in corporate records (DiBella)</li>
+                    <li>Authorize interim employment payments (Cullen)</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">Adjournment</h4>
+                  <p>There being no further business, the meeting was adjourned.</p>
+
+                  <p style="font-size:0.9rem; color:var(--color-text-muted); margin-top:1rem;"><strong>Resolutions adopted:</strong> Resolution 2025-04 (CTOO Appointment), Resolution 2025-05 (Interim Employment Arrangement). Minutes certified by Dr. Simon Cullen, President.</p>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- ── June 7, 2025 ──────────────────────────────── -->
+            <div class="subsection" id="minutes-2025-06-07">
+              <div class="subsection-header">
+                <h3>June 7, 2025 &mdash; First Board Meeting</h3>
+                <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
+              </div>
+              <div class="subsection-body">
+                <div class="subsection-inner">
+
+                  <div class="info-card">
+                    <div class="info-card-label">Meeting Details</div>
+                    <p style="margin-bottom:0.25rem;"><strong>Organization:</strong> Disagree Wisely, Inc.</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Date:</strong> June 7, 2025</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Time:</strong> 10:00 PM &ndash; ~10:45 PM Eastern</p>
+                    <p style="margin-bottom:0.25rem;"><strong>Location:</strong> Virtual (Zoom)</p>
+                    <p style="margin-bottom:0;"><strong>Minutes prepared by:</strong> Nicholas DiBella, Secretary (June 8, 2025)</p>
+                  </div>
+
+                  <h4 style="margin-top:1.25rem;">Directors Present</h4>
+                  <ul>
+                    <li>Dr. Nicholas DiBella &mdash; Secretary/Treasurer</li>
+                    <li>Dr. Neil Thomason &mdash; Independent Director</li>
+                    <li>Dr. Simon Cullen &mdash; President</li>
+                  </ul>
+                  <p><strong>Quorum confirmed:</strong> 3 of 3 directors present.</p>
+
+                  <hr style="margin:1.5rem 0;">
+
+                  <h4>1. Call to Order</h4>
+                  <p>Nick called the meeting to order at 10:00 PM ET.</p>
+
+                  <h4 style="margin-top:1.25rem;">2. Banking</h4>
+                  <p>Simon proposed opening two accounts for the organization:</p>
+                  <ul>
+                    <li><strong>Business checking:</strong> BlueVine Plus Plan (2.7% APY, no account fees, federally insured)</li>
+                    <li><strong>Business savings:</strong> Axos Business Savings Premium (3.7% APY, no account fees, federally insured)</li>
+                  </ul>
+                  <p>Both accounts were identified through research. Neil noted the board should review alternatives but was satisfied with the options presented.</p>
+                  <p>Simon moved to approve; Neil seconded. <strong>Unanimously approved.</strong></p>
+                  <div class="note">
+                    <strong>Follow-up note:</strong> The Axos savings account was ultimately not opened. Only the BlueVine checking account was set up.
+                  </div>
+
+                  <h4 style="margin-top:1.25rem;">3. Directors &amp; Officers (D&amp;O) Insurance</h4>
+                  <p>Simon explained that D&amp;O insurance protects board members and the organization from legal liabilities, including claims between board members. It is an expectation that all nonprofits carry D&amp;O coverage. Anticipated cost: $1,000&ndash;$2,000/year. The board agreed to budget $2,000, to be funded by the Snider Foundation grant.</p>
+                  <p>Simon moved to purchase; Neil seconded. <strong>Unanimously approved.</strong></p>
+
+                  <h4 style="margin-top:1.25rem;">4. 501(c)(3) Application Status</h4>
+                  <p>Nick reported on the 501(c)(3) application in progress with Foundation Group (analyst: Ren Henderson). Financial documents, a narrative of operations, and three-year projections have been submitted. Foundation Group asked clarifying questions; Nick has drafted most of the response and will finalize by Monday.</p>
+                  <p>Discussion of private foundation vs. public charity classification. Nick noted that if classified as a private foundation, there would be a small (~1.4%) tax on investment income and restrictions on public solicitation (e.g., no public &ldquo;donate&rdquo; button on the website). Nick to confirm classification with Foundation Group.</p>
+
+                  <h4 style="margin-top:1.25rem;">5. Governance Policies</h4>
+                  <p>Simon proposed adopting two standard policies provided by Foundation Group:</p>
+                  <ul>
+                    <li><strong>Conflict of Interest Policy</strong> &mdash; Standard Foundation Group template governing disclosure of financial interests, recusal procedures, compensation votes, and annual attestation requirements.</li>
+                    <li><strong>Whistleblower Policy</strong> &mdash; Standard Foundation Group template.</li>
+                  </ul>
+                  <p>Neil noted the COI policy&rsquo;s periodic review provisions regarding compensation. Discussion of whether the board would need to be expanded for compensation oversight (Nick clarified this depends on classification as public charity vs. private foundation).</p>
+                  <p>Simon moved to adopt both policies; Nick seconded. <strong>Unanimously approved.</strong></p>
+                  <div class="note">
+                    <strong>Follow-up note:</strong> The Conflict of Interest Policy was formally signed by all three directors on July&nbsp;29,&nbsp;2025 and is on file. Foundation Group does not appear to have shared a standalone Whistleblower Policy document with us, despite Simon&rsquo;s mention of it at this meeting. A copy should be requested from Foundation Group to confirm what was adopted.
+                  </div>
+
+                  <h4 style="margin-top:1.25rem;">6. Mission Statement &amp; Bylaws</h4>
+                  <p>Neil raised the need for the board to formally adopt a mission statement and bylaws. Nick noted that a mission statement has been drafted but not yet formally approved, and that the bylaws have been revised by Foundation Group but need to be reviewed and adopted before the IRS application can be submitted.</p>
+                  <p><strong>Action items:</strong></p>
+                  <ul>
+                    <li>Simon to circulate the revised bylaws to all directors for review</li>
+                    <li>Neil to review and prepare a summary of key sections</li>
+                    <li>Schedule a follow-up meeting or email vote to formally adopt the mission statement and bylaws</li>
+                  </ul>
+
+                  <h4 style="margin-top:1.25rem;">7. Adjournment</h4>
+                  <p>No additional business raised. Nick adjourned the meeting at approximately 10:45 PM ET.</p>
+
                 </div>
               </div>
             </div>

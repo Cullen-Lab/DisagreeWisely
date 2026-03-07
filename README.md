@@ -116,9 +116,14 @@ When content changes in `Disagree Wisely, Inc./Website/`:
 
 ## Current Status (March 2026)
 
-- **501(c)(3):** Application in progress with Foundation Group; expected IRS submission by mid-April 2026.
-- **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval before funds can be disbursed.
-- **HxA-AVDF:** Phase 2 services agreement active (Jan-Nov 2026).
+- **Board:** First full board meeting held March 6, 2026 (all 5 directors present via Zoom, ~1h46m). Officers re-elected unanimously: Cullen (President), DiBella (Secretary/Treasurer), Thomason (Director). Board briefed on all major items below. [Minutes in board-reference site.](Disagree%20Wisely%2C%20Inc./Website/board-reference/index.html#minutes-2026-03-06)
+- **501(c)(3):** Application in progress with Foundation Group. Foundation Group has everything needed; now producing the official application. Submission expected in the coming weeks. Standard IRS review (expedited review will not be requested).
+- **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval. Year 1 is a ramp-up year (~$60K to DW); larger amounts in subsequent years. Funds disbursed yearly to Notre Dame. FIPSE funds cannot be used for programming/coding — only research, education, infrastructure, training, and support staff.
+- **Learning Agency:** ~$125K Tools Competition funds retained in DW; reallocation in progress (LA expressed "no concerns regarding reallocation"). Funds restricted to nonprofits — cannot be redirected to PBC. Simon meeting with LA again to finalize.
+- **HxA-AVDF:** Phase 2 services agreement active (Jan-Nov 2026). Amending to remove development language not feasible per HxA ED; development costs will continue through May/June 2026 (net cost to DW: zero).
 - **Snider Foundations:** Two grants ($50K + $25K) received in 2025.
 - **ECI/Wake Forest:** Grant application submitted (~$233K over 3 years).
 - **TWCF:** Request for Ideas submitted (Feb 2026).
+- **Growth:** 80+ institutions, ~10,000 students, ~130 instructors (up from ~30 institutions / ~2,000 students at start of 2025). University-level adoption talks with U of Michigan (potentially 8,000 students), SUNY, Columbia, CUNY, MIT.
+- **CMU IP dispute:** CMU asserts joint ownership of Sway IP. Co-founders' position: educational courseware exemption (CMU IP Policy 3-6-1). Board advised seeking independent legal counsel; Ken Stern offered introduction to Laura Ellsworth (Jones Day).
+- **PBC:** For-profit Public Benefit Corporation not yet incorporated. Will hold Sway IP; can be done for ~$50 in Delaware.
