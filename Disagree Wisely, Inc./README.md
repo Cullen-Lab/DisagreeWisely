@@ -73,7 +73,7 @@ The `Website/` directory contains two board-facing sites and supporting files:
 
 **To view:** Open `Website/index.html` in a browser. All assets are self-contained (no server required). For shared hosting, deploy the entire `Website/` folder to GitHub Pages or any static host.
 
-The `board-reference/docs/` folder contains 18 bundled PDFs with normalized kebab-case filenames, so the site works without access to the rest of this directory.
+The `board-reference/docs/` folder contains 18 bundled PDFs with normalized kebab-case filenames, so the site works without access to the rest of this directory. The Intern NDA template (`Governance/Policies/Intern NDA/`) is not included on the board site.
 
 ---
 
