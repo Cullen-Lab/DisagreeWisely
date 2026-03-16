@@ -92,15 +92,19 @@ The board portal is live at **[www.disagreewisely.org/board/](https://www.disagr
 
 When content changes in `Disagree Wisely, Inc./Website/`, you must re-encrypt and redeploy:
 
+The board portal password is stored in `.board-password` (gitignored). All commands below read from that file.
+
 **HTML pages** (StatiCrypt AES-256, decrypted client-side):
 ```bash
+PASSWORD=$(cat .board-password | tr -d '[:space:]')
+
 # Copy source files to temp location, encrypt, then deploy to board/
 cp "Disagree Wisely, Inc./Website/index.html" /tmp/dw_index.html
 cp "Disagree Wisely, Inc./Website/board-onboarding/index.html" /tmp/dw_onboarding.html
 cp "Disagree Wisely, Inc./Website/board-reference/index.html" /tmp/dw_reference.html
 
 # Encrypt each (uses password_template.html for the login screen)
-npx staticrypt /tmp/dw_index.html -p "PASSWORD" -d /tmp/dw_out --remember 30 --short \
+npx staticrypt /tmp/dw_index.html -p "$PASSWORD" -d /tmp/dw_out --remember 30 --short \
   --template board/password_template.html --template-title "Board Portal" \
   --template-instructions "Resources for the Board of Directors." \
   --template-placeholder "Password" --template-error "Wrong password." \
@@ -116,9 +120,11 @@ cp /tmp/dw_out/dw_reference.html board/board-reference/index.html
 **PDF documents** (pikepdf AES-256):
 ```python
 import pikepdf
+# Read password from .board-password
+password = open('.board-password').read().strip()
 pdf = pikepdf.open('source.pdf')
 pdf.save('board/board-reference/docs/output.pdf',
-         encryption=pikepdf.Encryption(owner='PASSWORD', user='PASSWORD', aes=True, R=6))
+         encryption=pikepdf.Encryption(owner=password, user=password, aes=True, R=6))
 ```
 
 **Shared assets** (CSS/JS): Copy `Disagree Wisely, Inc./Website/shared/` to `board/shared/`.

@@ -42,6 +42,7 @@
         <a href="#anti-harassment" class="toc-sub">Anti-Harassment</a>
         <a href="#insurance">Insurance Coverage</a>
         <a href="#finances">Financial Overview</a>
+        <a href="#financial-records" class="toc-sub">Record-Keeping</a>
         <a href="#vendors">Partnerships &amp; Vendors</a>
         <a href="#contact">Contact Information</a>
         <a href="#action-items">Action Items</a>
@@ -751,6 +752,31 @@
                       </tbody>
                     </table>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subsection" id="financial-records">
+              <div class="subsection-header">
+                <h3>Financial Record-Keeping</h3>
+                <span class="subsection-toggle" aria-hidden="true">&#9662;</span>
+              </div>
+              <div class="subsection-body">
+                <div class="subsection-inner">
+                  <p>All financial records are maintained in a <a href="https://github.com/dibellatron/SwayAccounting" target="_blank">dedicated private repository</a>. This system was purpose-built for Disagree Wisely because off-the-shelf accounting software (e.g., QuickBooks) is not designed for the core challenge small grant-funded nonprofits face: tracking every dollar by funding source, managing funder-specific reporting requirements, and maintaining separate ledgers for multiple grants while keeping a unified financial picture.</p>
+
+                  <p>The system is a web application (Python/Flask) that runs locally and provides:</p>
+                  <ul>
+                    <li><strong>Transaction management</strong> &mdash; Every bank transaction is recorded with its funding source (which grant paid for it), category, and supporting documentation. Transactions can be split across multiple funding sources when needed.</li>
+                    <li><strong>Receipt tracking</strong> &mdash; Receipts are uploaded, associated with transactions, and organized by funding source and reporting period. The system verifies receipt amounts and dates against transaction records.</li>
+                    <li><strong>Grant-specific reporting</strong> &mdash; Generates funder-ready expense reports (Excel + PDF) with category breakdowns, concatenated receipt packages, and certification statements. Currently supports AVDF and Snider Foundation reporting formats.</li>
+                    <li><strong>Bank statement management</strong> &mdash; Imports CSV exports from BlueVine, auto-redacts sensitive information from statement PDFs, and reconciles invoices against statements.</li>
+                    <li><strong>Tax compliance</strong> &mdash; Tracks payroll data from Gusto (W-2s, employer taxes, withholdings), tax obligations by jurisdiction (federal, Florida, Pennsylvania), filing deadlines, and action items.</li>
+                    <li><strong>Financial planning</strong> &mdash; Personnel salary allocation across grants (by FTE), monthly operating cost projections, grant coverage timelines, and runway analysis.</li>
+                    <li><strong>Grant planning</strong> &mdash; Application tracking, multi-year budget breakdowns, document checklists, and key contacts for grant administrators.</li>
+                  </ul>
+                  <p>The underlying data consists of an Excel master ledger (with dedicated sheets for each funding source), JSON configuration files (funding sources, receipt associations, categories, planning data), and organized receipt files. All data is version-controlled.</p>
+                  <div class="note">This repository is currently named &ldquo;SwayAccounting&rdquo; and will be renamed to reflect the organization (e.g., &ldquo;DWAccounting&rdquo;) in an upcoming update.</div>
                 </div>
               </div>
             </div>
