@@ -63,7 +63,7 @@ This repo serves three purposes:
 | `Disagree Wisely, Inc./Governance/` | Bylaws, policies (COI, document retention, anti-harassment, intern NDA), board resolutions, meeting minutes. |
 | `Disagree Wisely, Inc./Incorporation and Tax/` | Florida incorporation filings, federal EIN/tax docs, Pennsylvania tax registrations. |
 | `Disagree Wisely, Inc./Financials/` | Bank statements, banking setup, expense tracking. |
-| `Disagree Wisely, Inc./501c3 Application (Foundation Group)/` | 501(c)(3) application materials: narratives, job descriptions, budgets, Form 1023 drafts, research organizer. |
+| `Disagree Wisely, Inc./501c3 Application (Foundation Group)/` | 501(c)(3) application materials: Form 1023 full application (received March 16, 2026), cross-reference analysis, narratives, job descriptions, budgets, Form 1023 drafts, research organizer. |
 | `Disagree Wisely, Inc./Insurance/` | Active D&O policy (Carolina Casualty) and Cyber/E&O policy (CFC/Lloyd's). Both effective 11/14/2025. |
 | `Disagree Wisely, Inc./Legal/` | Attorney invoices and correspondence (Dentons). |
 | `Disagree Wisely, Inc./Personnel/` | Employee documents organized by person. |
@@ -71,6 +71,9 @@ This repo serves three purposes:
 | `Disagree Wisely, Inc./Grants/` | Grant agreements and applications: HxA-AVDF, Snider Foundations, ECI/Wake Forest, FIPSE, NewSchools, TWCF. |
 | `Disagree Wisely, Inc./Misc/` | Bank verification letter, transcripts, workspace notes. |
 | `Disagree Wisely, Inc./Archive/` | Superseded documents organized by original source. |
+| `organizational-assessment-2026-03.md` | Organizational assessment (March 2026): governance, financial record-keeping, documentation graded absolute and relative to peer nonprofits. |
+| `action-items-2026-03-16.html` | Comprehensive action items compiled from both repos, organized by deadline, topic, and compliance calendar. |
+| `site-audit-2026-03-09.html` | Board site audit: inconsistencies, stale content, structural issues, and questions. |
 
 See [`Disagree Wisely, Inc./FOLDER-ORGANIZATION.md`](Disagree%20Wisely%2C%20Inc./FOLDER-ORGANIZATION.md) for the complete directory tree.
 
@@ -151,13 +154,15 @@ Then commit and push. GitHub Pages will deploy automatically.
 | Cyber/E&O Insurance Policy | `Disagree Wisely, Inc./Insurance/Active Policies/SST-ESO0040579703.pdf` |
 | Financial Authorization (current) | `Disagree Wisely, Inc./Governance/Board Resolutions/Financial Authorization (Amended 12.13.2025).md` |
 | Board Resolutions (Jul 2025) | `Disagree Wisely, Inc./Governance/Board Resolutions/DW Board Resolutions Jul 2025.pdf` |
+| Form 1023 (501(c)(3) application) | `Disagree Wisely, Inc./501c3 Application (Foundation Group)/Form 1023 full application DW.pdf` |
+| Form 1023 Cross-Reference | `Disagree Wisely, Inc./501c3 Application (Foundation Group)/form-1023-cross-reference.html` |
 
 ---
 
 ## Current Status (March 2026)
 
 - **Board:** First full board meeting held March 6, 2026 (all 5 directors present via Zoom, ~1h46m). Officers re-elected unanimously: Cullen (President), DiBella (Secretary/Treasurer), Thomason (Director). Board briefed on all major items below. [Minutes in board-reference site.](Disagree%20Wisely%2C%20Inc./Website/board-reference/index.html#minutes-2026-03-06)
-- **501(c)(3):** Application in progress with Foundation Group. Foundation Group has everything needed; now producing the official application. Submission expected in the coming weeks. Standard IRS review (expedited review will not be requested).
+- **501(c)(3):** Form 1023 draft received from Foundation Group on March 16, 2026. Cross-referenced against all internal records ([analysis](Disagree%20Wisely%2C%20Inc./501c3%20Application%20%28Foundation%20Group%29/form-1023-cross-reference.html)). Requesting 509(a)(2) public charity classification. Two items raised with FG: Q10 foreign operations answer and officer appointment language in activity narrative. Standard IRS review (not expedited).
 - **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval. Year 1 is a ramp-up year (~$60K to DW); larger amounts in subsequent years. Funds disbursed yearly to Notre Dame. FIPSE funds cannot be used for programming/coding — only research, education, infrastructure, training, and support staff.
 - **Learning Agency:** ~$125K Tools Competition funds retained in DW; reallocation in progress (LA expressed "no concerns regarding reallocation"). Funds restricted to nonprofits — cannot be redirected to PBC. Simon meeting with LA again to finalize.
 - **HxA-AVDF:** Phase 2 services agreement active (Jan-Nov 2026). Amending to remove development language not feasible per HxA ED; development costs will continue through May/June 2026 (net cost to DW: zero).

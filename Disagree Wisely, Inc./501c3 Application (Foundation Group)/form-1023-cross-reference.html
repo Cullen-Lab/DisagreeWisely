@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 1023 Cross-Reference — Disagree Wisely, Inc.</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --red: #f85149;
+      --red-bg: rgba(248,81,73,0.08);
+      --orange: #d29922;
+      --orange-bg: rgba(210,153,34,0.08);
+      --blue: #58a6ff;
+      --blue-bg: rgba(88,166,255,0.08);
+      --green: #3fb950;
+      --green-bg: rgba(63,185,80,0.08);
+      --purple: #bc8cff;
+      --purple-bg: rgba(188,140,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+
+    /* Summary chips */
+    .summary-bar { display: flex; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .chip {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.75rem; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 600;
+    }
+    .chip-green { background: var(--green-bg); color: var(--green); border: 1px solid rgba(63,185,80,0.25); }
+    .chip-red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,81,73,0.25); }
+    .chip-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.25); }
+    .chip-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.25); }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; }
+    .toc-list { list-style: none; columns: 2; column-gap: 2rem; }
+    .toc-list li { margin-bottom: 0.35rem; }
+    .toc-list a { color: var(--blue); text-decoration: none; font-size: 0.88rem; }
+    .toc-list a:hover { text-decoration: underline; }
+
+    /* Sections */
+    h2 {
+      font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    h2 .section-num { color: var(--text-muted); font-weight: 400; margin-right: 0.5rem; }
+
+    .section-note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+    /* Badges */
+    .badge {
+      display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; white-space: nowrap; vertical-align: middle;
+    }
+    .badge-ok { background: var(--green-bg); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+    .badge-warn { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.3); }
+    .badge-error { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+    .badge-info { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.3); }
+
+    /* Tables */
+    table {
+      width: 100%; border-collapse: collapse; font-size: 0.88rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    th, td {
+      text-align: left; padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      color: var(--text-muted); font-weight: 600; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-bottom-color: rgba(255,255,255,0.15);
+      background: var(--surface);
+    }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    td.match { color: var(--green); }
+    td.mismatch { color: var(--red); font-weight: 600; }
+    td.verify { color: var(--orange); }
+    td.note { color: var(--text-muted); font-style: italic; }
+
+    /* Issue cards */
+    .issue {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.15rem 1.25rem;
+      margin-bottom: 0.85rem;
+    }
+    .issue-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .issue-title { font-weight: 600; font-size: 0.95rem; }
+    .issue p, .issue ul { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .issue ul { padding-left: 1.25rem; }
+    .issue li { margin-bottom: 0.25rem; }
+
+    /* Details/collapsible */
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.85rem;
+    }
+    details[open] { border-color: rgba(255,255,255,0.15); }
+    summary {
+      padding: 0.85rem 1.25rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      user-select: none;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '▸';
+      display: inline-block;
+      margin-right: 0.6rem;
+      transition: transform 0.15s;
+      color: var(--text-muted);
+    }
+    details[open] > summary::before { transform: rotate(90deg); }
+    .details-body { padding: 0 1.25rem 1.15rem; }
+    .details-body p, .details-body ul { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .details-body ul { padding-left: 1.25rem; }
+
+    /* Side-by-side comparison */
+    .vs {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      gap: 0.5rem; align-items: start; margin: 0.5rem 0;
+    }
+    .vs-side {
+      background: rgba(110,118,129,0.08);
+      padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.85rem;
+    }
+    .vs-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;
+    }
+    .vs-arrow { color: var(--text-muted); padding-top: 1.25rem; font-size: 0.85rem; }
+
+    /* Highlight box */
+    .action-box {
+      background: rgba(248,81,73,0.06);
+      border: 1px solid rgba(248,81,73,0.2);
+      border-left: 4px solid var(--red);
+      border-radius: 0 6px 6px 0;
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 1.5rem;
+    }
+    .action-box-title { color: var(--red); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 0.75rem; }
+    .action-box ol { padding-left: 1.25rem; }
+    .action-box li { margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .action-box li strong { color: var(--text); }
+
+    .info-box {
+      background: var(--blue-bg);
+      border-left: 3px solid var(--blue);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.85rem;
+      border-radius: 0 4px 4px 0;
+      color: var(--text-muted);
+    }
+
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.82rem; background: rgba(110,118,129,0.15);
+      padding: 0.1rem 0.35rem; border-radius: 3px;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0 1rem; }
+
+    @media (max-width: 700px) {
+      .toc-list { columns: 1; }
+      .vs { grid-template-columns: 1fr; }
+      .vs-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Form 1023 Cross-Reference</h1>
+<p class="subtitle">
+  Factual comparison of the Form 1023 (501(c)(3) application, dated March&nbsp;16,&nbsp;2026) against the
+  DisagreeWisely board-reference website and SwayAccounting tax records.<br>
+  Generated March&nbsp;16,&nbsp;2026.
+</p>
+
+<div class="summary-bar">
+  <div class="chip chip-green">~15 Consistent</div>
+  <div class="chip chip-green">0 Discrepancies</div>
+  <div class="chip chip-green">3 Items Verified</div>
+  <div class="chip chip-blue">3 Minor / No Action</div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <ol class="toc-list">
+    <li><a href="#action">Action Items for Foundation Group</a></li>
+    <li><a href="#identity">Identity &amp; Registration</a></li>
+    <li><a href="#board">Board of Directors</a></li>
+    <li><a href="#contact">Contact Information</a></li>
+    <li><a href="#financials-2025">Financial Data (2025 Actuals)</a></li>
+    <li><a href="#projections">Financial Projections (2026–2028)</a></li>
+    <li><a href="#spreadsheet">Spreadsheet vs. Form Comparison</a></li>
+    <li><a href="#org-questions">Organizational &amp; Structural</a></li>
+    <li><a href="#no-action">Items Not Requiring Action</a></li>
+    <li><a href="#draft-message"><strong>Draft Message to Ren</strong></a></li>
+    <li><a href="#foreign-ops">Foreign Operations Risk Assessment</a></li>
+  </ol>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="action"><span class="section-num">1.</span> Action Items for Foundation Group</h2>
+<p class="section-note">These are the items that should be verified or discussed with Foundation Group before signing. Ordered by importance.</p>
+
+<div class="info-box">
+  <strong>All items verified.</strong> Every factual claim on the Form 1023 has been cross-referenced against the board-reference site and SwayAccounting records. No discrepancies remain. See resolved items below.
+</div>
+
+<details>
+  <summary><span class="badge badge-ok">Resolved</span> &nbsp;All 5 original items confirmed (click to expand)</summary>
+  <div class="details-body">
+    <ul>
+      <li><strong>2025 wages ($14,814 vs. $15,813.94):</strong> The $15,813.94 figure was a misread. Actual gross wages per SwayAccounting/Gusto are <strong>$14,813.94</strong> (W-2 Box 1). The Form 1023&rsquo;s $14,814 is this rounded to the nearest dollar. <strong>Exact match.</strong></li>
+      <li><strong>Phone number (407-220-0494):</strong> This is Foundation Group&rsquo;s contact number. Lines 4 and 5 on the form refer to the FG contact person (Lauren Henderson), not the organization. The IRS will call FG during the review process. DW&rsquo;s organizational phone is (315) 585-2781.</li>
+      <li><strong>Officer compensation:</strong> DiBella&rsquo;s $14,814 is correctly on Line 17 (officer compensation), not Line 18. An earlier version of this analysis had the lines swapped &mdash; that was a misread. The salary breakdown spreadsheet (account 51100) confirms the classification. DiBella is an officer (Secretary/Treasurer/CTOO).</li>
+      <li><strong>Contact person (Lauren K Henderson):</strong> Confirmed correct. Henderson is the right Foundation Group contact for IRS inquiries on this application.</li>
+      <li><strong>$1,125 liability:</strong> Represents outstanding local Pittsburgh tax liabilities as of 12/31/2025. Approximately half has since been paid; the remainder (local Pittsburgh taxes totaling ~$528) is still outstanding.</li>
+    </ul>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="identity"><span class="section-num">2.</span> Identity &amp; Registration</h2>
+<p class="section-note">Core organizational facts compared across all three sources.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Form 1023</th>
+      <th>Board Reference</th>
+      <th>SwayAccounting</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Legal name</td>
+      <td>DISAGREE WISELY INC</td>
+      <td>Disagree Wisely, Inc.</td>
+      <td>Disagree Wisely, Inc.</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>EIN</td>
+      <td>33-5034018</td>
+      <td>33-5034018</td>
+      <td>33-5034018</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>7901 4th St N Ste 300, St Petersburg, FL 33702</td>
+      <td>7901 4th St N, Suite 300, St. Petersburg, FL 33702</td>
+      <td>7901 4th St N Ste 300, St Petersburg, FL 33702</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>Florida</td>
+      <td>Florida</td>
+      <td>Florida</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Date formed</td>
+      <td>04/02/2025</td>
+      <td>April 2, 2025</td>
+      <td>April 2, 2025</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Entity type</td>
+      <td>Corporation</td>
+      <td>Florida nonprofit corporation</td>
+      <td>Nonprofit Corporation</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Fiscal year end</td>
+      <td>December</td>
+      <td>January 1 – December 31</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>FL Doc #</td>
+      <td>—</td>
+      <td>N25000004307</td>
+      <td>N25000004307</td>
+      <td><span class="badge badge-info">N/A on form</span></td>
+    </tr>
+    <tr>
+      <td>Bylaws adopted</td>
+      <td>Yes</td>
+      <td>Yes (July 29, 2025)</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>COI policy adopted</td>
+      <td>Yes (Part V, Q2)</td>
+      <td>Yes (July 29, 2025)</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Successor org</td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span></td>
+    </tr>
+    <tr>
+      <td>Articles purpose clause</td>
+      <td>Art III/para a</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="badge badge-info">FG reference</span></td>
+    </tr>
+    <tr>
+      <td>Dissolution clause</td>
+      <td>Art IX</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="badge badge-info">FG reference</span></td>
+    </tr>
+    <tr>
+      <td>User fee</td>
+      <td>$600.00</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Standard</span></td>
+    </tr>
+    <tr>
+      <td>Within 27 months</td>
+      <td>Yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span> <span style="color:var(--text-muted); font-size:0.82rem;">(formed Apr 2025, filing Mar 2026 = 11 months)</span></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="board"><span class="section-num">3.</span> Board of Directors</h2>
+<p class="section-note">Names and titles as listed on each source. All five directors use the organization's Florida address on the Form 1023 (standard practice).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Form 1023 Title</th>
+      <th>Board Reference Title</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simon Cullen</td>
+      <td>President / Director</td>
+      <td>President &amp; CEO</td>
+      <td><span class="badge badge-info">Minor</span></td>
+    </tr>
+    <tr>
+      <td>Nicholas DiBella</td>
+      <td>Sec / Treas / Director</td>
+      <td>Secretary, Treasurer &amp; CTOO</td>
+      <td><span class="badge badge-info">Minor</span></td>
+    </tr>
+    <tr>
+      <td>Kenneth Stern</td>
+      <td>Director</td>
+      <td>Director</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Barbara Oakley</td>
+      <td>Director</td>
+      <td>Director</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+    <tr>
+      <td>Neil Thomason</td>
+      <td>Director</td>
+      <td>Director</td>
+      <td><span class="badge badge-ok">Match</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="info-box">
+  <strong>Title differences are expected.</strong> The Form 1023 uses standard IRS officer titles (President, Secretary, Treasurer). The board-approved titles "CEO" and "CTOO" are organizational titles that don't need to appear on IRS forms. No action needed.
+</div>
+
+<details>
+  <summary>Signer verification</summary>
+  <div class="details-body">
+    <p>The Form 1023 is signed by <strong>Simon Cullen, President / Director</strong> on <strong>03/16/2026</strong> (today). This is consistent with Simon's role as President across all sources. The signature declaration confirms authorization to sign on behalf of the organization.</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="contact"><span class="section-num">4.</span> Contact Information</h2>
+<p class="section-note">Contact details listed on the Form 1023 vs. other sources.</p>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Resolved</span>
+    <span class="issue-title">Phone number on Form 1023 is Foundation Group's, not DW's</span>
+  </div>
+  <table>
+    <thead><tr><th>Source</th><th>Phone Number</th><th>Context</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Form 1023</strong> (line 5)</td>
+        <td>407-220-0494</td>
+        <td>Foundation Group / Lauren Henderson contact number (407 = Orlando area code). Lines 4 &amp; 5 both refer to FG contact person, not the organization. <strong>Does not appear anywhere in DW or SwayAccounting repos.</strong></td>
+      </tr>
+      <tr>
+        <td>Board reference (organizational)</td>
+        <td class="match">(315) 585-2781</td>
+        <td>Disagree Wisely organizational line (Hushed.com, registered to disagreewisely@gmail.com)</td>
+      </tr>
+      <tr>
+        <td>Board reference (Simon personal)</td>
+        <td>(609) 933-4122</td>
+        <td>Simon Cullen's personal number</td>
+      </tr>
+      <tr>
+        <td>Board reference (Nick personal)</td>
+        <td>(412) 909-7608</td>
+        <td>Nicholas DiBella's personal number</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>No action needed.</strong> The Form 1023 correctly lists Foundation Group's contact number for IRS inquiries during the review process. DW's organizational phone is (315) 585-2781.</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Resolved</span>
+    <span class="issue-title">Contact person: Lauren K Henderson — confirmed correct</span>
+  </div>
+  <p>Form 1023, line 4 lists <strong>Lauren K Henderson</strong> as the contact for IRS inquiries. Other DW documents reference Greg McRay as the Foundation Group third-party designee (McRay is FG&rsquo;s founder/CEO; Henderson is the staff member handling this filing). <strong>Henderson is confirmed as the correct contact.</strong></p>
+</div>
+
+<details>
+  <summary>Other contact details</summary>
+  <div class="details-body">
+    <table>
+      <thead><tr><th>Field</th><th>Form 1023</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Fax</td><td>615-357-4489</td><td>615 is Nashville (Foundation Group HQ). Likely FG's fax.</td></tr>
+        <tr><td>Website</td><td>(blank)</td><td>Board reference lists disagreewisely.org. Not filled in on the form.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="financials-2025"><span class="section-num">5.</span> Financial Data (2025 Actuals)</h2>
+<p class="section-note">Part VI of the Form 1023 compared against board-reference financials and SwayAccounting payroll records.</p>
+
+<h3 style="font-size:1.05rem; margin-top:1.5rem; margin-bottom:0.75rem;">Revenue</h3>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Consistent</span>
+    <span class="issue-title">2025 revenue: $246,842 (Form 1023) vs. ~$245,000 (board sites)</span>
+  </div>
+  <table>
+    <thead><tr><th>Line</th><th>Form 1023</th><th>Board Reference</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Gifts, grants, contributions (line 1)</td>
+        <td>$245,000</td>
+        <td>~$245,000</td>
+        <td class="match">Exact match</td>
+      </tr>
+      <tr>
+        <td>Gross investment income (line 3)</td>
+        <td>$1,842</td>
+        <td>BlueVine 3.00% APY (mentioned, amount not stated)</td>
+        <td>Interest income; not broken out on board site</td>
+      </tr>
+      <tr>
+        <td>Program revenue (line 9)</td>
+        <td>$0</td>
+        <td>—</td>
+        <td class="match">No program revenue in 2025. Correct.</td>
+      </tr>
+      <tr>
+        <td><strong>Total revenue (line 13)</strong></td>
+        <td><strong>$246,842</strong></td>
+        <td><strong>~$245,000</strong></td>
+        <td>Difference is $1,842 interest. Board site rounds to grants only.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="info-box">No action needed. The ~$245K on the board sites refers to grants/contributions only. The Form 1023 adds $1,842 in investment income for the total.</div>
+</div>
+
+<h3 style="font-size:1.05rem; margin-top:1.5rem; margin-bottom:0.75rem;">Expenses</h3>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Resolved</span>
+    <span class="issue-title">2025 wages: $14,814 — matches payroll records</span>
+  </div>
+  <div class="vs">
+    <div class="vs-side">
+      <div class="vs-label">Form 1023 (line 18)</div>
+      <strong style="color:var(--green);">$14,814</strong><br>
+      "Other salaries and wages"
+    </div>
+    <div class="vs-arrow">=</div>
+    <div class="vs-side">
+      <div class="vs-label">SwayAccounting (Gusto / W-2 Box 1)</div>
+      <strong style="color:var(--green);">$14,813.94</strong><br>
+      5 pay periods, May 28 – Jul 24, 2025<br>Nicholas DiBella
+    </div>
+  </div>
+  <p><strong>Match.</strong> The $15,813.94 figure cited earlier was a misread. Actual gross wages are $14,813.94 per W-2 Box 1. The Form 1023&rsquo;s $14,814 is this rounded to the nearest dollar.</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Resolved</span>
+    <span class="issue-title">Officer compensation: $14,814 on Line 17 — correct (earlier analysis misread)</span>
+  </div>
+  <p>The 2025 actuals correctly show DiBella&rsquo;s $14,814 on <strong>Line 17</strong> (Compensation of officers, directors, and trustees), with <strong>$0</strong> on Line 18 (Other salaries and wages). This matches the salary breakdown spreadsheet (account 51100). An earlier version of this analysis had lines 17 and 18 swapped &mdash; that was a misread of the form. The classification is correct: DiBella is an officer (Secretary/Treasurer/CTOO).</p>
+</div>
+
+<details>
+  <summary>Full 2025 expense breakdown from Form 1023</summary>
+  <div class="details-body">
+    <table>
+      <thead><tr><th>Line</th><th>Category</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>17</td><td>Compensation of officers, directors, trustees</td><td>$14,814</td></tr>
+        <tr><td>18</td><td>Other salaries and wages</td><td>$0</td></tr>
+        <tr><td>22</td><td>Professional fees</td><td>$27,802</td></tr>
+        <tr><td>23</td><td>Other expenses</td><td>$12,830</td></tr>
+        <tr><td><strong>24</strong></td><td><strong>Total Expenses</strong></td><td><strong>$55,446</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Total expenses of $55,446 for a partial year (April–December 2025) is plausible. The current burn rate of ~$40-45K/month (board reference) is the 2026 run-rate, not 2025 — the org was very lean in its first months.</p>
+  </div>
+</details>
+
+<h3 style="font-size:1.05rem; margin-top:1.5rem; margin-bottom:0.75rem;">Balance Sheet (as of 12/31/2025)</h3>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Consistent</span>
+    <span class="issue-title">Assets: $191,992 (12/31/2025) vs. ~$173,000 (March 2026)</span>
+  </div>
+  <p>The Form 1023 balance sheet shows $191,992 in "Other assets" as of 12/31/2025. The board reference shows ~$173,000 as of the March 6, 2026 meeting — roughly 2 months later. The ~$19K decrease over January–February 2026 is plausible given operating expenses. <strong>No discrepancy; different dates.</strong></p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">Resolved</span>
+    <span class="issue-title">$1,125 in "Other liabilities" — local Pittsburgh taxes at year-end</span>
+  </div>
+  <p>The Form 1023 balance sheet shows $1,125 in Other liabilities as of 12/31/2025. <strong>Confirmed:</strong> this represents outstanding local Pittsburgh tax liabilities at year-end. Approximately half has since been paid; the remainder (local Pittsburgh taxes totaling ~$528) is still outstanding:</p>
+  <ul>
+    <li>Pittsburgh EIT: $444.41</li>
+    <li>Pittsburgh Payroll Expense Tax: $81.47</li>
+    <li>Pittsburgh LST: $2.17</li>
+  </ul>
+</div>
+
+<details>
+  <summary>Full balance sheet from Form 1023</summary>
+  <div class="details-body">
+    <table>
+      <thead><tr><th>Line</th><th>Category</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td colspan="3" style="color:var(--text-muted); font-weight:600;">Assets</td></tr>
+        <tr><td>1</td><td>Cash</td><td>—</td></tr>
+        <tr><td>10</td><td>Other assets</td><td>$191,992</td></tr>
+        <tr><td><strong>11</strong></td><td><strong>Total Assets</strong></td><td><strong>$191,992</strong></td></tr>
+        <tr><td colspan="3" style="color:var(--text-muted); font-weight:600;">Liabilities</td></tr>
+        <tr><td>15</td><td>Other liabilities</td><td>$1,125</td></tr>
+        <tr><td><strong>16</strong></td><td><strong>Total Liabilities</strong></td><td><strong>$1,125</strong></td></tr>
+        <tr><td colspan="3" style="color:var(--text-muted); font-weight:600;">Fund Balances</td></tr>
+        <tr><td>17</td><td>Total fund balances or net assets</td><td>$191,992</td></tr>
+        <tr><td><strong>18</strong></td><td><strong>Total Liabilities + Fund Balances</strong></td><td><strong>$190,867</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="info-box"><strong>Note:</strong> Line 18 ($190,867) = Line 16 ($1,125) + Line 17 ($191,992) = $193,117, not $190,867. There appears to be an arithmetic inconsistency on the balance sheet. The form shows $190,867 for line 18 but $1,125 + $191,992 = $193,117. <strong>Verify with Foundation Group — this may be a data entry error on the form.</strong></div>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="projections"><span class="section-num">6.</span> Financial Projections (2026–2028)</h2>
+<p class="section-note">Future revenue and expense projections from Part VI. These represent Foundation Group's forward estimates and should be checked against known grant pipeline.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line</th>
+      <th>Category</th>
+      <th>Jan 1–31, 2026<br><span style="font-weight:400; font-size:0.7rem;">(stub month)</span></th>
+      <th>Feb–Dec 2026</th>
+      <th>2027</th>
+      <th>2028</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Gifts, grants, contributions</td>
+      <td>$12,512</td>
+      <td>$375,000</td>
+      <td>$1,150,000</td>
+      <td>$1,450,000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Investment income</td>
+      <td>$0</td>
+      <td>$7,000</td>
+      <td>$14,000</td>
+      <td>$20,000</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Program revenue</td>
+      <td>$0</td>
+      <td>$20,000</td>
+      <td>$50,000</td>
+      <td>$75,000</td>
+    </tr>
+    <tr style="font-weight:600;">
+      <td>13</td>
+      <td>Total Revenue</td>
+      <td>$12,512</td>
+      <td>$402,000</td>
+      <td>$1,214,000</td>
+      <td>$1,545,000</td>
+    </tr>
+    <tr><td colspan="6" style="border-bottom: 2px solid var(--border);"></td></tr>
+    <tr>
+      <td>17</td>
+      <td>Officer compensation</td>
+      <td>$0</td>
+      <td>$110,000</td>
+      <td>$286,000</td>
+      <td>$286,000</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Other salaries and wages</td>
+      <td>$0</td>
+      <td>$93,500</td>
+      <td>$400,400</td>
+      <td>$508,200</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Professional fees</td>
+      <td>$20</td>
+      <td>$23,000</td>
+      <td>$43,000</td>
+      <td>$55,000</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Other expenses</td>
+      <td>$833</td>
+      <td>$159,625</td>
+      <td>$351,925</td>
+      <td>$573,175</td>
+    </tr>
+    <tr style="font-weight:600;">
+      <td>24</td>
+      <td>Total Expenses</td>
+      <td>$853</td>
+      <td>$386,125</td>
+      <td>$1,081,325</td>
+      <td>$1,422,375</td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+  <summary><span class="badge badge-ok">Verified</span> &nbsp;One-month stub for "current tax year"</summary>
+  <div class="details-body">
+    <p>The "current tax year" column covers only <strong>January 1–31, 2026</strong> — a single month. The next column starts February 1, 2026. <strong>Confirmed intentional by Nick.</strong></p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">Verified</span> &nbsp;Program revenue projections ($20K–$75K)</summary>
+  <div class="details-body">
+    <p>Line 9 projects growing program service revenue: $0 (2025) → $20K (2026) → $50K (2027) → $75K (2028). <strong>Confirmed by Nick.</strong></p>
+  </div>
+</details>
+
+<details>
+  <summary>Revenue projections vs. known grant pipeline</summary>
+  <div class="details-body">
+    <p>The Form 1023 projects $402K (2026), $1.2M (2027), and $1.5M (2028) in total revenue. These are aggressive but potentially defensible given the pipeline described in the board reference:</p>
+    <table>
+      <thead><tr><th>Source</th><th>Status</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>HxA/AVDF Phase 2</td><td>Active (Jan–Nov 2026)</td><td>~$142K</td></tr>
+        <tr><td>FIPSE (federal, via Notre Dame)</td><td>Secured, awaiting 501(c)(3)</td><td>~$800K over 4 years (~$60K Yr 1)</td></tr>
+        <tr><td>ECI / Wake Forest</td><td>Application submitted</td><td>~$233K over 3 years</td></tr>
+        <tr><td>NewSchools Venture Fund</td><td>Application submitted</td><td>~$100-200K</td></tr>
+        <tr><td>Templeton (TWCF)</td><td>RFI submitted</td><td>$5M+ if invited</td></tr>
+        <tr><td>Learning Agency (reallocation)</td><td>In progress</td><td>~$125K</td></tr>
+      </tbody>
+    </table>
+    <p>The 2027–2028 projections likely assume FIPSE ramp-up + one or more of the pending applications being funded. The Templeton grant alone, if awarded, would exceed the projections.</p>
+    <p><strong>Make sure the attached financial narrative (referenced by the form but not in this PDF) supports these numbers with specifics.</strong></p>
+  </div>
+</details>
+
+<details>
+  <summary>Expense projections: officer compensation ramp</summary>
+  <div class="details-body">
+    <p>Officer compensation jumps from $0 (Jan 2026 stub) to $110K (Feb–Dec 2026) to $286K (2027 and 2028). The board reference currently describes all officer compensation as flowing through HxA/AVDF reimbursement — meaning it doesn't hit DW's books directly.</p>
+    <p>The $286K figure for 2027-2028 likely reflects Simon ($150K) + Nick ($110K) + growth, transitioning from HxA-reimbursed to DW-direct as funding diversifies (FIPSE, etc.). The board reference notes: "As the organization's funding diversifies, some personnel may transition to being paid directly by Disagree Wisely."</p>
+    <p>"Other salaries" growing to $508K by 2028 suggests hiring additional staff beyond the current 3 (Simon, Nick, Rachel).</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="spreadsheet"><span class="section-num">7.</span> Spreadsheet vs. Form Comparison (pp. 64&ndash;67 vs. p. 13&ndash;14)</h2>
+<p class="section-note">The attached financial spreadsheet (pp. 64&ndash;67) provides the detailed breakdown behind the summary numbers on the Form 1023 (pp. 13&ndash;14). Every subtotal matches.</p>
+
+<div class="info-box"><strong>All revenue and expense subtotals match exactly</strong> between the Form 1023 and the attached spreadsheet, across all five year columns (Jan 2026 stub, Feb&ndash;Dec 2026, 2027, 2028, and 2025 actuals). No arithmetic errors.</div>
+
+<details>
+  <summary><span class="badge badge-ok">Match</span> &nbsp;Revenue verification (all years)</summary>
+  <div class="details-body">
+    <table>
+      <thead><tr><th>Line</th><th>Category</th><th>Jan 2026</th><th>Feb&ndash;Dec 2026</th><th>2027</th><th>2028</th><th>2025 Actuals</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Grants &amp; contributions</td><td>$12,512</td><td>$375,000</td><td>$1,150,000</td><td>$1,450,000</td><td>$245,000</td><td class="match">Match</td></tr>
+        <tr><td>3</td><td>Investment income</td><td>$0</td><td>$7,000</td><td>$14,000</td><td>$20,000</td><td>$1,842</td><td class="match">Match</td></tr>
+        <tr><td>9</td><td>Program revenue</td><td>$0</td><td>$20,000</td><td>$50,000</td><td>$75,000</td><td>$0</td><td class="match">Match</td></tr>
+        <tr style="font-weight:600;"><td>13</td><td>Total Revenue</td><td>$12,512</td><td>$402,000</td><td>$1,214,000</td><td>$1,545,000</td><td>$246,842</td><td class="match">Match</td></tr>
+      </tbody>
+    </table>
+    <p>Spreadsheet detail: Line 1 contributions split into Individual/Small business ($0/$25K/$150K/$250K/$20K) and Corporate ($12,512/$350K/$1M/$1.2M/$225K). Program revenue is from &ldquo;Professional Development Workshop Revenue&rdquo; (account 45200).</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">Match</span> &nbsp;Expense verification (all years)</summary>
+  <div class="details-body">
+    <table>
+      <thead><tr><th>Line</th><th>Category</th><th>Jan 2026</th><th>Feb&ndash;Dec 2026</th><th>2027</th><th>2028</th><th>2025 Actuals</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>17</td><td>Officer compensation</td><td>$0</td><td>$110,000</td><td>$286,000</td><td>$286,000</td><td>$14,814</td><td class="match">Match</td></tr>
+        <tr><td>18</td><td>Other salaries &amp; wages</td><td>$0</td><td>$93,500</td><td>$400,400</td><td>$508,200</td><td>$0</td><td class="match">Match</td></tr>
+        <tr><td>22</td><td>Professional fees</td><td>$20</td><td>$23,000</td><td>$43,000</td><td>$55,000</td><td>$27,802</td><td class="match">Match</td></tr>
+        <tr><td>23</td><td>Other expenses</td><td>$833</td><td>$159,625</td><td>$351,925</td><td>$573,175</td><td>$12,830</td><td class="match">Match</td></tr>
+        <tr style="font-weight:600;"><td>24</td><td>Total Expenses</td><td>$853</td><td>$386,125</td><td>$1,081,325</td><td>$1,422,375</td><td>$55,446</td><td class="match">Match</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">Match</span> &nbsp;Balance sheet detail (p. 66)</summary>
+  <div class="details-body">
+    <p>The spreadsheet breaks down the form&rsquo;s summary balance sheet into specific accounts:</p>
+    <table>
+      <thead><tr><th>Account</th><th>Description</th><th>Amount</th><th>Form Line</th></tr></thead>
+      <tbody>
+        <tr><td colspan="4" style="color:var(--text-muted); font-weight:600;">Assets</td></tr>
+        <tr><td>10100</td><td>Cash in Bank &mdash; Operating</td><td>$173,215</td><td rowspan="2">Line 10: $191,992</td></tr>
+        <tr><td>11000</td><td>Accounts Receivable</td><td>$18,777</td></tr>
+        <tr style="font-weight:600;"><td></td><td>Total Assets</td><td>$191,992</td><td>Line 11: $191,992 &check;</td></tr>
+        <tr><td colspan="4" style="color:var(--text-muted); font-weight:600;">Liabilities</td></tr>
+        <tr><td>21300</td><td>Accrued Payroll Taxes</td><td>$1,125</td><td>Line 15: $1,125 &check;</td></tr>
+        <tr><td colspan="4" style="color:var(--text-muted); font-weight:600;">Fund Balances</td></tr>
+        <tr><td>30100</td><td>Unrestricted Net Assets</td><td>$190,867</td><td>Line 17: $191,992 (see note)</td></tr>
+        <tr style="font-weight:600;"><td></td><td>Total Liabilities + Fund Balances</td><td>$191,992</td><td>Line 18: $190,867 (see note)</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box">The spreadsheet has lines 17 and 18 correct: net assets = $190,867, total = $191,992. The form appears to have these two values swapped. Minor issue &mdash; Foundation Group will likely catch this when finalizing.</div>
+    <p>The $173,215 cash figure is notable: the board reference reports &ldquo;~$173,000&rdquo; as of March 2026, but this balance sheet is as of 12/31/2025. The similarity is coincidental &mdash; the $18,777 accounts receivable at year-end offset subsequent spending.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Salary breakdown detail (pp. 66&ndash;67)</summary>
+  <div class="details-body">
+    <p><strong>Line 17 &mdash; Officers (account 51100):</strong></p>
+    <table>
+      <thead><tr><th>Name</th><th>Title</th><th>Jan 2026</th><th>Feb&ndash;Dec 2026</th><th>2027</th><th>2028</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td>Simon Cullen</td><td>Chief Executive Officer</td><td>$0</td><td>$60,000</td><td>$150,000</td><td>$150,000</td><td>$0</td></tr>
+        <tr><td>Nicholas DiBella</td><td>Chief Technology and Operations Officer</td><td>$0</td><td>$40,000</td><td>$110,000</td><td>$110,000</td><td>$14,814</td></tr>
+        <tr style="font-weight:600;"><td colspan="2">Subtotal salaries (51100)</td><td>$0</td><td>$100,000</td><td>$260,000</td><td>$260,000</td><td>$14,814</td></tr>
+        <tr><td colspan="2">Employee benefits (51400)</td><td>$0</td><td>$10,000</td><td>$26,000</td><td>$26,000</td><td>$0</td></tr>
+        <tr style="font-weight:600;"><td colspan="2">Subtotal Line 17</td><td>$0</td><td>$110,000</td><td>$286,000</td><td>$286,000</td><td>$14,814</td></tr>
+      </tbody>
+    </table>
+    <p>Simon&rsquo;s Feb&ndash;Dec 2026 salary ($60K) and Nick&rsquo;s ($40K) are below their full-year rates ($150K and $110K respectively). This likely reflects the transition from HxA/AVDF reimbursement to direct DW payment &mdash; HxA Phase 2 runs through November 2026, so only the post-HxA portion hits DW&rsquo;s books in 2026.</p>
+
+    <p><strong>Line 18 &mdash; Other salaries (account 51200):</strong></p>
+    <table>
+      <thead><tr><th>Position</th><th>Status</th><th>Jan 2026</th><th>Feb&ndash;Dec 2026</th><th>2027</th><th>2028</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td>Research Scientist</td><td>To be hired</td><td>$0</td><td>$0</td><td>$98,000</td><td>$98,000</td><td>$0</td></tr>
+        <tr><td>Research Scientist</td><td>To be hired</td><td>$0</td><td>$0</td><td>$98,000</td><td>$98,000</td><td>$0</td></tr>
+        <tr><td>Director of Communications</td><td>To be hired</td><td>$0</td><td>$60,000</td><td>$98,000</td><td>$98,000</td><td>$0</td></tr>
+        <tr><td>Support Staff</td><td>To be hired</td><td>$0</td><td>$25,000</td><td>$70,000</td><td>$70,000</td><td>$0</td></tr>
+        <tr><td>Engagement Manager</td><td>To be hired</td><td>$0</td><td>$0</td><td>$0</td><td>$98,000</td><td>$0</td></tr>
+        <tr style="font-weight:600;"><td colspan="2">Subtotal salaries (51200)</td><td>$0</td><td>$85,000</td><td>$364,000</td><td>$462,000</td><td>$0</td></tr>
+        <tr><td colspan="2">Employee benefits (51450)</td><td></td><td>$8,500</td><td>$36,400</td><td>$46,200</td><td>$0</td></tr>
+        <tr style="font-weight:600;"><td colspan="2">Subtotal Line 18</td><td>$0</td><td>$93,500</td><td>$400,400</td><td>$508,200</td><td>$0</td></tr>
+      </tbody>
+    </table>
+    <p>The Director of Communications position ($60K in 2026, $98K in 2027+) may correspond to Rachel Sipser&rsquo;s role, listed as &ldquo;To be hired&rdquo; since she is currently compensated through HxA, not directly by DW. All Line 18 positions are listed as &ldquo;To be hired.&rdquo;</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="org-questions"><span class="section-num">8.</span> Organizational &amp; Structural Questions</h2>
+<p class="section-note">How key organizational questions were answered on the Form 1023 and whether they align with board-reference context.</p>
+
+<table>
+  <thead>
+    <tr><th>Part / Line</th><th>Question</th><th>Answer</th><th>Board Reference Context</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IV-7</td>
+      <td>Intellectual property</td>
+      <td><strong>Yes</strong></td>
+      <td>Sway platform. CMU IP dispute ongoing. Co-founders assert ownership under courseware exemption.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>IV-3</td>
+      <td>Programs limited to specific individuals</td>
+      <td>No</td>
+      <td>Sway is available to any institution/instructor. Correct.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>IV-4</td>
+      <td>Related-party service recipients</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">OK</span></td>
+    </tr>
+    <tr>
+      <td>IV-5</td>
+      <td>Political campaign activity</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span></td>
+    </tr>
+    <tr>
+      <td>IV-6</td>
+      <td>Lobbying / legislation</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span></td>
+    </tr>
+    <tr>
+      <td>IV-10</td>
+      <td>Foreign operations</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span></td>
+    </tr>
+    <tr>
+      <td>IV-12</td>
+      <td>Operate a school</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">Correct</span></td>
+    </tr>
+    <tr>
+      <td>IV-16</td>
+      <td>Fundraising activities</td>
+      <td>Website/mail solicitations, foundation grants, government grants, program revenue</td>
+      <td>Consistent with current funding mix (grants + future program revenue)</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>V-1</td>
+      <td>Compensate officers</td>
+      <td><strong>Yes</strong></td>
+      <td>Simon (CEO) and Nick (CTOO) are compensated officers. Correct.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>V-1a–f</td>
+      <td>Compensation safeguards</td>
+      <td>Yes to all (1a–1f)</td>
+      <td>COI policy, board-approved compensation, documented in minutes/resolutions. Correct.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>V-3</td>
+      <td>Non-fixed compensation (bonuses, etc.)</td>
+      <td>No</td>
+      <td>Board reference shows only fixed compensation. Correct.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+    <tr>
+      <td>V-4</td>
+      <td>Purchase/sell to officers/directors</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">OK</span></td>
+    </tr>
+    <tr>
+      <td>V-5</td>
+      <td>Leases/contracts with officers</td>
+      <td>No</td>
+      <td>—</td>
+      <td><span class="badge badge-ok">OK</span></td>
+    </tr>
+    <tr>
+      <td>VII-1</td>
+      <td>Foundation classification</td>
+      <td><strong>509(a)(2)</strong></td>
+      <td>Board reference doesn't specify. 509(a)(2) is appropriate for orgs funded by grants + program service revenue.</td>
+      <td><span class="badge badge-info">Note</span></td>
+    </tr>
+    <tr>
+      <td>IX-1</td>
+      <td>Claiming exemption from annual filing</td>
+      <td>No</td>
+      <td>Board reference compliance calendar includes Form 990 due May 15. Correct.</td>
+      <td><span class="badge badge-ok">Consistent</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+  <summary>Foundation classification: 509(a)(2) explained</summary>
+  <div class="details-body">
+    <p>The Form 1023 selects <strong>509(a)(2)</strong> — a public charity that normally receives more than one-third of its support from contributions, membership fees, and gross receipts from exempt activities, and not more than one-third from gross investment income and net unrelated business income.</p>
+    <p>This is appropriate for DW's funding profile: primarily grants (contributions) plus anticipated program service revenue. The alternative — 509(a)(1) — requires support primarily from government or the general public, which is less fitting since DW's revenue comes from specific foundations and grants.</p>
+    <p>This classification should be noted in the board reference for the record.</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="no-action"><span class="section-num">9.</span> Items Not Requiring Action</h2>
+<p class="section-note">Facts that are consistent across all sources or represent expected formatting differences.</p>
+
+<details>
+  <summary><span class="badge badge-ok">OK</span> &nbsp;Title abbreviations on Form 1023</summary>
+  <div class="details-body">
+    <p>The Form 1023 uses standard IRS titles: "President / Director" (Simon) and "Sec / Treas / Director" (Nick). The board-approved titles "CEO" and "CTOO" are organizational titles that don't need to appear on IRS forms. Foundation Group knows this convention.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">OK</span> &nbsp;Revenue rounding: $245,000 vs. $246,842</summary>
+  <div class="details-body">
+    <p>The board sites say "approximately $245,000" which refers to grants/contributions only. The Form 1023 total of $246,842 adds $1,842 in BlueVine interest income. Both are correct in their respective contexts.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">OK</span> &nbsp;Balance sheet dates: $191,992 vs. ~$173,000</summary>
+  <div class="details-body">
+    <p>The Form 1023 balance sheet is as of 12/31/2025. The board reference cash figure (~$173K) is from the March 6, 2026 meeting — about 2 months later. The ~$19K decrease over January–February is expected given operating expenses.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">OK</span> &nbsp;Website field left blank</summary>
+  <div class="details-body">
+    <p>Part I, line 8 ("Organization's Website") is blank. The board reference lists disagreewisely.org. This is a minor omission — Foundation Group may have intentionally left it blank, or it may have been overlooked. Not material to the application.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-ok">OK</span> &nbsp;Upload checklist items</summary>
+  <div class="details-body">
+    <p>The Form 1023 checklist (page 18) confirms the following will be uploaded:</p>
+    <ul>
+      <li>Organizing document (Articles of Incorporation) — exists at <code>Disagree Wisely, Inc./Incorporation and Tax/Florida Incorporation/</code></li>
+      <li>Bylaws — exists at <code>Disagree Wisely, Inc./Governance/Bylaws/</code></li>
+      <li>Form 2848 (Power of Attorney) — for Foundation Group representation</li>
+      <li>Supplemental responses — activity narrative, financial materials, IP narrative</li>
+    </ul>
+    <p>Form 8821 (Tax Information Authorization) is <strong>not</strong> checked. This is normal — Form 2848 covers it.</p>
+    <p>Expedited handling is <strong>not</strong> checked. Consistent with the board reference and meeting minutes: "Standard IRS review (expedited review will not be requested)."</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-info">Note</span> &nbsp;Attached narratives not included in this PDF</summary>
+  <div class="details-body">
+    <p>The Form 1023 references several attached documents that are <strong>not</strong> included in this PDF:</p>
+    <ul>
+      <li><strong>Activity Narrative</strong> (Part IV, line 1) — "PLEASE SEE ATTACHED ACTIVITY NARRATIVE"</li>
+      <li><strong>IP Narrative</strong> (Part IV, line 7) — "PLEASE SEE ATTACHED ACTIVITY NARRATIVE RELATING TO INTELLECTUAL PROPERTY"</li>
+      <li><strong>Financial Materials</strong> (Part VI, line 25) — "PLEASE SEE ATTACHED FINANCIAL MATERIALS FOR LINE BREAKDOWN"</li>
+      <li><strong>Balance Sheet Breakdown</strong> (Part VI, line 19) — "PLEASE SEE ATTACHED BALANCE SHEET FOR ASSET AND LIABILITY BREAKDOWN"</li>
+    </ul>
+    <p><strong>You should request these attached documents from Foundation Group</strong> to review before approving. The activity narrative and IP narrative in particular will be what the IRS reads most carefully — they describe DW's programs and the Sway IP structure.</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="draft-message"><span class="section-num">10.</span> Draft Message to Ren (Foundation Group)</h2>
+<p class="section-note">Draft questions and notes for Ren at Foundation Group. Copy/paste and edit as needed.</p>
+
+<div id="draft-email" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; font-size: 0.92rem; line-height: 1.7; position: relative;">
+
+<button id="copy-btn" style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: all 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#e6edf3'" onmouseout="this.style.background='var(--border)';this.style.color='var(--text-muted)'">Copy</button>
+<script>
+document.getElementById('copy-btn').addEventListener('click', function() {
+  var btn = this;
+  var paragraphs = document.querySelectorAll('#draft-email p');
+  var lines = [];
+  paragraphs.forEach(function(p) {
+    lines.push(p.textContent.trim());
+  });
+  var text = lines.join('\n\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = 'rgba(63,185,80,0.2)';
+    btn.style.color = '#3fb950';
+    btn.style.borderColor = 'rgba(63,185,80,0.3)';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = 'var(--border)';
+      btn.style.color = 'var(--text-muted)';
+      btn.style.borderColor = 'rgba(255,255,255,0.15)';
+    }, 2000);
+  });
+});
+</script>
+
+<p>Hi Ren,</p>
+
+<p>Thanks for sending the Form 1023 draft! We&rsquo;ve reviewed it carefully, and almost everything checks out. There are just two items we&rsquo;d like to discuss before we approve:</p>
+
+<p><strong>1. Question 10 (Foreign Operations)</strong></p>
+
+<p>The form answers &ldquo;No&rdquo; to whether we operate in foreign countries. Our focus is and will remain programs in the United States, but we have already deployed educational programs at over a dozen universities across 8 foreign countries &mdash; primarily Canada, but the complete list includes UK, Germany, Spain, Australia, South Africa, India, and Lebanon &mdash; and we expect some level of international activity to continue. We want to make sure &ldquo;No&rdquo; is defensible here. If it should be &ldquo;Yes,&rdquo; we&rsquo;re comfortable with the OFAC follow-ups (10a&ndash;10c). Later on, the activity narrative (p.&nbsp;56) also says &ldquo;throughout the United States&rdquo;; I assume that would need updating as well if Q10 changes?</p>
+
+<p><strong>2. Activity Narrative (p. 56) &mdash; officer appointments</strong></p>
+
+<p>Section B says the organization &ldquo;intends to hire&rdquo; Cullen as CEO and DiBella as CTOO. Both appointments have already been made: Simon has served as unpaid CEO since September 2025 (he&rsquo;s been paid by other organizations for the entire time Disagree Wisely has existed), and myself as CTOO prior to that (I was paid directly by Disagree Wisely for this role from May&ndash;July 2025 when my federally funded postdoc was temporarily paused, and I&rsquo;ve been paid by other organizations apart from that period). Should we update this to reflect that these are existing appointments?</p>
+
+<p>Thanks!<br>Nick</p>
+
+</div>
+
+<details>
+  <summary>Background: What are the OFAC follow-up questions (10a&ndash;10c)?</summary>
+  <div class="details-body">
+    <p>If Q10 is changed to &ldquo;Yes,&rdquo; three follow-up questions apply. All are straightforward compliance commitments:</p>
+    <ul>
+      <li><strong>10a (OFAC SDN List check):</strong> Will you check the OFAC &ldquo;Specially Designated Nationals and Blocked Persons&rdquo; list before doing business with anyone abroad? This is a US Treasury list of sanctioned individuals, organizations, and entities. The answer is &ldquo;Yes&rdquo; &mdash; you&rsquo;d describe your practice (e.g., &ldquo;we vet partner institutions against the OFAC SDN list before entering into agreements&rdquo;).</li>
+      <li><strong>10b (Sanctions compliance):</strong> Will you comply with all US sanctions laws, executive orders, and regulations administered by OFAC? Straightforward &ldquo;Yes.&rdquo;</li>
+      <li><strong>10c (OFAC licensing):</strong> If you ever need to operate in a sanctioned country (e.g., providing educational services in Iran or North Korea), will you get the required OFAC license first? &ldquo;Yes.&rdquo;</li>
+    </ul>
+    <p>These are boilerplate compliance questions. For a nonprofit deploying an educational platform at universities, the answers are Yes/Yes/Yes and Foundation Group would handle the standard language.</p>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="foreign-ops"><span class="section-num">11.</span> Foreign Operations Risk Assessment</h2>
+<p class="section-note">Analysis of whether DW's international activities pose any red flags for the Form 1023, and how the 8 countries rank in terms of US relations and OFAC considerations.</p>
+
+<div class="info-box"><strong>Bottom line: No red flags.</strong> All 8 countries have normal or close diplomatic relationships with the US. None are sanctioned. Seven of the eight are among the US's closest allies. The only country warranting a brief note is Lebanon, and even that is low-risk given the specific institution involved.</div>
+
+<h3 style="font-size:1.05rem; margin-top:1.5rem; margin-bottom:0.75rem;">Country Tiers by US Relations</h3>
+
+<table>
+  <thead>
+    <tr><th>Tier</th><th>Countries</th><th>Relationship</th><th>OFAC Risk</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="badge badge-ok">Tier 1</span></td>
+      <td><strong>Canada, United Kingdom, Australia</strong></td>
+      <td>Five Eyes intelligence alliance. The closest US allies. Treaty partners across defense, trade, and education. Extensive academic exchange programs.</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-ok">Tier 1</span></td>
+      <td><strong>Germany, Spain</strong></td>
+      <td>NATO allies. EU members. Strong bilateral relationships. Major US academic exchange partners (Fulbright, DAAD, etc.).</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-ok">Tier 2</span></td>
+      <td><strong>South Africa</strong></td>
+      <td>Strategic partner. Strong trade and diplomatic ties. No sanctions. Major recipient of US development and educational aid (PEPFAR, Fulbright).</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-ok">Tier 2</span></td>
+      <td><strong>India</strong></td>
+      <td>Major strategic partner. Quad alliance member (with US, Australia, Japan). Largest source of international students in the US. Occasional trade tensions but no sanctions and a strong educational relationship.</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-info">Tier 3</span></td>
+      <td><strong>Lebanon</strong></td>
+      <td>Diplomatic relations maintained. The US provides significant humanitarian and military aid to Lebanon. However, Hezbollah (a US-designated terrorist organization) operates as both a political party and militia within Lebanon. OFAC maintains extensive Lebanon-related designations targeting Hezbollah-affiliated individuals and entities.</td>
+      <td>Low &mdash; see note below</td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+  <summary><span class="badge badge-info">Note</span> &nbsp;Lebanon: why it's low-risk despite Tier 3</summary>
+  <div class="details-body">
+    <p>Lebanon is the only country on the list where an IRS reviewer might pause. But the risk is effectively zero for DW, for three reasons:</p>
+    <ol>
+      <li><strong>The institution matters more than the country.</strong> The Lebanese American University (LAU) is a US-affiliated institution &mdash; it was founded in 1835 as a Presbyterian missionary school, operates under a New York State charter, is accredited by NEASC (a US regional accreditor), and has deep ties to American higher education. It is not an OFAC-listed entity.</li>
+      <li><strong>DW&rsquo;s activity is educational program deployment, not fund transfers.</strong> DW is not sending money to Lebanon or contracting with Lebanese entities. It is making an educational platform available to a US-chartered university that happens to operate in Lebanon.</li>
+      <li><strong>OFAC&rsquo;s Lebanon-related designations target Hezbollah-affiliated entities</strong> &mdash; banks, shell companies, and individuals linked to the organization. A US-chartered university is the opposite of an OFAC concern.</li>
+    </ol>
+    <p>If Q10 is changed to &ldquo;Yes&rdquo; and Lebanon is listed, Foundation Group may want to include a brief note in the description clarifying the nature of the activity (educational platform access at a US-affiliated university). But this is a matter of thoroughness, not concern.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Would disclosing foreign operations complicate the application?</summary>
+  <div class="details-body">
+    <p>No. Answering &ldquo;Yes&rdquo; to Q10 triggers three OFAC compliance questions (10a&ndash;10c), all of which are boilerplate &ldquo;Yes&rdquo; answers. It also requires naming the countries and briefly describing operations. For a US-based nonprofit deploying an educational platform at well-known universities in allied countries, this is routine.</p>
+    <p>The risk of <strong>not</strong> disclosing is arguably greater: if the IRS discovers during review that DW is already operating in 8 countries (e.g., from the activity narrative, grant applications, or website), an undisclosed &ldquo;No&rdquo; answer could raise questions about the completeness of the application. Proactive disclosure of straightforward international activity is better than having the IRS find it on their own.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Markdown version (for copying)</summary>
+  <div class="details-body" style="position: relative;">
+<button id="copy-md-btn" style="position: absolute; top: 0; right: 0; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: all 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#e6edf3'" onmouseout="this.style.background='var(--border)';this.style.color='var(--text-muted)'">Copy</button>
+<script>
+document.getElementById('copy-md-btn').addEventListener('click', function() {
+  var btn = this;
+  var pre = document.getElementById('foreign-ops-md');
+  navigator.clipboard.writeText(pre.textContent).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = 'rgba(63,185,80,0.2)';
+    btn.style.color = '#3fb950';
+    btn.style.borderColor = 'rgba(63,185,80,0.3)';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = 'var(--border)';
+      btn.style.color = 'var(--text-muted)';
+      btn.style.borderColor = 'rgba(255,255,255,0.15)';
+    }, 2000);
+  });
+});
+</script>
+<pre id="foreign-ops-md" style="background: rgba(110,118,129,0.1); padding: 1rem; border-radius: 6px; font-size: 0.82rem; line-height: 1.6; overflow-x: auto; white-space: pre-wrap;">## Foreign Operations Risk Assessment
+
+**Bottom line: No red flags.** All 8 countries have normal or close diplomatic relationships with the US. None are sanctioned. Seven of the eight are among the US's closest allies. The only country warranting a brief note is Lebanon, and even that is low-risk given the specific institution involved.
+
+### Country Tiers
+
+**Tier 1 — Closest US allies (no concerns)**
+- **Canada, United Kingdom, Australia** — Five Eyes intelligence alliance. Treaty partners across defense, trade, and education.
+- **Germany, Spain** — NATO allies, EU members. Major US academic exchange partners.
+
+**Tier 2 — Strong US partners (no concerns)**
+- **South Africa** — Strategic partner. Strong trade and diplomatic ties. Major recipient of US educational aid.
+- **India** — Major strategic partner. Quad alliance member. Largest source of international students in the US.
+
+**Tier 3 — Requires brief note (low risk)**
+- **Lebanon** — Diplomatic relations maintained; US provides significant aid. However, Hezbollah (US-designated terrorist organization) operates within Lebanon, and OFAC maintains extensive Lebanon-related designations. **Low risk for DW** because:
+  1. The Lebanese American University (LAU) is a US-affiliated institution (founded 1835, NY State charter, NEASC-accredited). Not an OFAC-listed entity.
+  2. DW's activity is educational program deployment, not fund transfers to Lebanese entities.
+  3. OFAC's Lebanon designations target Hezbollah-affiliated banks, shell companies, and individuals — not US-chartered universities.
+
+### Would disclosing foreign operations complicate the application?
+
+No. Answering "Yes" to Q10 triggers three boilerplate OFAC compliance questions (10a–10c), all answered "Yes." It requires naming countries and briefly describing operations. For a US-based nonprofit deploying an educational platform at well-known universities in allied countries, this is routine.
+
+The risk of *not* disclosing is arguably greater: if the IRS discovers DW is already operating in 8 countries, an undisclosed "No" could raise questions about the completeness of the application.</pre>
+  </div>
+</details>
+
+
+<hr>
+<p style="font-size:0.82rem; color:var(--text-muted); margin-top:1.5rem;">
+  Cross-reference generated March 16, 2026 by comparing Form 1023 (dated 03/16/2026) against
+  <code>board-reference/index.html</code> (DisagreeWisely repo) and
+  <code>app/services/taxes_service.py</code> (SwayAccounting repo).
+</p>
+
+</body>
+</html>

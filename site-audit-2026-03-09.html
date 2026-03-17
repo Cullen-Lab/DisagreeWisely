@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Site Audit — March 9, 2026</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --red: #f85149;
+      --red-bg: rgba(248,81,73,0.08);
+      --orange: #d29922;
+      --orange-bg: rgba(210,153,34,0.08);
+      --blue: #58a6ff;
+      --blue-bg: rgba(88,166,255,0.08);
+      --green: #3fb950;
+      --green-bg: rgba(63,185,80,0.08);
+      --purple: #bc8cff;
+      --purple-bg: rgba(188,140,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .summary-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .summary-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .chip-red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,81,73,0.25); }
+    .chip-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.25); }
+    .chip-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.25); }
+    .chip-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(188,140,255,0.25); }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .issue {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .issue-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .badge-error { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+    .badge-warn { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.3); }
+    .badge-info { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.3); }
+    .badge-question { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+    .badge-ok { background: var(--green-bg); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+
+    .issue-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .issue p, .issue ul {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .issue ul {
+      padding-left: 1.25rem;
+    }
+
+    .issue li {
+      margin-bottom: 0.25rem;
+    }
+
+    .loc {
+      display: inline-block;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      background: rgba(110,118,129,0.12);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      color: var(--text-muted);
+    }
+
+    .quote {
+      border-left: 3px solid var(--border);
+      padding-left: 0.75rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .vs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.5rem;
+      align-items: start;
+      margin: 0.5rem 0;
+    }
+
+    .vs-side {
+      background: rgba(110,118,129,0.08);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+
+    .vs-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .vs-arrow {
+      color: var(--text-muted);
+      padding-top: 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    .fix {
+      background: rgba(63,185,80,0.06);
+      border: 1px solid rgba(63,185,80,0.15);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+    }
+
+    .fix-label {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .section-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0 1rem;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); }
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.82rem;
+      background: rgba(110,118,129,0.15);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Board Site Audit</h1>
+<p class="subtitle">Comprehensive review of board-reference, board-onboarding, meeting-slides, and cross-document consistency.<br>Generated March 9, 2026.</p>
+
+<div class="summary-bar">
+  <div class="summary-chip chip-red">4 Inconsistencies</div>
+  <div class="summary-chip chip-orange">4 Stale/Inaccurate</div>
+  <div class="summary-chip chip-blue">2 Structural</div>
+  <div class="summary-chip chip-purple">6 Questions for Nick</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Confirmed Inconsistencies</h2>
+<p class="section-note">Facts stated differently in different places on the sites. These should be resolved.</p>
+
+<!-- 1 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-error">Inconsistency</span>
+    <span class="issue-title">Anti-Harassment Policy date: "August 2025" vs. "September 22, 2025"</span>
+  </div>
+  <p>The policy summary subsection says "Adopted August 2025" in <strong>both</strong> sites, but the Key History timeline and Board Resolutions section both say <strong>September 22, 2025</strong> (which matches Resolution 2025-05).</p>
+  <div class="vs">
+    <div class="vs-side">
+      <div class="vs-label">Policy subsections (wrong)</div>
+      <loc class="loc">board-reference:484</loc> &nbsp; <loc class="loc">board-onboarding:359</loc><br>
+      "Adopted August&nbsp;2025."
+    </div>
+    <div class="vs-arrow">vs.</div>
+    <div class="vs-side">
+      <div class="vs-label">Timeline &amp; Resolutions (correct)</div>
+      <loc class="loc">board-reference:1010</loc> &nbsp; <loc class="loc">board-reference:1272</loc><br>
+      "September 22, 2025"
+    </div>
+  </div>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Change both policy subsections to "Adopted September&nbsp;22, 2025."
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-error">Inconsistency</span>
+    <span class="issue-title">Learning Agency grant ($150K) missing from board-reference revenue table</span>
+  </div>
+  <p>The onboarding site includes a Learning Agency row in its revenue table (<loc class="loc">board-onboarding:518</loc>), but the board-reference revenue table (<loc class="loc">board-reference:651–657</loc>) omits it entirely. The grant is discussed extensively elsewhere on the reference page (lines 722, 1402–1404, 1418, 1423).</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Add the Learning Agency row to the board-reference revenue table, matching the onboarding site's version.
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-error">Inconsistency</span>
+    <span class="issue-title">Resolution 2025-03/04 dates: meeting says July 1 vs. resolutions say July 10–11</span>
+  </div>
+  <p>The Key History timeline (<loc class="loc">board-reference:1020</loc>) says "July 1, 2025 — Special Board Meeting" where Nick was appointed CTOO and compensation was approved. The July 1 meeting minutes (<loc class="loc">board-reference:1490–1515</loc>) describe formal motions being made and carried at that meeting ("Motion carried. Resolution 2025-03 adopted.").</p>
+  <p>But the Board Resolutions section (<loc class="loc">board-reference:1279</loc>) dates these as <strong>"July 10–11, 2025"</strong> and says they were "Adopted by unanimous written consent" — a different mechanism than a meeting vote.</p>
+  <p><strong>These can't both be right.</strong> Either the resolutions were adopted at the July 1 meeting (and the resolutions section date is wrong), or they were adopted by written consent on July 10–11 (and the meeting minutes shouldn't say "Motion carried").</p>
+  <div class="fix">
+    <div class="fix-label">Needs your input</div>
+    Check the actual resolution PDF (<code>board-resolutions-jul-2025.pdf</code>) for the formal date. Whichever is authoritative, update the other to match.
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-error">Inconsistency</span>
+    <span class="issue-title">"$245,000" revenue figure doesn't match grant table totals</span>
+  </div>
+  <p>Both sites say "2025 revenue was approximately <strong>$245,000</strong>" immediately followed by a table of grants. But the table sums don't match:</p>
+  <ul>
+    <li><strong>Board-reference table</strong> (without LA): ~$284K + $13K + $50K + $25K + $20K = <strong>~$392K</strong></li>
+    <li><strong>Board-onboarding table</strong> (with LA): add $150K = <strong>~$542K</strong></li>
+  </ul>
+  <p>The $245K likely represents <em>actual cash received in calendar year 2025</em> (not total commitments), but the sentence "The following grants currently fund our work:" reads as if the table is breaking down that $245K.</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Reword to clarify: "2025 revenue was approximately <strong>$245,000</strong>. The following grants and awards fund our work (amounts shown are total commitments, which may span multiple years or phases):"
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Stale or Inaccurate Content</h2>
+<p class="section-note">Information that was correct at one point but is now outdated.</p>
+
+<!-- 5 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-warn">Stale</span>
+    <span class="issue-title">Meeting slides: "Requesting expedited IRS review"</span>
+  </div>
+  <p><loc class="loc">meeting-slides.html:343</loc> — Still says <em>"Requesting <strong>expedited IRS review</strong>"</em>. Simon corrected this at the meeting itself. The minutes note: "Correction from prepared slides: the President stated that expedited IRS review will <strong>not</strong> be requested." Every other document has been updated.</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Change to: "Standard IRS review (expedited review will not be requested)"
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-warn">Stale</span>
+    <span class="issue-title">Meeting slides: "LA Funds to Return" label</span>
+  </div>
+  <p><loc class="loc">meeting-slides.html:462–464</loc> — The financial slide shows <code>-$125K / LA Funds to Return</code> and a <code>~$48K / Working Cash</code> card. At the meeting, it was clarified that LA is open to <em>reallocation</em> (not return). The board-reference and onboarding sites already reflect this.</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix (optional)</div>
+    The slides are internal pre-meeting prep and the minutes capture the correction. Up to you whether to update these.
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-warn">Stale</span>
+    <span class="issue-title">Dentons listed as active vendor</span>
+  </div>
+  <p><loc class="loc">board-reference:782</loc> — The Partnerships &amp; Vendors section lists <em>"Dentons — Legal counsel."</em> as if this is a current relationship. The Dentons engagement <strong>ended in February 2026</strong>. The minutes, slides, and board-planning page all note this.</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Change to: "Dentons — Former legal counsel (David Kalson; engagement ended February 2026)." Or remove the row entirely.
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-warn">Duplicate</span>
+    <span class="issue-title">Meeting slides: duplicate compensation line</span>
+  </div>
+  <p><loc class="loc">meeting-slides.html:495–496</loc> — Two consecutive bullet points say essentially the same thing:</p>
+  <div class="quote">
+    &bull; <strong>All staff compensation currently via HxA reimbursement</strong><br>
+    &bull; All compensation via HxA reimbursement
+  </div>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Delete line 496 (the non-bold duplicate).
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Structural Issues</h2>
+<p class="section-note">HTML/link problems that affect navigation or correctness.</p>
+
+<!-- 9 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-info">Link</span>
+    <span class="issue-title">"Advisory Board" link points to wrong anchor</span>
+  </div>
+  <p><loc class="loc">board-reference:221</loc> — In the Reporting Structure subsection, the text reads: <em>"The <a href='#comm-norms'>Advisory Board</a> provides subject-matter guidance…"</em> — but <code>#comm-norms</code> points to the <strong>Communication Norms</strong> subsection, not the Advisory Board subsection.</p>
+  <p>The Advisory Board subsection (lines 193–203) has no <code>id</code> attribute.</p>
+  <div class="fix">
+    <div class="fix-label">Suggested fix</div>
+    Add <code>id="advisory"</code> to the Advisory Board subsection div (line 193), then change the link to <code>href="#advisory"</code>.
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-info">Ordering</span>
+    <span class="issue-title">Action Items section placed between Board Resolutions and Key History in sidebar</span>
+  </div>
+  <p>In the page source, the Action Items section (<loc class="loc">board-reference:1128–1159</loc>) is placed <em>after</em> the Reference Documents section but <em>before</em> the Board Resolutions section. However, in the sidebar TOC (<loc class="loc">board-reference:47</loc>), Action Items appears between Contact and Resolutions. The actual document order is: Contact → Reference Documents → Action Items → Resolutions → History → Minutes.</p>
+  <p>This isn't broken, but the sidebar order doesn't match the page order — users scrolling down will encounter sections in a different sequence than the TOC suggests. Worth considering whether the sidebar or the page sections should be reordered.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Questions for Nick</h2>
+<p class="section-note">Items I can't resolve without your input.</p>
+
+<!-- Q1 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">Rachel Sipser's reporting line</span>
+  </div>
+  <p><loc class="loc">board-reference:219</loc> says Rachel "Reports to Nicholas DiBella." The board-planning file had this marked as uncertain ("[Simon? Nick?]"). Is this correct?</p>
+</div>
+
+<!-- Q2 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">What does the "$245K" figure represent?</span>
+  </div>
+  <p>Both sites say "2025 revenue was approximately $245,000." Is this <strong>actual cash received in calendar year 2025</strong>? If so, should the grant tables be explicitly labeled as "total commitments" to avoid confusion with the $245K figure? Or should $245K be updated to a different number?</p>
+</div>
+
+<!-- Q3 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">Resolution 2025-03/04: July 1 meeting vote or July 10–11 written consent?</span>
+  </div>
+  <p>The July 1 meeting minutes describe motions being made and carried at the meeting. But the Board Resolutions section dates these as July 10–11 and describes them as "unanimous written consent." Which is authoritative? Check the signed resolution PDF. See Inconsistency #3 above.</p>
+</div>
+
+<!-- Q4 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">Whistleblower Policy: add action item?</span>
+  </div>
+  <p>The June 7, 2025 minutes (<loc class="loc">board-reference:1593–1594</loc>) note the board voted to adopt a Whistleblower Policy but Foundation Group never shared the document. This is noted inline but there's <strong>no action item</strong> for it in the Action Items table. Should one be added? (e.g., "Request Whistleblower Policy copy from Foundation Group — Nick — Pending")</p>
+</div>
+
+<!-- Q5 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">Is board-planning.html still a living document?</span>
+  </div>
+  <p><loc class="loc">board-planning.html</loc> contains pre-meeting prep notes and post-meeting review recommendations. Some content is stale (e.g., mentions "return ~$125K" to Learning Agency, references to expedited review). Should this file be updated to reflect post-meeting reality, archived as-is, or deleted? It's internal-only (not linked from either board site).</p>
+</div>
+
+<!-- Q6 -->
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-question">Question</span>
+    <span class="issue-title">Sway Classroom: "launched" or still in development?</span>
+  </div>
+  <p>Meeting slides (<loc class="loc">meeting-slides.html:554</loc>) say <em>"Sway Classroom (K–12) launched."</em> But the revenue table describes the $13,171 HxA Sway Classroom grant as a "Restricted grant for developing Sway Classroom" that "runs through Jul 1, 2026." Is Sway Classroom actually launched, or still being developed? This affects how it's described across the sites.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Minor / Cosmetic (No Fix Needed)</h2>
+<p class="section-note">Flagged for completeness; not worth changing.</p>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">OK</span>
+    <span class="issue-title">COBRA stipend rounding: $1,062 vs. $1,061.82</span>
+  </div>
+  <p>Key History says "$1,062/month" (rounded). Resolution text says "$1,061.82." Both are appropriate in their respective contexts (narrative vs. formal resolution).</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">OK</span>
+    <span class="issue-title">Insurance premium total: $4,600 vs. $4,600.13</span>
+  </div>
+  <p>$820.13 + $3,780 = $4,600.13. Stated as "$4,600" everywhere. Consistently rounded; immaterial.</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">OK</span>
+    <span class="issue-title">BlueVine APY: 2.7% (June 2025 minutes) vs. 3.00% (current)</span>
+  </div>
+  <p>The June 7, 2025 meeting minutes record "2.7% APY" (the rate when the account was approved). The current banking details say "3.00% APY." APY changes over time; both are correct for their respective dates.</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">OK</span>
+    <span class="issue-title">NewSchools amount ($100K–$200K) only in meeting minutes</span>
+  </div>
+  <p>The $100K–$200K range for NewSchools appears only in the March 6 meeting minutes (<loc class="loc">board-reference:1423</loc>). Other references to NewSchools don't include a dollar amount. This is fine — the estimate came up at the meeting and was captured there; the formal grant tables list only confirmed amounts.</p>
+</div>
+
+<div class="issue">
+  <div class="issue-header">
+    <span class="badge badge-ok">OK</span>
+    <span class="issue-title">Onboarding site is less detailed than reference (by design)</span>
+  </div>
+  <p>The onboarding site omits: traction metrics, compliance calendar, cash position section, COI acknowledgment example, financial authorization details, vendor list, and several other items. This is by design — the onboarding is a "slim overview" while the reference is "comprehensive."</p>
+</div>
+
+
+</body>
+</html>

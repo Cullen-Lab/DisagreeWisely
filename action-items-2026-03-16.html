@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Items — Disagree Wisely, Inc.</title>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e;
+      --red: #f85149; --red-bg: rgba(248,81,73,0.08);
+      --orange: #d29922; --orange-bg: rgba(210,153,34,0.08);
+      --blue: #58a6ff; --blue-bg: rgba(88,166,255,0.08);
+      --green: #3fb950; --green-bg: rgba(63,185,80,0.08);
+      --purple: #bc8cff; --purple-bg: rgba(188,140,255,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1.5rem 4rem; max-width: 1020px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.75rem 0 1.25rem; }
+    th, td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom-color: rgba(255,255,255,0.15); background: var(--surface); }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Badges */
+    .badge { display: inline-block; padding: 0.12rem 0.45rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap; }
+    .b-urgent { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+    .b-soon { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.3); }
+    .b-normal { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.3); }
+    .b-future { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+    .b-done { background: var(--green-bg); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+    .b-pending { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(210,153,34,0.3); }
+
+    /* Section-level collapsibles */
+    details.section {
+      border: none; border-bottom: 1px solid var(--border);
+      margin-bottom: 0; background: none; border-radius: 0;
+    }
+    details.section > summary {
+      padding: 1rem 0; font-size: 1.2rem; font-weight: 600;
+      list-style: none; cursor: pointer; user-select: none;
+    }
+    details.section > summary::-webkit-details-marker { display: none; }
+    details.section > summary::before {
+      content: '▸'; display: inline-block; margin-right: 0.75rem;
+      transition: transform 0.15s; color: var(--text-muted); font-size: 0.9rem;
+    }
+    details.section[open] > summary::before { transform: rotate(90deg); }
+    details.section > summary .sn { color: var(--text-muted); font-weight: 400; margin-right: 0.4rem; }
+    details.section > summary .count {
+      font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      padding: 0.1rem 0.45rem; border-radius: 10px; margin-left: 0.5rem; vertical-align: middle;
+    }
+    .section-body { padding: 0 0 1.5rem; }
+    .section-body .note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+    /* Sub-section collapsibles */
+    details.sub {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; margin-bottom: 0.75rem;
+    }
+    details.sub[open] { border-color: rgba(255,255,255,0.15); }
+    details.sub > summary {
+      padding: 0.7rem 1.1rem; font-size: 0.93rem; font-weight: 600;
+      list-style: none; cursor: pointer; user-select: none;
+    }
+    details.sub > summary::-webkit-details-marker { display: none; }
+    details.sub > summary::before {
+      content: '▸'; display: inline-block; margin-right: 0.5rem;
+      transition: transform 0.15s; color: var(--text-muted); font-size: 0.8rem;
+    }
+    details.sub[open] > summary::before { transform: rotate(90deg); }
+    .sub-body { padding: 0 1.1rem 0.85rem; }
+    .sub-body p, .sub-body ul { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .sub-body ul { padding-left: 1.25rem; }
+    .sub-body li { margin-bottom: 0.25rem; }
+
+    /* Misc */
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); }
+    code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.8rem; background: rgba(110,118,129,0.15); padding: 0.1rem 0.35rem; border-radius: 3px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0 1rem; }
+    .owner { color: var(--purple); font-weight: 600; }
+    .amt { color: var(--orange); font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.82rem; }
+    .alert { border-left: 4px solid var(--red); background: var(--red-bg); border-radius: 0 6px 6px 0; padding: 0.85rem 1.15rem; margin-bottom: 1rem; font-size: 0.88rem; }
+    .info { border-left: 3px solid var(--blue); background: var(--blue-bg); padding: 0.7rem 1rem; margin: 0.75rem 0; font-size: 0.85rem; border-radius: 0 4px 4px 0; color: var(--text-muted); }
+
+    /* TOC */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+    .toc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .toc-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600; }
+    .toc-list { list-style: none; columns: 2; column-gap: 2rem; }
+    .toc-list li { margin-bottom: 0.35rem; }
+    .toc-list a { color: var(--blue); text-decoration: none; font-size: 0.86rem; }
+    .toc-list a:hover { text-decoration: underline; }
+    .expand-btn {
+      background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted);
+      padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer;
+      font-family: inherit; transition: all 0.15s;
+    }
+    .expand-btn:hover { background: rgba(255,255,255,0.15); color: var(--text); }
+
+    /* Period headers in tables */
+    .period-row td { color: var(--orange); font-weight: 600; border-bottom: 2px solid var(--border); font-size: 0.82rem; }
+
+    @media (max-width: 700px) { .toc-list { columns: 1; } }
+  </style>
+</head>
+<body>
+
+<h1>Action Items</h1>
+<p class="subtitle">Disagree Wisely, Inc. &mdash; Comprehensive action items compiled from DisagreeWisely and SwayAccounting repositories.<br>Generated March&nbsp;16,&nbsp;2026.</p>
+
+<nav class="toc">
+  <div class="toc-header">
+    <div class="toc-title">Contents</div>
+    <button class="expand-btn" onclick="toggleAll()">Expand all</button>
+  </div>
+  <ol class="toc-list">
+    <li><a href="#by-deadline">By Deadline</a></li>
+    <li><a href="#tax">Tax &amp; Compliance</a></li>
+    <li><a href="#501c3">501(c)(3) Application</a></li>
+    <li><a href="#grants">Grants &amp; Funding</a></li>
+    <li><a href="#legal">Legal &amp; IP</a></li>
+    <li><a href="#board">Board &amp; Governance</a></li>
+    <li><a href="#site-fixes">Board Site Fixes</a></li>
+    <li><a href="#ops">Operations &amp; Future</a></li>
+    <li><a href="#calendar">Compliance Calendar</a></li>
+  </ol>
+</nav>
+
+<script>
+function toggleAll() {
+  var btn = document.querySelector('.expand-btn');
+  var allDetails = document.querySelectorAll('details');
+  var anyOpen = Array.from(document.querySelectorAll('details.section')).some(function(d) { return d.open; });
+  allDetails.forEach(function(d) { d.open = !anyOpen; });
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}
+// Open sections when clicking TOC links
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  var id = link.getAttribute('href').slice(1);
+  var target = document.getElementById(id);
+  if (target) {
+    var section = target.closest('details.section') || (target.tagName === 'SUMMARY' ? target.parentElement : null);
+    if (section) section.open = true;
+  }
+});
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="by-deadline" open>
+  <summary><span class="sn">1.</span> By Deadline <span class="count">20 items</span></summary>
+  <div class="section-body">
+    <p class="note">All pending items sorted by urgency. Items appear again in their topical sections below.</p>
+
+    <details class="sub" open>
+      <summary><span class="badge b-urgent">Past Due / Urgent</span> &nbsp;4 items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Amount</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Email Rico (Jordan Tax) &mdash; send W-2 copy + $444.41 check to close EIT account&nbsp;#434896</td><td class="owner">Nick</td><td class="amt">$444.41</td><td>SwayAccounting taxes</td></tr>
+            <tr><td>Email Rita Masi (Pittsburgh) &mdash; request LST (LS-1) and Payroll Tax (ET-1) forms for Q2 zero + Q3 filing</td><td class="owner">Nick</td><td>&mdash;</td><td>SwayAccounting taxes</td></tr>
+            <tr><td>File Pittsburgh Q2/Q3 returns + close accounts &mdash; mail $83.64 check + Change in Business Status form</td><td class="owner">Nick</td><td class="amt">$83.64</td><td>SwayAccounting taxes</td></tr>
+            <tr><td>Respond to Foundation Group on Form 1023 &mdash; Q10 (foreign ops) + officer appointment language</td><td class="owner">Nick</td><td>&mdash;</td><td>form-1023-cross-reference</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-soon">March&ndash;April 2026</span> &nbsp;7 items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Meet with Learning Agency re: ~$125K funds reallocation; report back to board</td><td class="owner">Simon</td><td>Board meeting 3/6</td></tr>
+            <tr><td>Schedule individual follow-up conversations with Ken and Barbara</td><td class="owner">Simon</td><td>Board meeting 3/6</td></tr>
+            <tr><td>Help with university adoption contacts (Michigan, CUNY, SUNY)</td><td class="owner">Ken</td><td>Board meeting 3/6</td></tr>
+            <tr><td>Ask Ren (FG) about compensation structuring to minimize tax burden (health insurance vs. salary, per Ken&rsquo;s suggestion)</td><td class="owner">Nick / Simon</td><td>Board meeting transcript</td></tr>
+            <tr><td>Schedule dedicated strategy meeting (partnerships, nonpartisan positioning, growth)</td><td class="owner">Nick / Simon</td><td>Board meeting transcript</td></tr>
+            <tr><td>Determine Advisory Board composition (currently only Cristina Koppel; still in process)</td><td class="owner">Simon / Nick</td><td>Board meeting transcript</td></tr>
+            <tr><td>Prepare CMU Dean email agreement for board review at next meeting</td><td class="owner">Simon</td><td>Board meeting transcript</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-soon">May 2026</span> &nbsp;2 items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Amount</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>File Florida Annual Report (sunbiz.org) &mdash; add Ken Stern and Barbara Oakley as directors</td><td class="owner">Nick</td><td class="amt">$61.25</td><td>SwayAccounting taxes</td></tr>
+            <tr><td>Q1 2026 treasurer&rsquo;s statement + spot-check of transactions &gt;$1,000</td><td class="owner">Nick / Board</td><td>&mdash;</td><td>Compliance calendar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-normal">Before 501(c)(3) Approval</span> &nbsp;3 items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Amount</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Foundation Group: finalize and submit Form 1023</td><td class="owner">FG / Nick</td><td class="amt">$600</td><td>Board-reference; Form 1023</td></tr>
+            <tr><td>Close Whistleblower Policy gap &mdash; follow up with FG or adopt standard template</td><td class="owner">Nick</td><td>&mdash;</td><td>Site audit; org assessment</td></tr>
+            <tr><td>Incorporate PBC in Delaware for Sway IP</td><td class="owner">Nick / Simon</td><td class="amt">~$50</td><td>Board-reference; README</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-future">November 2026 &ndash; May 2027</span> &nbsp;4 items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Deadline</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>D&amp;O insurance renewal (Carolina Casualty)</td><td class="owner">Nick</td><td>Nov 14, 2026</td><td class="amt">$820/yr</td></tr>
+            <tr><td>Cyber/Tech E&amp;O insurance renewal (CFC/Lloyd&rsquo;s)</td><td class="owner">Nick</td><td>Nov 14, 2026</td><td class="amt">$3,780/yr</td></tr>
+            <tr><td>Annual board meeting + officer elections + COI attestation</td><td class="owner">Board</td><td>Jan 2027</td><td>&mdash;</td></tr>
+            <tr><td>First Form 990 filing (fiscal year 2026)</td><td class="owner">Nick</td><td>May 15, 2027</td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="tax">
+  <summary><span class="sn">2.</span> Tax &amp; Compliance <span class="count">$528.08 owed</span></summary>
+  <div class="section-body">
+    <p class="note">Outstanding tax liabilities and filings.</p>
+
+    <details class="sub" open>
+      <summary><span class="badge b-urgent">Outstanding</span> &nbsp;Pittsburgh tax liabilities &mdash; <strong class="amt">$528.08</strong></summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Agency</th><th>Type</th><th>Amount</th><th>Account</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Jordan Tax Service (Pittsburgh EIT)</td>
+              <td>Employee withholding</td>
+              <td class="amt">$444.41</td>
+              <td>#434896</td>
+              <td>Email <code>BusTax@jordantax.com</code> with W-2 copy + check</td>
+            </tr>
+            <tr>
+              <td>City of Pittsburgh (ET-1)</td>
+              <td>Employer payroll tax</td>
+              <td class="amt">$81.47</td>
+              <td>City ID #31193423278619</td>
+              <td>File Q2 zero + Q3 return; mail check + Change in Business Status form to 414 Grant St Rm 200</td>
+            </tr>
+            <tr>
+              <td>City of Pittsburgh (LS-1)</td>
+              <td>Employee withholding (LST)</td>
+              <td class="amt">$2.17</td>
+              <td>City ID #31193423278619</td>
+              <td>File Q2 zero + Q3 return; include with ET-1 mailing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-soon">Upcoming</span> &nbsp;Florida Annual Report &mdash; due May 1, 2026</summary>
+      <div class="sub-body">
+        <p>File online at <a href="https://sunbiz.org" target="_blank">sunbiz.org</a>. Fee: <strong class="amt">$61.25</strong> (nonprofit rate). Document number: N25000004307.</p>
+        <p><strong>Key steps:</strong></p>
+        <ul>
+          <li>Confirm EIN 33-5034018 and principal address (7901 4th St N Ste 300, St Petersburg FL 33702)</li>
+          <li>Don&rsquo;t touch registered agent (Northwest &mdash; already correct)</li>
+          <li><strong>Add two new directors:</strong> Kenneth Stern (D) and Barbara Oakley (D), both at the registered agent address</li>
+          <li>Existing directors: Simon Cullen (PD), Nicholas DiBella (STD), Neil Thomason (D)</li>
+          <li>Sign as Nicholas DiBella, title STD. Pay $61.25 by credit card.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary><span class="badge b-done">Reference</span> &nbsp;Completed tax filings (2025)</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Filing</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td>Form 941 Q3 2025</td><td><span class="badge b-done">IRS Accepted</span></td><td>Mar 2, 2026</td></tr>
+            <tr><td>Form 941 Q4 2025 (final/zero)</td><td><span class="badge b-done">IRS Accepted</span></td><td>Mar 2, 2026</td></tr>
+            <tr><td>Form 940 (annual FUTA, final)</td><td><span class="badge b-done">IRS Accepted</span></td><td>Feb 1, 2026</td></tr>
+            <tr><td>W-2 for Nicholas DiBella</td><td><span class="badge b-done">Filed</span></td><td>2025</td></tr>
+            <tr><td>PA REV-1667 (annual withholding reconciliation)</td><td><span class="badge b-done">Filed</span></td><td>2025</td></tr>
+            <tr><td>PA UC Q3 2025 ($533.25)</td><td><span class="badge b-done">Paid</span></td><td>Feb 1, 2026</td></tr>
+            <tr><td>PA UC Q4 2025 (zero) + account closed</td><td><span class="badge b-done">Filed</span></td><td>Mar 2, 2026</td></tr>
+            <tr><td>IRS CP161 FUTA ($42.40)</td><td><span class="badge b-done">Paid via EFTPS</span></td><td>Feb 28, 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="501c3">
+  <summary><span class="sn">3.</span> 501(c)(3) Application <span class="count">4 items</span></summary>
+  <div class="section-body">
+    <p class="note">Items related to the Form 1023 and Foundation Group.</p>
+    <table>
+      <thead><tr><th>Item</th><th>Owner</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Respond to FG on Form 1023 draft (Q10 foreign ops + officer language)</td><td class="owner">Nick</td><td><span class="badge b-urgent">Now</span></td><td>Draft message prepared in <code>form-1023-cross-reference.html</code></td></tr>
+        <tr><td>Foundation Group finalizes and submits application to IRS</td><td class="owner">FG</td><td><span class="badge b-pending">In progress</span></td><td>Standard review (not expedited). User fee: $600.</td></tr>
+        <tr><td>Close Whistleblower Policy gap</td><td class="owner">Nick</td><td><span class="badge b-pending">Pending</span></td><td>Board voted to adopt June 7, 2025; FG never delivered document. IRS asks about this on the 990.</td></tr>
+        <tr><td>Incorporate PBC in Delaware for Sway IP</td><td class="owner">Nick / Simon</td><td><span class="badge b-pending">Planned</span></td><td>~$50. Holds Sway IP separate from nonprofit. FG recommendation.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="grants">
+  <summary><span class="sn">4.</span> Grants &amp; Funding <span class="count">8 grants</span></summary>
+  <div class="section-body">
+    <p class="note">Active grants, pending applications, and funding-related action items.</p>
+
+    <details class="sub" open>
+      <summary>Active / In Progress</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Grant</th><th>Amount</th><th>Period</th><th>Action Items</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>HxA/AVDF Phase 2</strong></td><td>~$142K</td><td>Jan&ndash;Nov 2026</td><td>Continue invoicing HxA for reimbursable costs through May/June 2026. Dev costs net zero to DW.</td><td><span class="badge b-done">Active</span></td></tr>
+            <tr><td><strong>Learning Agency</strong></td><td>~$125K remaining</td><td>Ongoing</td><td><strong>Simon:</strong> meet with LA to finalize reallocation; report back to board.</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Craig Snider Foundation</strong></td><td>$50K</td><td>Through Jul 1, 2026</td><td>Expenditure responsibility reporting.</td><td><span class="badge b-done">Active</span></td></tr>
+            <tr><td><strong>HxA &mdash; Sway Classroom</strong></td><td>$13,171</td><td>Through Jul 1, 2026</td><td>Restricted to K&ndash;12 development.</td><td><span class="badge b-done">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Secured, Awaiting 501(c)(3)</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Grant</th><th>Amount</th><th>Period</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>FIPSE (federal, via Notre Dame)</strong></td><td>~$800K (DW share)</td><td>Jan 2026&ndash;Dec 2029</td><td>Year 1 ramp-up (~$60K to DW). Cannot disburse until 501(c)(3). Research, education, infrastructure only &mdash; no programming/coding.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Pending Applications</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Grant</th><th>Amount</th><th>Period</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ECI / Wake Forest</strong></td><td>~$233K over 3 yrs</td><td>Aug 2026&ndash;Jul 2029</td><td>Application submitted. Subaward docs sent to NC State.</td></tr>
+            <tr><td><strong>NewSchools Venture Fund</strong></td><td>~$100&ndash;200K</td><td>TBD</td><td>Application submitted (K&ndash;12 Sway development).</td></tr>
+            <tr><td><strong>Templeton (TWCF)</strong></td><td>$5M+ if invited</td><td>TBD</td><td>Request for Ideas submitted Feb 2026. Awaiting invitation to full proposal.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="legal">
+  <summary><span class="sn">5.</span> Legal &amp; IP <span class="count">5 items</span></summary>
+  <div class="section-body">
+    <table>
+      <thead><tr><th>Item</th><th>Owner</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CMU IP dispute</strong></td><td class="owner">Simon / Ken</td><td><span class="badge b-pending">In progress</span></td><td>CMU asserts joint IP ownership of Sway. Co-founders&rsquo; position: educational courseware exemption (CMU IP Policy &sect;3-6-1). Ken facilitated intro to Laura Ellsworth (Jones Day). Previous counsel: Dentons (ended Feb 2026).</td></tr>
+        <tr><td><strong>Engage independent legal counsel</strong></td><td class="owner">Simon</td><td><span class="badge b-pending">In progress</span></td><td>Laura Ellsworth (Jones Day) introduction via Ken Stern. Both IP law and employment law dimensions.</td></tr>
+        <tr><td><strong>Incorporate PBC</strong></td><td class="owner">Nick / Simon</td><td><span class="badge b-pending">Planned</span></td><td>For-profit Public Benefit Corporation in Delaware (~$50). Will hold Sway IP.</td></tr>
+        <tr><td><strong>Consider removing CMU-affiliated code</strong></td><td class="owner">Simon / Nick</td><td><span class="badge b-pending">Awaiting counsel</span></td><td>0.77% of codebase (~454 lines CSS/HTML boilerplate). Neil suggested removing it; Ken cautioned getting legal advice first. Discuss with Laura Ellsworth before acting.</td></tr>
+        <tr><td><strong>Prepare CMU Dean email agreement for next board meeting</strong></td><td class="owner">Simon</td><td><span class="badge b-pending">Pending</span></td><td>Neil suggested presenting the informal agreement Simon had with the CMU Dean (re: courseware ownership) at the next board meeting. Communication is in email and Signal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="board">
+  <summary><span class="sn">6.</span> Board &amp; Governance <span class="count">8 pending</span></summary>
+  <div class="section-body">
+    <p class="note">Action items from the March 6, 2026 board meeting and governance gaps.</p>
+
+    <details class="sub" open>
+      <summary>March 6 Board Meeting &mdash; action items</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Send COI policy for email attestation</td><td class="owner">Nick</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td>Send Bylaws to Ken &amp; Barb for confirmation</td><td class="owner">Nick</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td>Send onboarding guide + reference site + password</td><td class="owner">Nick</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td>Draft minutes; destroy recording</td><td class="owner">Nick</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td>Connect Simon with Laura Ellsworth (Jones Day)</td><td class="owner">Ken</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td>Connect Simon with Oakland conference organizer</td><td class="owner">Barb</td><td><span class="badge b-done">Done</span></td></tr>
+            <tr><td><strong>Meet with Learning Agency; report back</strong></td><td class="owner">Simon</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Schedule 1:1 conversations with Ken and Barb</strong></td><td class="owner">Simon</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Help with university adoption contacts (Michigan, CUNY, SUNY)</strong></td><td class="owner">Ken</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Ask Ren (FG) about compensation structuring</strong> &mdash; health insurance vs. salary to minimize tax burden (Ken&rsquo;s suggestion from his foundation experience)</td><td class="owner">Nick / Simon</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Schedule dedicated strategy meeting</strong> &mdash; partnerships, nonpartisan positioning, growth direction (separate from quarterly board meetings)</td><td class="owner">Nick / Simon</td><td><span class="badge b-pending">Pending</span></td></tr>
+            <tr><td><strong>Determine Advisory Board composition</strong> &mdash; currently only Cristina Koppel (founding advisor); Nick noted &ldquo;still in process of figuring out who&rsquo;s going to be on that&rdquo;</td><td class="owner">Simon / Nick</td><td><span class="badge b-pending">Pending</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Governance gaps</summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Item</th><th>Owner</th><th>Priority</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Adopt Whistleblower Policy</td><td class="owner">Nick</td><td><span class="badge b-soon">Medium</span></td><td>Board voted to adopt June 7, 2025; FG never delivered document. IRS asks about this on the 990.</td></tr>
+            <tr><td>Resolve Resolution 2025-03/04 dating inconsistency</td><td class="owner">Nick</td><td><span class="badge b-normal">Low</span></td><td>Key History says July 1 meeting; Resolutions section says July 10&ndash;11 written consent. Check signed PDF.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="site-fixes">
+  <summary><span class="sn">7.</span> Board Site Fixes <span class="count">10 items</span></summary>
+  <div class="section-body">
+    <p class="note">From the <a href="site-audit-2026-03-09.html">site audit (March 9, 2026)</a>. All are content or structural fixes to the board-reference and board-onboarding sites.</p>
+
+    <details class="sub">
+      <summary>Content fixes <span class="badge b-soon">4 items</span></summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Issue</th><th>Fix</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td>Anti-Harassment Policy date: &ldquo;August 2025&rdquo; in policy subsections</td><td>Change to &ldquo;Adopted September 22, 2025&rdquo;</td><td><span class="badge b-soon">Medium</span></td></tr>
+            <tr><td>Learning Agency grant missing from board-reference revenue table</td><td>Add Learning Agency row ($150K) matching onboarding site</td><td><span class="badge b-soon">Medium</span></td></tr>
+            <tr><td>$245K revenue vs. grant table totals don&rsquo;t match</td><td>Clarify: &ldquo;2025 revenue was ~$245,000. Grants below are total commitments:&rdquo;</td><td><span class="badge b-soon">Medium</span></td></tr>
+            <tr><td>Dentons listed as active vendor</td><td>Change to &ldquo;Former legal counsel (ended Feb 2026)&rdquo; or remove</td><td><span class="badge b-normal">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Structural fixes <span class="badge b-normal">2 items</span></summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Issue</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>&ldquo;Advisory Board&rdquo; link points to <code>#comm-norms</code></td><td>Add <code>id="advisory"</code> to Advisory Board subsection; fix link</td></tr>
+            <tr><td>Action Items section order doesn&rsquo;t match TOC sidebar</td><td>Reorder sections or sidebar to match</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Meeting slides — internal only <span class="badge b-normal">3 optional</span></summary>
+      <div class="sub-body">
+        <table>
+          <thead><tr><th>Issue</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>&ldquo;Requesting expedited IRS review&rdquo;</td><td>Change to &ldquo;Standard IRS review&rdquo;</td></tr>
+            <tr><td>Duplicate compensation bullet (lines 495&ndash;496)</td><td>Delete the non-bold duplicate</td></tr>
+            <tr><td>&ldquo;LA Funds to Return&rdquo; label</td><td>Clarify as reallocation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="sub">
+      <summary>Questions needing clarification</summary>
+      <div class="sub-body">
+        <ul>
+          <li><strong>Rachel Sipser&rsquo;s reporting line</strong> &mdash; board-reference says &ldquo;Reports to Nicholas DiBella.&rdquo; Board-planning had this uncertain. Confirm.</li>
+          <li><strong>Sway Classroom status</strong> &mdash; meeting slides say &ldquo;launched&rdquo;; revenue table says &ldquo;developing.&rdquo; Which is correct?</li>
+          <li><strong>board-planning.html</strong> &mdash; still a living document, or archive/delete?</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="ops">
+  <summary><span class="sn">8.</span> Operations &amp; Future <span class="count">4 items</span></summary>
+  <div class="section-body">
+    <p class="note">Longer-term improvements from the organizational assessment and SwayAccounting.</p>
+    <table>
+      <thead><tr><th>Item</th><th>Owner</th><th>Priority</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Rename SwayAccounting &rarr; DWAccounting</td><td class="owner">Nick</td><td><span class="badge b-normal">Planned</span></td><td>Already noted in board-reference Financial Record-Keeping section.</td></tr>
+        <tr><td>Engage part-time bookkeeper</td><td class="owner">Nick / Simon</td><td><span class="badge b-future">When affordable</span></td><td>For independent review and separation of duties.</td></tr>
+        <tr><td>Map funding sources to formal fund accounting categories</td><td class="owner">Nick</td><td><span class="badge b-future">Before first 990</span></td><td>Restricted / unrestricted / temporarily restricted.</td></tr>
+        <tr><td>Implement double-entry accounting in SwayAccounting</td><td class="owner">Nick</td><td><span class="badge b-future">Future</span></td><td>Maintain books sufficient for financial statements and 990.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<details class="section" id="calendar">
+  <summary><span class="sn">9.</span> Compliance Calendar</summary>
+  <div class="section-body">
+    <p class="note">Recurring regulatory and governance obligations. From the board-reference site.</p>
+    <table>
+      <thead><tr><th>When</th><th>What</th><th>Owner</th><th>Next Due</th></tr></thead>
+      <tbody>
+        <tr><td><strong>January</strong></td><td>Annual board meeting (Bylaws &sect;4.1)</td><td class="owner">President</td><td>Jan 2027</td></tr>
+        <tr><td><strong>January</strong></td><td>Annual officer elections (Bylaws &sect;5.1)</td><td class="owner">Board</td><td>Jan 2027</td></tr>
+        <tr><td><strong>January</strong></td><td>Annual COI attestation (IRS expects this)</td><td class="owner">Board</td><td>Jan 2027</td></tr>
+        <tr><td><strong>Jan&ndash;May</strong></td><td>Florida Annual Report ($61.25)</td><td class="owner">Nick</td><td>May 1, 2026</td></tr>
+        <tr><td><strong>May 15</strong></td><td>IRS Form 990 (once 501(c)(3) granted)</td><td class="owner">Nick</td><td>May 15, 2027</td></tr>
+        <tr><td><strong>Quarterly</strong></td><td>Treasurer&rsquo;s statement + spot-check of transactions &gt;$1,000</td><td class="owner">Nick / Board</td><td>Ongoing</td></tr>
+        <tr><td><strong>Nov 14</strong></td><td>D&amp;O insurance renewal ($820/yr)</td><td class="owner">Nick</td><td>Nov 14, 2026</td></tr>
+        <tr><td><strong>Nov 14</strong></td><td>Cyber/Tech E&amp;O insurance renewal ($3,780/yr)</td><td class="owner">Nick</td><td>Nov 14, 2026</td></tr>
+        <tr><td><strong>Ongoing</strong></td><td>Grant reporting per funder requirements (Snider, HxA/AVDF, FIPSE)</td><td class="owner">Nick / Simon</td><td>Per agreement</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
+<hr>
+<p style="font-size:0.82rem; color:var(--text-muted); margin-top:1.5rem;">
+  Compiled March 16, 2026 from: board-reference website, site-audit-2026-03-09.html, form-1023-cross-reference.html,
+  organizational-assessment-2026-03.md, board meeting minutes and transcript (March 6, 2026), SwayAccounting taxes_service.py,
+  SwayAccounting grant_planning_data.json, and DisagreeWisely issues.rtf.
+</p>
+
+</body>
+</html>
