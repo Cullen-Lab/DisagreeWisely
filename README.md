@@ -154,7 +154,7 @@ Then commit and push. GitHub Pages will deploy automatically.
 | Cyber/E&O Insurance Policy | `Disagree Wisely, Inc./Insurance/Active Policies/SST-ESO0040579703.pdf` |
 | Financial Authorization (current) | `Disagree Wisely, Inc./Governance/Board Resolutions/Financial Authorization (Amended 12.13.2025).md` |
 | Board Resolutions (Jul 2025) | `Disagree Wisely, Inc./Governance/Board Resolutions/DW Board Resolutions Jul 2025.pdf` |
-| Form 1023 (501(c)(3) application) | `Disagree Wisely, Inc./501c3 Application (Foundation Group)/Form 1023 full application DW.pdf` |
+| Form 1023 (501(c)(3) application, filed) | `Disagree Wisely, Inc./501c3 Application (Foundation Group)/Form 1023 full application DW revised.pdf` |
 | Form 1023 Cross-Reference | `Disagree Wisely, Inc./501c3 Application (Foundation Group)/form-1023-cross-reference.html` |
 
 ---
@@ -162,7 +162,7 @@ Then commit and push. GitHub Pages will deploy automatically.
 ## Current Status (March 2026)
 
 - **Board:** First full board meeting held March 6, 2026 (all 5 directors present via Zoom, ~1h46m). Officers re-elected unanimously: Cullen (President), DiBella (Secretary/Treasurer), Thomason (Director). Board briefed on all major items below. [Minutes in board-reference site.](Disagree%20Wisely%2C%20Inc./Website/board-reference/index.html#minutes-2026-03-06)
-- **501(c)(3):** Form 1023 draft received from Foundation Group on March 16, 2026. Cross-referenced against all internal records ([analysis](Disagree%20Wisely%2C%20Inc./501c3%20Application%20%28Foundation%20Group%29/form-1023-cross-reference.html)). Requesting 509(a)(2) public charity classification. Two items raised with FG: Q10 foreign operations answer and officer appointment language in activity narrative. Standard IRS review (not expedited).
+- **501(c)(3):** Form 1023 submitted to IRS on March 24, 2026 via Foundation Group. 509(a)(2) public charity classification requested. Standard IRS review (not expedited). Cross-reference analysis: [form-1023-cross-reference.html](Disagree%20Wisely%2C%20Inc./501c3%20Application%20%28Foundation%20Group%29/form-1023-cross-reference.html). Determination letter will be effective as of formation date (April 2, 2025).
 - **FIPSE grant:** ~$800K consortium grant (through University of Notre Dame) awaiting 501(c)(3) approval. Year 1 is a ramp-up year (~$60K to DW); larger amounts in subsequent years. Funds disbursed yearly to Notre Dame. FIPSE funds cannot be used for programming/coding — only research, education, infrastructure, training, and support staff.
 - **Learning Agency:** ~$125K Tools Competition funds retained in DW; reallocation in progress (LA expressed "no concerns regarding reallocation"). Funds restricted to nonprofits — cannot be redirected to PBC. Simon meeting with LA again to finalize.
 - **HxA-AVDF:** Phase 2 services agreement active (Jan-Nov 2026). Amending to remove development language not feasible per HxA ED; development costs will continue through May/June 2026 (net cost to DW: zero).

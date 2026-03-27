@@ -208,16 +208,20 @@
 
 <h1>Form 1023 Cross-Reference</h1>
 <p class="subtitle">
-  Factual comparison of the Form 1023 (501(c)(3) application, dated March&nbsp;16,&nbsp;2026) against the
+  Factual comparison of the Form 1023 (501(c)(3) application) against the
   DisagreeWisely board-reference website and SwayAccounting tax records.<br>
-  Generated March&nbsp;16,&nbsp;2026.
+  Created March&nbsp;16,&nbsp;2026. Last updated March&nbsp;24,&nbsp;2026.
 </p>
 
+<div style="background: rgba(63,185,80,0.08); border: 1px solid rgba(63,185,80,0.3); border-left: 4px solid var(--green); border-radius: 0 6px 6px 0; padding: 1.15rem 1.35rem; margin-bottom: 1.5rem;">
+  <div style="color: var(--green); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">Application Submitted &mdash; March 24, 2026</div>
+  <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">The Form 1023 was approved by Nick and Simon and submitted to the IRS by Foundation Group on March&nbsp;24,&nbsp;2026. The revised application (with OFAC answers and corrected officer appointment language) is the version that was filed. 509(a)(2) public charity classification requested. Standard IRS review &mdash; no expedited handling. The application is now under IRS review.</p>
+</div>
+
 <div class="summary-bar">
-  <div class="chip chip-green">~15 Consistent</div>
+  <div class="chip chip-green">Application Filed</div>
   <div class="chip chip-green">0 Discrepancies</div>
-  <div class="chip chip-green">3 Items Verified</div>
-  <div class="chip chip-blue">3 Minor / No Action</div>
+  <div class="chip chip-green">All Items Resolved</div>
 </div>
 
 <!-- TOC -->
@@ -234,14 +238,16 @@
     <li><a href="#org-questions">Organizational &amp; Structural</a></li>
     <li><a href="#no-action">Items Not Requiring Action</a></li>
     <li><a href="#draft-message"><strong>Draft Message to Ren</strong></a></li>
+    <li><a href="#ofac-answers"><strong>OFAC Questionnaire Answers</strong></a></li>
     <li><a href="#foreign-ops">Foreign Operations Risk Assessment</a></li>
+    <li><a href="#final"><strong>Final Resolution &amp; Submission</strong></a></li>
   </ol>
 </nav>
 
 
 <!-- ══════════════════════════════════════════════════════════ -->
-<h2 id="action"><span class="section-num">1.</span> Action Items for Foundation Group</h2>
-<p class="section-note">These are the items that should be verified or discussed with Foundation Group before signing. Ordered by importance.</p>
+<h2 id="action"><span class="section-num">1.</span> Action Items for Foundation Group <span class="badge badge-ok" style="vertical-align:middle; margin-left:0.5rem;">All Resolved</span></h2>
+<p class="section-note">These items were verified and discussed with Foundation Group before signing. All resolved as of March&nbsp;24,&nbsp;2026.</p>
 
 <div class="info-box">
   <strong>All items verified.</strong> Every factual claim on the Form 1023 has been cross-referenced against the board-reference site and SwayAccounting records. No discrepancies remain. See resolved items below.
@@ -1108,6 +1114,92 @@ document.getElementById('copy-btn').addEventListener('click', function() {
 
 </div>
 
+<h3 style="font-size:1rem; margin-top:1.5rem; margin-bottom:0.75rem;">Follow-up message (after Ren&rsquo;s OFAC questionnaire)</h3>
+
+<div id="draft-email-2" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; font-size: 0.92rem; line-height: 1.7; position: relative;">
+
+<button id="copy-btn-2" style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: all 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#e6edf3'" onmouseout="this.style.background='var(--border)';this.style.color='var(--text-muted)'">Copy</button>
+<script>
+document.getElementById('copy-btn-2').addEventListener('click', function() {
+  var btn = this;
+  var paragraphs = document.querySelectorAll('#draft-email-2 p');
+  var lines = [];
+  paragraphs.forEach(function(p) {
+    lines.push(p.textContent.trim());
+  });
+  var text = lines.join('\n\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = 'rgba(63,185,80,0.2)';
+    btn.style.color = '#3fb950';
+    btn.style.borderColor = 'rgba(63,185,80,0.3)';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = 'var(--border)';
+      btn.style.color = 'var(--text-muted)';
+      btn.style.borderColor = 'rgba(255,255,255,0.15)';
+    }, 2000);
+  });
+});
+</script>
+
+<p>Hi Ren,</p>
+
+<p>Thanks for setting up the OFAC questionnaire. Before I fill it out, I want to flag something: the questionnaire defines &ldquo;operate&rdquo; as &ldquo;boots on the ground; people in country doing work in the name of the organization.&rdquo; Having read that definition, I&rsquo;m not sure we actually qualify.</p>
+
+<p>Our international activity consists entirely of: (1) foreign university instructors independently using our web-based educational platform (hosted in the US) with their students, and (2) students at those institutions consenting to share their data with us for research purposes through the platform. We don&rsquo;t have any staff, contractors, or representatives physically present in any of these countries. No foreign offices, no foreign employees, no programs run on the ground abroad. Simon has occasionally attended third-party conferences in other countries (e.g., a few days in the UK recently), but that&rsquo;s standard conference travel, not operating in a foreign country.</p>
+
+<p>Given this, should I answer &ldquo;No&rdquo; on the OFAC questionnaire? I want to make sure we&rsquo;re answering accurately &mdash; I don&rsquo;t want to overstate our foreign presence, but I also don&rsquo;t want to understate it. Happy to defer to your judgment on how the IRS would view this.</p>
+
+<p>Separately, regardless of how we answer Q10, the activity narrative&rsquo;s &ldquo;throughout the United States&rdquo; language might still benefit from a small tweak acknowledging that the platform is also used by institutions internationally &mdash; even if that doesn&rsquo;t constitute &ldquo;operating&rdquo; abroad.</p>
+
+<p>Thanks!<br>Nick</p>
+
+</div>
+
+<h3 style="font-size:1rem; margin-top:1.5rem; margin-bottom:0.75rem;">Follow-up #2 (after Ren confirmed OFAC should be filled out)</h3>
+
+<div id="draft-email-3" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; font-size: 0.92rem; line-height: 1.7; position: relative;">
+
+<button id="copy-btn-3" style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: all 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#e6edf3'" onmouseout="this.style.background='var(--border)';this.style.color='var(--text-muted)'">Copy</button>
+<script>
+document.getElementById('copy-btn-3').addEventListener('click', function() {
+  var btn = this;
+  var paragraphs = document.querySelectorAll('#draft-email-3 p');
+  var lines = [];
+  paragraphs.forEach(function(p) {
+    lines.push(p.textContent.trim());
+  });
+  var text = lines.join('\n\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = 'rgba(63,185,80,0.2)';
+    btn.style.color = '#3fb950';
+    btn.style.borderColor = 'rgba(63,185,80,0.3)';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = 'var(--border)';
+      btn.style.color = 'var(--text-muted)';
+      btn.style.borderColor = 'rgba(255,255,255,0.15)';
+    }, 2000);
+  });
+});
+</script>
+
+<p>Hi Ren,</p>
+
+<p>That makes sense &mdash; let&rsquo;s go ahead and fill out the OFAC. Better to be proactive than risk a follow-up from the IRS that delays approval.</p>
+
+<p>Here&rsquo;s what I&rsquo;d include for the country-by-country description. The activity is the same in all cases: university instructors at these institutions independently use our web-based educational platform with their students, and participating students may consent to share their data for our research. We do not have staff, offices, or on-the-ground operations in any of these countries.</p>
+
+<p>Countries: Canada (University of Toronto, UBC, Simon Fraser, University of Ottawa, Douglas College, Fanshawe College, Lethbridge Polytechnic), United Kingdom (University of Worcester, University College London), Germany (TH Wildau, University of Bayreuth), Spain (Pompeu Fabra University), Australia (University of Queensland, Macquarie University), South Africa (University of Cape Town), India (Ambedkar University Delhi), Lebanon (Lebanese American University).</p>
+
+<p>For the OFAC compliance questions (10a&ndash;10c), the answers are all Yes. Happy for you to use standard language for those.</p>
+
+<p>Thanks!<br>Nick</p>
+
+</div>
+
 <details>
   <summary>Background: What are the OFAC follow-up questions (10a&ndash;10c)?</summary>
   <div class="details-body">
@@ -1122,8 +1214,155 @@ document.getElementById('copy-btn').addEventListener('click', function() {
 </details>
 
 
+<h3 style="font-size:1rem; margin-top:1.5rem; margin-bottom:0.75rem;">Follow-up #3 &mdash; Research Safeguards language (IP section, p. 59)</h3>
+
+<details class="sub" style="margin-bottom:1.25rem;">
+  <summary>Analysis: why this language may be too restrictive</summary>
+  <div class="sub-body">
+    <p>The &ldquo;Research Safeguards and Independence&rdquo; section of the activity narrative (p. 59) contains the following passage:</p>
+    <blockquote style="border-left: 3px solid var(--border); padding-left: 0.75rem; margin: 0.5rem 0; font-style: italic; font-size: 0.85rem; color: var(--text-muted);">
+      &ldquo;The organization may license research tools or educational software from third-party entities for use in research studies, at no cost or a reduced rate. These tools are used <strong>solely</strong> as instruments within research studies evaluating methods of classroom discussion and civil discourse. The organization does not <strong>promote, endorse, or commercially distribute</strong> these tools, and retains <strong>full independence</strong> over research design, analysis, and publication of results. The organization does not develop or own intellectual property related to those tools.&rdquo;
+    </blockquote>
+    <p>Three phrases in this passage may be more restrictive than intended:</p>
+    <p><strong>1. &ldquo;used solely as instruments within research studies&rdquo;</strong></p>
+    <ul>
+      <li>&ldquo;Solely&rdquo; means the <em>only</em> permitted use of third-party tools is within formal research studies. If DW provisions Sway to a university for educational purposes &mdash; e.g., Michigan&rsquo;s 8,000-student orientation &mdash; and the primary purpose is educational (not research), this language doesn&rsquo;t cover it.</li>
+      <li>DW&rsquo;s own activity narrative describes &ldquo;educational programming&rdquo; as a separate activity from research. But the IP section limits tool use to research only.</li>
+      <li>This also conflicts with the Form 1023&rsquo;s financial projections showing $20K&ndash;$75K in program service revenue from workshops &mdash; if tools can only be used in research studies, they can&rsquo;t be part of revenue-generating educational programs.</li>
+    </ul>
+    <p><strong>2. &ldquo;does not promote, endorse, or commercially distribute&rdquo;</strong></p>
+    <ul>
+      <li>&ldquo;Promote&rdquo; &mdash; DW is actively recruiting universities to use Sway (Michigan, SUNY, Columbia, CUNY, MIT). That looks like promotion.</li>
+      <li>&ldquo;Commercially distribute&rdquo; &mdash; if DW charges institutions for access, training, or support related to Sway deployments, that is commercial distribution. Even cost-recovery arrangements could be characterized this way.</li>
+      <li>DW needs to be able to be compensated for the costs of deploying and supporting educational tools at partner institutions. This language appears to preclude that.</li>
+    </ul>
+    <p><strong>3. &ldquo;retains full independence over research design, analysis, and publication&rdquo;</strong></p>
+    <ul>
+      <li>&ldquo;Full independence&rdquo; is very strong. In practice, DW conducts research <em>in collaboration with</em> partner universities. If Michigan insists on including their own pre/post assessment items in a study, does that compromise DW&rsquo;s &ldquo;full independence&rdquo;?</li>
+      <li>Most academic research is collaborative &mdash; co-designed with institutional partners, shaped by IRB requirements, and responsive to funder priorities. &ldquo;Full independence&rdquo; doesn&rsquo;t accurately describe how research works.</li>
+      <li>Better language: DW &ldquo;designs research in collaboration with academic partners and maintains editorial independence over analysis and publication of results.&rdquo;</li>
+    </ul>
+  </div>
+</details>
+
+<div id="draft-email-4" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; font-size: 0.92rem; line-height: 1.7; position: relative;">
+
+<button id="copy-btn-4" style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: all 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.color='#e6edf3'" onmouseout="this.style.background='var(--border)';this.style.color='var(--text-muted)'">Copy</button>
+<script>
+document.getElementById('copy-btn-4').addEventListener('click', function() {
+  var btn = this;
+  var paragraphs = document.querySelectorAll('#draft-email-4 p');
+  var lines = [];
+  paragraphs.forEach(function(p) { lines.push(p.textContent.trim()); });
+  var text = lines.join('\n\n');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = 'rgba(63,185,80,0.2)';
+    btn.style.color = '#3fb950';
+    btn.style.borderColor = 'rgba(63,185,80,0.3)';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = 'var(--border)';
+      btn.style.color = 'var(--text-muted)';
+      btn.style.borderColor = 'rgba(255,255,255,0.15)';
+    }, 2000);
+  });
+});
+</script>
+
+<p>Hi Ren,</p>
+
+<p>One more question before we approve. In the Research Safeguards and Independence section of the activity narrative (p. 59), there's a passage about how the organization relates to third-party educational tools. I want to make sure the language isn't more restrictive than intended. Three concerns:</p>
+
+<p>1. "These tools are used solely as instruments within research studies." We expect to also provide access to educational tools at partner universities for educational purposes — not only as part of formal research studies. For example, a university might want to use an educational tool campus-wide in student orientation, where the primary purpose is educational even if we also collect research data. Does "solely" limit us to using these tools only in research contexts? We'd want to make sure we can support educational deployments as well.</p>
+
+<p>2. "The organization does not promote, endorse, or commercially distribute these tools." We need to be able to actively work with universities to adopt educational tools as part of our programs, and we need to be able to receive compensation for the costs of deploying and supporting those tools at partner institutions — including potentially licensing tools campus-wide. Does this language preclude that? How should we frame these kinds of arrangements so they're consistent with the application?</p>
+
+<p>3. "Retains full independence over research design, analysis, and publication of results." In practice, we design research in collaboration with university partners — studies are co-designed, shaped by institutional IRB requirements, and may incorporate assessment instruments requested by the partner institution. "Full independence" doesn't quite describe how collaborative academic research works. Would something like "maintains editorial independence over analysis and publication of results" be more accurate while still addressing the IRS's concern?</p>
+
+<p>I want to make sure this section accurately reflects how we operate without inadvertently constraining our ability to carry out our mission. Happy to discuss if it's easier to talk through these.</p>
+
+<p>Thanks!<br>Nick</p>
+
+</div>
+
+
 <!-- ══════════════════════════════════════════════════════════ -->
-<h2 id="foreign-ops"><span class="section-num">11.</span> Foreign Operations Risk Assessment</h2>
+<h2 id="ofac-answers"><span class="section-num">11.</span> OFAC Questionnaire &mdash; Draft Answers</h2>
+<p class="section-note">Answers to fill into the Foundation Group OFAC organizer. Each answer has a copy button.</p>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.5rem;">Q1. Name each foreign country and region, and describe your operations in each one.</h3>
+
+<div id="ofac-q1" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7; position: relative;">
+<button class="copy-ofac" data-target="ofac-q1" style="position: absolute; top: 0.6rem; right: 0.6rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-family: inherit;">Copy</button>
+<p>The organization does not maintain offices, employ staff, or conduct on-the-ground operations in any foreign country. However, its activities include web-based educational programs that are accessed remotely over the internet by instructors and students at universities worldwide. All international activity consists of foreign university instructors independently adopting our programs for use in their courses, and participating students consenting to share their data for research purposes.</p>
+<p>The following countries have institutions whose instructors have used educational programs deployed by the organization:</p>
+<p>Canada: University of Toronto, University of British Columbia, Simon Fraser University, University of Ottawa, Douglas College, Fanshawe College, Lethbridge Polytechnic.</p>
+<p>United Kingdom: University of Worcester, University College London.</p>
+<p>Germany: TH Wildau, University of Bayreuth.</p>
+<p>Spain: Pompeu Fabra University.</p>
+<p>Australia: University of Queensland, Macquarie University.</p>
+<p>South Africa: University of Cape Town.</p>
+<p>India: Ambedkar University Delhi.</p>
+<p>Lebanon: Lebanese American University (a Lebanon-based university chartered by the Board of Regents of the University of the State of New York and accredited by the New England Commission of Higher Education (NECHE)).</p>
+<p>The nature of our activity is identical in all countries: we provide free remote access to web-based educational programs. We do not transfer funds to, contract with, or maintain any physical presence in any of these countries.</p>
+</div>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.5rem;">Q2. Will you check the OFAC SDN list?</h3>
+
+<div id="ofac-q2" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7; position: relative;">
+<button class="copy-ofac" data-target="ofac-q2" style="position: absolute; top: 0.6rem; right: 0.6rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-family: inherit;">Copy</button>
+<p>Yes. Before entering into any formal partnership, grant agreement, or contractual arrangement with a foreign institution or entity, Disagree Wisely will check the OFAC List of Specially Designated Nationals and Blocked Persons to confirm that the institution or individual is not included on the list.</p>
+</div>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.5rem;">Q3. Describe other practices to ensure foreign expenditures/grants are not diverted.</h3>
+
+<div id="ofac-q3" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7; position: relative;">
+<button class="copy-ofac" data-target="ofac-q3" style="position: absolute; top: 0.6rem; right: 0.6rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-family: inherit;">Copy</button>
+<p>The organization does not currently make any foreign expenditures or grants. It does not transfer funds to, or contract with, foreign entities, individuals, or organizations. International activity is limited to providing free remote access to web-based educational programs, as described above. Should the organization enter into any future financial arrangements involving foreign parties, it will: (1) verify that the entity is an established, accredited educational institution; (2) check the OFAC SDN list before executing any agreement; (3) ensure that all funds are used exclusively for the charitable and educational purposes specified in any agreement; and (4) maintain records of all foreign-related transactions for review.</p>
+</div>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.5rem;">Q4. Will you comply with all US sanctions statutes, executive orders, and regulations?</h3>
+
+<div id="ofac-q4" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7; position: relative;">
+<button class="copy-ofac" data-target="ofac-q4" style="position: absolute; top: 0.6rem; right: 0.6rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-family: inherit;">Copy</button>
+<p>Yes.</p>
+</div>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.5rem;">Q5. Will you acquire from OFAC the appropriate license and registration where necessary?</h3>
+
+<div id="ofac-q5" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7; position: relative;">
+<button class="copy-ofac" data-target="ofac-q5" style="position: absolute; top: 0.6rem; right: 0.6rem; background: var(--border); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-family: inherit;">Copy</button>
+<p>Yes.</p>
+</div>
+
+<script>
+document.querySelectorAll('.copy-ofac').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var target = document.getElementById(this.dataset.target);
+    var paragraphs = target.querySelectorAll('p');
+    var lines = [];
+    paragraphs.forEach(function(p) { lines.push(p.textContent.trim()); });
+    var text = lines.join('\n\n');
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      btn.style.background = 'rgba(63,185,80,0.2)';
+      btn.style.color = '#3fb950';
+      btn.style.borderColor = 'rgba(63,185,80,0.3)';
+      setTimeout(function() {
+        btn.textContent = 'Copy';
+        btn.style.background = 'var(--border)';
+        btn.style.color = 'var(--text-muted)';
+        btn.style.borderColor = 'rgba(255,255,255,0.15)';
+      }, 2000);
+    });
+  });
+});
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="foreign-ops"><span class="section-num">12.</span> Foreign Operations Risk Assessment</h2>
 <p class="section-note">Analysis of whether DW's international activities pose any red flags for the Form 1023, and how the 8 countries rank in terms of US relations and OFAC considerations.</p>
 
 <div class="info-box"><strong>Bottom line: No red flags.</strong> All 8 countries have normal or close diplomatic relationships with the US. None are sanctioned. Seven of the eight are among the US's closest allies. The only country warranting a brief note is Lebanon, and even that is low-risk given the specific institution involved.</div>
@@ -1173,7 +1412,7 @@ document.getElementById('copy-btn').addEventListener('click', function() {
   <div class="details-body">
     <p>Lebanon is the only country on the list where an IRS reviewer might pause. But the risk is effectively zero for DW, for three reasons:</p>
     <ol>
-      <li><strong>The institution matters more than the country.</strong> The Lebanese American University (LAU) is a US-affiliated institution &mdash; it was founded in 1835 as a Presbyterian missionary school, operates under a New York State charter, is accredited by NEASC (a US regional accreditor), and has deep ties to American higher education. It is not an OFAC-listed entity.</li>
+      <li><strong>The institution matters more than the country.</strong> The Lebanese American University (LAU) is a US-affiliated institution &mdash; it was founded in 1835 as a Presbyterian missionary school, operates under a New York State charter, is accredited by the New England Commission of Higher Education (NECHE), and has deep ties to American higher education. It is not an OFAC-listed entity.</li>
       <li><strong>DW&rsquo;s activity is educational program deployment, not fund transfers.</strong> DW is not sending money to Lebanon or contracting with Lebanese entities. It is making an educational platform available to a US-chartered university that happens to operate in Lebanon.</li>
       <li><strong>OFAC&rsquo;s Lebanon-related designations target Hezbollah-affiliated entities</strong> &mdash; banks, shell companies, and individuals linked to the organization. A US-chartered university is the opposite of an OFAC concern.</li>
     </ol>
@@ -1227,7 +1466,7 @@ document.getElementById('copy-md-btn').addEventListener('click', function() {
 
 **Tier 3 — Requires brief note (low risk)**
 - **Lebanon** — Diplomatic relations maintained; US provides significant aid. However, Hezbollah (US-designated terrorist organization) operates within Lebanon, and OFAC maintains extensive Lebanon-related designations. **Low risk for DW** because:
-  1. The Lebanese American University (LAU) is a US-affiliated institution (founded 1835, NY State charter, NEASC-accredited). Not an OFAC-listed entity.
+  1. The Lebanese American University (LAU) is a US-affiliated institution (founded 1835, NY State charter, NECHE-accredited). Not an OFAC-listed entity.
   2. DW's activity is educational program deployment, not fund transfers to Lebanese entities.
   3. OFAC's Lebanon designations target Hezbollah-affiliated banks, shell companies, and individuals — not US-chartered universities.
 
@@ -1240,11 +1479,81 @@ The risk of *not* disclosing is arguably greater: if the IRS discovers DW is alr
 </details>
 
 
+<!-- ══════════════════════════════════════════════════════════ -->
+<h2 id="final"><span class="section-num">13.</span> Final Resolution &amp; Submission</h2>
+<p class="section-note">Summary of all issues raised, how they were resolved, and the final outcome.</p>
+
+<div style="background: rgba(63,185,80,0.06); border: 1px solid rgba(63,185,80,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+
+<h3 style="font-size:0.95rem; margin-bottom:0.75rem; color: var(--green);">Timeline</h3>
+<table>
+  <tbody>
+    <tr><td><strong>March 16, 2026</strong></td><td>Form 1023 draft received from Foundation Group (Lauren Henderson). Cross-reference analysis begun.</td></tr>
+    <tr><td><strong>March 16</strong></td><td>All factual information verified against board-reference site and SwayAccounting payroll records. No discrepancies found.</td></tr>
+    <tr><td><strong>March 16</strong></td><td>Two issues raised with Ren: Q10 foreign operations (&ldquo;No&rdquo; should be &ldquo;Yes&rdquo;) and activity narrative &ldquo;intends to hire&rdquo; language (should reflect existing appointments).</td></tr>
+    <tr><td><strong>March 16&ndash;20</strong></td><td>OFAC questionnaire completed. Q10 answer discussed &mdash; Ren confirmed OFAC should be filled out even though DW has no boots-on-the-ground foreign operations (to avoid IRS follow-up delays).</td></tr>
+    <tr><td><strong>March 20</strong></td><td>Revised Form 1023 received. Both issues fixed: Q10 &rarr; &ldquo;Yes&rdquo; with OFAC answers; &ldquo;intends to hire&rdquo; &rarr; &ldquo;has hired&rdquo;; foreign countries added to Section C. All other content verified unchanged.</td></tr>
+    <tr><td><strong>March 20&ndash;22</strong></td><td>Research Safeguards language (&ldquo;solely,&rdquo; &ldquo;promote/distribute,&rdquo; &ldquo;full independence&rdquo;) discussed with Ren. Ren confirmed the language does not constrain DW&rsquo;s operations and does not recommend changes. Privacy policy &ldquo;operates Sway&rdquo; language confirmed acceptable by Ren.</td></tr>
+    <tr><td><strong>March 24, 2026</strong></td><td>Application approved by Nick and Simon. Foundation Group confirmed submission to IRS.</td></tr>
+  </tbody>
+</table>
+
+</div>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.75rem;">Issues Raised and Resolutions</h3>
+
+<table>
+  <thead><tr><th>Issue</th><th>Resolution</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>Q10 Foreign Operations answered &ldquo;No&rdquo;</td><td>Changed to &ldquo;Yes&rdquo; with OFAC answers. 8 countries listed. All allied nations; no OFAC risk.</td><td><span class="badge badge-ok">Fixed in revised</span></td></tr>
+    <tr><td>&ldquo;Intends to hire&rdquo; Cullen/DiBella</td><td>Changed to &ldquo;has hired.&rdquo;</td><td><span class="badge badge-ok">Fixed in revised</span></td></tr>
+    <tr><td>&ldquo;Throughout the United States&rdquo; in Section C</td><td>Updated to include 8 foreign countries.</td><td><span class="badge badge-ok">Fixed in revised</span></td></tr>
+    <tr><td>Phone number 407-220-0494</td><td>Foundation Group&rsquo;s contact number (Lauren Henderson). Not a DW number. Correct as filed.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>Contact person (Henderson vs. McRay)</td><td>Henderson confirmed as correct FG contact for this application.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>Officer compensation = $0 on Line 17</td><td>Misread of form. Nick&rsquo;s $14,814 is correctly on Line 17 (officer compensation). Confirmed against salary breakdown spreadsheet.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>2025 wages: $14,814 vs. $15,813.94</td><td>The $15,813.94 was a misread. Actual W-2 Box 1: $14,813.94. Form rounds to $14,814. Match.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>$1,125 liability on balance sheet</td><td>Outstanding Pittsburgh payroll tax liabilities as of 12/31/2025. Confirmed by Nick. ~Half since paid.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>Balance sheet lines 17/18 swapped</td><td>Minor data entry issue. Spreadsheet has correct values. Not raised with FG per Nick&rsquo;s instruction.</td><td><span class="badge badge-info">Noted</span></td></tr>
+    <tr><td>&ldquo;Solely as instruments within research studies&rdquo;</td><td>Ren confirmed this does not limit DW&rsquo;s ability to deploy tools for educational purposes. Language is for IRS, not operational constraint.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>&ldquo;Does not promote, endorse, or commercially distribute&rdquo;</td><td>Ren confirmed distributing to nonprofit partners is not &ldquo;commercial distribution.&rdquo; Cost recovery is permitted. Frame as furthering research and educational programs.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>&ldquo;Full independence over research design&rdquo;</td><td>Ren confirmed this means independence from private/for-profit control, not from academic collaborators. Collaborative research design with university partners is fine.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+    <tr><td>Privacy policy &ldquo;operates Sway&rdquo; language</td><td>Simon asked Ren directly. Ren confirmed the language is acceptable and consistent with the application.</td><td><span class="badge badge-ok">Resolved</span></td></tr>
+  </tbody>
+</table>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.75rem;">Key Clarifications from Foundation Group (for future reference)</h3>
+
+<details>
+  <summary>Ren&rsquo;s guidance on Research Safeguards language</summary>
+  <div class="details-body">
+    <p>From Ren (Foundation Group), March 22, 2026, in response to questions about the &ldquo;solely,&rdquo; &ldquo;promote/distribute,&rdquo; and &ldquo;full independence&rdquo; language:</p>
+    <ul>
+      <li><strong>Educational deployments:</strong> &ldquo;Yes, you&rsquo;ll be able to provide tools for educational purposes. The language here only speaks to the research. It will not limit you.&rdquo;</li>
+      <li><strong>Distribution to nonprofits:</strong> &ldquo;Distributing the tools to other non-profit entities that are working with your organization is not considered commercial. This information will not constrain you from generating that revenue. You should frame these arrangements as working with nonprofit partners to further your organization&rsquo;s research and educational programs.&rdquo;</li>
+      <li><strong>Research independence:</strong> &ldquo;This language is meant to prevent questions at the IRS. As long as your organization and its nonprofit partners retain independence and will not have your research controlled by or provide preferential treatment to individuals or for-profit entities, you will be fine.&rdquo;</li>
+      <li><strong>Privacy policy:</strong> Ren confirmed that &ldquo;Disagree Wisely, Inc.&hellip; operates Sway&rdquo; is &ldquo;fine&rdquo; and consistent with the application.</li>
+    </ul>
+    <p>Ren did not recommend any changes to the application wording.</p>
+  </div>
+</details>
+
+<h3 style="font-size:0.95rem; margin-top:1.25rem; margin-bottom:0.75rem;">What to Expect Next</h3>
+
+<ul style="font-size:0.88rem; color: var(--text-muted);">
+  <li><strong>IRS review period:</strong> Standard review (not expedited). Typical processing time is 3&ndash;6 months, but can be longer.</li>
+  <li><strong>Possible IRS contact:</strong> The IRS may send information requests via Foundation Group (Lauren Henderson is the designated contact). If they do, FG will coordinate the response.</li>
+  <li><strong>Determination letter:</strong> When approved, the IRS will issue a determination letter granting 501(c)(3) status, effective as of the date of formation (April&nbsp;2,&nbsp;2025) since the application was filed within 27 months.</li>
+  <li><strong>FIPSE:</strong> The ~$800K FIPSE grant can be disbursed once the determination letter is received.</li>
+  <li><strong>Filed application:</strong> The revised version is at <code>Form 1023 full application DW revised.pdf</code> in this directory. The original draft is at <code>Form 1023 full application DW (draft).pdf</code>.</li>
+</ul>
+
+
 <hr>
 <p style="font-size:0.82rem; color:var(--text-muted); margin-top:1.5rem;">
-  Cross-reference generated March 16, 2026 by comparing Form 1023 (dated 03/16/2026) against
-  <code>board-reference/index.html</code> (DisagreeWisely repo) and
-  <code>app/services/taxes_service.py</code> (SwayAccounting repo).
+  Cross-reference created March 16, 2026. Last updated March 24, 2026.<br>
+  Compared Form 1023 against <code>board-reference/index.html</code> (DisagreeWisely repo) and
+  <code>app/services/taxes_service.py</code> (SwayAccounting repo).<br>
+  Application submitted to IRS by Foundation Group on March 24, 2026.
 </p>
 
 </body>
