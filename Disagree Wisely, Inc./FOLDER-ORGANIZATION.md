@@ -1,6 +1,6 @@
 # Disagree Wisely, Inc. — Folder Organization
 
-Last updated: 2026-03-06
+Last updated: 2026-04-05
 
 This document describes the reorganized folder structure for the Disagree Wisely, Inc. document collection.
 
@@ -39,7 +39,7 @@ Disagree Wisely, Inc./
 │   │       ├── insurance-cyber-tech-policy.pdf
 │   │       ├── insurance-do-policy.pdf
 │   │       ├── intern-nda.pdf
-│   │       └── rachel-sipser-offer-amendment-feb-2026.pdf
+│   │       └── rachel-sipser-engagement-amendment-apr-2026.pdf
 │   └── internal/                      # Internal planning files (not linked from sites)
 │       ├── Board Meeting - March 6 2026.pdf          # Meeting slides PDF
 │       ├── Board Meeting - March 6 2026 - Transcript.pdf  # Meeting transcript (when available)
@@ -77,8 +77,10 @@ Disagree Wisely, Inc./
 │   │   ├── Financial Authorization (Amended 12.13.2025).md
 │   │   ├── Personnel Hiring Amendment (Draft).md
 │   │   ├── Rachel Sipser - Offer Letter (Nov 2025).md
-│   │   ├── Rachel Sipser - Offer Letter Amendment (Feb 2026).md
-│   │   ├── Rachel Sipser - Offer Letter Amendment (Feb 2026).pdf
+│   │   ├── Rachel Sipser - Engagement Letter Amendment (Apr 2026).md
+│   │   ├── Rachel Sipser - Engagement Letter Amendment (Apr 2026).pdf
+│   │   ├── Rachel Sipser signed- Engagement Letter Amendment (Apr 2026).pdf  # Signed version
+│   │   ├── Rachel Sipser contract signed.pdf                    # HxA independent contractor agreement (executed 3/19/2026, effective 11/17/2025)
 │   │   ├── Rachel Sipser job offer.pdf
 │   │   ├── Rachel Sipser job offer_Rachel Signed 12262025.pdf
 │   │   ├── DW Board Resolutions Jul 2025.gdoc

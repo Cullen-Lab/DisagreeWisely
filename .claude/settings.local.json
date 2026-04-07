@@ -1,0 +1,13 @@
+{
+  "env": {
+    "CLAUDE_CODE_EFFORT_LEVEL": "high"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "Bash(git:*)",
+      "Bash(find /Users/dibella/Documents/GitHub/DisagreeWisely -type f \\\\\\(-name *.txt -o -name *.docx -o -name *.policy \\\\\\))"
+    ]
+  }
+}

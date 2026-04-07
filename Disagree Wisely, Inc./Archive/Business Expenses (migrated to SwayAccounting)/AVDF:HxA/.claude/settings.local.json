@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(mv:*)",
+      "Read(//Users/dibella/Desktop/Sway/Disagree Wisely, Inc./Business expenses/Tools Competition/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
